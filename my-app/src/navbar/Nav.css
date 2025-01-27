@@ -1,0 +1,25 @@
+button {
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    color:black;
+}
+
+#home {
+    background-color: seagreen;
+}
+
+#login {
+    background-color: dodgerblue;
+}
+
+#users {
+    background-color: blueviolet;
+}
+
+#error {
+    background-color: red;
+}
