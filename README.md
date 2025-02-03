@@ -1,10 +1,14 @@
 # Projet de dévelopement d'une application web
 
-<h3>Lien<h1></h3>
+<div>
+  <b>Lien</b>
   <p>
-    Voici notre trello : https://trello.com/b/a6aSUO8R/projetwebh25 \n
-    Voici notre figma : link \n
-    Voici notre inspiration : https://rivestream.live/search \n
-    Voici notre API : https://www.omdbapi.com/ \n
+    Voici notre trello : https://trello.com/b/a6aSUO8R/projetwebh25
+    <br/>
+    Voici notre figma : link
+    <br/>
+    Voici notre inspiration : https://rivestream.live/search
+    <br/>
+    Voici notre API : https://www.omdbapi.com/
   </p>
-
+</div>
