@@ -1,8 +1,8 @@
-# Projet de dévelopement d'une application web
+#  Projet de dévelopement d'une application web
 
 # Description
 
-## Link
+## Link de notre:
   - ### [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
   - ### [Figma](Link)
   - ### [Site d'inspiration](https://rivestream.live)
