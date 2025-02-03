@@ -1,1 +1,3 @@
-# dev-web-h24
+# Projet de dévelopement d'une application web
+
+* Livrable #1
