@@ -1,7 +1,6 @@
 # Projet de dévelopement d'une application web
 
-<div>
-  <b>Lien</b>
+  <b>Lien:</b>
   <p>
     Voici notre trello : https://trello.com/b/a6aSUO8R/projetwebh25
     <br/>
@@ -11,4 +10,3 @@
     <br/>
     Voici notre API : https://www.omdbapi.com/
   </p>
-</div>
