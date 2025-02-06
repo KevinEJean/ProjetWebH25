@@ -15,11 +15,13 @@ une application web d’information permettant aux utilisateurs de rechercher et
   - Api ➡️ 
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/fr-fr/)
+    
 # 🧰 Fonctionnalité
   - Recherche de film par titre
-  - Affichage Information du film
-  - AJout ;a une liste de favoris
+  - Affichage d'information de film
+  - AJout à une liste de favoris
   - Filtrer des film par catégorie
+  - Note et critique du films
 
   # ✅ Installation & Exécution
   ## Prérequis
