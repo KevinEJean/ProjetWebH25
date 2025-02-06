@@ -1,13 +1,13 @@
 #  🎬 Projet de dévelopement d'une application web
 
 # 📖 Description
-une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.
+Une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.
 
 # 👨🏾‍💼 Collaborator
   - ### [Pape Momath Diba](https://github.com/Papemomath)
   - ### [Kevin Emmanuel Jean](https://github.com/KevinEJean)
 
-# 🧑‍💻 Technogie Utilisé:
+# 🧑‍💻 Technogie Utilisé
   - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
   - Frontend ➡️ React
   - Backend ➡️ Spring Boot
@@ -18,7 +18,7 @@ une application web d’information permettant aux utilisateurs de rechercher et
     
 # 🧰 Fonctionnalité
   - Recherche de film par titre
-  - Affichage d'information de film
+  - Affichage d'information de film(acteur, résalisateur, genre)
   - AJout à une liste de favoris
   - Filtrer des film par catégorie
   - Note et critique du films
