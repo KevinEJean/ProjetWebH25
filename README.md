@@ -11,7 +11,8 @@ une application web d’information permettant aux utilisateurs de rechercher et
   - Github
   - React
   - Spring Boot
+  - Trello
+  - Api
 
 ## Link de notre:
   - ### [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
-  - ### [Api](https://www.omdbapi.com/)
