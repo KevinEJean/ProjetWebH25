@@ -9,13 +9,13 @@ Une application web d’information permettant aux utilisateurs de rechercher et
 
 # 🧑‍💻 Technogie Utilisé
   - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
-  - Frontend ➡️ React
-  - Backend ➡️ Spring Boot
+  -  ${\color{green}Frontend}$ ➡️ React
+  -  ${\color{green}Backend}$ ➡️ Spring Boot
   - Plateforme de travail ➡️ Github
   - Api ➡️ 
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/fr-fr/)
-    
+      
 # 🧰 Fonctionnalité
   - Recherche de film par titre
   - Affichage d'information de film(acteur, résalisateur, genre)
