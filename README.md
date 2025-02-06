@@ -14,7 +14,7 @@ Une application web d’information permettant aux utilisateurs de rechercher et
   - Plateforme de travail ➡️ Github
   - Api ➡️ 
   - Base de Donné ➡️ MariaDb
-  - Design ➡️ [Figma](https://www.figma.com/design/GSPrZsjoBnY4SSgL5QkqZE/ProjetWeb25?node-id=0-1&p=f&t=IKS6RrsjgHe4yE6H-0)
+  - Design ➡️ [Figma](https://www.figma.com/proto/GSPrZsjoBnY4SSgL5QkqZE/ProjetWeb25?node-id=0-1&t=EG9Q0SbMqolyHObN-1)
       
 # 🧰 Fonctionnalité
   - Recherche de film par titre
