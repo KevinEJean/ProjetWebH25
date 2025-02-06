@@ -1,19 +1,31 @@
-#  Projet de dévelopement d'une application web
+#  🎬 Projet de dévelopement d'une application web
 
-# Description
+# 📖 Description
 une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.
 
-# Collaborator
-  - Pape Momath Diba
-  - Kevin Emmanuel Jean
+# 👨🏾‍💼 Collaborator
+  - ### [Pape Momath Diba](https://github.com/Papemomath)
+  - ### [Kevin Emmanuel Jean](https://github.com/KevinEJean)
 
-# Element Utilisé:
-  - Github
-  - React
-  - Spring Boot
-  - Trello
-  - Api
+# 🧑‍💻 Technogie Utilisé:
+  - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
+  - Frontend ➡️ React
+  - Backend ➡️ Spring Boot
+  - Plateforme de travail ➡️ Github
+  - Api ➡️ 
+  - Base de Donné ➡️ MariaDb
+  - Design ➡️ [Figma](https://www.figma.com/fr-fr/)
+# 🧰 Fonctionnalité
+  - Recherche de film par titre
+  - Affichage Information du film
+  - AJout ;a une liste de favoris
+  - Filtrer des film par catégorie
 
-## Link de notre:
-  - ### [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
-  - ### [Api](https://www.omdbapi.com/)
+  # ✅ Installation & Exécution
+  ## Prérequis
+  - Avoir [Nodejs](https://nodejs.org/en/download) d'installer
+  ## Exécution
+    - Git clone https://github.com/KevinEJean/ProjetWebH25.git
+    - cd ProjetWebH25
+    - npm install
+    - npm run dev
