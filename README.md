@@ -10,7 +10,7 @@
   - ### [Pape Momath Diba](https://github.com/Papemomath)
   - ### [Kevin Emmanuel Jean](https://github.com/KevinEJean)
 
-# 🧑‍💻 Technogie Utilisé
+# 🧑‍💻 Technologie Utilisé
   - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
   -  ${\color{green}Frontend}$ ➡️ React
   -  ${\color{green}Backend}$ ➡️ Spring Boot
