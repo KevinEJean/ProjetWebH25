@@ -12,7 +12,7 @@ Une application web d’information permettant aux utilisateurs de rechercher et
   -  ${\color{green}Frontend}$ ➡️ React
   -  ${\color{green}Backend}$ ➡️ Spring Boot
   - Plateforme de travail ➡️ Github
-  - Api ➡️ [Sport](https://www.football-data.org) + [Filme](https://www.omdbapi.com)
+  - Api ➡️ [Filme](https://www.omdbapi.com)
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
       
