@@ -4,7 +4,7 @@
 ![](./SearchPage.png?raw=true)
 
 # 📖 Description
-Une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.
+<p align="justify">Une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.</p>
 
 # 👨🏾‍💼 Collaborator
   - ### [Pape Momath Diba](https://github.com/Papemomath)
