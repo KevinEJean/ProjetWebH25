@@ -18,6 +18,10 @@
   - Api ➡️ [Filme](https://www.omdbapi.com)
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
+
+# ✏️ Architcture
+![](./images/Frontend.png?raw=true) 
+![](./images/SearchPage.png?raw=true)
       
 # 🧰 Fonctionnalité
   - Recherche de film par titre
