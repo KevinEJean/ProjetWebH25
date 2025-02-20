@@ -12,16 +12,16 @@
 
 # 🧑‍💻 Technologie Utilisé
   - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
-  -  ${\color{green}Frontend}$ ➡️ React
-  -  ${\color{green}Backend}$ ➡️ Spring Boot
+  - IDEA ➡️ Intellij IDEA
   - Plateforme de travail ➡️ Github
-  - Api ➡️ [Filme](https://www.omdbapi.com)
+  - Api ➡️ [Film](https://www.omdbapi.com)
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
 
 # ✏️ Architcture
-![](./images/Fbb.png?raw=true) 
-      
+  ### Langage de utilisé     
+  ![](./images/fbb.png?raw=false) 
+
 # 🧰 Fonctionnalité
   - Recherche de film par titre
   - Affichage d'information de film(acteur, résalisateur, genre)
