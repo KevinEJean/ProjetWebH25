@@ -23,11 +23,11 @@
   ![](./images/fbb.png?raw=false) 
 
 # 🧰 Fonctionnalité
-  - Recherche de film par titre
-  - Affichage d'information de film(acteur, résalisateur, genre)
-  - AJout à une liste de favoris
-  - Filtrer des film par catégorie
-  - Note et critique du films
+  - Recherche des films par titre
+  - Affichagage d'informations sur les films (acteur, résalisateur, genre)
+  - Ajouter des films à une liste de favoris
+  - Filtrer des films par catégorie
+  - Note et critique de film
   - Acheter des films
 
   # ✅ Installation & Exécution
