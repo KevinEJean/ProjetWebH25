@@ -16,12 +16,12 @@ public class User {
     private String lname;
     private String address;
 
-    public User(int id, String username, String passwd, String email) {
-        this.id = id;
-        this.username = username;
-        this.passwd = passwd;
-        this.email = email;
-    }
+    // public User(int id, String username, String passwd, String email) {
+    //     this.id = id;
+    //     this.username = username;
+    //     this.passwd = passwd;
+    //     this.email = email;
+    // }
 
     public User() {}
 
