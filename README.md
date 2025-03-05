@@ -28,7 +28,6 @@
   - Ajouter des films à une liste de favoris
   - Filtrer des films par catégorie
   - Note et critique de film
-  - Acheter des films
 
   # ✅ Installation & Exécution
   ## Prérequis
