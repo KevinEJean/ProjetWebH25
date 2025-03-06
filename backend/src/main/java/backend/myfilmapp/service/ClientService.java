@@ -26,8 +26,4 @@ public class ClientService {
     public Client getClientById(int id) {
         return rep.getClientById(id);
     }
-
-    public Client getClientByUsername(String username) {
-        return rep.getClientByUsername(username);
-    }
 }

@@ -1,42 +1,49 @@
 package backend.myfilmapp.module;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int client_id;
-    private String username;
-    private String passwd;
+    private int id;
+
+    @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
-    private String fname;
+
+    @Column(columnDefinition = "varchar(16) NOT NULL CHECK (passwd <> '')")
+    private String passwd;
+
+    @Column(unique = true, columnDefinition = "varchar(20)")
+    private String username;
+
+    @Column(columnDefinition = "varchar(20)")
     private String lname;
-    private String address;
+
+    @Column(columnDefinition = "varchar(20)")
+    private String fname;
+
+    @Column(columnDefinition ="BOOLEAN DEFAULT true")
+    private boolean active = true;
 
     
 
-    public Client(int id, String username, String passwd, String email) {
-        this.client_id = id;
-        this.username = username;
-        this.passwd = passwd;
+    public Client(int id, String email, String passwd) {
+        this.id = id;
         this.email = email;
+        this.passwd = passwd;
     }
 
-    public Client() {
+    public Client() {}
 
+    public int getId() {
+        return id;
     }
 
-    public int getClient_id() {
-        return client_id;
-    }
-
-    public void setClient_id(int client_id) {
-        this.client_id = client_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -79,11 +86,11 @@ public class Client {
         this.lname = lname;
     }
 
-    public String getAddress() {
-        return address;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
