@@ -32,16 +32,10 @@ const moviestrending = [
 ]
 
 
-// { id: 3, title: "Avatar", image: MovieAvatar },
-// { id: 5, title: "Deadpool", image: MovieDeadpool },
-// { id: 6, title: "Free Guy", image: MovieFreeGuy },
-// { id: 8, title: "Oppenheimer", image: MovieOppenheim },
-// { id: 10, title: "Scream VI", image: MovieScream },
-// { id: 11, title: "Spider-Man", image: MovieSpider },
-// { id: 12, title: "Superman", image: MovieSuperman },
-// { id: 13, title: "Thor", image: MovieThor },
 
 function Home() {
+    
+
     const navigate = useNavigate()
     const handleDetail = (id) => {
         navigate(`/detail/${id}`);

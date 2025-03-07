@@ -1,42 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SearchMovie.css';
 import MovieCard from '../MovieCard';
-import { data, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import MovieAvatar from '../../assets/avatar.png';
-import MovieThor from '../../assets/thor.jpg';
-import MovieAddam from '../../assets/blackaddam.jpg';
-import MovieSpider from '../../assets/spiderman.jpg';
-import MovieScream from '../../assets/scream.jpg';
-import MovieSuperman from '../../assets/superman.jpg';
-import MovieOppenheim from '../../assets/oppenhaimer.jpg';
-import MovieFreeGuy from '../../assets/freeguy.jpg';
-import MovieDeadpool from '../../assets/deadpool.jpg';
-import MovieAquaman from '../../assets/aquaman.jpg';
-import MovieAvenger from '../../assets/avenger.jpg';
-import MovieJumanji from '../../assets/jumanji.jpg';
-import MoviePixel from '../../assets/pixel.jpg';
 
-const moviesRecent = [
-    { id: 1, title: "Aquaman", image: MovieAquaman },
-    { id: 2, title: "Avenger", image: MovieAvenger },
-    { id: 3, title: "Avatar", image: MovieAvatar },
-    { id: 4, title: "Black Adam", image: MovieAddam },
-    { id: 5, title: "Deadpool", image: MovieDeadpool },
-    { id: 6, title: "Free Guy", image: MovieFreeGuy },
-    { id: 7, title: "Jumanji", image: MovieJumanji },
-    { id: 8, title: "Oppenheimer", image: MovieOppenheim },
-    { id: 9, title: "Pixel", image: MoviePixel },
-    { id: 10, title: "Scream VI", image: MovieScream },
-    { id: 11, title: "Spider-Man", image: MovieSpider },
-    { id: 12, title: "Superman", image: MovieSuperman },
-    { id: 13, title: "Thor", image: MovieThor },
-];
-
+const API_KEY = "a34708ad"; 
+const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
 function SearchMovie() {
     const [inputCritere, setInputCritere] = useState('');
     const [critereMovie, setCritereMovie] = useState('');
+    const [movies, setMovies] = useState([]);
+    const navigate = useNavigate()
+
 
     const handlecritere = () => {
         console.log("Critere: ", inputCritere);
@@ -44,15 +20,48 @@ function SearchMovie() {
         setInputCritere("");
     }
 
-    const navigate = useNavigate()
-    const handleDetail = (id) => {
-        navigate(`/detail/${id}`);
+    const handleDetail = (title) => {
+        navigate(`/detail/${title}`);
     }
 
+    const searchMovies = async () => {
+        if (critereMovie) {
+            const response = await fetch(`${API_URL}&s=${critereMovie}`);
+            const data = await response.json();
+            setMovies(data.Search);
+        } else {
+            setMovies([])
+        }
+      }
 
-    const movieFilter = moviesRecent.filter((movie) => (
-        movie.title.toLocaleLowerCase().startsWith(critereMovie.toLocaleLowerCase())
-    ))
+      useEffect(() => {
+        if (critereMovie) {
+            searchMovies();
+        }
+      }, [critereMovie]);
+
+      
+//  if (!movies || movies.length === 0) {
+//     return (
+//         <div className="containerSearch">
+//             <div className="searchBar">
+//                 <input 
+//                     type="text" 
+//                     className="searchTerm" 
+//                     value={inputCritere} 
+//                     placeholder="Search by title, genre, year" 
+//                     onChange={(e) => setInputCritere(e.target.value)} 
+//                 />
+//                 <button onClick={handlecritere} type="submit" className="searchButton">
+//                     <i className="fa fa-search"></i>
+//                 </button>
+//             </div>
+//             <p>Aucun résultat trouvé...</p>
+//         </div>  
+//     );
+// }
+
+
     return (
         <div className='containerSearch'>
                 <div class="searchBar">
@@ -66,10 +75,10 @@ function SearchMovie() {
                 <hr />
                 <div className="searchResult">
                     {
-                        movieFilter.length > 0 ? 
+                        movies.length > 0 ? 
                         
-                        movieFilter.map((movie, key) => (
-                            <p  onClick={() => handleDetail(movie.id)}><MovieCard key={key} url={movie.image} title={movie.title}/></p>
+                        movies.map((movie, key) => (
+                            <p key={key}  onClick={() => handleDetail(movie.Title)}><MovieCard url={movie.Poster} title={movie.Title}/></p>
                         )) 
                         :
                         <h3>Aucun résultat trouvé</h3>
