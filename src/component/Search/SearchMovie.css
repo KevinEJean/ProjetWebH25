@@ -1,0 +1,53 @@
+.containerSearch {
+        border-left: 2px solid;   
+        border-right: 2px solid;   
+        width: 1100px;
+        border-radius: 20px;
+        /* min-height: 100vh; */
+        padding: 5px;
+        display: inline-block;
+        /* margin-left: 80px; */
+        color: white;
+}
+
+
+
+/*////////////////// Container Search Bar(Input et button)///////////////////////////*/
+
+.containerSearch .searchBar input {
+    border: 2px solid grey;
+    background-color: rgb(35, 34, 34);
+    width: 50%;
+    padding: 7px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.containerSearch .searchBar button {
+    background-color: rgb(113, 109, 109);
+    padding: 10px;
+    width: 50px;
+}
+
+.containerSearch .searchBar button:hover {
+    background-color: rgb(57, 89, 134);
+    border: 2px solid;
+}
+
+.containerSearch .searchBar button:active {
+    background-color: rgb(57, 89, 134);
+    transform: scale(0.9);
+}
+
+/*/////// cotnainer search rsult //////////////////////*/
+
+.containerSearch .searchResult {
+    /* border: 2px solid red;  */
+    margin: 15px;
+    padding: 10px;
+    display: flex;  
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;    
+}

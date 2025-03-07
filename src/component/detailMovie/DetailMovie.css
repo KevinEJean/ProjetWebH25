@@ -1,0 +1,64 @@
+/*/// ajouter des -  a tous sles nom de container pour une meilleur lecture*/
+
+.movie-detail {
+    width: 1100px;
+ 
+    width: 1100px;
+    border-radius: 20px;
+    padding: 5px;
+    color: white;   
+    display: inline-block;
+    gap: 10px;
+}
+
+/*///////////////////// container Image Movie //////////////////////////////*/
+
+.movie-detail .movie-image img{
+    /* border: 2px solid red; */
+    border-radius: 30px ;
+    width: 380px;
+    height: 500px;
+}
+/*  */
+/*///////////////////// container movie Info //////////////////////////////*/
+
+.movie-detail .movie-info {
+    border-radius: 20px;
+}
+
+/*///////////////////// navbar //////////////////////////////*/
+
+/* Add a black background color to the top navigation */
+.movie-detail .movie-info .nav {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid; */
+    min-width: 600px;
+}
+
+/* Style the links inside the navigation bar */
+.movie-detail .movie-info .nav a {
+    cursor: pointer;
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.movie-detail .movie-info .nav a:hover {
+    color: gold;
+}
+
+/*//////// Content Apercu //////////////////////////////////////////////*/
+.movie-detail .movie-info .content {
+    /* border: 2px solid; */
+    display: block;
+}
+.movie-detail .movie-info .content strong {
+    /* border-top: 2px solid; */
+    color: whitesmoke;
+    display: block;
+}
+

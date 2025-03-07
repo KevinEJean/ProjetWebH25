@@ -1,0 +1,141 @@
+.containerHome {
+    /* border: 2px solid;    */
+    width: 1100px;
+    /* min-height: 100vh; */
+    padding: 5px;
+    display: inline-block;
+    /* margin-left: 80px; */
+    color: white;
+}
+
+
+/*//////////////// Container RecentMovie( a supprimer) //////////////////////////////////////////////////////////////////////////////////////////3*/
+
+/* 
+.containerHome .recentMovie {
+    margin: 20px;
+    min-height: 400px; 
+    background-size: contain;
+    border-radius: 30px; 
+    box-shadow: 2 4px 8px white; 
+}
+
+.containerHome .recentMovie:hover {
+    border: 2px solid rgb(209, 208, 208);
+    cursor: pointer;
+}
+
+.containerHome .recentMovie:active {
+    border: 4px solid black;
+} */
+
+/*///////////////// Carrrousel image /////////////////*/
+
+.carouselBox {
+    border-top: 2px solid ; 
+    border-bottom: 2px solid; 
+    border-radius: 70px;
+    box-shadow: 10px 10px 10px 7px rgb(50, 50, 50);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.carouselBox button {
+    border-top: 2px solid ; 
+    border-bottom: 2px solid; 
+    border-radius: 70px;
+    box-shadow: 10px 10px 10px rgb(50, 50, 50);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.carousel-inner img {
+    /* border: 2px solid; */
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px black;
+    width: 420px;
+    height: 530px;
+    cursor: pointer;
+}
+
+.carousel-inner img:hover {
+    border: 1px solid grey;
+}
+
+.carousel-inner img:active {
+    /* border: 2px solid; */
+    border: 4px solid black;
+}
+
+
+/*//////////////// Container Trending //////////////////////////////////////////////////////////////////////////////////////////3*/
+
+.containerTrending {
+    /* border: 2px solid;  */
+    width: 1100px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}
+
+.containerTrending button {
+    border-top: 2px solid grey; 
+    border-bottom: 2px solid grey; 
+    border-radius: 70px;
+    box-shadow: 2px 2px 2px rgb(63, 62, 62);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.containerTrending button:hover {
+    border: 1px solid white;
+    transform: scale(1.02);
+}
+.containerTrending button:active {
+    border: 1px solid black;
+}
+
+.containerHome .trending {
+    /* border: 2px solid;    */
+    width: 946px;
+    margin: 15px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;  
+    
+    /* flex-wrap: wrap;
+        // créer un slider/swiper à la place ces mieux pour l'interaction et plus amusannt
+    */
+    overflow: hidden;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;    
+    border-radius: 20px;
+}
+
+
+
+/*//////////////// Container Latest //////////////////////////////////////////////////////////////////////////////////////////3*/
+
+.containerHome .latest {
+    /* border: 2px solid;    */
+    width: 946px;
+    margin: 20px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;  
+    
+    /* flex-wrap: wrap;
+        // créer un slider/swiper à la place ces mieux pour l'interaction et plus amusannt
+    */
+    overflow: hidden;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+
+
+/* Recatif*/
