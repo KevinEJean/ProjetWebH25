@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
@@ -14,17 +15,16 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
-        // Log exception with context information
-        logger.error("Exception occurred: {}, Request Details: {}", ex.getMessage(), request.getDescription(false), ex);
-        return new ResponseEntity<>("An error occurred, check to see if 'email' or 'passwd' or 'id' are null", HttpStatus.INTERNAL_SERVER_ERROR);
+    @ExceptionHandler(HttpServerErrorException.InternalServerError.class)
+    public ResponseEntity<Object> handleInternalServerError(HttpServerErrorException.InternalServerError ex, WebRequest request) {
+        logger.error("Interbal Server Occured: {}, Request Details:  {}", ex.getMessage(), request.getDescription(false), ex);
+        return new ResponseEntity<>("Assurer vous que l'email et le password respecte les contraintes. Sinon, il se peut qu'il y ait un problème avec nos serveurs, enovyé nous une signalisation au : filmApp@gmail.com", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
         // Log specific exception
         logger.error("Invalid argument: {}, Request Details: {}", ex.getMessage(), request.getDescription(false), ex);
-        return new ResponseEntity<>("Invalid argument", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Argument invalide, essayer encore.", HttpStatus.BAD_REQUEST);
     }
 }

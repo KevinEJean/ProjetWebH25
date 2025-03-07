@@ -13,7 +13,7 @@ public class Client {
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
-    @Column(columnDefinition = "varchar(16) NOT NULL CHECK (passwd <> '')")
+    @Column(columnDefinition = "varchar(16) NOT NULL CHECK (passwd <> '' AND passwd LIKE '______%')")
     private String passwd;
 
     @Column(unique = true, columnDefinition = "varchar(20)")
