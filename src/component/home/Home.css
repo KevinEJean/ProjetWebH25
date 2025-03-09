@@ -9,6 +9,8 @@
 }
 
 
+
+
 /*//////////////// Container RecentMovie( a supprimer) //////////////////////////////////////////////////////////////////////////////////////////3*/
 
 /* 
@@ -50,6 +52,7 @@
 }
 
 
+
 .carousel-inner img {
     /* border: 2px solid; */
     border-radius: 20px;
@@ -57,10 +60,15 @@
     width: 420px;
     height: 530px;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out
+
 }
 
 .carousel-inner img:hover {
     border: 1px solid grey;
+    transform: scale(1.02);
+    
+
 }
 
 .carousel-inner img:active {

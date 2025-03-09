@@ -13,7 +13,7 @@
     position: relative;
     width: 200px;
     height: 300px;
-    border-radius: 2px;
+    border-radius: 5px;
     overflow: hidden;
     margin: 0 auto;
     display: flex;
@@ -50,7 +50,7 @@
 .content__shows div .name {
   position: absolute;
   width: 100%;
-  bottom: 10px;
+  bottom: -1px;
   color: #fff;
   transform: translatey(50px);
   padding: 10px;

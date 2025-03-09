@@ -1,32 +1,53 @@
 /*/// ajouter des -  a tous sles nom de container pour une meilleur lecture*/
 
 .movie-detail {
-    border: 2px solid;
-    width: 1200px;
+    /* border: 2px solid;  */
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-top: 3px solid rgb(227, 222, 222);
+    border-bottom: 3px solid rgb(227, 222, 222);
+    width: 1150px;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px;
+    height: 600px;
     color: white;   
     display: flex;
-    /* align-items: center; */
     gap: 10px;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    transition: transform 0.3s ease-in-out;
 }
+
+.movie-detail:hover {
+    transform: scale(1.02);
+}
+
 
 /*///////////////////// container Image Movie //////////////////////////////*/
 
-.movie-detail .movie-image img{
-    /* border: 2px solid red; */
-    border-radius: 30px ;
+.movie-detail .movie-image img {
+    /* border: 2px solid red;  */
+    box-shadow: 2px 2px 2px 2px rgb(95, 95, 95);
+    border-radius: 10px ;
     width: 400px;
     height: 100%;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    transition: transform 0.3s ease-in-out;
+    /* margin-top: 10px; */
 }
-/*  */
+
+.movie-detail .movie-image img:hover {
+    transform: scale(0.98);
+    border: 2px solid grey;
+
+}
+
 /*///////////////////// container movie Info //////////////////////////////*/
 
 .movie-detail .movie-info {
-    border: 2px solid;
+    /* border: 2px solid; */
     width: 100%;
-    height: 600px;
-    border-radius: 20px;
+    height: 580px;
+    /* border-radius: 20px; */
     overflow-y: auto;
 }
 
@@ -34,11 +55,13 @@
 
 /* Add a black background color to the top navigation */
 .movie-detail .movie-info .nav {
+    border: 2px solid rgb(205, 202, 202);  
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     justify-content: space-around;
-    border: 2px solid;
     min-width: 600px;
+    box-shadow: 5px 5px 5px 5px rgb(77, 74, 74);
 }
 
 /* Style the links inside the navigation bar */
@@ -55,16 +78,60 @@
     color: gold;
 }
 
-/*//////// Content Apercu //////////////////////////////////////////////*/
-.movie-detail .movie-info .content {
+
+/*//////// Content Info //////////////////////////////////////////////*/
+.movie-detail .movie-info .content-info {
     display: block;
-    text-align: left;
+    text-align: justify;
     padding: 10px;
     
 }
-.movie-detail .movie-info .content strong {
+
+.movie-detail .movie-info .content-info .rate{
+    display: flex;
+    /* border: 2px solid; */
+    gap: 7px;
+}
+.movie-detail .movie-info .content-info .rate #r{
+    font-size: 15px;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgb(36, 97, 242);
+}
+
+.movie-detail .movie-info .content-info .rate #OMDb{
+   /* border: 2px solid; */
+   font-size: 15px;
+   color: white;
+   padding: 2px;
+   border-radius: 5px 0px 0px 5px;
+   background-color: orange;
+   font-weight: bolder;
+   
+}
+.movie-detail .movie-info .content-info .rate #OMDb:hover {
+    color: black;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.movie-detail .movie-info .content-info .rate #rating{
+   /* border: 2px solid; */
+   font-size: 15px;
+   color: black;
+   padding: 2px;
+   border-radius: 0px 5px 5px 00px;
+   background-color: white;
+
+}
+
+
+.movie-detail .movie-info .content-info strong {
     color: whitesmoke;
     /* display: block; */
+    text-shadow: 2px 2px black;
+
 }
 
 /*//////// Content info actor //////////////////////////////////////////////*/

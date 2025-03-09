@@ -1,16 +1,17 @@
 import 'react'
 import './Home.css';
-import MovieAvatar from '../assets/avatar.png';
-import MovieThor from '../assets/thor.jpg';
-import MovieAddam from '../assets/blackaddam.jpg';
-import MovieSpider from '../assets/spiderman.jpg';
-import MovieScream from '../assets/scream.jpg';
-import MovieSuperman from '../assets/superman.jpg';
-import MovieOppenhein from '../assets/oppenhaimer.jpg';
-import MovieFreeGuy from '../assets/freeguy.jpg';
-import MovieDeadpool from '../assets/deadpool.jpg';
-import MovieCard from './MovieCard';
+import MovieAvatar from '/src/assets/avatar.png';
+import MovieThor from '/src/assets/thor.jpg';
+import MovieAddam from '/src/assets/blackaddam.jpg';
+import MovieSpider from '/src/assets/spiderman.jpg';
+import MovieScream from '/src/assets/scream.jpg';
+import MovieSuperman from '/src/assets/superman.jpg';
+import MovieOppenhein from '/src/assets/oppenhaimer.jpg';
+import MovieFreeGuy from '/src/assets/freeguy.jpg';
+import MovieDeadpool from '/src/assets/deadpool.jpg';
+import MovieCard from '../MovieCard';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 const moviesRecent = [
@@ -31,15 +32,29 @@ const moviestrending = [
     { id: 13, title: "Thor", image: MovieThor },
 ]
 
-
+const API_KEY = "a34708ad"; 
+const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
 function Home() {
-    
-
+    const [movies, setMovies] = useState(moviesRecent);
+    // const moviesRecent = movies.filter((movie) => movie.Year >= 2024)
+    // const moviesTrending = movies.filter((movie) => movie.Metascore >== 80)
     const navigate = useNavigate()
-    const handleDetail = (id) => {
-        navigate(`/detail/${id}`);
-    }
+
+    const handleDetail = (title) => {
+    navigate(`/detail/${title}`);
+    };
+
+    const searchMovies = async () => {
+            const response = await fetch(`${API_URL}&s=$test`);
+            const data = await response.json();
+            setMovies(data.Search || []);
+    };
+
+    useEffect(() => {
+        searchMovies();
+    }, []);
+
 
     return (
         
