@@ -1,0 +1,31 @@
+.movie-container {
+    border: 2px solid whitesmoke;
+    width: 1100px;
+    color: whitesmoke;
+}
+
+/*//////////// affichage des film en bas des filter*/
+.movie-container .content {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.movie-container .content .pagination {
+    /* border: 2px solid; */
+    gap: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3 ease-in-out;
+}
+
+.movie-container .content .pagination #left:hover {
+    transform: scale(1.3);
+}
+.movie-container .content .pagination #right:hover {
+    transform: scale(1.3);
+}
+/*///////////////////////////////////*/

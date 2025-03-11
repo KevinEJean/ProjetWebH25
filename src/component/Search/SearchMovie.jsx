@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './SearchMovie.css';
-import MovieCard from '../MovieCard';
+import MovieCard from '../movieCard/MovieCard';
 import { useNavigate } from 'react-router-dom';
 
-import MovieThor from '../../assets/thor.jpg';
-import MovieSpider from '../../assets/spiderman.jpg';
-import MovieScream from '../../assets/scream.jpg';
-import MovieSuperman from '../../assets/superman.jpg';
+////// Api de OMDB pas obliger /////////////////////////
+// const API_KEY_OMDB = "a34708ad"; 
+// const API_URL_OMDB = `https://www.omdbapi.com/?apikey=${API_KEY_OMDB}`;
 
-const moviesRecent = [
-    { id: 10, title: "Scream VI", image: MovieScream },
-    { id: 11, title: "Spider-Man", image: MovieSpider },
-    { id: 12, title: "Superman", image: MovieSuperman },
-    { id: 13, title: "Thor", image: MovieThor },
-];
+////// Api de TMDB /////////////////////////
+const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700"; 
+const API_URL_TMDB_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY_TMDB}&page=`;
+const API_URL_TMDB = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=`;
 
-const API_KEY = "a34708ad"; 
-const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
 function SearchMovie() {
     const [inputCritere, setInputCritere] = useState('');
     const [critereMovie, setCritereMovie] = useState('');
-    const [movies, setMovies] = useState(moviesRecent);
+    const [movies, setMovies] = useState([]);
+    const [moviesTrending, setMoviesTrending] = useState([]);
+
     const navigate = useNavigate();
 
     const handlecritere = () => {
@@ -30,25 +27,33 @@ function SearchMovie() {
         setInputCritere("");
     };
 
-    const handleDetail = (title) => {
-        navigate(`/detail/${title}`);
+    const handleDetail = (id,title) => {
+        navigate(`/detail/${id}/${title}`);
     };
+
 
     const searchMovies = async () => {
-        const response = await fetch(`${API_URL}&s=${critereMovie}&y=${critereMovie}`);
+        const response = await fetch(`${API_URL_TMDB}${critereMovie}`);
         const data = await response.json();
-        setMovies(data.Search || []);
+        setMovies(data.results || []);   
     };
 
-
+    const searchTrendingMovie = async () => {
+        const response = await fetch(`${API_URL_TMDB_TRENDING}${1}`);
+        const data = await response.json();
+        setMoviesTrending(data.results || []);
+    };
     
 
     useEffect(() => {
+        searchTrendingMovie()
         if (critereMovie) {
             searchMovies();
-            // searchMovies2
         }
     }, [critereMovie]);
+
+    console.log("Movie Trending: ",moviesTrending)
+    console.log("Movie result: ",movies)
 
     return (
         <div className='containerSearch'>
@@ -69,15 +74,29 @@ function SearchMovie() {
             <hr />
 
             <div className="searchResult">
+                
                 {
+                    
                     movies.length > 0 ? 
-                        movies.map((movie, key) => (
-                            <p key={key} onClick={() => handleDetail(movie.title || movie.Title)}>
-                                <MovieCard url={movie.image || movie.Poster} title={movie.title || movie.Title} />
+                    movies.map((movie, key) => (
+                            <p key={key} onClick={() => handleDetail(movie.id, movie.title)}>
+                                    <MovieCard 
+                                        url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 
+                                        title={movie.title} 
+                                    />
+                                </p>
+                    ))
+                    :
+                    moviesTrending.length > 0 ?
+                        moviesTrending.map((movie, key) => (
+                            <p key={key} onClick={() => handleDetail(movie.id, movie.title)}>
+                                <MovieCard 
+                                    url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 
+                                    title={movie.title} 
+                                />
                             </p>
                         ))
-                        :
-                        <h3>Aucun résultat trouvé</h3>
+                        : <h3>Aucun résultat trouvé</h3>
                 }
             </div>
         </div>

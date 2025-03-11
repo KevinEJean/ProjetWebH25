@@ -6,6 +6,7 @@
     display: inline-block;
     /* margin-left: 80px; */
     color: white;
+    
 }
 
 
@@ -80,21 +81,15 @@
 /*//////////////// Container Trending //////////////////////////////////////////////////////////////////////////////////////////3*/
 
 .containerTrending {
-    /* border: 2px solid;  */
+    /* border: 2px solid;    */
     width: 1100px;
     display: flex;
     align-items: center ;
     justify-content: center;
+    /* overflow-x: hidden; */
+
 }
 
-.containerTrending button {
-    border-top: 2px solid grey; 
-    border-bottom: 2px solid grey; 
-    border-radius: 70px;
-    box-shadow: 2px 2px 2px rgb(63, 62, 62);
-    padding: 10px;
-    margin-bottom: 20px;
-}
 
 .containerTrending button:hover {
     border: 1px solid white;
@@ -106,44 +101,21 @@
 
 .containerHome .trending {
     /* border: 2px solid;    */
-    width: 946px;
+    width: 1100px;
     margin: 15px;
     margin: 10px;
     padding: 10px;
     display: flex;  
-    
     /* flex-wrap: wrap;
         // créer un slider/swiper à la place ces mieux pour l'interaction et plus amusannt
     */
-    overflow: hidden;
+    overflow: auto;
     gap: 15px;
     align-items: center;
-    justify-content: center;    
+    /* justify-content: center;     */
     border-radius: 20px;
 }
 
 
 
-/*//////////////// Container Latest //////////////////////////////////////////////////////////////////////////////////////////3*/
 
-.containerHome .latest {
-    /* border: 2px solid;    */
-    width: 946px;
-    margin: 20px;
-    margin: 10px;
-    padding: 10px;
-    display: flex;  
-    
-    /* flex-wrap: wrap;
-        // créer un slider/swiper à la place ces mieux pour l'interaction et plus amusannt
-    */
-    overflow: hidden;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-}
-
-
-
-/* Recatif*/

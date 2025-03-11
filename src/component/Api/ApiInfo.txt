@@ -1,0 +1,46 @@
+Api from => OMDB
+-------------------------------------------------------
+    key => const API_KEY = "a34708ad"; 
+    url => const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+
+=================================================================================
+    faire une requête selon un critere(reference page SearchMovie)
+    ----------------------------------------------------------------
+    const searchMovies = async () => {
+        const response = await fetch(`${API_URL}&s=${critereMovie}&y=${critereMovie}`);
+        const data = await response.json();
+        setMovies(data.Search || []);
+    };
+
+    useEffect(() => {
+        if (critereMovie) {
+            searchMovies();
+            // searchMovies2
+        }
+    }, [critereMovie]);
+
+====================================================================================
+====================================================================================
+
+Api from => TMDB
+-------------------------------------------------------
+    Key = const API_KEY = "bbe34269651625cd81a39afd38610700"; 
+    
+    url dependament de la recherche
+    -------------------------------------------------------------------
+
+        url des film les mieux noté => const API_URL_POPULAR => `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=`;
+        url des film populaire => const API_URL_LATEST => `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=`;
+        url des film à venir => const API_URL_LATEST => `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=`;
+        url des film trier par genre => https://api.themoviedb.org/3/discover/movie?api_key=YOUR_API_KEY&with_genres=28&page=1
+        url des film recent => https://api.themoviedb.org/3/movie/latest?api_key=YOUR_API_KEY
+        url des film qui se trouve au cinema maintenant => https://api.themoviedb.org/3/movie/now_playing?api_key=YOUR_API_KEY&page=1
+        url des film pour rechercher des film par titre,genre,anne => https://api.themoviedb.org/3/search/movie?api_key=YOUR_API_KEY&query=avengers
+
+        url des film pour trouver Images d'un film => https://api.themoviedb.org/3/movie/550/images?api_key=YOUR_API_KEY
+        url des film pour trouver Vidéo d'un film => https://api.themoviedb.org/3/movie/550/videos?api_key=YOUR_API_KEY
+        url des film Rqui écupère une liste de films recommandés basés sur un film spécifique. => https://api.themoviedb.org/3/movie/550/recommendations?api_key=YOUR_API_KEY
+
+        url rechercher film par id => `https://api.themoviedb.org/3/movie/${title}?api_key=bbe34269651625cd81a39afd38610700`
+        
+        url rechercher film nom => const API_URL_TMDB = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=`;

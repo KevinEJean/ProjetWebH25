@@ -4,6 +4,7 @@ import SearchMovie from './component/Search/SearchMovie';
 import DetailMovie from './component/detailMovie/DetailMovie';
 import NavBar from './component/navBar/NavBar';
 import NotFoundPage from './component/NotFoundPage';
+import MoviePage from './component/movie/MoviePage'
 import Home from './component/home/Home';
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/search' element={<SearchMovie/>}/>
-        <Route path='/detail/:title' element={<DetailMovie/>}/>  
+        <Route path='/detail/:id/:title' element={<DetailMovie/>}/>  
+        <Route path='/movies' element={<MoviePage />}/>  
+        {/* <Route path='/movies' element={<MoviePage/>}/>   */}
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>

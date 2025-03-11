@@ -8,20 +8,18 @@
   cursor: pointer;
 }
 
-
 .content__shows div {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
   
-
 .content__shows div:hover img {
   transform: scale(1.15);
 }
@@ -46,7 +44,6 @@
   transition: 0.3s ease;
 }
   
-
 .content__shows div .name {
   position: absolute;
   width: 100%;

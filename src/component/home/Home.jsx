@@ -1,58 +1,56 @@
 import 'react'
 import './Home.css';
-import MovieAvatar from '/src/assets/avatar.png';
-import MovieThor from '/src/assets/thor.jpg';
+
 import MovieAddam from '/src/assets/blackaddam.jpg';
-import MovieSpider from '/src/assets/spiderman.jpg';
-import MovieScream from '/src/assets/scream.jpg';
-import MovieSuperman from '/src/assets/superman.jpg';
-import MovieOppenhein from '/src/assets/oppenhaimer.jpg';
-import MovieFreeGuy from '/src/assets/freeguy.jpg';
-import MovieDeadpool from '/src/assets/deadpool.jpg';
+
 import MovieCard from '../MovieCard';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
-const moviesRecent = [
-    { id: 10, title: "Scream VI", image: MovieScream },
-    { id: 11, title: "Spider-Man", image: MovieSpider },
-    { id: 12, title: "Superman", image: MovieSuperman },
-    { id: 13, title: "Thor", image: MovieThor },
-]
 
-const moviestrending = [
-    { id: 3, title: "Avatar", image: MovieAvatar },
-    { id: 5, title: "Deadpool", image: MovieDeadpool },
-    { id: 6, title: "Free Guy", image: MovieFreeGuy },
-    { id: 8, title: "Oppenheimer", image: MovieOppenhein },
-    { id: 10, title: "Scream VI", image: MovieScream },
-    { id: 11, title: "Spider-Man", image: MovieSpider },
-    { id: 12, title: "Superman", image: MovieSuperman },
-    { id: 13, title: "Thor", image: MovieThor },
-]
+// const API_KEY = "a34708ad"; 
+// const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
-const API_KEY = "a34708ad"; 
-const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+// nouvelle api TMDB
+const API_KEY = "bbe34269651625cd81a39afd38610700"; 
+const API_URL_A_l_AFFICHE = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=`;
+const API_URL_TOP_RATED = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=`;
+const API_URL_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`;
 
 function Home() {
-    const [movies, setMovies] = useState(moviesRecent);
-    // const moviesRecent = movies.filter((movie) => movie.Year >= 2024)
-    // const moviesTrending = movies.filter((movie) => movie.Metascore >== 80)
+    //   const moviesRecent = movies.filter((movie) => movie.Year >= 2024)
+    const [moviesRecent, setMoviesMoviesRecent] = useState([])
+    const [moviesTopRated, setMoviesTopRated] = useState([])
+    const [moviesTrending, setMoviesTrending] = useState([])
     const navigate = useNavigate()
 
-    const handleDetail = (title) => {
-    navigate(`/detail/${title}`);
+    const handleDetail = (id,title) => {
+        navigate(`/detail/${id}/${title}`);
     };
 
-    const searchMovies = async () => {
-            const response = await fetch(`${API_URL}&s=$test`);
-            const data = await response.json();
-            setMovies(data.Search || []);
+    const searchMoviesRecent = async () => {
+        const response = await fetch(`${API_URL_A_l_AFFICHE}${1}`);
+        const data = await response.json();
+        setMoviesMoviesRecent(data.results || []);
+    };
+
+    const searchMoviesTopRated = async () => {
+        const response = await fetch(`${API_URL_TOP_RATED}${3}`);
+        const data = await response.json();
+        setMoviesTopRated(data.results || []);
+    };
+
+    const searchTrendingMovie = async () => {
+        const response = await fetch(`${API_URL_TRENDING}${1}`);
+        const data = await response.json();
+        setMoviesTrending(data.results || []);
     };
 
     useEffect(() => {
-        searchMovies();
+        searchMoviesRecent()
+        searchTrendingMovie();
+        searchMoviesTopRated()
     }, []);
 
 
@@ -65,12 +63,12 @@ function Home() {
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src={MovieAddam} alt="avatar" className="carousel-img"/>
+                            <img src={MovieAddam} alt="black Adam" className="carousel-img"/>
                         </div>
                         {
                             moviesRecent.map((movie, key) => (
-                                <div onClick={() => handleDetail(movie.id)} key={key} class="carousel-item">
-                                    <img src={movie.image} alt="avatar" className="carousel-img"/>
+                                <div onClick={() => handleDetail(movie.id, movie.title)} key={key} class="carousel-item">
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  alt={movie.title} className="carousel-img"/>
                                 </div>
                             ))
                         }
@@ -90,35 +88,34 @@ function Home() {
             </div>
             
             <hr />
-            <h3 style={{float:"left"}}>Trending Movie</h3>
+            <h3 style={{float:"left"}}>Top rated Movie</h3>
                 <div className="containerTrending">
-                    
-                    <button className="arrow arrow-left">‹</button>
                     <div className="trending">
-                        {/* <MovieCard url={MovieAddam} title="Black Adam"/>  */}
                         {
-                            moviestrending.map((movie, key) => (
-                                <p onClick={() => handleDetail(movie.id)}><MovieCard key={key} url={movie.image} title={movie.title}/></p>
+                            moviesTopRated.map((movie, key) => (
+                                <p key={key} onClick={() => handleDetail(movie.id, movie.title) }>
+                                    <MovieCard url={movie.image || `https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} />
+                                </p>
                             ))
                         }
                     </div>
-                    <button className="arrow arrow-right">›</button>
+                </div>
+
+                <h3 style={{float:"left"}}>Trending Movie</h3>
+                <div className="containerTrending">
+                    <div className="trending">
+                        {
+                            moviesTrending.map((movie, key) => (
+                                <p key={key} onClick={() => handleDetail(movie.id ,movie.title) }>
+                                    <MovieCard url={movie.image || `https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} />
+                                </p>
+                            ))
+                        }
+                    </div>
                 </div>
 
                 <hr />
-                <h3 style={{float:"left"}}>Latest Movie</h3>
-                <div className="containerTrending">
-                    <button className="arrow arrow-left">‹</button>
-                    <div className="trending">
-                        {/* <MovieCard url={MovieAddam} title="Black Adam"/>  */}
-                        {
-                            moviesRecent.map((movie, key) => (
-                                <p onClick={() => handleDetail(movie.id)}><MovieCard key={key} url={movie.image} title={movie.title}/></p>
-                            ))
-                        }
-                    </div>
-                    <button className="arrow arrow-right">›</button>
-                </div>
+                
         </div>
         
         

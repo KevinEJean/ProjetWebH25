@@ -12,7 +12,7 @@ export default function NavBar() {
                 <Link to="/search"><button>Search</button></Link>
             </span>
             <span class="material-symbols-outlined">
-                <Link to="/t"><button>Test</button></Link>
+                <Link to="/movies"><button>movies</button></Link>
             </span>
         </div>
     );

@@ -11,7 +11,6 @@
 }
 
 
-
 /*////////////////// Container Search Bar(Input et button)///////////////////////////*/
 
 .containerSearch .searchBar input {
@@ -50,4 +49,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;    
+}
+.containerSearch .searchResult .card-movie{
+    /* border: 2px solid white;   */
+    width: 300px;
+    display: flex;
+    align-items: center;
+    border: 2px solid;
+  
 }
