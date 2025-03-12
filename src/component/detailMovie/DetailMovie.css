@@ -167,7 +167,7 @@
 /*//////// Content info Actor 1//////////////////////////////////////////////*/
 
 .container .content-actor {
-    margin: 20px;
+    margin-bottom: 20px;
     border: 2px solid; 
     display: flex;
     align-items: center;
@@ -212,7 +212,7 @@
 .container .nav-media {
     display: flex;
     color: white;
-    gap: 80px;
+    gap: 60px;
     margin-right: 600px;
     align-items: center;
 }
@@ -223,12 +223,12 @@
 }
 .container .container-nav-media a:hover {
     cursor: pointer;
+    border-bottom: 2px solid;
     color: rgb(198, 196, 196);
 } 
 
-.container .container-nav-media a:focus {
-    color: red;
-}
+
+
 
 .container .media {
     border: 2px solid;

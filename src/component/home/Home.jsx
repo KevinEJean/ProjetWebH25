@@ -3,7 +3,7 @@ import './Home.css';
 
 import MovieAddam from '/src/assets/blackaddam.jpg';
 
-import MovieCard from '../MovieCard';
+import MovieCard from '../movieCard/MovieCard';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 

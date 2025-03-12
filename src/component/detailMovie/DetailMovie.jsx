@@ -19,8 +19,10 @@ function DetailMovie() {
     const [movieOmdb, setMovieOmdb] = useState(null);  
     const [movieRecommendation, setMovieRecommendation] = useState(null)
     const [ongletActif, setOngletActif] = useState("Info");
+    const [ongletActor, setOngletActor] = useState("Cast");
     const [ongletMedia, setOngletMedia] = useState("Videos");
     const [movieActors, setMovieActor] = useState(null)
+    const [movieCrew, setMovieCrew] = useState(null)
     const [movieImages, setMovieImages] = useState(null)
     const [movieVideos, setMovieVideos] = useState(null)
     const navigate = useNavigate();
@@ -57,6 +59,14 @@ function DetailMovie() {
             setMovieActor(data.cast || []);
         // }
     };
+    const searchMovieCrew = async () => {
+        // if (movieId) {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            console.log("movie Crew: ", data);
+            setMovieCrew(data.crew || []);
+        // }
+    };
     const searchMovieVideo = async () => {
         // if (movieId) {
             const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY_TMDB}`); 
@@ -80,6 +90,7 @@ function DetailMovie() {
             searchMoviesOmdb(); 
             searchMovieRecommendations();
             searchMovieActor();
+            searchMovieCrew();
             searchMovieVideo();
             searchMovieImage();
         }
@@ -98,6 +109,7 @@ function DetailMovie() {
 
                 <div className="movie-image">
                     <img src={movieOmdb.Poster} alt={movieOmdb.Title}/>
+                    {/* <img src={movieOmdb.Poster} alt={movieOmdb.Title}/> */}
                 </div>
                 <div className="movie-info">
                     <div className="nav">
@@ -154,8 +166,8 @@ function DetailMovie() {
                                         </div>
                                     </div>
                                 ))
-                            : 
-                            <h1>Aucun élément</h1>
+                                : 
+                                <h1>Aucun élément</h1>
                             } 
                         </div>
                     )}
@@ -165,22 +177,45 @@ function DetailMovie() {
 
             {/*///////// Actor Info////////////////////////////////////////////// */}
 
-            <h3>Têtes d'affiche</h3>
+            {/* <h3>Têtes d'affiche</h3> */}
+            {/* <h3 >Têtes d'affiche</h3> */}
+            <div className="container-nav-media">
+                <h3>Tête d'affiche </h3>
+                <div className="nav-media">
+                    <a onClick={() => setOngletActor("Cast")}>Cast</a>
+                    <a onClick={() => setOngletActor("Crew")}>Crew</a>
+                </div>
+            </div>
             <div className="content-actor">
                 {
-                    movieActors.length > 0 ? 
-                        movieActors.map((actor, key) => (
-                            <div className='card-actor' key={key}>
-                            <img 
-                            src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
-                            alt={actor.name} 
-                            />
-                            <strong>{actor.name}</strong>
-                            <p>{actor.character}</p>
-                            </div>
-                        ))
-                    : 
-                    <h1>Aucun Acteur trouvé</h1>
+                    ongletActor === "Cast" && movieActors.length > 0 && 
+                    movieActors.map((actor, key) => (
+                        <div className='card-actor' key={key}>
+                        <img 
+                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+                        alt={actor.name} 
+                        />
+                        <strong>{actor.name}</strong>
+                        <p>{actor.character}</p>
+                        </div>
+                    ))
+                // : 
+                // <h1>Aucun Acteur trouvé</h1>
+                }
+                {
+                    ongletActor === "Crew" && movieCrew.length > 0 && 
+                    movieCrew.map((crew, key) => (
+                        <div className='card-actor' key={key}>
+                        <img 
+                        src={`https://image.tmdb.org/t/p/w200/${crew.profile_path}`} 
+                        alt={crew.name} 
+                        />
+                        <strong>{crew.name}</strong>
+                        <p>{crew.character}</p>
+                        </div>
+                    ))
+                    // : 
+                    // <h1>Aucun Crew trouvé</h1>
                 }
             </div>
             
@@ -201,7 +236,7 @@ function DetailMovie() {
 
                             {
                                 movieVideos.slice(0,5).map((video, key) => (
-                                    <iframe width="560" height="315" 
+                                    <iframe key={key} width="560" height="315" 
                                     src={`https://www.youtube.com/embed/${video.key}`} 
                                     title="YouTube video player" frameborder="0" 
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
