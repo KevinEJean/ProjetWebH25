@@ -6,21 +6,29 @@ import NavBar from './component/navBar/NavBar';
 import NotFoundPage from './component/NotFoundPage';
 import MoviePage from './component/movie/MoviePage'
 import Home from './component/home/Home';
+import MainMovieCard from './component/movieCard/MainMovieCard';
+import VideoBackground from '/src/assets/video1.mp4';
 
 function App() {
 
   return (
+      <>
+       <video autoPlay loop muted playsInline>
+          <source src={VideoBackground} type="video/mp4"/>
+      </video>
     <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/search' element={<SearchMovie/>}/>
         <Route path='/detail/:id/:title' element={<DetailMovie/>}/>  
-        <Route path='/movies' element={<MoviePage />}/>  
+        <Route path='/movie' element={<MoviePage />}/>  
+        <Route path='/test' element={<MainMovieCard />}/>  
         {/* <Route path='/movies' element={<MoviePage/>}/>   */}
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>
+            </>
   )
 }
 

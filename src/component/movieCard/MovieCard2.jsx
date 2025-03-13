@@ -8,10 +8,11 @@ function MovieCard({ url, title, type, rate, year, language, genre }) {
                 <img className="movie-image" src={url} alt={title} />
                 <div className="movie-info">
                     <h3 className="movie-title">{title}</h3>
-                    <p><strong>{type}.{rate}.{year}.{language.toUpperCase()}</strong></p>
+                    <p><strong>{type} • {rate} • {year} • {language.toUpperCase()}</strong></p>
                 </div>
             </div>
         </div>
+        
     );
 }
 

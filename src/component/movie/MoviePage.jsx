@@ -5,6 +5,7 @@ import MovieCard from '../movieCard/MovieCard';
 import MovieCard2 from '../movieCard/MovieCard2';
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import VideoBackground from '/src/assets/video1.mp4';
 
 const API_KEY = "bbe34269651625cd81a39afd38610700"; 
 const API_URL_LATEST = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=`;
@@ -87,7 +88,7 @@ function MoviePage() {
                     <a>Pays{imageFiltre}</a>
                 </div>
             </div>
-            <div className="filter-type" id='filter-type'>
+            <div className="filter-type" id='filter-type' style={{display:"none"}}>
                     <form >
                         <input type="radio" name='type'/>:<label htmlFor="TypeMovie">Movie</label>
                         <input type="radio" name='type'/><label htmlFor="TypeMovie">Serie</label>   

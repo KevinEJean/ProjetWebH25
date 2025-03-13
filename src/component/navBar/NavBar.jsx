@@ -5,15 +5,17 @@ import { Link } from 'react-router-dom';
 export default function NavBar() {
     return(
         <div className='nav-grid'>
-            
-            <Link to="/"><button>Home</button></Link>
-
-            <span class="material-symbols-outlined">
-                <Link to="/search"><button>Search</button></Link>
-            </span>
-            <span class="material-symbols-outlined">
-                <Link to="/movies"><button>movies</button></Link>
-            </span>
+            <nav>
+                <a href="#">LOGO</a>
+                <ul class="list">
+                    <Link to="/"><li><a href="#">Home</a></li></Link>
+                    <Link to="/movie"><li><a href="#">Movie</a></li></Link>
+                    <Link to="/test"><li><a href="#">Test</a></li></Link>
+                    <Link to="/serie"><li><a href="#">Serie</a></li></Link>
+                </ul>
+                
+                <Link to="/search"><button class="search">search</button></Link>
+            </nav>
         </div>
     );
 }

@@ -4,8 +4,12 @@ import './Home.css';
 import MovieAddam from '/src/assets/blackaddam.jpg';
 
 import MovieCard from '../movieCard/MovieCard';
+import VideoBackground from '/src/assets/video1.mp4';
+
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Test from '../movieCard/Test';
+import MainMovieCard from '../movieCard/MainMovieCard';
 
 
 
@@ -57,22 +61,25 @@ function Home() {
     return (
         
         <div className="containerHome">
-            
-                {/*/////////////// Caroussel */}
-                <div className="carouselBox">   
+            {/* <div className="carouselBox">   
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src={MovieAddam} alt="black Adam" className="carousel-img"/>
+                            <img src={MovieAddam} alt="black Adam" className="carousel-img"/> 
+                            <Test url={MovieAddam} title="Black Adam"/>
+
                         </div>
                         {
                             moviesRecent.map((movie, key) => (
                                 <div onClick={() => handleDetail(movie.id, movie.title)} key={key} class="carousel-item">
-                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  alt={movie.title} className="carousel-img"/>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  alt={movie.title} className="carousel-img"/> 
+                                    <Test url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} plot={movie.overview}/>
+                                    
                                 </div>
                             ))
                         }
                     </div>
+
 
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -85,7 +92,18 @@ function Home() {
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+            </div>  */}
+
+            <div className="content-main-movie">
+                {
+                    moviesRecent.map((movie, key) => (
+                        <div onClick={() => handleDetail(movie.id, movie.title)} key={key}>
+                            <MainMovieCard url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} plot={movie.overview} lang={movie.original_language} year={movie.release_date.split('-')[0]}/>
+                        </div>
+                    ))
+                }
             </div>
+            
             
             <hr />
             <h3 style={{float:"left"}}>Top rated Movie</h3>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './DetailMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import blackAdam from '/src/assets/blackaddam.jpg';
+// import blackAdam from '/src/assets/blackaddam.jpg';
 import MovieCard from '../movieCard/MovieCard';
+import VideoBackground from '/src/assets/video1.mp4';
+
 
 ////// Api de OMDB pour récupération des info/////////////////////////
 const API_KEY_OMDB = "a34708ad"; 
@@ -102,7 +104,8 @@ function DetailMovie() {
     if (!movieActors) return <p>Actors information is loading...</p>;
 
     return (
-        <div className="container">
+        <div className="container-detail">
+
                 <div className="movie-detail">
 
                 {/*///////// Movie Info////////////////////////////////////////////// */}
@@ -177,8 +180,6 @@ function DetailMovie() {
 
             {/*///////// Actor Info////////////////////////////////////////////// */}
 
-            {/* <h3>Têtes d'affiche</h3> */}
-            {/* <h3 >Têtes d'affiche</h3> */}
             <div className="container-nav-media">
                 <h3>Tête d'affiche </h3>
                 <div className="nav-media">
@@ -199,9 +200,8 @@ function DetailMovie() {
                         <p>{actor.character}</p>
                         </div>
                     ))
-                // : 
-                // <h1>Aucun Acteur trouvé</h1>
                 }
+                
                 {
                     ongletActor === "Crew" && movieCrew.length > 0 && 
                     movieCrew.map((crew, key) => (
