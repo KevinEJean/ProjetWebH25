@@ -1,12 +1,15 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import SearchMovie from './component/Search/SearchMovie';
+import SearchMovie from './component/search/SearchMovie';
 import DetailMovie from './component/detailMovie/DetailMovie';
 import NavBar from './component/navBar/NavBar';
 import NotFoundPage from './component/NotFoundPage';
 import MoviePage from './component/movie/MoviePage'
 import Home from './component/home/Home';
 import MainMovieCard from './component/movieCard/MainMovieCard';
+import Profil from './component/profil/Profil';
+import LogIn from './component/profil/logIn/LogIn';
+import SignIn from './component/profil/signIn/SignIn';
 import VideoBackground from '/src/assets/video1.mp4';
 
 function App() {
@@ -24,7 +27,9 @@ function App() {
         <Route path='/detail/:id/:title' element={<DetailMovie/>}/>  
         <Route path='/movie' element={<MoviePage />}/>  
         <Route path='/test' element={<MainMovieCard />}/>  
-        {/* <Route path='/movies' element={<MoviePage/>}/>   */}
+        <Route path='/profil' element={<Profil/>}/>
+        <Route path='/logIn' element={<LogIn/>}/>
+        <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>

@@ -9,9 +9,11 @@ export default function NavBar() {
                 <a href="#">LOGO</a>
                 <ul class="list">
                     <Link to="/"><li><a href="#">Home</a></li></Link>
-                    <Link to="/movie"><li><a href="#">Movie</a></li></Link>
+                    <Link to="/movie"><li><a href="#">Movies</a></li></Link>
                     <Link to="/test"><li><a href="#">Test</a></li></Link>
                     <Link to="/serie"><li><a href="#">Serie</a></li></Link>
+                    <Link to="/profil"><li><a href="#">Profil</a></li></Link>
+                    <Link to="/setting"><li><a href="#">Settings</a></li></Link>
                 </ul>
                 
                 <Link to="/search"><button class="search">search</button></Link>

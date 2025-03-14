@@ -1,0 +1,46 @@
+.form-grid-logIn {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-row-gap: 13px;
+    background-color: rgb(54, 53, 53);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.form-grid-logIn h4 {
+    text-align: left;
+    color: white;
+    margin: 5px 0 0 0;
+}
+
+.form-grid-logIn input {
+    background-color: rgb(41, 41, 41);
+    box-shadow: 0 4px 10px rgb(41, 41, 41);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+button {
+    background-color: rgb(41, 41, 41);
+    margin-right: 10px;
+    box-shadow: 0 4px 10px rgb(41, 41, 41);
+    border: none;
+}
+
+button:hover {
+    box-shadow: 0 4px 10px lightslategrey;
+}
+
+p {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+p:hover {
+    color: cornflowerblue;
+}
