@@ -10,6 +10,8 @@ import MainMovieCard from './component/movieCard/MainMovieCard';
 import Profil from './component/profil/Profil';
 import LogIn from './component/profil/logIn/LogIn';
 import SignIn from './component/profil/signIn/SignIn';
+import ForgotPassword from './component/profil/resetPassword/forgotPassword/ForgotPassword';
+import ResetPage from './component/profil/resetPassword/ResetPage';
 import VideoBackground from '/src/assets/video1.mp4';
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path='/profil' element={<Profil/>}/>
         <Route path='/logIn' element={<LogIn/>}/>
         <Route path='/signIn' element={<SignIn/>}/>
+        <Route path='/forgotPassword' element={<ForgotPassword/>}/>
+        <Route path='/resetPassword' element={<ResetPage/>}/>
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>

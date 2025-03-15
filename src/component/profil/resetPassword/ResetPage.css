@@ -1,0 +1,9 @@
+.form-grid-1x2 h1 {
+    color: #FFFFFF;
+    opacity: 25%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.info-text:hover {
+    text-decoration: none;
+}

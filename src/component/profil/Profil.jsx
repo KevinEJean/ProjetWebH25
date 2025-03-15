@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import addAvatar from "./signIn/SignIn";
 import "./Profil.css";
 
 export default function Profil() {
@@ -11,6 +10,10 @@ export default function Profil() {
                 // getMapping(/user/byId)
                     // input.value = fname, etc
             // else to LogIn
+    }
+
+    function addAvatar() {
+        // change picture
     }
 
     function handleLogOut() {
@@ -25,6 +28,7 @@ export default function Profil() {
 
     return(
         <div className="form-grid">
+            <h1>PROFIL</h1>
             <span class="material-symbols-outlined avatar">
                 account_circle
             </span>
@@ -39,15 +43,15 @@ export default function Profil() {
             <form>
                 <h4>Last Name</h4>
                 <input type="text" id="lname" readOnly/>
-                <h4>Adress</h4>
-                <input type="text" id="address" readOnly/>
+                <h4>Username</h4>
+                <input type="text" id="username" readOnly/>
                 <h4>Confirm Password</h4>
                 <input type="password" id="passwdVerif" readOnly/>
             </form>
             <p onClick={addAvatar()}>change picture?</p>
             <p onClick={handleLogOut()} style={{textAlign: "left"}}>log out</p>
             <div>
-                <button onClick={allowUpdate()} style={{color: "grey"}}>Update</button>
+                <button className="yesBTN" onClick={allowUpdate()} style={{color: "green", marginRight: "10px",}}>Update</button>
                 <Link to={"/"}><button style={{color: "red"}}>Cancel</button></Link>
             </div>
         </div>
