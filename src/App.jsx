@@ -12,6 +12,7 @@ import LogIn from './component/profil/logIn/LogIn';
 import SignIn from './component/profil/signIn/SignIn';
 import ForgotPassword from './component/profil/resetPassword/forgotPassword/ForgotPassword';
 import ResetPage from './component/profil/resetPassword/ResetPage';
+import Setting from './component/settings/Setting';
 import VideoBackground from '/src/assets/video1.mp4';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/forgotPassword' element={<ForgotPassword/>}/>
         <Route path='/resetPassword' element={<ResetPage/>}/>
+        <Route path='/setting' element={<Setting/>}/>
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>
