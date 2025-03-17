@@ -14,16 +14,16 @@ export default function SignIn() {
             <h1>SIGN IN</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" id="username"/>
+                <input type="text" id="username" placeholder="myUser-Name_"/>
                 <p className="info-text">cannot be changed later</p>
                 <h4>Password</h4>
                 <input type="password" id="passwd"/>
-                <p className="info-text">1-18 charachters & no special charachters</p>
+                <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
                 <h4>Email</h4>
                 <input type="text" id="email"/>
-                <p className="info-text">contain '@' and '.'</p>
+                <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
                 <input type="password" id="passwdVerif"/>
             </form>

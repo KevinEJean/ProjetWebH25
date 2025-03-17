@@ -82,3 +82,12 @@
     font-size: 15px;
 }
 
+
+/* DESIGN SUPPLÉMENTAIRE DE LA PAGINATIO */
+/*
+    L'utilisateur peut écrire directement une page
+*/
+
+.page-selector {
+    max-width: 50px;
+}
