@@ -21,6 +21,8 @@
 # ✏️ Architcture
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
+  ### Logiciel de testage
+  [Postman](https://www.postman.com/explore)
 
 # 🧰 Fonctionnalité
   - Recherche des films par titre
