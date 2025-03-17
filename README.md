@@ -22,7 +22,7 @@
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
   ### Logiciel de testage
-  [Postman](https://www.postman.com/explore)
+  - [Postman](https://www.postman.com/explore) pour les API
 
 # 🧰 Fonctionnalité
   - Recherche des films par titre
