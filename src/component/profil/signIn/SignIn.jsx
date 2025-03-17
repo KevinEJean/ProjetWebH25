@@ -6,6 +6,7 @@ export default function SignIn() {
 
     function save() {
         // postMapping(/user/add)
+        location.href = 'logIn';
     }
 
     return(
@@ -28,7 +29,7 @@ export default function SignIn() {
             </form>
             <Link to={"/logIn"}><p style={{textAlign: "left"}}>Already have an account?</p></Link>
             <div>
-                <button onClick={save()} style={{color: "green", marginRight: "10px"}}>Sign In</button>
+                <button onClick={(e) => save()} style={{color: "green", marginRight: "10px"}}>Sign In</button>
                 <Link to={"/"}><button style={{color: "red"}}>Cancel</button></Link>
             </div>
         </div>

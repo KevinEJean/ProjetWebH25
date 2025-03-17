@@ -4,8 +4,9 @@ import './LogIn.css';
 
 export default function LogIn() {
 
-    function save() {
-        // postMapping(/user/add)
+    function login() {
+        // login user
+        location.href = 'profil';
     }
 
     return(
@@ -20,7 +21,7 @@ export default function LogIn() {
             </form>
             <Link to={"/signIn"}><p>Don't have an account?</p></Link>
             <div>
-                <button onClick={save()} style={{color: "green", marginRight: "10px"}}>Log In</button>
+                <button onClick={(e) => login()} style={{color: "green", marginRight: "10px"}}>Log In</button>
                 <Link to={"/"}><button style={{color: "red"}}>Cancel</button></Link>
             </div>
         </div>
