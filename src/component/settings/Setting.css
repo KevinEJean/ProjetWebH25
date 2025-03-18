@@ -1,9 +1,32 @@
 .setting {
+    position: absolute;
     display: grid;
+    left: 2em;
+    right: 2em;
+    top: 6em;
 }
 
 .setting h1 {
     color: lightgrey;
     padding-bottom: 10px;
     border-bottom: 1px solid red;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.setting p {
+    text-decoration: none;
+    text-align: justify;
+}
+
+.setting p:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.setting .theme-grid {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 50px;
+    grid-column-gap: 10px;
 }
