@@ -24,7 +24,7 @@ public class ClientController {
     }
 
     @GetMapping("/remove")
-    public String remove(@RequestBody Client client) {
+    public String remove(@RequestBody Client client) { // arguments must be String username & String password (easier to getMapping)
         client.setActive(false);
         return "Client removed!";
     }
