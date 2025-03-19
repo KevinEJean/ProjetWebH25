@@ -11,7 +11,7 @@ export default function ForgotPassword() {
         codeInput.readOnly = false;
 
         // if code.value = code
-            // window.location.href = 'resetPassword';
+        location.href = 'resetPassword';
     }
 
     return (

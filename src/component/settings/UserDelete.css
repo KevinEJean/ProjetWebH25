@@ -1,0 +1,60 @@
+.user-delete-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    background-color: rgb(54, 53, 53);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.user-delete-grid h1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    color: #FFFFFF;
+    opacity: 25%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.user-delete-grid h4 {
+    text-align: left;
+    color: white;
+    margin: 5px 0 0 0;
+}
+
+.user-delete-grid input {
+    background-color: rgb(41, 41, 41);
+    box-shadow: 0 4px 10px rgb(41, 41, 41);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 400px;
+}
+
+.user-delete-grid button {
+    width: 100px;
+}
+
+.critical-info {
+    text-decoration: none;
+    color: red;
+}
+
+.critical-info:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.show_icon {
+    color: #FFFFFF;
+    opacity: 25%;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.show_icon:hover {
+    color: black;
+    opacity: 100%;
+    font-size: 22px;
+    transition: 0.4s ease;
+}

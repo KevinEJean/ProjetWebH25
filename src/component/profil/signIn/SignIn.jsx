@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import './SignIn.css';
 
 export default function SignIn() {
+
+    const [show, setShow] = useState();
 
     function save() {
         // postMapping(/user/add)
@@ -16,8 +18,13 @@ export default function SignIn() {
                 <h4>Username</h4>
                 <input type="text" id="username" placeholder="myUser-Name_"/>
                 <p className="info-text">cannot be changed later</p>
-                <h4>Password</h4>
-                <input type="password" id="passwd"/>
+                <h4>
+                    Password
+                    <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
+                        visibility
+                    </span>
+                </h4>
+                <input type={show ? "text" : "password"} id="passwd"/>
                 <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
@@ -25,7 +32,7 @@ export default function SignIn() {
                 <input type="text" id="email"/>
                 <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
-                <input type="password" id="passwdVerif"/>
+                <input type={show ? "text" : "password"} id="passwdVerif"/>
             </form>
             <Link to={"/logIn"}><p style={{textAlign: "left"}}>Already have an account?</p></Link>
             <div>
