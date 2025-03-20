@@ -7,7 +7,7 @@
     background-color: rgb(54, 53, 53);
     padding: 20px;
     border-radius: 20px;
-    width: 100%;
+    width: 50%;
 }
 
 .form-grid h4 {
@@ -34,28 +34,28 @@
     width: 230px;
 }
 
-.avatar {
+.form-grid .avatar {
     font-size: 200px;
     width: 100%;
     height: 100%;
 }
 
-button {
+.form-grid button {
     background-color: rgb(41, 41, 41);
     margin: 0;
     box-shadow: 0 4px 10px rgb(41, 41, 41);
     border: none;
 }
 
-button:hover {
+.form-grid button:hover {
     box-shadow: 0 4px 10px lightslategrey;
 }
 
-p {
+.form-grid p {
     color: white;
     text-decoration: underline;
 }
 
-p:hover {
+.form-grid p:hover {
     color: cornflowerblue;
 }

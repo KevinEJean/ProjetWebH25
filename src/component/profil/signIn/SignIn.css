@@ -34,7 +34,7 @@
     width: 230px;
 }
 
-.info-text {
+.form-grid-signIn .info-text {
     color: yellow;
     text-align: left;
     text-decoration: none;
@@ -42,26 +42,26 @@
     padding: 5px;
 }
 
-.info-text:hover {
+.form-grid-signIn .info-text:hover {
     color: yellow;
     text-decoration: underline;
 }
 
-button {
+.form-grid-signIn button {
     background-color: rgb(41, 41, 41);
     box-shadow: 0 4px 10px rgb(41, 41, 41);
     border: none;
 }
 
-button:hover {
+.form-grid-signIn button:hover {
     box-shadow: 0 4px 10px lightslategrey;
 }
 
-p {
+.form-grid-signIn .p {
     color: white;
     text-decoration: underline;
 }
 
-p:hover {
+.form-grid-signIn p:hover {
     color: cornflowerblue;
 }

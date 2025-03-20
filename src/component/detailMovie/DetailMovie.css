@@ -3,7 +3,9 @@
 
 .container-detail {
     border: 2px solid;
-    margin-top: 100px;
+    margin-top: 80px;
+    width: 80%;
+
 }
 
 
@@ -15,7 +17,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-top: 3px solid rgb(227, 222, 222);
     border-bottom: 3px solid rgb(227, 222, 222);
-    width: 1100px;
+    width: 100%;
     border-radius: 20px;
     padding: 10px;
     height: 600px;
@@ -27,7 +29,7 @@
 }
 
 .movie-detail:hover {
-    transform: scale(1.02);
+    transform: scale(1.009);
 }
 
 
@@ -37,7 +39,7 @@
     /* border: 2px solid red;  */
     box-shadow: 2px 2px 2px 2px rgb(95, 95, 95);
     border-radius: 10px ;
-    width: 400px;
+    width: 500px;
     height: 100%;
     background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
     transition: transform 0.3s ease-in-out;
@@ -52,7 +54,6 @@
 /*///////////////////// container movie Info //////////////////////////////*/
 
 .movie-detail .movie-info {
-    
     /* border: 2px solid; */
     width: 100%;
     height: 580px;
@@ -90,11 +91,15 @@
 /*//////// Content Info //////////////////////////////////////////////*/
 .movie-detail .movie-info .content-info {
     display: block;
-    text-align: justify;
+    text-align: left;
     padding: 10px;
     max-height: 95%;
     border: 2px solid;
     overflow-y: scroll; 
+}
+.movie-detail .movie-info .content-info p{
+    text-decoration: none;
+    text-align: left;
 }
 
 .movie-detail .movie-info .content-info .rate{
@@ -176,7 +181,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    width: 1100px;
+    width: 100%;
     height: 400px; 
     overflow-x: auto;
     overflow-y: hidden;
@@ -184,6 +189,7 @@
 .container-detail .content-actor .card-actor {
     position: relative;
     z-index: 1;
+    
     /* border: 2px solid green;  */
     border-radius: 10px;
     background-color: rgb(230, 222, 222);
@@ -194,6 +200,7 @@
 .container-detail .content-actor .card-actor strong {
     cursor: pointer;
 }
+
 .container-detail .content-actor .card-actor strong:hover {
     color: grey;
 }
@@ -201,6 +208,12 @@
 .container-detail .content-actor .card-actor img {
     /* border: 2px solid white; */
     border-radius: 10px 10px 0px 0px;
+    cursor: pointer;
+}
+.container-detail .content-actor .card-actor p {
+    /* border: 2px solid white; */
+    text-decoration: none;
+    color: grey;
     cursor: pointer;
 }
 .container-detail .content-actor .card-actor:hover{
@@ -221,7 +234,7 @@
     display: flex;
     color: white;
     gap: 60px;
-    margin-right: 600px;
+    margin-right: 1000px;
     align-items: center;
 }
 
@@ -239,9 +252,10 @@
 
 
 .container-detail .media {
-    border: 2px solid;
+    /* margin-left: 300px; */
+    /* border: 2px solid yellow; */
     display: flex;
-    width: 1100px;
+    width: 100%;
     height: 400px;
     overflow: auto;
 }
@@ -258,6 +272,7 @@
 }
 
 .container-detail .media iframe {
+    border: 2px solid;
     width: 700px;
     height: 100%;
 }
@@ -270,7 +285,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 1100px;
+    width: 100%;
     height: 100%; 
     overflow-x: auto;
 }

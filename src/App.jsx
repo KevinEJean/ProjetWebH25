@@ -14,15 +14,14 @@ import ForgotPassword from './component/profil/resetPassword/forgotPassword/Forg
 import ResetPage from './component/profil/resetPassword/ResetPage';
 import Setting from './component/settings/Setting';
 import UserDelete from './component/settings/UserDelete';
-import VideoBackground from '/src/assets/video1.mp4';
 
 function App() {
 
   return (
       <>
-       <video autoPlay loop muted playsInline>
+       {/* <video autoPlay loop muted playsInline>
           <source src={VideoBackground} type="video/mp4"/>
-      </video>
+      </video> */}
     <BrowserRouter>
       <NavBar />
       <Routes>

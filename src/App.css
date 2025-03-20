@@ -1,8 +1,16 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* p {
+  text-decoration: none;
 }
 
 /*///////////////// video image /////////////////*/
@@ -23,6 +31,7 @@ h1,h2, h3 {
   position: relative;
   z-index: 1;
 }
+
 
 .logo {
   height: 6em;

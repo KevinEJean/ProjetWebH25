@@ -61,19 +61,21 @@ function Home() {
     return (
         
         <div className="containerHome">
-            {/* <div className="carouselBox">   
+            <div className="carouselBox">   
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src={MovieAddam} alt="black Adam" className="carousel-img"/> 
-                            <Test url={MovieAddam} title="Black Adam"/>
+                            {/* <Test url={MovieAddam} title="Black Adam"/> */}
 
                         </div>
                         {
                             moviesRecent.map((movie, key) => (
                                 <div onClick={() => handleDetail(movie.id, movie.title)} key={key} class="carousel-item">
-                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  alt={movie.title} className="carousel-img"/> 
-                                    <Test url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} plot={movie.overview}/>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}  alt={movie.title} className="carousel-img"/>  
+                                    {/* <Test url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} plot={movie.overview}/>  */}
+                                    
+                                    {/* <MainMovieCard url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} plot={movie.overview} lang={movie.original_language} year={movie.release_date.split('-')[0]}/> */}
                                     
                                 </div>
                             ))
@@ -92,8 +94,8 @@ function Home() {
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>  */}
-
+            </div> 
+{/* 
             <div className="content-main-movie">
                 {
                     moviesRecent.map((movie, key) => (
@@ -103,7 +105,7 @@ function Home() {
                     ))
                 }
             </div>
-            
+             */}
             
             <hr />
             <h3 style={{float:"left"}}>Top rated Movie</h3>

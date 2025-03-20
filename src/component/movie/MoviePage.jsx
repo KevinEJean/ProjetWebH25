@@ -125,7 +125,7 @@ function MoviePage() {
                     <FaRegArrowAltCircleLeft id='left' 
                     onClick={page > 1 ? () => setPage(page - 1) : () => setPage(1)} /> 
 
-                    <h4>{page}/<input className='page-selector' maxLength={3} min={1} max={215} onChange={(e) => setPage(this.value)}></input>/{maxPage}</h4>
+                    <h4>{page}/{maxPage}</h4>
 
                     <FaRegArrowAltCircleRight id='right' 
                     onClick={page <= maxPage ? () => setPage(page + 1) : () => setPage(maxPage)} /> 
