@@ -34,7 +34,7 @@
     width: 230px;
 }
 
-.form-grid-signIn .info-text {
+.info-text {
     color: yellow;
     text-align: left;
     text-decoration: none;
@@ -42,7 +42,7 @@
     padding: 5px;
 }
 
-.form-grid-signIn .info-text:hover {
+.info-text:hover {
     color: yellow;
     text-decoration: underline;
 }
@@ -57,7 +57,7 @@
     box-shadow: 0 4px 10px lightslategrey;
 }
 
-.form-grid-signIn .p {
+.form-grid-signIn p {
     color: white;
     text-decoration: underline;
 }

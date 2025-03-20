@@ -45,23 +45,23 @@
     color: yellow;
 }
 
-button {
+.form-grid-logIn button {
     background-color: rgb(41, 41, 41);
     margin: 0;
     box-shadow: 0 4px 10px rgb(41, 41, 41);
     border: none;
 }
 
-button:hover {
+.form-grid-logIn button:hover {
     box-shadow: 0 4px 10px lightslategrey;
 }
 
-p {
+.form-grid-logIn p {
     color: white;
     text-align: center;
     text-decoration: underline;
 }
 
-p:hover {
+.form-grid-logIn p:hover {
     color: cornflowerblue;
 }
