@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './DetailMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
 // import blackAdam from '/src/assets/blackaddam.jpg';
@@ -28,6 +28,16 @@ function DetailMovie() {
     const [movieImages, setMovieImages] = useState(null)
     const [movieVideos, setMovieVideos] = useState(null)
     const navigate = useNavigate();
+
+
+    //  reload la page quand elle est ouvert (bug fix)
+    var count = true;
+    window.onload = function () {
+        if (count) {
+            count = false;
+            window.location.reload();
+        }
+    }
 
     const handleDetail = (id,title) => {
         navigate(`/detail/${id}/${title}`);

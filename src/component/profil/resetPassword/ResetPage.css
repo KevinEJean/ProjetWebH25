@@ -4,6 +4,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.info-text:hover {
-    text-decoration: none;
+.form-grid-1x2  .alt-info {
+    color: yellow;
+    opacity: 100%;
 }

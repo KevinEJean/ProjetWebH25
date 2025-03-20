@@ -24,7 +24,7 @@ export default function LogIn() {
                     </span>
                 </h4>
                 <input type={show ? "text" : "password"} id="passwd"/>
-                <Link to={"/forgotPassword"}><p className="info">reset password?</p></Link>
+                <Link to={"/forgotPassword"}><p className="info" style={{textAlign: "right"}}>reset password?</p></Link>
             </form>
             <Link to={"/signIn"}><p>Don't have an account?</p></Link>
             <div>

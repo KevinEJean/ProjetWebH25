@@ -6,7 +6,6 @@
     background-color: rgb(54, 53, 53);
     padding: 20px;
     border-radius: 20px;
-    width: 100%;
 }
 
 .user-delete-grid h1 {
@@ -32,13 +31,14 @@
     width: 400px;
 }
 
-.user-delete-grid button {
+.user-delete-grid button { /* change */
     width: 100px;
+    background-color: rgb(41, 41, 41);
 }
 
 .critical-info {
     text-decoration: none;
-    color: red;
+    color: tomato;
 }
 
 .critical-info:hover {

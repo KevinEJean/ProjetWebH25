@@ -18,7 +18,7 @@ export default function ResetPassword() {
     return (
         <div className="form-grid-1x2">
             <h1>PASSWORD RESET</h1>
-            <p className="info-text">Cannot contain any special characters and must be between 5 - 16 letters or numbers</p>
+            <p className="alt-info">Cannot contain any special characters and must be between 5 - 16 letters or numbers</p>
             <form className="form">
                 <h4>
                     Password
