@@ -1,10 +1,16 @@
 package backend.myfilmapp.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import backend.myfilmapp.module.Client;
 import backend.myfilmapp.service.ClientService;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/client")
@@ -23,11 +29,11 @@ public class ClientController {
         return "New client added!";
     }
 
-    @GetMapping("/remove")
-    public String remove(@RequestBody Client client) { // arguments must be String username & String password (easier to getMapping)
-        client.setActive(false);
-        return "Client removed!";
-    }
+//    @PostMapping("/remove")
+//    public String remove(@RequestBody Client client) {
+//        client.setActive(false);
+//        return "Client removed!";
+//    }
 
     @GetMapping("/getAll")
     public List<Client> getAll() {
@@ -38,4 +44,38 @@ public class ClientController {
     public Client byId(@RequestBody int id) {
         return service.getClientById(id);
     }
+
+    @GetMapping("/byUsername")
+    public Client byUsername(@RequestBody String username) {
+        return service.getClientByUsername(username);
+    }
+
+    @GetMapping("/byEmail")
+    public Client byEmail(@RequestBody String email) {
+        return service.getClientByEmail(email);
+    }
+
+    // @PostMapping("/updatePassword")
+    // public String updatePassword(@RequestBody String username, String passwd) {
+    //     service.updateClientPassword(username, passwd);
+    //     return "New password saved!";
+    // }
+
+//    @PostMapping("/updateFname")
+//    public String updateFname(@RequestBody String username, String fname) {
+//        service.updateClientFname(username, fname);
+//        return "New first name saved!";
+//    }
+
+//    @PostMapping("/updateLname")
+//    public String updateLname(@RequestBody String username, String lname) {
+//        service.updateClientLname(username, lname);
+//        return "New password saved!";
+//    }
+
+    // @PostMapping("/resetPassword")
+    // public String resetPassword(@RequestBody String email, String newPassword) {
+    //     service.resetPassword(email, newPassword);
+    //     return "New password has been reset!";
+    // }
 }

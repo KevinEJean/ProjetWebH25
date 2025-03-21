@@ -1,9 +1,9 @@
 package backend.myfilmapp.module;
 
 import jakarta.persistence.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Client {
 
     @Id
@@ -12,9 +12,6 @@ public class Client {
 
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
-
-    @Column(columnDefinition = "varchar(16) NOT NULL CHECK (passwd <> '' AND passwd LIKE '______%')")
-    private String passwd;
 
     @Column(unique = true, columnDefinition = "varchar(20)")
     private String username;
@@ -28,13 +25,18 @@ public class Client {
     @Column(columnDefinition ="BOOLEAN DEFAULT true")
     private boolean active = true;
 
-    
 
-    public Client(int id, String email, String passwd) {
-        this.id = id;
+
+
+
+    public Client(String username, String email) {
+        this.username = username;
         this.email = email;
-        this.passwd = passwd;
     }
+
+
+
+
 
     public Client() {}
 
@@ -52,14 +54,6 @@ public class Client {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
     }
 
     public String getEmail() {
