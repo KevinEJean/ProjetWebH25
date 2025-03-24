@@ -17,7 +17,11 @@ public class ClientService {
     }
 
     public void saveClient(Client client) {
-        rep.save(client);
+        if (rep.findAll().contains(client)) {
+            client.setActive(true);
+        } else {
+            rep.save(client);
+        }
     }
 
     public List<Client> getAllClient() {
@@ -36,23 +40,28 @@ public class ClientService {
         return rep.getClientByEmail(email);
     }
 
-    // public void updateClientPassword(String username, String password) {
-    //     Client client = rep.getClientByUsername(username);
-    //     client.setPasswd(password);
-    // }
+    public void removeClient(String username) {
+        Client client = rep.getClientByUsername(username);
+        client.setActive(false);
+    }
 
-//    public void updateClientFname(String username, String fname) {
-//        Client client = rep.getClientByUsername(username);
-//        client.setFname(fname);
-//    }
+    public void updateClientFname(String username, String fname) {
+        Client client = rep.getClientByUsername(username);
+        client.setFname(fname);
+    }
 
-//    public void updateClientLname(String username, String lname) {
-//        Client client = rep.getClientByUsername(username);
-//        client.setLname(lname);
-//    }
+    public void updateClientLname(String username, String lname) {
+        Client client = rep.getClientByUsername(username);
+        client.setLname(lname);
+    }
 
-    // public void resetPassword(String email, String newPassword) {
-    //     Client client = rep.getClientByEmail(email);
-    //     client.setPasswd(newPassword);
-    // }
+    public void updateClientEmail(String username, String email) {
+        Client client = rep.getClientByUsername(username);
+        client.setEmail(email);
+    }
+
+    public void updateClientPassword(String username, String password) {
+        Client client = rep.getClientByUsername(username);
+        client.setPassword(password);
+    }
 }

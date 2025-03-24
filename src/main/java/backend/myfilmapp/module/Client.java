@@ -13,8 +13,11 @@ public class Client {
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
-    @Column(unique = true, columnDefinition = "varchar(20)")
+    @Column(unique = true, updatable = false, nullable = false, columnDefinition = "varchar(20)")
     private String username;
+
+    @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
+    private String password;
 
     @Column(columnDefinition = "varchar(20)")
     private String lname;
@@ -29,9 +32,10 @@ public class Client {
 
 
 
-    public Client(String username, String email) {
+    public Client(String username, String email, String password) {
         this.username = username;
         this.email = email;
+        this.password = password;
     }
 
 
@@ -54,6 +58,14 @@ public class Client {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

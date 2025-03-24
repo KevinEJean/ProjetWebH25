@@ -1,10 +1,7 @@
 package backend.myfilmapp.module;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Entity
 public class Favorite {
@@ -13,39 +10,18 @@ public class Favorite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int favorite_id;
 
-    @OneToOne
+    @ManyToOne
     private Client client_username;
 
-    @OneToOne
-    private MovieSerie movieSerie_id;
+    @ManyToOne
+    private MovieSerie movie_id;
+
+    @JoinColumn(name = "favorite_movieTitle", columnDefinition = "varchar(255) NOT NULL")
+    private String movieTitle;
 
 
 
 
 
     public Favorite() {}
-
-    public int getFavorite_id() {
-        return favorite_id;
-    }
-
-    public void setFavorite_id(int favorite_id) {
-        this.favorite_id = favorite_id;
-    }
-
-    public Client getClient_username() {
-        return client_username;
-    }
-
-    public void setClient_username(Client client_username) {
-        this.client_username = client_username;
-    }
-
-    public MovieSerie getMovieSerie_id() {
-        return movieSerie_id;
-    }
-
-    public void setMovieSerie_id(MovieSerie movieSerie_id) {
-        this.movieSerie_id = movieSerie_id;
-    }
 }

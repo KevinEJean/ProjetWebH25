@@ -18,13 +18,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpServerErrorException.InternalServerError.class)
     public ResponseEntity<Object> handleInternalServerError(HttpServerErrorException.InternalServerError ex, WebRequest request) {
         logger.error("Interbal Server Occured: {}, Request Details:  {}", ex.getMessage(), request.getDescription(false), ex);
-        return new ResponseEntity<>("Assurer vous que l'email et le password respecte les contraintes. Sinon, il se peut qu'il y ait un problème avec nos serveurs, enovyé nous une signalisation au : filmApp@gmail.com", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Make sure you meet the requirements. If not, our servers might be experiencing some issues, please try again later, sorry!", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
         // Log specific exception
         logger.error("Invalid argument: {}, Request Details: {}", ex.getMessage(), request.getDescription(false), ex);
-        return new ResponseEntity<>("Argument invalide, essayer encore.", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Some arguments are invalid, try again.", HttpStatus.BAD_REQUEST);
     }
 }

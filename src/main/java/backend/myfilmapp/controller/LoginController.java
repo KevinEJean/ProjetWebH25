@@ -1,8 +1,6 @@
 package backend.myfilmapp.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import backend.myfilmapp.service.LoginService;
 
@@ -17,14 +15,20 @@ public class LoginController {
         this.service = service;
     }
 
-    // @PostMapping("/login")
-    // public Boolean Login(@RequestBody String username, String password) {
-    //     return service.LoginUser(username, password);
-    // }
+    @PostMapping("/logout")
+    public String LogOut() {
+        service.LogOut();
+        return "Logged out. Bye!";
+    }
 
-    // @PostMapping
-    // public String SignIn(@RequestBody String username, String email, String password) {
-    //     service.SignInUser(username, email, password);
-    //     return "New user saved";
-    // }
+     @PostMapping("/login")
+     public Boolean Login(@RequestBody String username, @RequestBody String password) {
+         return service.LoginUser(username, password);
+     }
+
+     @PostMapping("/signin")
+     public String SignIn(@RequestBody String username, @RequestBody String email, @RequestBody String password) {
+         service.SignInUser(username, email, password);
+         return "New user saved";
+     }
 }
