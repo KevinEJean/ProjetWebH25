@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import SearchMovie from './component/search/SearchMovie';
+import SearchMovie from './component/Search/SearchMovie';
 import DetailMovie from './component/detailMovie/DetailMovie';
 import NavBar from './component/navBar/NavBar';
 import NotFoundPage from './component/NotFoundPage';
@@ -14,6 +14,7 @@ import ForgotPassword from './component/profil/resetPassword/forgotPassword/Forg
 import ResetPage from './component/profil/resetPassword/ResetPage';
 import Setting from './component/settings/Setting';
 import UserDelete from './component/settings/UserDelete';
+import VideoBackground from "/src/assets/video1.mp4";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       <>
        {/* <video autoPlay loop muted playsInline>
           <source src={VideoBackground} type="video/mp4"/>
-      </video> */}
+      </video>  */}
     <BrowserRouter>
       <NavBar />
       <Routes>

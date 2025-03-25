@@ -3,7 +3,6 @@ import './DetailMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
 // import blackAdam from '/src/assets/blackaddam.jpg';
 import MovieCard from '../movieCard/MovieCard';
-import VideoBackground from '/src/assets/video1.mp4';
 
 
 ////// Api de OMDB pour récupération des info/////////////////////////

@@ -1,7 +1,9 @@
 .containerSearch {
         border-left: 2px solid;   
         border-right: 2px solid;   
-        width: 80%;
+
+        /*temporaire le temp de changer l'adaptabilité*/
+        width: 100%;
         margin-top: 80px;
         border-radius: 20px;
         /* min-height: 100vh; */
@@ -59,3 +61,13 @@
     border: 2px solid;
   
 }
+
+
+
+
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////*/

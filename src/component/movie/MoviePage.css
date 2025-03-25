@@ -2,7 +2,9 @@
     margin-top: 80px;
     border: 2px solid;
     border-radius: 20px;
-    width: 80%;
+    
+    /*temporaire le temp de changer l'adaptabilité*/
+    width: 100%;
     color: white;
 }
 
