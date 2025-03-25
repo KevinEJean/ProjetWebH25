@@ -1,16 +1,28 @@
 import React, { useState } from "react";
-import { Link    } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import $ from jquery;
 import './Setting.css';
 
 export default function Setting() {
 
-    const [color, setColor] = useState(true);
-    let newColor = "lightgrey";
-
     function colorPicker(thisColor) { // to be continued
-        if (color == true) {
-            newColor = thisColor;
+        var allH1Titles = document.getElementsByTagName("h1");
+        // var allH2Titles = ;
+        // var allH3Titles = ;
+
+        for (let i = 0; i < allH1Titles.length; i++) {
+            allH1Titles[i].style.color == thisColor;
         }
+
+        // for (let i = 0; i < allH2Titles.length; i++) {
+        //     allH2Titles[i].style.color == thisColor;
+        //     console.log("H2 : " + allH2Titles[i].textContent);
+        // }
+
+        // for (let i = 0; i < allH3Titles.length; i++) {
+        //     allH3Titles[i].style.color == thisColor;
+        //     console.log("H3 : " + allH3Titles[i].textContent);
+        // }
     }
 
     function copy() {
@@ -26,7 +38,7 @@ export default function Setting() {
     return(
         <div className="setting">
             <div className="theme-group">
-                <h1 style={{color: color ? colorPicker.newColor : "lightgrey"}}>Theme Preferences</h1>
+                <h1>Theme Preferences</h1>
                 <div className="theme-grid">
                     <button onClick={(event) => colorPicker("lightgrey")} style={{color: "lightgrey"}}>default</button>
                     <button onClick={(event) => colorPicker("red")} style={{color: "red"}}>red</button>

@@ -1,5 +1,4 @@
 .setting {
-    position: absolute;
     display: grid;
     left: 2em;
     right: 2em;
@@ -28,5 +27,12 @@
 }
 
 .setting button {
-    
+    background-color: rgb(41, 41, 41);
+    margin: 0;
+    box-shadow: 0 4px 10px rgb(41, 41, 41);
+    border: none; 
+}
+
+.setting button:hover {
+    box-shadow: 0 4px 10px black;
 }

@@ -30,15 +30,6 @@ function DetailMovie() {
     const navigate = useNavigate();
 
 
-    //  reload la page quand elle est ouvert (bug fix)
-    var count = true;
-    window.onload = function () {
-        if (count) {
-            count = false;
-            window.location.reload();
-        }
-    }
-
     const handleDetail = (id,title) => {
         navigate(`/detail/${id}/${title}`);
     };
@@ -92,7 +83,7 @@ function DetailMovie() {
             const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${API_KEY_TMDB}`); 
             const data = await response.json();
             console.log("movie Images: ", data);
-            setMovieImages(data  || []); 
+            setMovieImages(data  || []);
         // }
     };
 
@@ -109,9 +100,29 @@ function DetailMovie() {
     }, [id,title]);
 
 
+    // ############################# BUG FIXES #############################
+
     if (!movieOmdb) return <p>Film information is loading...</p>;
     if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
     if (!movieActors) return <p>Actors information is loading...</p>;
+
+
+    // (bug) la page ne load pas, elle est vide
+    // (solution) reload la page
+    if (window.location.hash != "#loaded") {
+        window.location.hash = "#loaded"
+        window.location.reload();
+    }
+
+    // (bug) image n'existe pas
+    // (solution) remplacer l'image
+    var allImg = document.getElementsByTagName("img");
+    for (let i = 0; i < allImg.length; i++) {
+        if (allImg[i].src.includes(null)) {
+            allImg[i].style.width = "300px";
+            allImg[i].src = '/src/assets/stockAvatar.jpg';
+        }
+    }
 
     return (
         <div className="container-detail">
@@ -169,8 +180,8 @@ function DetailMovie() {
                                 movieActors.length > 0 ? 
                                 movieActors.map((actor, key) => (
                                     <div className='card-actor2' key={key}>
-                                        <img 
-                                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+                                        <img
+                                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
                                         alt={actor.name} 
                                         />
                                         <div className="info">
@@ -191,7 +202,7 @@ function DetailMovie() {
             {/*///////// Actor Info////////////////////////////////////////////// */}
 
             <div className="container-nav-media">
-                <h3>Tête d'affiche </h3>
+                <h3>Tête d'affiche</h3>
                 <div className="nav-media">
                     <a onClick={() => setOngletActor("Cast")}>Cast</a>
                     <a onClick={() => setOngletActor("Crew")}>Crew</a>

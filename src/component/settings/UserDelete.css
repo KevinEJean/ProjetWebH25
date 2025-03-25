@@ -31,9 +31,15 @@
     width: 400px;
 }
 
-.user-delete-grid button { /* change */
-    width: 100px;
+.user-delete-grid button {
     background-color: rgb(41, 41, 41);
+    margin: 0;
+    box-shadow: 0 4px 10px rgb(41, 41, 41);
+    border: none; 
+}
+
+.user-delete-grid button:hover {
+    box-shadow: 0 4px 10px lightslategray;
 }
 
 .critical-info {
