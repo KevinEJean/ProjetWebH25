@@ -21,6 +21,11 @@ public class LoginController {
         return "Logged out. Bye!";
     }
 
+
+    // ========================= ADD @PathVariable =========================
+
+
+
      @PostMapping("/login")
      public Boolean Login(@RequestBody String username, @RequestBody String password) {
          return service.LoginUser(username, password);

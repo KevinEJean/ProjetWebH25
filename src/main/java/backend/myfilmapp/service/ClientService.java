@@ -17,8 +17,8 @@ public class ClientService {
     }
 
     public void saveClient(Client client) {
-        if (rep.findAll().contains(client)) {
-            client.setActive(true);
+        if (client.getUsername() == "logout") {
+            System.console().printf("Name not valid");
         } else {
             rep.save(client);
         }
@@ -43,25 +43,31 @@ public class ClientService {
     public void removeClient(String username) {
         Client client = rep.getClientByUsername(username);
         client.setActive(false);
+        client.setUsername("del-user" + client.getId());
+        rep.save(client);
     }
 
     public void updateClientFname(String username, String fname) {
         Client client = rep.getClientByUsername(username);
         client.setFname(fname);
+        rep.save(client);
     }
 
     public void updateClientLname(String username, String lname) {
         Client client = rep.getClientByUsername(username);
         client.setLname(lname);
+        rep.save(client);
     }
 
     public void updateClientEmail(String username, String email) {
         Client client = rep.getClientByUsername(username);
         client.setEmail(email);
+        rep.save(client);
     }
 
     public void updateClientPassword(String username, String password) {
         Client client = rep.getClientByUsername(username);
         client.setPassword(password);
+        rep.save(client);
     }
 }

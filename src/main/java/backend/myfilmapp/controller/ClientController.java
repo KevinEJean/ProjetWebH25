@@ -50,25 +50,34 @@ public class ClientController {
         return "Client removed!";
     }
 
-    @PutMapping("/updateFname")
-    public String updateFname(@RequestBody String username, @RequestBody String fname) {
+
+
+
+    // ========================= FIX THE @PathVariable =========================
+
+
+
+
+
+    @PutMapping("/updateFname/{username}")
+    public String updateFname(@PathVariable String username, @RequestBody String fname) {
         service.updateClientFname(username, fname);
         return "New first name saved!";
     }
 
-    @PutMapping("/updateLname")
-    public String updateLname(@RequestBody String username, @RequestBody String lname) {
+    @PutMapping("/updateLname/{username}")
+    public String updateLname(@PathVariable String username, @RequestBody String lname) {
         service.updateClientLname(username, lname);
-        return "New last saved!";
+        return "New last name saved!";
     }
 
-    @PutMapping("/updateEmail")
-    public String updateEmail(@RequestBody String username, @RequestBody String email) {
+    @PutMapping("/updateEmail/{username}")
+    public String updateEmail(@PathVariable String username, @RequestBody String email) {
         service.updateClientEmail(username, email);
         return "New email saved!";
     }
 
-    @PutMapping("/updatePassword")
+    @PutMapping("/updatePassword/{username}")
     public String updatePassword(@RequestBody String username, @RequestBody String password) {
         service.updateClientPassword(username, password);
         return "New password saved!";

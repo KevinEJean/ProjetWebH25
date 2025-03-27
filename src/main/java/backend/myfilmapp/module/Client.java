@@ -2,8 +2,9 @@ package backend.myfilmapp.module;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Client {
 
     @Id
@@ -13,7 +14,7 @@ public class Client {
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
-    @Column(unique = true, updatable = false, nullable = false, columnDefinition = "varchar(20)")
+    @Column(unique = true, nullable = false, columnDefinition = "varchar(20)")
     private String username;
 
     @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
@@ -27,6 +28,9 @@ public class Client {
 
     @Column(columnDefinition ="BOOLEAN DEFAULT true")
     private boolean active = true;
+
+    @OneToMany(mappedBy = "client")
+    private List<FavoriteList> favorites;
 
 
 
@@ -98,5 +102,13 @@ public class Client {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<FavoriteList> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<FavoriteList> favorites) {
+        this.favorites = favorites;
     }
 }
