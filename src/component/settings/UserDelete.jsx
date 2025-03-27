@@ -30,7 +30,7 @@ export default function UserDelete() {
             </form>
             <div>
                 <button onClick={(event) => deleteUser()}>Delete</button>
-                <Link to={"/"}><button style={{ color: "red", margin: "10px 0 0 10px"}}>Cancel</button></Link>
+                <Link to={"/setting"}><button style={{ color: "red", margin: "10px 0 0 10px"}}>Cancel</button></Link>
             </div>
         </div>
     )

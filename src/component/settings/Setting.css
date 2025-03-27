@@ -1,7 +1,8 @@
 .setting {
+    position: absolute;
     display: grid;
-    left: 2em;
-    right: 2em;
+    left: 1em;
+    right: 1em;
     top: 6em;
 }
 
@@ -35,4 +36,5 @@
 
 .setting button:hover {
     box-shadow: 0 4px 10px black;
+    transition: ease 0.4s;
 }

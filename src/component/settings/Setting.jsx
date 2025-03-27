@@ -57,18 +57,18 @@ export default function Setting() {
                 <h1>Data</h1>
                 <div style={{display: "flex"}}>
                     <p>This will erase all your data including saved films and series (Non-Reversable)</p>
-                    <button onClick={(event) => dataReset()} style={{marginLeft: "10px", backgroundColor: "red"}}>Reset</button>
+                    <button onClick={(event) => dataReset()} style={{marginLeft: "10px", color: "red"}}>Reset</button>
                 </div>
                 <div style={{display: "flex"}}>
                     <p>This will permanatly erase your account (Non-Reversable)</p>
-                    <Link to="/userDelete"><button style={{marginLeft: "10px", backgroundColor: "red"}}>Delete</button></Link>
+                    <Link to="/userDelete"><button style={{marginLeft: "10px", color: "red"}}>Delete</button></Link>
                 </div>
             </div>
             <div className="contact-group">
                 <h1>Information</h1>
                 <div style={{display: "flex", marginBottom: "50px"}}>
                     <p>Contact Us ?</p>
-                    <button onClick={(event) => copy()} style={{marginLeft: "10px"}}>filmApp@gmail.com</button>
+                    <button onClick={(event) => copy()} style={{marginLeft: "10px", color: "lightgrey"}}>filmApp@gmail.com</button>
                 </div>
             </div>
         </div>

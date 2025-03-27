@@ -115,11 +115,19 @@ function DetailMovie() {
 
     // (bug) image n'existe pas
     // (solution) remplacer l'image
-    var allImg = document.getElementsByTagName("img");
-    for (let i = 0; i < allImg.length; i++) {
-        if (allImg[i].src.includes(null)) {
-            allImg[i].style.width = "300px";
-            allImg[i].src = '/src/assets/stockAvatar.jpg';
+    function actorImg(actor) {
+        var allImg = document.getElementsByTagName("img");
+        for (let i = 0; i < allImg.length; i++) {
+            if (actor.profile_path == "null" || actor.profile_path == null) {
+                return "/src/assets/stockAvatar.jpg";
+            } else {
+                return `https://image.tmdb.org/t/p/w200/${actor.profile_path}`;
+            }
+        }
+        for (let i = 0; i < allImg.length; i++) {
+            if (allImg[i].src == "/src/assets/stockAvatar.jpg") {
+                allImg[i].style.width = "300px";
+            }
         }
     }
 
@@ -180,7 +188,7 @@ function DetailMovie() {
                                 movieActors.map((actor, key) => (
                                     <div className='card-actor2' key={key}>
                                         <img
-                                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+                                        src={actorImg(actor)}
                                         alt={actor.name} 
                                         />
                                         <div className="info">
@@ -213,7 +221,7 @@ function DetailMovie() {
                     movieActors.map((actor, key) => (
                         <div className='card-actor' key={key}>
                         <img 
-                        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`} 
+                        src={actorImg(actor)}
                         alt={actor.name} 
                         />
                         <strong>{actor.name}</strong>
@@ -227,7 +235,7 @@ function DetailMovie() {
                     movieCrew.map((crew, key) => (
                         <div className='card-actor' key={key}>
                         <img 
-                        src={`https://image.tmdb.org/t/p/w200/${crew.profile_path}`} 
+                        src={actorImg(crew)}
                         alt={crew.name} 
                         />
                         <strong>{crew.name}</strong>
