@@ -4,15 +4,13 @@
     border-radius: 20px;
     
     /*temporaire le temp de changer l'adaptabilité*/
-    width: 100%;
+    width: 80%;
     color: white;
 }
 
 /*//////////// affichage des film en bas des filter*/
 .movie-container .content {
-    /* border: 2px solid red; */
-    position: relative;
-    z-index: 1;
+    /* border: 2px solid red; */    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,8 +35,6 @@
 
 /*////////// content Filter/////////////////////////*/
 .movie-container .content-filter {
-    position: relative;
-    z-index: 1;
     border-bottom: 2px solid;
     display: flex;
     justify-content: space-between;
@@ -59,31 +55,75 @@
     cursor: pointer;
 }
 
-/*////////// content Filter Typpe/////////////////////////*/
-
+/*////////// content Filter Genre /////////////////////////*/
+ 
 .movie-container .filter-type {
-    position: relative;
-    z-index: 1;
+
     border: 2px solid;
-    width: 300px;
+    width: 500px;
     padding: 10px;
-    margin-left: 350px;
+    margin-left: 280px;
     border-radius: 10px;
     margin-top: 5px;
 }
-
+ 
 .movie-container .filter-type form {
     /* border: 2px solid red; */
     /* width: 50px; */
-    padding: 10px;
+    /* padding: 10px; */
+    /* border: 2px solid; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+ 
+.movie-container .filter-type form div {
+    margin: 5px;
+    /* border: 2px solid; */
+    border-radius: 10px;
+    /* width: 100px; */
+    cursor: pointer;
+}
+ 
+.movie-container .filter-type form div:focus {
+    background-color: red;
 }
 
+ 
 .movie-container .filter-type form label {
     /* border: 2px solid yellow; */
+    /* border: 2px solid;  */
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(95, 94, 94);
     margin: 3px;
     font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 1px 1px black;
 }
 
+.movie-container .filter-type form label:hover {
+    background-color: grey;
+}
+
+.movie-container .filter-type button {
+    border: 0.5px solid white;
+    width: 100%;
+    background-color: rgb(95, 94, 94);
+}
+.movie-container .filter-type button:hover {
+    background-color: rgb(51, 61, 73);
+}
+.movie-container .filter-type button:active {
+    background-color: rgb(202, 201, 201);
+    color: black;
+}
+ 
+/* .movie-container .filter-type form input {
+    display: none;
+}  */
 
 /* DESIGN SUPPLÉMENTAIRE DE LA PAGINATIO */
 /*

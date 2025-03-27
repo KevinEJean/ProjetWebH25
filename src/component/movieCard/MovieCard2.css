@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  background: #1c1c1c;
+  background-color: #1c1c1c;
   color: white;
   border-radius: 10px;
   padding: 15px;
@@ -13,8 +13,53 @@
   cursor: pointer;
 }
 
+.content-card {
+  background: linear-gradient(-45deg, rgb(44, 44, 44), rgb(91, 88, 92), rgb(3, 15, 28), rgb(79, 78, 80));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+} 
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
 .content-card:hover {
   transform: scale(1.05);
+}
+
+.content-card:hover {
+  background: linear-gradient(-45deg, rgb(133, 129, 129), rgb(149, 132, 155), rgb(159, 173, 189), rgb(142, 145, 146));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+} 
+
+.content-card:active {
+  border: 0.5px solid;
 }
 
 .content-card .movie-image {
@@ -37,6 +82,7 @@
 }
 
 .content-card .movie-info p {
-  color: grey;
-  font-size: 12px;  
+  color: rgb(199, 195, 195);
+  font-size: 12px;
+  text-shadow: 1px 1px black;
 }
