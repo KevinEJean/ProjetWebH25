@@ -12,6 +12,22 @@ const API_URL_LATEST = `https://api.themoviedb.org/3/movie/now_playing?api_key=$
 const API_URL_TOP_RATED = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=`;
 const API_URL_TRENDING = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`;
 
+
+const genresMovie = [ 
+                    {name: "Action", id:28}, {name:"Adventure", id:12}, {name:"Animation", id:16},
+                    {name:"Comedy", id:35}, {name:"Crime", id:80}, {name:"Documentary", id:99},
+                    {name:"Drama" ,id:18}, {name:"Family" , id:10751}, {name:"Fantasy", id:14}, 
+                    {name:"History", id:36}, {name:"Horror" , id:27}, {name:"Music", id:10402},
+                    {name:"Mystery", id:9648}, {name:"Romance", id:10749}, {name:"Science Fiction", id:878},
+                    {name:"Thriller", id:53}, {name:"War", id:10752}, {name:"Western", id:37}]
+const genresTv = [
+                {name:"Action & Adventure", id:10759},{name:"Animation ", id:16},{name:"Comedy", id:35},
+                {name:"Crime", id:80}, {name:"Documentary", id:99}, {name:"Drama", id:18},
+                {name:"Family", id:10751},{name:"Kids", id:10762},{name:"Mystery", id:9648},
+                {name:"News", id:10763},{name:"Reality", id:10764},{name:"Sci-Fi & Fantasy", id:10765},
+                {name:"Soap", id:10766},{name:"Talk", id:10767},{name:"War & Politics", id:10768},
+                {name:"Western", id:37}]
+                    
 function MoviePage() {
     // const [moviesRecent, setMoviesRecent] = useState([])
     // const [moviesTopRated, setMoviesTopRated] = useState([])
@@ -60,6 +76,18 @@ function MoviePage() {
             displayType.style.display = "none";
         }
     }
+
+    
+    function verifierCheckbox(id) {
+        var checkbox = document.getElementById(id);
+      
+        if (checkbox.checked) {
+          console.log(`le genre ${id} à été coché`);
+        } else {
+          console.log(`le genre ${id} à été décoché`);
+        }
+      }
+      
  
     useEffect(() => {
         // searchMoviesRecent()
@@ -70,7 +98,7 @@ function MoviePage() {
 
     if (!moviesTrending) return <p>Chargement des film ....</p>
 
-    console.log(`current Page: ${page}: ${maxPage}`)
+    // console.log(`current Page: ${page}: ${maxPage}`)
     return (
         <div className='movie-container'>
             <h2>Movies</h2>
@@ -83,18 +111,27 @@ function MoviePage() {
 
                     {/*---------------------- */}
 
-                    <a onClick={handleDisplay}>Type{imageFiltre} </a>
-                    <a>Genre{imageFiltre} </a>
+                    <a onClick={handleDisplay}>Genre{imageFiltre} </a>
                     <a>Pays{imageFiltre}</a>
                 </div>
             </div>
-            <div className="filter-type" id='filter-type' style={{display:"none"}}>
-                    <form >
-                        <input type="radio" name='type'/>:<label htmlFor="TypeMovie">Movie</label>
-                        <input type="radio" name='type'/><label htmlFor="TypeMovie">Serie</label>   
-                        <input type="radio" name='type'/><label htmlFor="TypeMovie">Animation</label>
+
+            <div className="filter-type" id='filter-type' >
+                    <form>
+                        {                            
+                            genresMovie && genresMovie.map((genre) => (
+                                <div >
+                                    <label className='container' onClick={(e) => e.currentTarget.style.backgroundColor = e.currentTarget.style.backgroundColor === "rgb(95, 94, 94)" ? "red" : "rgb(95, 94, 94)"}>
+                                    <input id={genre.id} onClick={(e) => verifierCheckbox(e.target.id)} type="checkbox" />
+                                    <span>{genre.name}</span>
+                                    </label>
+                                </div>
+                            ))    
+                            
+                        }
                     </form>
-                    <button>Appliquer</button>
+                    <button>Appliquer</button>   
+
                 </div>
 
             <div className="content">
