@@ -15,6 +15,9 @@ const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700";
 // const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
 
 
+function CheckAvailability() {}
+
+
 function DetailMovie() {
     const { id,title } = useParams();
     const [movieOmdb, setMovieOmdb] = useState(null);  
@@ -118,15 +121,10 @@ function DetailMovie() {
     function actorImg(actor) {
         var allImg = document.getElementsByTagName("img");
         for (let i = 0; i < allImg.length; i++) {
-            if (actor.profile_path == "null" || actor.profile_path == null) {
+            if (actor.profile_path == null) {
                 return "/src/assets/stockAvatar.jpg";
             } else {
                 return `https://image.tmdb.org/t/p/w200/${actor.profile_path}`;
-            }
-        }
-        for (let i = 0; i < allImg.length; i++) {
-            if (allImg[i].src == "/src/assets/stockAvatar.jpg") {
-                allImg[i].style.width = "300px";
             }
         }
     }

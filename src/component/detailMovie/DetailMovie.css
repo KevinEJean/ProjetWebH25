@@ -50,6 +50,10 @@
 
 }
 
+.container-detail .content-actor .card-actor img {
+    max-width: 300px;
+}
+
 /*///////////////////// container movie Info //////////////////////////////*/
 
 .movie-detail .movie-info {

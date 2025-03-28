@@ -14,6 +14,8 @@ import ForgotPassword from './component/profil/resetPassword/forgotPassword/Forg
 import ResetPage from './component/profil/resetPassword/ResetPage';
 import Setting from './component/settings/Setting';
 import UserDelete from './component/settings/UserDelete';
+import Nba from './component/sport/basket/Nba';
+import Fifa from './component/sport/soccer/Fifa';
 import VideoBackground from "/src/assets/video1.mp4";
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route path='/resetPassword' element={<ResetPage/>}/>
         <Route path='/setting' element={<Setting/>}/>
         <Route path='/userDelete' element={<UserDelete/>}/>
+        <Route path='/nba' element={<Nba/>}/>
+        <Route path='/fifa' element={<Fifa/>}/>
         <Route path='/*' element={<NotFoundPage/>}/>  
       </Routes> 
     </BrowserRouter>
