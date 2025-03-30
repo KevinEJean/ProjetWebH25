@@ -1,0 +1,19 @@
+.content-main {
+    margin-top: 60px;
+}
+
+.content-main .swiper {
+    border-radius: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.content-main .swiper:hover {
+    cursor: grab;
+    transform: scale(1.02);
+    border: 2px solid black;
+}
+
+.content-main .swiper div {
+    font-weight: 600;
+    text-shadow: 1px 1px black;
+}

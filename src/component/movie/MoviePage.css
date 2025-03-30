@@ -1,10 +1,10 @@
 .movie-container {
-    margin-top: 80px;
-    border: 2px solid;
+    margin-top: 50px;
+    /* border: 2px solid; */
     border-radius: 20px;
     
     /*temporaire le temp de changer l'adaptabilité*/
-    width: 80%;
+    width: 100%;
     color: white;
 }
 
@@ -40,12 +40,12 @@
     justify-content: space-between;
 }
 
-
 .movie-container .content-filter .filters {
     display: flex;
     padding: 10px;
     gap: 90px;
 }
+
 .movie-container .content-filter .filters a:hover {
     color: grey;
     cursor: pointer;
@@ -55,19 +55,39 @@
     cursor: pointer;
 }
 
+.movie-container #genre {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.movie-container .content-filter #genre:hover {
+    color: grey;
+    cursor: pointer;
+}
+.movie-container .content-filter #genre:active {
+    color: gold;
+    cursor: pointer;
+}
+
+
+
 /*////////// content Filter Genre /////////////////////////*/
  
-.movie-container .filter-type {
-
+.movie-container .filter-genre {
+    position: fixed;    
+    z-index: 2;
+    background-color: black;
     border: 2px solid;
-    width: 500px;
+    width: 400px;
     padding: 10px;
-    margin-left: 280px;
+    margin-left: 700px;
     border-radius: 10px;
     margin-top: 5px;
 }
  
-.movie-container .filter-type form {
+.movie-container .filter-genre form {
     /* border: 2px solid red; */
     /* width: 50px; */
     /* padding: 10px; */
@@ -78,7 +98,7 @@
     gap: 5px;
 }
  
-.movie-container .filter-type form div {
+.movie-container .filter-genre form div {
     margin: 5px;
     /* border: 2px solid; */
     border-radius: 10px;
@@ -86,17 +106,17 @@
     cursor: pointer;
 }
  
-.movie-container .filter-type form div:focus {
+.movie-container .filter-genre form div:focus {
     background-color: red;
 }
 
  
-.movie-container .filter-type form label {
-    /* border: 2px solid yellow; */
-    /* border: 2px solid;  */
+.movie-container .filter-genre form label {
+    display: flex;
+    align-items: center;
     padding: 5px;
     border-radius: 10px;
-    background-color: rgb(95, 94, 94);
+    background-color: rgb(95, 94, 94); 
     margin: 3px;
     font-size: 15px;
     font-weight: bold;
@@ -104,32 +124,26 @@
     text-shadow: 1px 1px black;
 }
 
-.movie-container .filter-type form label:hover {
+.movie-container .filter-genre form label:hover {
     background-color: grey;
 }
 
-.movie-container .filter-type button {
+.movie-container .filter-genre button {
     border: 0.5px solid white;
-    width: 100%;
-    background-color: rgb(95, 94, 94);
+    background-color: rgba(245, 210, 11, 0.797);
+    width: 40%;
+    margin: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
 }
-.movie-container .filter-type button:hover {
+.movie-container .filter-genre button:hover {
     background-color: rgb(51, 61, 73);
 }
-.movie-container .filter-type button:active {
+.movie-container .filter-genre button:active {
     background-color: rgb(202, 201, 201);
     color: black;
 }
  
-/* .movie-container .filter-type form input {
-    display: none;
-}  */
-
-/* DESIGN SUPPLÉMENTAIRE DE LA PAGINATIO */
-/*
-    L'utilisateur peut écrire directement une page
-*/
-
 .page-selector {
     max-width: 50px;
 }

@@ -4,7 +4,7 @@
     /* border: 2px solid white;  */
     padding: 10px;
     color: white;
-    width: 90%;
+    width: 100%;
 }
 
 
@@ -21,6 +21,7 @@
 }
 
 /*//// Ajouter une background image avec les info par dessus en z-index///////////////*/
+/*//////////// À SUPPRIMER ///////////////*/
 .carouselBox {
     margin-top: 50px;
     border-top: 2px solid ; 

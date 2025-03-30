@@ -1,10 +1,8 @@
 /*/// ajouter des -  a tous sles nom de container pour une meilleur lecture*/
-
-
 .container-detail {
     border: 2px solid;
     margin-top: 80px;
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -144,7 +142,6 @@
 
 }
 
-
 .movie-detail .movie-info .content-info strong {
     color: whitesmoke;
     /* display: block; */
@@ -192,7 +189,6 @@
 .container-detail .content-actor .card-actor {
     position: relative;
     z-index: 1;
-    
     /* border: 2px solid green;  */
     border-radius: 10px;
     background-color: rgb(230, 222, 222);
@@ -237,7 +233,7 @@
     display: flex;
     color: white;
     gap: 60px;
-    margin-right: 1000px;
+    margin-right: 970px;
     align-items: center;
 }
 
@@ -250,9 +246,6 @@
     border-bottom: 2px solid;
     color: rgb(198, 196, 196);
 } 
-
-
-
 
 .container-detail .media {
     /* margin-left: 300px; */
@@ -279,7 +272,6 @@
     width: 700px;
     height: 100%;
 }
-
 
 /*//////// Content info recommendation //////////////////////////////////////////////*/
 

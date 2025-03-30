@@ -3,7 +3,8 @@ import './DetailMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
 // import blackAdam from '/src/assets/blackaddam.jpg';
 import MovieCard from '../movieCard/MovieCard';
-
+import Carousel1 from '../movieCard/carousel/Carousel1';
+import useDetailMovie from './useDetailMovie';
 
 ////// Api de OMDB pour récupération des info/////////////////////////
 const API_KEY_OMDB = "a34708ad"; 
@@ -15,91 +16,14 @@ const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700";
 // const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
 
 
-function CheckAvailability() {}
+// function CheckAvailability() {}
 
 
 function DetailMovie() {
-    const { id,title } = useParams();
-    const [movieOmdb, setMovieOmdb] = useState(null);  
-    const [movieRecommendation, setMovieRecommendation] = useState(null)
-    const [ongletActif, setOngletActif] = useState("Info");
-    const [ongletActor, setOngletActor] = useState("Cast");
-    const [ongletMedia, setOngletMedia] = useState("Videos");
-    const [movieActors, setMovieActor] = useState(null)
-    const [movieCrew, setMovieCrew] = useState(null)
-    const [movieImages, setMovieImages] = useState(null)
-    const [movieVideos, setMovieVideos] = useState(null)
+    // const { id,title } = useParams();
+    const { movieOmdb,movieRecommendation,ongletActif,setOngletActif,ongletActor,setOngletActor,ongletMedia,setOngletMedia,movieActors,movieCrew,movieImages,movieVideos,} = useDetailMovie();
+
     const navigate = useNavigate();
-
-
-    const handleDetail = (id,title) => {
-        navigate(`/detail/${id}/${title}`);
-    };
-
-    //// -> cette fonction va trouver un seul et unique film dépendament du titre
-    const searchMoviesOmdb = async () => {
-        if (title) {
-            const response = await fetch(`${API_URL_OMDB}&t=${title}`); 
-            const data = await response.json();
-            console.log("info Omdbc:",data)
-            setMovieOmdb(data || []);
-        }
-    };
-
-    const searchMovieRecommendations = async () => {
-        // if (movieId) {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
-            // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
-            const data = await response.json();
-            console.log("Recommandations TMDB: ", data);
-            setMovieRecommendation(data.results || []);
-        // }
-    };
-
-    const searchMovieActor = async () => {
-        // if (movieId) {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY_TMDB}`); 
-            const data = await response.json();
-            console.log("movie Actor: ", data);
-            setMovieActor(data.cast || []);
-        // }
-    };
-    const searchMovieCrew = async () => {
-        // if (movieId) {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY_TMDB}`); 
-            const data = await response.json();
-            console.log("movie Crew: ", data);
-            setMovieCrew(data.crew || []);
-        // }
-    };
-    const searchMovieVideo = async () => {
-        // if (movieId) {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY_TMDB}`); 
-            const data = await response.json();
-            console.log("movie Video: ", data);
-            setMovieVideos(data.results || []);
-        // }
-    };
-    const searchMovieImage = async () => {
-        // if (movieId) {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${API_KEY_TMDB}`); 
-            const data = await response.json();
-            console.log("movie Images: ", data);
-            setMovieImages(data  || []);
-        // }
-    };
-
-
-    useEffect(() => {
-        if (id,title) {
-            searchMoviesOmdb(); 
-            searchMovieRecommendations();
-            searchMovieActor();
-            searchMovieCrew();
-            searchMovieVideo();
-            searchMovieImage();
-        }
-    }, [id,title]);
 
 
     // ############################# BUG FIXES #############################
@@ -181,6 +105,8 @@ function DetailMovie() {
                     ) : (
                         <div className="content-actor2">
                             {/* <h1>Actor</h1> */}
+
+                            {/*// à voir si supprimer///*/}
                             {
                                 movieActors.length > 0 ? 
                                 movieActors.map((actor, key) => (
@@ -214,19 +140,8 @@ function DetailMovie() {
                 </div>
             </div>
             <div className="content-actor">
-                {
-                    ongletActor === "Cast" && movieActors.length > 0 && 
-                    movieActors.map((actor, key) => (
-                        <div className='card-actor' key={key}>
-                        <img 
-                        src={actorImg(actor)}
-                        alt={actor.name} 
-                        />
-                        <strong>{actor.name}</strong>
-                        <p>{actor.character}</p>
-                        </div>
-                    ))
-                }
+
+                <Carousel1 movieCarousel={null} actorCarousel={movieActors}/>
                 
                 {
                     ongletActor === "Crew" && movieCrew.length > 0 && 
@@ -240,8 +155,6 @@ function DetailMovie() {
                         <p>{crew.character}</p>
                         </div>
                     ))
-                    // : 
-                    // <h1>Aucun Crew trouvé</h1>
                 }
             </div>
             
@@ -259,7 +172,6 @@ function DetailMovie() {
                 {
                     ongletMedia === "Videos" && 
                         <div className='media-video'>
-
                             {
                                 movieVideos.slice(0,5).map((video, key) => (
                                     <iframe key={key} width="560" height="315" 
@@ -271,49 +183,30 @@ function DetailMovie() {
                                 ))
                             } 
                         </div>
-
                 }
                 {
                    ongletMedia === "Posters" && movieImages.posters.map((image, key) => (
                     <img key={key}
-                        src={`https://image.tmdb.org/t/p/w200/${image.file_path}`} 
-                        
-                        />
+                        src={`https://image.tmdb.org/t/p/w200/${image.file_path}`} />
                 )) 
                 }
                 {
                    ongletMedia === "Backdrops" && movieImages.backdrops.map((image, key) => (
                     <img key={key}
                         src={`https://image.tmdb.org/t/p/w200/${image.file_path}`} 
-                        
                         />
                 )) 
                 }
                
             </div>
-
             <hr />
-
             {/*///////// Film recommendé////////////////////////////////////////////// */}
-
             <h3>Titre similaire</h3>
             <div className="recommandations">
-                {movieRecommendation.length > 0 ? 
-                    movieRecommendation.map((movie, key) => (
-                        <p key={key} onClick={() => handleDetail(movie.id, movie.title)}>
-                            <MovieCard 
-                            url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 
-                            title={movie.title} 
-                        />
-                        </p>
-                    )) : (
-                        <p>Aucune recommandation disponible</p>
-                    )
-                }
+                <Carousel1 movieCarousel={movieRecommendation} actorCarousel={null}/>
             </div>
             
         </div>
     );
 }
-
 export default DetailMovie;
