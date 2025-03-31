@@ -17,7 +17,7 @@ public class ClientService {
     }
 
     public void saveClient(Client client) {
-        if (client.getUsername() == "logout") {
+        if (client.getUsername().contains("del-user") || client.getUsername().contains("admin")) { // pour empêcher erreur de login/signin
             System.console().printf("Name not valid");
         } else {
             rep.save(client);
@@ -43,7 +43,7 @@ public class ClientService {
     public void removeClient(String username) {
         Client client = rep.getClientByUsername(username);
         client.setActive(false);
-        client.setUsername("del-user" + client.getId());
+        client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
         rep.save(client);
     }
 

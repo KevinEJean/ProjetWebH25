@@ -50,35 +50,26 @@ public class ClientController {
         return "Client removed!";
     }
 
-
-
-
-    // ========================= FIX THE @PathVariable =========================
-
-
-
-
-
-    @PutMapping("/updateFname/{username}")
-    public String updateFname(@PathVariable String username, @RequestBody String fname) {
+    @PutMapping("/updateFname/{username}/{fname}")
+    public String updateFname(@PathVariable String username, @PathVariable String fname) {
         service.updateClientFname(username, fname);
         return "New first name saved!";
     }
 
-    @PutMapping("/updateLname/{username}")
-    public String updateLname(@PathVariable String username, @RequestBody String lname) {
+    @PutMapping("/updateLname/{username}/{lname}")
+    public String updateLname(@PathVariable String username, @PathVariable String lname) {
         service.updateClientLname(username, lname);
         return "New last name saved!";
     }
 
-    @PutMapping("/updateEmail/{username}")
-    public String updateEmail(@PathVariable String username, @RequestBody String email) {
+    @PutMapping("/updateEmail/{username}/{email}")
+    public String updateEmail(@PathVariable String username, @PathVariable String email) {
         service.updateClientEmail(username, email);
         return "New email saved!";
     }
 
-    @PutMapping("/updatePassword/{username}")
-    public String updatePassword(@RequestBody String username, @RequestBody String password) {
+    @PutMapping("/updatePassword/{username}/{password}")
+    public String updatePassword(@PathVariable String username, @PathVariable String password) {
         service.updateClientPassword(username, password);
         return "New password saved!";
     }

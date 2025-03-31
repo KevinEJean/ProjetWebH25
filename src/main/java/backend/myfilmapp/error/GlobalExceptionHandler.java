@@ -23,7 +23,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
-        // Log specific exception
         logger.error("Invalid argument: {}, Request Details: {}", ex.getMessage(), request.getDescription(false), ex);
         return new ResponseEntity<>("Some arguments are invalid, try again.", HttpStatus.BAD_REQUEST);
     }

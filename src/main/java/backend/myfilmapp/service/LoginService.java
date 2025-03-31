@@ -3,7 +3,6 @@ package backend.myfilmapp.service;
 import backend.myfilmapp.module.Client;
 import backend.myfilmapp.repository.ClientRep;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpServerErrorException;
 
 @Service
 public class LoginService {
@@ -14,35 +13,28 @@ public class LoginService {
          this.rep = rep;
      }
 
-     public void LogOut() {
-         LoginUser("logout", "logout");
-     }
-
      public Boolean LoginUser(String username, String password) {
          try {
              Client client = rep.getClientByUsername(username);
-             if (client.getUsername() == username && client.getPassword() == password) {
+             if (client.getUsername().equals(username) && client.getPassword().equals(password)) {
                  return true;
-             } else if (username == "logout" || password == "logout") {
-                 return false;
              }
          } catch (Exception e) {
-             System.out.printf("Invalid credentials");
+             System.out.print("Invalid credentials");
          }
          return false;
      }
 
-     public void SignInUser(String username, String email, String password) {
+     public String SignInUser(Client client) {
          try {
-             Client client = rep.getClientByUsername(username);
-             if (client.getUsername() == username) {
-                 System.console().printf("Username already taken. Try logging in?");
-             } else {
-                 Client newClient = new Client(username, email, password);
-                 rep.save(newClient);
+             Client clientError = rep.getClientByUsername(client.getUsername());
+             if (clientError.getUsername().equals(client.getUsername())) {
+                 return "Username '" + clientError.getUsername() + "' already taken. Try logging in?";
              }
-         } catch (Exception e) {
-             System.out.printf("Invalid credentials");
+         } catch (Exception e) { // si getClientByUsername return rien, le code catch s'exécute, donc un nouveau utilisateur peut être ajouté
+             rep.save(client);
+             return "New user created!";
          }
+         return "Invalid credentials";
      }
 }
