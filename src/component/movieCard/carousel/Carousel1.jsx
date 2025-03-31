@@ -23,8 +23,8 @@ export default function Carousel1({ movieCarousel = [null] }) {
         pagination={{
           clickable: 'fraction',
         }}
-        slidesPerView={6}
-        spaceBetween={30}
+        slidesPerView={8}
+        spaceBetween={20}
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"

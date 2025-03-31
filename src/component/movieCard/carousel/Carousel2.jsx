@@ -30,14 +30,14 @@ export default function Carousel2({ movieRecent = [] }) {
         spaceBetween={30}
         speed={1000}
         parallax={true}
-        // direction={'vertical'}
+        direction={'vertical'}
         pagination={{
           clickable: true,
         }}
         navigation={false}
         // autoplay={{ delay: 10000 }}
         // loop={true}
-        autoplay={{ delay: 8000, disableOnInteraction: false }} // ✅ Ajout de autoplay
+        autoplay={{ delay: 5000, disableOnInteraction: false }} // ✅ Ajout de autoplay
 
         modules={[Parallax, Pagination, Navigation, Autoplay]}
         className="mySwiper"

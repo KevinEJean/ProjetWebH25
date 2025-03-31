@@ -41,19 +41,25 @@ function Home() {
             {/*/// Prototype */}
             {/* <Carousel3 movieRecent={moviesRecent}/>  */}
 
-            <div className="loader">
-                
-            </div>
 
 
             <Carousel2 movieRecent={moviesRecent} /> 
             {/* <Carousel3/>  */}
 
             <hr />
+
+            {/* <div class="wrapper">
+            <div class="bg"> Gold </div>
+            <div class="fg"> Gold </div>
+            </div> */}
             
             {sections.map((section, index) => (
-                <div key={index}>
-                    <h3 style={{ float: "left" }}>{section.title}</h3>
+                <div key={index} className=''>
+                    {/* <h3 className='rate' style={{ float: "left" }}>{section.title}</h3> */}
+                    <div class="wrapper">
+                    <div class="bg"> {section.title} </div>
+                    <div class="fg"> {section.title} </div>
+                    </div>
                     <div className="containerTrending">
                         <div className="trending">
                             <Carousel1 movieCarousel={section.data} />

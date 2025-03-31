@@ -5,6 +5,7 @@
     import MovieCard from '../movieCard/MovieCard';
     import Carousel1 from '../movieCard/carousel/Carousel1';
     import useDetailMovie from './useDetailMovie';
+import Carousel3 from '../movieCard/carousel/Carousel3';
 
     ////// Api de OMDB pour récupération des info/////////////////////////
     const API_KEY_OMDB = "a34708ad"; 
@@ -54,24 +55,22 @@
         }
 
         return (
-            <div className="container-detail">
+            <div className="container-detail" >
 
-                    <div className="movie-detail">
+                    <div className="movie-detail" style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${moviePosterTmdb.poster_path}`})`,
+                        backgroundRepeat:"no-repeat",
+                        backgroundPosition:"center",
+                        backgroundSize:"cover"}}>
 
                     {/*///////// Movie Info////////////////////////////////////////////// */}
 
-                    <div className="movie-image">
+                    <div className="movie-image" >
                         {/* <img src={`https://image.tmdb.org/t/p/w200/${movieOmdb.Poster}`} alt={movieOmdb.title}/> */}
                         {/* <img src={movieOmdb.Poster} alt={movieOmdb.Title}/> */}
                         <img src={`https://image.tmdb.org/t/p/original${moviePosterTmdb.poster_path}`} alt={moviePosterTmdb.title || "Affiche du film"} />
 
                     </div>
                     <div className="movie-info">
-                        <div className="nav">
-                            <a onClick={() => setOngletActif("Info")}>Info</a>
-                            <a onClick={() => setOngletActif("Cast")}>Casts</a>
-                        </div>
-                        {ongletActif === "Info" ? (
                             <div className="content-info">
                                 <h1 style={{textShadow:"2px 2px black"}}>{movieOmdb.Title}</h1>
                                 <p className='rate'>
@@ -104,30 +103,7 @@
                                     <li><strong>DVD :</strong> {movieOmdb.DVD}</li>
                                 </ul>
                             </div>
-                        ) : (
-                            <div className="content-actor2">
-                                {/* <h1>Actor</h1> */}
-
-                                {/*// à voir si supprimer///*/}
-                                {
-                                    movieActors.length > 0 ? 
-                                    movieActors.map((actor, key) => (
-                                        <div className='card-actor2' key={key}>
-                                            <img
-                                            src={actorImg(actor)}
-                                            alt={actor.name} 
-                                            />
-                                            <div className="info">
-                                                <strong>{actor.name}</strong>
-                                                <p>{actor.character}</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                    : 
-                                    <h1>Aucun élément</h1>
-                                } 
-                            </div>
-                        )}
+                        
                     </div>
                 </div>
                 <hr />
@@ -143,34 +119,12 @@
                 </div>
                 <div className="content-actor">
 
-                    {/* <Carousel1 movieCarousel={null} actorCarousel={movieActors}/> */}
+                    {  ongletActor === "Cast" && movieActors.length > 0 && 
+                        <Carousel3 actorCarousel={movieActors} poster={null} />
+                    }
 
-                    {
-                        ongletActor === "Cast" && movieActors.length > 0 && 
-                        movieActors.map((actor, key) => (
-                            <div className='card-actor' key={key}>
-                            <img 
-                            src={actorImg(actor)}
-                            alt={actor.name} 
-                            />
-                            <strong>{actor.name}</strong>
-                            <p>{actor.character}</p>
-                            </div>
-                        ))
-                        }
-                    
-                    {
-                        ongletActor === "Crew" && movieCrew.length > 0 && 
-                        movieCrew.map((crew, key) => (
-                            <div className='card-actor' key={key}>
-                            <img 
-                            src={actorImg(crew)}
-                            alt={crew.name} 
-                            />
-                            <strong>{crew.name}</strong>
-                            <p>{crew.character}</p>
-                            </div>
-                        ))
+                    {  ongletActor === "Crew" && movieCrew.length > 0 && 
+                        <Carousel3 actorCarousel={movieCrew} poster={null}/>
                     }
                 </div>
                 
@@ -192,22 +146,28 @@
                                     movieVideos.slice(0,5).map((video, key) => (
                                         <iframe key={key} width="560" height="315" 
                                         src={`https://www.youtube.com/embed/${video.key}`} 
-                                        title="YouTube video player" frameborder="0" 
+                                        title="YouTube video player" 
+                                                // frameborder="0" 
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                                allowfullscreen>
+                                                // allowfullscreen
+                                                >
                                         </iframe>
                                     ))
                                 } 
                             </div>
                     }
                     {
-                    ongletMedia === "Posters" && movieImages.posters.map((image, key) => (
-                        <img key={key}
-                            src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
-                    )) 
+                    ongletMedia === "Posters" && 
+                        // <Carousel3 actorCarousel={null} poster={movieImages}/>
+                        movieImages.posters.map((image, key) => (
+                            <img key={key}
+                                src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />                        
+                        )) 
+
                     }
                     {
                     ongletMedia === "Backdrops" && movieImages.backdrops.map((image, key) => (
+                        
                         <img key={key}
                             src={`https://image.tmdb.org/t/p/original/${image.file_path}`} 
                             />

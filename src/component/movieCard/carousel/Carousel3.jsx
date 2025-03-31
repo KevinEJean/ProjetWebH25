@@ -1,47 +1,118 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import MovieAvatar from "/src/assets/avatar.png"
-
-// Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/effect-cube';
-import 'swiper/css/pagination';
+// import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './Carousel1.css'
 
-import './Carousel3.css';
+// import required modules
+import {Navigation } from 'swiper/modules';
 
-// Import required modules
-import { EffectCube, Pagination, Autoplay } from 'swiper/modules';
+// régler le problème des poster,vide,backdrops qui arrive pas à affcier l'image
 
-export default function Carousel3({ movieRecent = [] }) {
-    console.log("Movie-Recent récupéré: ", movieRecent)
+// à renommer
+export default function Carousel3({ actorCarousel = [null], poster = [null] }) {
+
+
+  function actorImg(actor) {
+    var allImg = document.getElementsByTagName("img");
+    for (let i = 0; i < allImg.length; i++) {
+        if (actor.profile_path == null) {
+            return "/src/assets/stockAvatar.jpg";
+        } else {
+            return `https://image.tmdb.org/t/p/original/${actor.profile_path}`;
+        }
+    }
+}
+
   return (
-    <div className="container-cube">
-        <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-                shadow: true,
-                slideShadows: true,
-                shadowOffset: 20,
-                shadowScale: 0.94,
-            }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }} // ✅ Ajout autoplay
-            pagination={true}
-            modules={[EffectCube, Pagination, Autoplay]}
-            className="mySwiper"
-            >
-            {movieRecent.map((movie, key) => (
-                
-                <SwiperSlide key={key}>
-                <img
-                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                    alt={`Nature ${movie.title}`}
-                    // loading="lazy"
-                />
-                </SwiperSlide>
-            ))}
-            </Swiper>
-    </div>
+        <>
+            {
+                actorCarousel && poster == null &&
+                <Swiper
+                    pagination={{
+                    clickable: 'fraction',
+                    }}
+                    slidesPerView={5}
+                    spaceBetween={20}
+                    navigation={true}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                >
+                    {
+                        actorCarousel && 
+                        actorCarousel.map((actor, key) => (
+                            <SwiperSlide>
+                                <div className='card-actor' key={key}>
+                                    <img 
+                                    src={actorImg(actor)}
+                                    alt={actor.name} 
+                                    />
+                                    <strong>{actor.name}</strong>
+                                    <p>{actor.character}</p>
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            }
+
+
+            {/* {
+                poster && actorCarousel == null &&
+                <Swiper
+                    pagination={{
+                    clickable: 'fraction',
+                    }}
+                    slidesPerView={5}
+                    spaceBetween={20}
+                    navigation={true}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                >
+                    {
+                        poster && 
+                        poster.posters.map((image, key) => (
+                            <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />                        
+                        )) 
+                    }
+                    
+                </Swiper>
+            } */}
+
+            {/* {
+                actorCarousel && poster == null &&
+                <Swiper
+                    pagination={{
+                    clickable: 'fraction',
+                    }}
+                    slidesPerView={5}
+                    spaceBetween={20}
+                    navigation={true}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                >
+                    {
+                        actorCarousel && 
+                        actorCarousel.map((actor, key) => (
+                            <SwiperSlide>
+                                <div className='card-actor' key={key}>
+                                    <img 
+                                    src={actorImg(actor)}
+                                    alt={actor.name} 
+                                    />
+                                    <strong>{actor.name}</strong>
+                                    <p>{actor.character}</p>
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
+                    
+                </Swiper>
+            } */}
+
+        
+        </>
   );
 }

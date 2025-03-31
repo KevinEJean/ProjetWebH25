@@ -1,27 +1,20 @@
-/*/// ajouter des -  a tous sles nom de container pour une meilleur lecture*/
 .container-detail {
     border: 2px solid;
     margin-top: 80px;
     width: 100%;
+    padding: 10px;
+ 
 }
 
-
 .movie-detail {
-    position: relative;
-    z-index: 1;
-    /* border: 2px solid;  */
-    margin-top: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-top: 3px solid rgb(227, 222, 222);
-    border-bottom: 3px solid rgb(227, 222, 222);
     width: 100%;
-    border-radius: 20px;
     padding: 10px;
     height: 600px;
+    margin: auto;
     color: whitesmoke;   
     display: flex;
     gap: 10px;
-    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -29,14 +22,13 @@
     transform: scale(1.009);
 }
 
-
 /*///////////////////// container Image Movie //////////////////////////////*/
 
 .movie-detail .movie-image img {
     /* border: 2px solid red;  */
-    box-shadow: 2px 2px 2px 2px rgb(95, 95, 95);
+    /* box-shadow: 2px 2px 2px 2px rgb(95, 95, 95); */
     border-radius: 10px ;
-    width: 500px;
+    width: 350px;
     height: 100%;
     background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
     transition: transform 0.3s ease-in-out;
@@ -58,34 +50,13 @@
     /* border: 2px solid; */
     width: 100%;
     height: 580px;
-    /* border-radius: 20px; */
-}
-
-/*///////////////////// navbar //////////////////////////////*/
-
-/* Add a black background color to the top navigation */
-.movie-detail .movie-info .nav {
-    border: 2px solid rgb(205, 202, 202);  
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    min-width: 600px;
-    box-shadow: 5px 5px 5px 5px rgb(77, 74, 74);
-}
-
-/* Style the links inside the navigation bar */
-.movie-detail .movie-info .nav a {
-    cursor: pointer;
-    float: left;
+    margin: auto;
+    font-family: Arial,Helvetica,sans-serif;    
+    font-size: 15px;
     color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.movie-detail .movie-info .nav a:hover {
-    color: gold;
+    box-shadow: 0 0 5px 2px #282a2d;
+    line-height: 1.4;
+    /* border-radius: 20px; */
 }
 
 
@@ -95,8 +66,9 @@
     text-align: left;
     padding: 10px;
     max-height: 95%;
-    border: 2px solid;
-    overflow-y: scroll; 
+    /* border: 2px solid; */
+    text-shadow: 2px 2px black;
+    /* overflow-y: scroll;  */
 }
 .movie-detail .movie-info .content-info p{
     text-decoration: none;
@@ -151,9 +123,7 @@
 
 /*//////// Content info actor 2//////////////////////////////////////////////*/
 
-.movie-detail .movie-info .content-actor2 {
-    /* border: 2px solid red; */
-    
+/* .movie-detail .movie-info .content-actor2 {    
     overflow-y: scroll;
     max-height: 95%;
     display: flex;
@@ -166,12 +136,11 @@
     display: flex;
     align-items: center;
     width: 250px;
-    /* border: 2px solid yellow;  */
 }  
 
 .movie-detail .movie-info .content-actor2 .card-actor2 img {
     width: 150px;
-}
+} */
 
 
 /*//////// Content info Actor 1//////////////////////////////////////////////*/
@@ -187,8 +156,6 @@
     overflow-y: hidden;
 }
 .container-detail .content-actor .card-actor {
-
-    /* border: 2px solid green;  */
     border-radius: 10px;
     background-color: rgb(230, 222, 222);
     transition: transform 0.3 ease-in-out;
@@ -209,7 +176,6 @@
     cursor: pointer;
 }
 .container-detail .content-actor .card-actor p {
-    /* border: 2px solid white; */
     text-decoration: none;
     color: grey;
     cursor: pointer;
