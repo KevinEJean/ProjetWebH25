@@ -1,212 +1,228 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './DetailMovie.css';
-import { useNavigate, useParams } from 'react-router-dom';
-// import blackAdam from '/src/assets/blackaddam.jpg';
-import MovieCard from '../movieCard/MovieCard';
-import Carousel1 from '../movieCard/carousel/Carousel1';
-import useDetailMovie from './useDetailMovie';
+    import React, { useEffect, useRef, useState } from 'react';
+    import './DetailMovie.css';
+    import { useNavigate, useParams } from 'react-router-dom';
+    // import blackAdam from '/src/assets/blackaddam.jpg';
+    import MovieCard from '../movieCard/MovieCard';
+    import Carousel1 from '../movieCard/carousel/Carousel1';
+    import useDetailMovie from './useDetailMovie';
 
-////// Api de OMDB pour récupération des info/////////////////////////
-const API_KEY_OMDB = "a34708ad"; 
-const API_URL_OMDB = `https://www.omdbapi.com/?apikey=${API_KEY_OMDB}`;
+    ////// Api de OMDB pour récupération des info/////////////////////////
+    const API_KEY_OMDB = "a34708ad"; 
+    const API_URL_OMDB = `https://www.omdbapi.com/?apikey=${API_KEY_OMDB}`;
 
-///// Api recommendation TMDB pour les film recommandé //////////////////
-const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700"; 
-// const API_URL_TMDB_RECOMMENDATIONS = `https://api.themoviedb.org/3/movie/movie_id/recommendations?api_key=${API_KEY_TMDB}&page=1`;
-// const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
-
-
-// function CheckAvailability() {}
+    ///// Api recommendation TMDB pour les film recommandé //////////////////
+    const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700"; 
+    // const API_URL_TMDB_RECOMMENDATIONS = `https://api.themoviedb.org/3/movie/movie_id/recommendations?api_key=${API_KEY_TMDB}&page=1`;
+    // const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
 
 
-function DetailMovie() {
-    // const { id,title } = useParams();
-    const { movieOmdb,movieRecommendation,ongletActif,setOngletActif,ongletActor,setOngletActor,ongletMedia,setOngletMedia,movieActors,movieCrew,movieImages,movieVideos,} = useDetailMovie();
-
-    const navigate = useNavigate();
+    // function CheckAvailability() {}
 
 
-    // ############################# BUG FIXES #############################
+    function DetailMovie() {
+        // const { id,title } = useParams();
+        const {movieOmdb,moviePosterTmdb,movieRecommendation,ongletActif,setOngletActif,ongletActor,setOngletActor,ongletMedia,setOngletMedia,movieActors,movieCrew,movieImages,movieVideos} = useDetailMovie();
 
-    if (!movieOmdb) return <p>Film information is loading...</p>;
-    if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
-    if (!movieActors) return <p>Actors information is loading...</p>;
+        const navigate = useNavigate();
 
 
-    // (bug) la page ne load pas, elle est vide
-    // (solution) reload la page
-    if (window.location.hash != "#loaded") {
-        window.location.hash = "#loaded"
-        window.location.reload();
-    }
+        // ############################# BUG FIXES #############################
 
-    // (bug) image n'existe pas
-    // (solution) remplacer l'image
-    function actorImg(actor) {
-        var allImg = document.getElementsByTagName("img");
-        for (let i = 0; i < allImg.length; i++) {
-            if (actor.profile_path == null) {
-                return "/src/assets/stockAvatar.jpg";
-            } else {
-                return `https://image.tmdb.org/t/p/w200/${actor.profile_path}`;
+        if (!movieOmdb) return <p>Film information is loading...</p>;
+        if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
+        if (!movieActors) return <p>Actors information is loading...</p>;
+
+
+        // (bug) la page ne load pas, elle est vide
+        // (solution) reload la page
+        if (window.location.hash != "#loaded") {
+            window.location.hash = "#loaded"
+            window.location.reload();
+        }
+
+        // (bug) image n'existe pas
+        // (solution) remplacer l'image
+        function actorImg(actor) {
+            var allImg = document.getElementsByTagName("img");
+            for (let i = 0; i < allImg.length; i++) {
+                if (actor.profile_path == null) {
+                    return "/src/assets/stockAvatar.jpg";
+                } else {
+                    return `https://image.tmdb.org/t/p/original/${actor.profile_path}`;
+                }
             }
         }
-    }
 
-    return (
-        <div className="container-detail">
+        return (
+            <div className="container-detail">
 
-                <div className="movie-detail">
+                    <div className="movie-detail">
 
-                {/*///////// Movie Info////////////////////////////////////////////// */}
+                    {/*///////// Movie Info////////////////////////////////////////////// */}
 
-                <div className="movie-image">
-                    <img src={movieOmdb.Poster} alt={movieOmdb.Title}/>
-                    {/* <img src={movieOmdb.Poster} alt={movieOmdb.Title}/> */}
-                </div>
-                <div className="movie-info">
-                    <div className="nav">
-                        <a onClick={() => setOngletActif("Info")}>Info</a>
-                        <a onClick={() => setOngletActif("Cast")}>Casts</a>
+                    <div className="movie-image">
+                        {/* <img src={`https://image.tmdb.org/t/p/w200/${movieOmdb.Poster}`} alt={movieOmdb.title}/> */}
+                        {/* <img src={movieOmdb.Poster} alt={movieOmdb.Title}/> */}
+                        <img src={`https://image.tmdb.org/t/p/original${moviePosterTmdb.poster_path}`} alt={moviePosterTmdb.title || "Affiche du film"} />
+
                     </div>
-                    {ongletActif === "Info" ? (
-                        <div className="content-info">
-                            <h1 style={{textShadow:"2px 2px black"}}>{movieOmdb.Title}</h1>
-                            <p className='rate'>
+                    <div className="movie-info">
+                        <div className="nav">
+                            <a onClick={() => setOngletActif("Info")}>Info</a>
+                            <a onClick={() => setOngletActif("Cast")}>Casts</a>
+                        </div>
+                        {ongletActif === "Info" ? (
+                            <div className="content-info">
+                                <h1 style={{textShadow:"2px 2px black"}}>{movieOmdb.Title}</h1>
+                                <p className='rate'>
+                                    
+                                <strong>Metascore: ⭐{movieOmdb.Metascore}% </strong>     
                                 
-                            <strong>Metascore: ⭐{movieOmdb.Metascore}% </strong>     
-                            
 
-                            <span id='OMDb'>OMDb</span> 
-                            <span id='rating'>{movieOmdb.imdbRating}/10</span> 
-                            <span id='r'>{movieOmdb.Year}</span>
-                            <span id='r'>{movieOmdb.Runtime}</span>
+                                <span id='OMDb'>OMDb</span> 
+                                <span id='rating'>{movieOmdb.imdbRating}/10</span> 
+                                <span id='r'>{movieOmdb.Year}</span>
+                                <span id='r'>{movieOmdb.Runtime}</span>
 
-                            </p>
-                            <p>{movieOmdb.Plot}</p>
-                            <hr />
-                            <p><strong>Release :</strong> {movieOmdb.Released}</p>
-                            <p><strong>Director :</strong> {movieOmdb.Director}</p>
-                            <p><strong>Genre :</strong> {movieOmdb.Genre}</p>
-                            <p><strong>Type :</strong> {movieOmdb.Type}</p>
-                            <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
-                            <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
-                            <hr />
-                            <strong>Details:</strong>
-                            <ul>
-                                <li><strong>Production:</strong> {movieOmdb.Production}</li>
-                                <li><strong>Language:</strong> {movieOmdb.Language}</li>
-                                <li><strong>Country:</strong> {movieOmdb.Country}</li>
-                                <li><strong>Awards :</strong> {movieOmdb.Awards}</li>
-                                <li><strong>Box Office :</strong> {movieOmdb.BoxOffice}</li>
-                                <li><strong>DVD :</strong> {movieOmdb.DVD}</li>
-                            </ul>
-                        </div>
-                    ) : (
-                        <div className="content-actor2">
-                            {/* <h1>Actor</h1> */}
+                                </p>
+                                <p>{movieOmdb.Plot}</p>
+                                <hr />
+                                <p><strong>Release :</strong> {movieOmdb.Released}</p>
+                                <p><strong>Director :</strong> {movieOmdb.Director}</p>
+                                <p><strong>Genre :</strong> {movieOmdb.Genre}</p>
+                                <p><strong>Type :</strong> {movieOmdb.Type}</p>
+                                <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
+                                <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
+                                <hr />
+                                <strong>Details:</strong>
+                                <ul>
+                                    <li><strong>Production:</strong> {movieOmdb.Production}</li>
+                                    <li><strong>Language:</strong> {movieOmdb.Language}</li>
+                                    <li><strong>Country:</strong> {movieOmdb.Country}</li>
+                                    <li><strong>Awards :</strong> {movieOmdb.Awards}</li>
+                                    <li><strong>Box Office :</strong> {movieOmdb.BoxOffice}</li>
+                                    <li><strong>DVD :</strong> {movieOmdb.DVD}</li>
+                                </ul>
+                            </div>
+                        ) : (
+                            <div className="content-actor2">
+                                {/* <h1>Actor</h1> */}
 
-                            {/*// à voir si supprimer///*/}
-                            {
-                                movieActors.length > 0 ? 
-                                movieActors.map((actor, key) => (
-                                    <div className='card-actor2' key={key}>
-                                        <img
-                                        src={actorImg(actor)}
-                                        alt={actor.name} 
-                                        />
-                                        <div className="info">
-                                            <strong>{actor.name}</strong>
-                                            <p>{actor.character}</p>
+                                {/*// à voir si supprimer///*/}
+                                {
+                                    movieActors.length > 0 ? 
+                                    movieActors.map((actor, key) => (
+                                        <div className='card-actor2' key={key}>
+                                            <img
+                                            src={actorImg(actor)}
+                                            alt={actor.name} 
+                                            />
+                                            <div className="info">
+                                                <strong>{actor.name}</strong>
+                                                <p>{actor.character}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))
-                                : 
-                                <h1>Aucun élément</h1>
-                            } 
-                        </div>
-                    )}
+                                    ))
+                                    : 
+                                    <h1>Aucun élément</h1>
+                                } 
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-            <hr />
+                <hr />
 
-            {/*///////// Actor Info////////////////////////////////////////////// */}
+                {/*///////// Actor Info////////////////////////////////////////////// */}
 
-            <div className="container-nav-media">
-                <h3>Tête d'affiche</h3>
-                <div className="nav-media">
-                    <a onClick={() => setOngletActor("Cast")}>Cast</a>
-                    <a onClick={() => setOngletActor("Crew")}>Crew</a>
+                <div className="container-nav-media">
+                    <h3>Tête d'affiche</h3>
+                    <div className="nav-media">
+                        <a onClick={() => setOngletActor("Cast")}>Cast</a>
+                        <a onClick={() => setOngletActor("Crew")}>Crew</a>
+                    </div>
                 </div>
-            </div>
-            <div className="content-actor">
+                <div className="content-actor">
 
-                <Carousel1 movieCarousel={null} actorCarousel={movieActors}/>
+                    {/* <Carousel1 movieCarousel={null} actorCarousel={movieActors}/> */}
+
+                    {
+                        ongletActor === "Cast" && movieActors.length > 0 && 
+                        movieActors.map((actor, key) => (
+                            <div className='card-actor' key={key}>
+                            <img 
+                            src={actorImg(actor)}
+                            alt={actor.name} 
+                            />
+                            <strong>{actor.name}</strong>
+                            <p>{actor.character}</p>
+                            </div>
+                        ))
+                        }
+                    
+                    {
+                        ongletActor === "Crew" && movieCrew.length > 0 && 
+                        movieCrew.map((crew, key) => (
+                            <div className='card-actor' key={key}>
+                            <img 
+                            src={actorImg(crew)}
+                            alt={crew.name} 
+                            />
+                            <strong>{crew.name}</strong>
+                            <p>{crew.character}</p>
+                            </div>
+                        ))
+                    }
+                </div>
                 
-                {
-                    ongletActor === "Crew" && movieCrew.length > 0 && 
-                    movieCrew.map((crew, key) => (
-                        <div className='card-actor' key={key}>
-                        <img 
-                        src={actorImg(crew)}
-                        alt={crew.name} 
-                        />
-                        <strong>{crew.name}</strong>
-                        <p>{crew.character}</p>
-                        </div>
-                    ))
-                }
-            </div>
-            
-            {/*///////// Media(video,image,poster)////////////////////////////////////////////// */}
+                {/*///////// Media(video,image,poster)////////////////////////////////////////////// */}
 
-            <div className="container-nav-media">
-                <h3>Média</h3>
-                <div className="nav-media">
-                    <a onClick={() => setOngletMedia("Videos")}>Videos</a>
-                    <a onClick={() => setOngletMedia("Posters")}>Posters</a>
-                    <a onClick={() => setOngletMedia("Backdrops")}>Backdrops</a>
+                <div className="container-nav-media">
+                    <h3>Média</h3>
+                    <div className="nav-media">
+                        <a onClick={() => setOngletMedia("Videos")}>Videos</a>
+                        <a onClick={() => setOngletMedia("Posters")}>Posters</a>
+                        <a onClick={() => setOngletMedia("Backdrops")}>Backdrops</a>
+                    </div>
                 </div>
+                <div className="media">
+                    {
+                        ongletMedia === "Videos" && 
+                            <div className='media-video'>
+                                {
+                                    movieVideos.slice(0,5).map((video, key) => (
+                                        <iframe key={key} width="560" height="315" 
+                                        src={`https://www.youtube.com/embed/${video.key}`} 
+                                        title="YouTube video player" frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                allowfullscreen>
+                                        </iframe>
+                                    ))
+                                } 
+                            </div>
+                    }
+                    {
+                    ongletMedia === "Posters" && movieImages.posters.map((image, key) => (
+                        <img key={key}
+                            src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
+                    )) 
+                    }
+                    {
+                    ongletMedia === "Backdrops" && movieImages.backdrops.map((image, key) => (
+                        <img key={key}
+                            src={`https://image.tmdb.org/t/p/original/${image.file_path}`} 
+                            />
+                    )) 
+                    }
+                
+                </div>
+                <hr />
+                {/*///////// Film recommendé////////////////////////////////////////////// */}
+                <h3>Titre similaire</h3>
+                <div className="recommandations">
+                    <Carousel1 movieCarousel={movieRecommendation} actorCarousel={null}/>
+                </div>
+                
             </div>
-            <div className="media">
-                {
-                    ongletMedia === "Videos" && 
-                        <div className='media-video'>
-                            {
-                                movieVideos.slice(0,5).map((video, key) => (
-                                    <iframe key={key} width="560" height="315" 
-                                    src={`https://www.youtube.com/embed/${video.key}`} 
-                                    title="YouTube video player" frameborder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                            allowfullscreen>
-                                    </iframe>
-                                ))
-                            } 
-                        </div>
-                }
-                {
-                   ongletMedia === "Posters" && movieImages.posters.map((image, key) => (
-                    <img key={key}
-                        src={`https://image.tmdb.org/t/p/w200/${image.file_path}`} />
-                )) 
-                }
-                {
-                   ongletMedia === "Backdrops" && movieImages.backdrops.map((image, key) => (
-                    <img key={key}
-                        src={`https://image.tmdb.org/t/p/w200/${image.file_path}`} 
-                        />
-                )) 
-                }
-               
-            </div>
-            <hr />
-            {/*///////// Film recommendé////////////////////////////////////////////// */}
-            <h3>Titre similaire</h3>
-            <div className="recommandations">
-                <Carousel1 movieCarousel={movieRecommendation} actorCarousel={null}/>
-            </div>
-            
-        </div>
-    );
-}
-export default DetailMovie;
+        );
+    }
+    export default DetailMovie;

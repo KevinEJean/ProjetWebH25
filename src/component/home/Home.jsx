@@ -1,77 +1,69 @@
-import 'react'
+import 'react';
 import './Home.css';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import Carousel2 from '../movieCard/carousel/Carousel2';
 import useHome from './useHome';
+import Carousel3 from '../movieCard/carousel/Carousel3';
 
-// a voir si possible de map tout ces élément
 function Home() {
-    const {moviesRecent, moviesTopRated, moviesTrending, moviesPopular, moviesUpcoming, seriePopular, serieTopRated, serieTrending} = useHome();
+    const { moviesRecent, moviesTopRated, moviesTrending, moviesPopular, moviesUpcoming, seriePopular, serieTopRated, serieTrending } = useHome();
+
+    const sections = [
+        { title: "Top Rated Movie", data: moviesTopRated },
+        { title: "Trending Movie", data: moviesTrending },
+        { title: "Popular Movie", data: moviesPopular },
+        { title: "Upcoming Movie", data: moviesUpcoming },
+        { title: "Popular TV", data: seriePopular },
+        { title: "Top Rated TV", data: serieTopRated },
+        { title: "Trending TV", data: serieTrending },
+    ];
 
     return (
-        
         <div className="containerHome">
 
-            <Carousel2 movieRecent={moviesRecent} actorCarousel={null}/> 
+                {/* <Carousel3/> */}
+
+            {/* {
+                moviesRecent.slice(19).map((movie, key) => (
+
+                    <div className="presentation" style={{
+                        backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${movie.poster_path}` || 'https://swiperjs.com/demos/images/nature-1.jpg'})`,
+                        backgroundRepeat:"no-repeat",
+                        backgroundPosition:"center",
+                        backgroundSize:"cover"
+                    }}>
+                    </div>
+                            
+                ))
                 
+            } */}
+
+            {/*/// Prototype */}
+            {/* <Carousel3 movieRecent={moviesRecent}/>  */}
+
+            <div className="loader">
+                
+            </div>
+
+
+            <Carousel2 movieRecent={moviesRecent} /> 
+            {/* <Carousel3/>  */}
+
+            <hr />
             
-            <hr />
-            <h3 style={{float:"left"}}>Top rated Movie</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={moviesTopRated} actorCarousel={null}/>
+            {sections.map((section, index) => (
+                <div key={index}>
+                    <h3 style={{ float: "left" }}>{section.title}</h3>
+                    <div className="containerTrending">
+                        <div className="trending">
+                            <Carousel1 movieCarousel={section.data} />
+                        </div>
+                    </div>
+                    <hr />
                 </div>
-            </div>
-
-            <h3 style={{float:"left"}}>Trending Movie</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={moviesTrending} actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
-            <h3 style={{float:"left"}}>Popular Movie</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={moviesPopular } actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
-            <h3 style={{float:"left"}}>Upcoming Movie</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={moviesUpcoming } actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
-            <h3 style={{float:"left"}}>Popular tv</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={seriePopular} actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
-            <h3 style={{float:"left"}}>Top Rated tv</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={serieTopRated} actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
-            <h3 style={{float:"left"}}>Trending tv</h3>
-            <div className="containerTrending">
-                <div className="trending">
-                    <Carousel1 movieCarousel={serieTrending} actorCarousel={null}/>
-                </div>
-            </div>
-            <hr />
-
+            ))}
         </div>
     );
 }
+
 export default Home;

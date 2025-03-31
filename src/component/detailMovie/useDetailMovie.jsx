@@ -16,6 +16,7 @@ const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700";
 function useDetailMovie() {
     const { id,title } = useParams();
     const [movieOmdb, setMovieOmdb] = useState(null);  
+    const [moviePosterTmdb, setMoviePosterTmdb] = useState(null);  
     const [movieRecommendation, setMovieRecommendation] = useState(null)
     const [ongletActif, setOngletActif] = useState("Info");
     const [ongletActor, setOngletActor] = useState("Cast");
@@ -35,6 +36,16 @@ function useDetailMovie() {
             }
         };
     
+        const searchPosterTmdb = async () => {
+            // if (movieId) {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY_TMDB}`); 
+                // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
+                const data = await response.json();
+                setMoviePosterTmdb(data || []);
+                console.log("TMDB: ", data)
+            // }
+        };  
+
         const searchMovieRecommendations = async () => {
             // if (movieId) {
                 const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
@@ -86,6 +97,7 @@ function useDetailMovie() {
                 searchMovieCrew();
                 searchMovieVideo();
                 searchMovieImage();
+                searchPosterTmdb()
             }
         }, [id,title]);
     
@@ -97,6 +109,7 @@ function useDetailMovie() {
         movieRecommendation,
         setMovieRecommendation,
         ongletActif,
+        moviePosterTmdb,
         setOngletActif,
         ongletActor,
         setOngletActor,

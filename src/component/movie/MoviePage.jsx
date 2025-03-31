@@ -63,7 +63,7 @@ function MoviePage() {
                             <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
                                 
                                 <MovieCard2 
-                                    url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 
+                                    url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
                                     title={movie.title} 
                                     type="Movie"
                                     rate={movie.vote_average}
@@ -77,7 +77,7 @@ function MoviePage() {
                             <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
                           
                                 <MovieCard2 
-                                    url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 
+                                    url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
                                     title={movie.title} 
                                     type="Movie"
                                     rate={movie.vote_average}

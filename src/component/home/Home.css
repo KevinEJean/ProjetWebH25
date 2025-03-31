@@ -1,7 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.containerHome .presentation {
+    /* margin-top: 80px; */
+    border: 2px solid;
+    width: 100%;
+    height: 500px;
+}
 
+.containerHome .presentation img {
+    border: 2px solid red;
+    width: 100%;
+    height: 500px;
+}
 
 .containerHome {
     /* border: 2px solid white;  */
+    margin-top: 70px;
     padding: 10px;
     color: white;
     width: 100%;
@@ -103,3 +119,6 @@
     /* justify-content: center;     */
     border-radius: 20px;
 }
+
+
+

@@ -36,14 +36,15 @@ function SearchMovie() {
                     movies.length > 0 ? 
                     movies.map((movie, key) => (
                             <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
-                                    <MovieCard url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} />
+                                    <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
+                                    <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
                             </div>
                     ))
                     :
                     moviesTrending.length > 0 ?
                         moviesTrending.map((movie, key) => (
                             <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
-                                <MovieCard url={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} title={movie.title} />
+                                <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
                             </div>
                         ))
                         : <h3>Aucun résultat trouvé</h3> 

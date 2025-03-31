@@ -1,10 +1,9 @@
-.content-main {
-    margin-top: 60px;
-}
 
 .content-main .swiper {
-    border-radius: 50px;
+    border-radius: 10px; 
+    /* border: 2px solid red; */
     transition: transform 0.3s ease-in-out;
+    
 }
 
 .content-main .swiper:hover {
