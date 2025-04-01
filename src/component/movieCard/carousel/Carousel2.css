@@ -1,9 +1,5 @@
-
 .content-main .swiper {
-    border-radius: 10px; 
-    /* border: 2px solid red; */
     transition: transform 0.3s ease-in-out;
-    
 }
 
 .content-main .swiper:hover {
@@ -12,7 +8,35 @@
     border: 2px solid black;
 }
 
-.content-main .swiper div {
-    font-weight: 600;
-    text-shadow: 1px 1px black;
+
+
+/*///////////// design de l'image et des ecrit ///////////////*/
+.content-main .swiper figure img {
+    width: 100%;
+    height: auto;
 }
+
+.content-main .swiper figure figcaption {
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    color: white; 
+}
+
+
+.content-main .swiper figure figcaption .movie-info {
+    float: left;
+    margin: 10px;
+    text-align: left;
+    text-shadow: 1px black;
+    color: whitesmoke;
+}
+.content-main .swiper figure figcaption .movie-info button {
+    width: 10%;
+    background-color: rgb(78, 96, 124);
+}
+
+
+
+

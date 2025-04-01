@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import movieAvatar from "/src/assets/avatar.png"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -44,31 +45,40 @@ export default function Carousel2({ movieRecent = [] }) {
       >
         {
             movieRecent.map((movie, key) => (
-                <div>
-                    <SwiperSlide onClick={() => handleDetail(movie.id ,movie.title)} key={key}
-                            style={{
-                            backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${movie.poster_path}` || 'https://swiperjs.com/demos/images/nature-1.jpg'})`,
-                            // backgroundSize: "cover",
-                            backgroundRepeat:"no-repeat",
-                            backgroundPosition:"center",
-                            // backgroundAttachment:"fixed",
-                            // placeContent:"center",
-                            backgroundSize:"cover"
-                            }}>
-                               
-                        <div className="title" data-swiper-parallax="-500">
-                            <h1>{movie.title}</h1>
-                        </div>
+              <SwiperSlide
+                      // style={{
+                      // backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${movie.poster_path}` || 'https://swiperjs.com/demos/images/nature-1.jpg'})`,
+                      // backgroundRepeat:"no-repeat",
+                      // backgroundPosition:"center",
+                      // backgroundSize:"cover"
+                      // }}
+                      >
+                    <figure>
+                          <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt="Description de l'image" />
+                            
+                          <figcaption>
+                            <div className="movie-info" data-swiper-parallax="-500">
+                              <h2>{movie.title}</h2>
+                              <h4>{movie.release_date.split('-')[0]}</h4>
+                              <hr />
+                              <h6>{movie.overview}</h6>
+                              <button onClick={() => handleDetail(movie.id ,movie.title)} key={key}>Info</button>
+                            </div>
+                            
+                        </figcaption> 
+                    </figure>
+                         
+                  {/* <div className="title" data-swiper-parallax="-500">
+                      <h1>{movie.title}</h1>
+                  </div>
 
-                        <div className="subtitle" data-swiper-parallax="-2000">
-                            {/* Subtitle */}
-                            <h3>{movie.release_date.split('-')[0]}</h3>
-                        </div>
-                        <div className="text" data-swiper-parallax="-5000">
-                            {movie.overview}
-                        </div>
-                    </SwiperSlide>
-                </div>
+                  <div className="subtitle" data-swiper-parallax="-2000">
+                      <h3>{movie.release_date.split('-')[0]}</h3>
+                  </div>
+                  <div className="text" data-swiper-parallax="-5000">
+                      {movie.overview}
+                  </div> */}
+              </SwiperSlide>
             ))
         }
         

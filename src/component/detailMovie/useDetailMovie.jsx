@@ -9,7 +9,6 @@ const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700";
 // const API_URL_TMDB_RECOMMENDATIONS = `https://api.themoviedb.org/3/movie/movie_id/recommendations?api_key=${API_KEY_TMDB}&page=1`;
 // const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
 
-
 //  ##########################################################################################################################
 // ############# Hook personnalisé on va développer tout nos fonction ici et l'envoyer de l'autre coté #############################
 
@@ -18,7 +17,6 @@ function useDetailMovie() {
     const [movieOmdb, setMovieOmdb] = useState(null);  
     const [moviePosterTmdb, setMoviePosterTmdb] = useState(null);  
     const [movieRecommendation, setMovieRecommendation] = useState(null)
-    const [ongletActif, setOngletActif] = useState("Info");
     const [ongletActor, setOngletActor] = useState("Cast");
     const [ongletMedia, setOngletMedia] = useState("Videos");
     const [movieActors, setMovieActor] = useState(null)
@@ -108,9 +106,7 @@ function useDetailMovie() {
         setMovieOmdb,
         movieRecommendation,
         setMovieRecommendation,
-        ongletActif,
         moviePosterTmdb,
-        setOngletActif,
         ongletActor,
         setOngletActor,
         ongletMedia,

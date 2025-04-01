@@ -62,7 +62,7 @@ function MoviePage() {
                         movieFindByFiltre.map((movie, key) => (
                             <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
                                 
-                                <MovieCard2 
+                                <MovieCard2 onClick={() => handleDetail(movie.id, movie.title)}
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
                                     title={movie.title} 
                                     type="Movie"

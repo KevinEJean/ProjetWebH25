@@ -20,38 +20,9 @@ function Home() {
 
     return (
         <div className="containerHome">
-
-                {/* <Carousel3/> */}
-
-            {/* {
-                moviesRecent.slice(19).map((movie, key) => (
-
-                    <div className="presentation" style={{
-                        backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${movie.poster_path}` || 'https://swiperjs.com/demos/images/nature-1.jpg'})`,
-                        backgroundRepeat:"no-repeat",
-                        backgroundPosition:"center",
-                        backgroundSize:"cover"
-                    }}>
-                    </div>
-                            
-                ))
-                
-            } */}
-
-            {/*/// Prototype */}
-            {/* <Carousel3 movieRecent={moviesRecent}/>  */}
-
-
-
             <Carousel2 movieRecent={moviesRecent} /> 
-            {/* <Carousel3/>  */}
 
             <hr />
-
-            {/* <div class="wrapper">
-            <div class="bg"> Gold </div>
-            <div class="fg"> Gold </div>
-            </div> */}
             
             {sections.map((section, index) => (
                 <div key={index} className=''>
