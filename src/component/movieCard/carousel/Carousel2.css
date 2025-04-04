@@ -1,11 +1,13 @@
 .content-main .swiper {
     transition: transform 0.3s ease-in-out;
+    height: 500px;
+    border-radius: 10px;
 }
 
 .content-main .swiper:hover {
     cursor: grab;
-    transform: scale(1.02);
-    border: 2px solid black;
+    /* transform: scale(1.02); */
+    /* border: 2px solid black; */
 }
 
 
@@ -13,7 +15,7 @@
 /*///////////// design de l'image et des ecrit ///////////////*/
 .content-main .swiper figure img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .content-main .swiper figure figcaption {

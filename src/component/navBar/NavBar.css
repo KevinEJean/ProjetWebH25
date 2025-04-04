@@ -45,9 +45,11 @@
   a {
     color: inherit;
     text-decoration: none;
+    color: rgba(255, 255, 255, 0.607);
     &:hover,
     &:focus {
-      text-decoration: underline;
+      color: rgb(205, 26, 26);
+      /* text-decoration: underline; */
     }
   }
   .list {
@@ -55,14 +57,24 @@
     margin-top: 20px;
     list-style-type: none;
     margin-left: auto;
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     @media (min-width: 640px) {
       display: flex;
     }
     li {
+      display: fle;
       margin-left: 20px;
     }
   }
+
+  /* .list li {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  } */
+
   .search {
     display: inline-block;
     padding: 0;

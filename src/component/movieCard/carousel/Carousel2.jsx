@@ -24,8 +24,8 @@ export default function Carousel2({ movieRecent = [] }) {
         style={{
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
-          border:"2px solid",
-          height:"500px",
+          // border:"2px solid",
+          // height:"500px",
         //   backgroundImage:'url(https://swiperjs.com/demos/images/nature-1.jpg)'
         }}
         spaceBetween={30}
@@ -59,7 +59,7 @@ export default function Carousel2({ movieRecent = [] }) {
                           <figcaption>
                             <div className="movie-info" data-swiper-parallax="-500">
                               <h2>{movie.title}</h2>
-                              <h4>{movie.release_date.split('-')[0]}</h4>
+                                  <h4>{movie.release_date.split('-')[0]} ⭐{movie.vote_average.toFixed(1)}</h4>
                               <hr />
                               <h6>{movie.overview}</h6>
                               <button onClick={() => handleDetail(movie.id ,movie.title)} key={key}>Info</button>

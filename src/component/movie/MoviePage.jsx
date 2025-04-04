@@ -66,7 +66,7 @@ function MoviePage() {
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
                                     title={movie.title} 
                                     type="Movie"
-                                    rate={movie.vote_average}
+                                    rate={movie.vote_average.toFixed(1)}
                                     year={movie.release_date.split('-')[0]}
                                     language={movie.original_language}
                                 /> 
@@ -80,7 +80,7 @@ function MoviePage() {
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
                                     title={movie.title} 
                                     type="Movie"
-                                    rate={movie.vote_average}
+                                    rate={movie.vote_average.toFixed(1)}
                                     year={movie.release_date.split('-')[0]}
                                     language={movie.original_language}
                                 /> 

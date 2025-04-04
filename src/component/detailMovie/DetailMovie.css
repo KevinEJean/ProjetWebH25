@@ -212,9 +212,10 @@
 }
   
 .container-detail .media::-webkit-scrollbar-thumb {
-    background-color: grey;    
+    background-color: whitesmoke;    
     border-radius: 20px;       
     border: 3px solid black;
+    cursor: grab;
 }
 
 .container-detail .media .media-video {
@@ -249,4 +250,18 @@
 .container-detail h3 {
     text-align: left;
     color: whitesmoke;
+}
+
+.container-detail .addToInfoList {
+    border: 1px solid;
+    width: 100%;
+    color: rgba(245, 245, 245, 0.463);
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        color: white;
+        transform: scale(1.03);
+    }
+    &:active {
+        color: greenyellow;
+    }
 }

@@ -56,24 +56,7 @@
   cursor: default;
 }
 
-.content__shows div .favorit {
-  position: absolute;
-  width: 100%;
-  top: -1px;
-  left: 70px;
-  color: #fff;
-  transform: translatey(-50px);
-  padding: 10px;
-  z-index: 10;
-  transition: .3s ease;
-  cursor: pointer;
-}
-
 .content__shows div:hover .name,
 .content__shows div:hover .title-box {
-  transform: translatey(0); 
-}
-.content__shows div:hover .favorit,
-.content__shows div:hover .favorit-box {
   transform: translatey(0); 
 }

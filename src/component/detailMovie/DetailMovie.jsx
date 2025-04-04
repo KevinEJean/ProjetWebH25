@@ -83,6 +83,7 @@ function DetailMovie() {
                                 <li><strong>Box Office :</strong> {movieOmdb.BoxOffice}</li>
                                 <li><strong>DVD :</strong> {movieOmdb.DVD}</li>
                             </ul> */}
+                            <button className='addToInfoList'>Add to InfoList</button>
                         </div>
                 </div>
             </div>
