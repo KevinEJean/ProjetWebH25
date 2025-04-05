@@ -63,7 +63,7 @@ export default function Setting() {
                 <h1>Information</h1>
                 <div style={{ display: "flex", marginBottom: "50px" }}>
                     <p>Contact Us ?</p>
-                    <button onClick={(event) => copy()} style={{ marginLeft: "10px", color: "lightgrey" }}>filmApp@gmail.com</button>
+                    <button onClick={(event) => copy()} style={{ marginLeft: "10px", color: "lightgrey" }}>filmapp25@gmail.com</button>
                 </div>
             </div>
         </div>
