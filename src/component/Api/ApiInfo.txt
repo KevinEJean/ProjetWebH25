@@ -44,3 +44,7 @@ Api from => TMDB
         url rechercher film par id => `https://api.themoviedb.org/3/movie/${title}?api_key=bbe34269651625cd81a39afd38610700`
         
         url rechercher film nom => const API_URL_TMDB = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY_TMDB}&query=`;
+
+===================================
+const API_KEY_FANART_TV = "d6d3fbb12d588dbb6994f558f383d0b4";
+const API_FANART_LOGO = `https://webservice.fanart.tv/v3/movies/950387?api_key=${API_KEY_FANART_TV}`;

@@ -16,7 +16,12 @@
     display: flex;
     gap: 10px;
     transition: transform 0.3s ease-in-out;
+    /* background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat, */
 }
+
+
 
 .movie-detail:hover {
     transform: scale(1.009);

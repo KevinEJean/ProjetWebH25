@@ -41,10 +41,7 @@ function DetailMovie() {
 
                 <div className="movie-detail" 
                     // à voir si à garder ou pas
-                    // style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${moviePosterTmdb.poster_path}`})`,
-                    //     backgroundRepeat:"no-repeat",
-                    //     backgroundPosition:"center",
-                    //     backgroundSize:"cover"}}
+                    // style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${moviePosterTmdb.poster_path}`})`}}
                         >
 
                 {/*///////// Movie Info////////////////////////////////////////////// */}

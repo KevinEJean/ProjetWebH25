@@ -6,11 +6,29 @@
 
 .content-main .swiper:hover {
     cursor: grab;
-    /* transform: scale(1.02); */
-    /* border: 2px solid black; */
 }
 
+.content-main .swiper .swiper-slide {
+    position: relative;
+  }
+  
 
+.content-main .swiper .swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      linear-gradient(to top, #1a1a1a 0%, rgba(0, 0, 0, 0) 20%) left bottom,
+      linear-gradient(to top, #1a1a1a 0%, rgba(0, 0, 0, 0) 20%) right top,
+      linear-gradient(to right, #1a1a1a 0%, rgba(0, 0, 0, 0) 30%) left,
+      linear-gradient(to left, #1a1a1a 0%, rgba(0, 0, 0, 0) 30%) right;
+      /* linear-gradient(to top, rgb(0 0 0) 0%, rgba(0, 0, 0, 0) 33%) left bottom,
+      linear-gradient(to top, rgb(0 0 0) 0%, rgba(0, 0, 0, 0) 33%) right top,
+      linear-gradient(to right, rgb(0 0 0) 0%, rgba(0, 0, 0, 0) 33%) left,
+      linear-gradient(to left, rgb(0 0 0) 0%, rgba(0, 0, 0, 0) 33%) right; */
+    z-index: 0; 
+}
+  
 
 /*///////////// design de l'image et des ecrit ///////////////*/
 .content-main .swiper figure img {
@@ -31,12 +49,16 @@
     float: left;
     margin: 10px;
     text-align: left;
-    text-shadow: 1px black;
+    text-shadow: 2px black;
+    font-weight: bold;
     color: whitesmoke;
+    /* position: absolute; */
+    /* z-index: 3; */
 }
 .content-main .swiper figure figcaption .movie-info button {
-    width: 10%;
-    background-color: rgb(78, 96, 124);
+    width: 15%;
+    color: black;
+    background-color:whitesmoke
 }
 
 
