@@ -25,7 +25,9 @@ export default function Setting() {
 
     function dataReset() {
         localStorage.clear();
+        localStorage.setItem("Title-Colors", "lightgrey");
         alert('Data succesfully erased !')
+        window.location.reload();
     }
 
     return (

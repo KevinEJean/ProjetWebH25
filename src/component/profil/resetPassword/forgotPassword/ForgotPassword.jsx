@@ -16,7 +16,7 @@ export default function ForgotPassword() {
 
     return (
         <div className="form-grid-1x2">
-            <h1>EMAIL VERIFICATION</h1>
+            <h1 style={{color: localStorage.getItem("Title-Colors")}}>EMAIL VERIFICATION</h1>
             <p className="info-text">this may take a few minutes...</p>
             <form className="form">
                 <h4>Email</h4>

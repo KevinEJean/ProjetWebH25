@@ -12,12 +12,11 @@ export default function ResetPassword() {
             // alert("Password can only contain 18 letters including numbers")
         //else update password
         handleLogOut(); // log out l'utilisateur
-        location.href = "/logIn";
     }
 
     return (
         <div className="form-grid-1x2">
-            <h1>PASSWORD RESET</h1>
+            <h1 style={{color: localStorage.getItem("Title-Colors")}}>PASSWORD RESET</h1>
             <p className="alt-info">Cannot contain any special characters and must be between 5 - 16 letters or numbers</p>
             <form className="form">
                 <h4>
@@ -31,7 +30,7 @@ export default function ResetPassword() {
                 <input type={show ? "text" : "password"} id="passwd"/>
             </form>
             <div>
-                <button onClick={(e) => passwordReset()} style={{ color: "green", marginRight: "10px" }}>Confirm</button>
+                <button onClick={(event) => passwordReset()} style={{ color: "green", marginRight: "10px" }}>Confirm</button>
                 <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
             </div>
         </div>

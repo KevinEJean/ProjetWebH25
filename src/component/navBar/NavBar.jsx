@@ -11,7 +11,7 @@ export default function NavBar() {
     return (
         <div className='nav-grid'>
             <nav>
-                <a href="#">LOGO</a>
+                <a href="#" style={{color: localStorage.getItem("Title-Colors")}}>LOGO</a>
                 <ul class="list">
                     <Link to="/"><li><a title='Home' href="#"><GrHomeRounded style={{fontSize:"20px"}}/></a></li></Link>
                     <Link to="/movie"><li><a href="#">Movies</a></li></Link>

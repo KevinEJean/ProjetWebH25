@@ -22,7 +22,7 @@ function Home() {
         <div className="containerHome">
             <Carousel2 movieRecent={moviesRecent} /> 
 
-            <hr />
+            <hr style={{color: localStorage.getItem("Title-Colors")}}/>
             
             {sections.map((section, index) => (
                 <div key={index} className=''>
@@ -36,7 +36,7 @@ function Home() {
                             <Carousel1 movieCarousel={section.data} />
                         </div>
                     </div>
-                    <hr />
+                    <hr style={{color: localStorage.getItem("Title-Colors")}}/>
                 </div>
             ))}
         </div>

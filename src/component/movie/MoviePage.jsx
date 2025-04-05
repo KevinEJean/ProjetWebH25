@@ -29,7 +29,7 @@ function MoviePage() {
     return (
         <div className='movie-container'>
             <h2 style={{textAlign: "center", marginTop: "1em"}}>Movies</h2>
-            <div className="content-filter">
+            <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
                     <a onClick={() => setMovieRate('trending')}>Trending </a>

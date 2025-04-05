@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { handleLogOut } from "../utils/useUtils";
 import "./Profil.css";
 
 export default function Profil() {
@@ -16,10 +17,6 @@ export default function Profil() {
         // change picture
     }
 
-    function handleLogOut() {
-        // code pour déconnecter le user
-    }
-
     function allowUpdate() {
         // change this.button to 'save' button
         // then onClick (this.button) revert to update.button
@@ -28,7 +25,7 @@ export default function Profil() {
 
     return (
         <div className="form-grid">
-            <h1>PROFIL</h1>
+            <h1 style={{color: localStorage.getItem("Title-Colors")}}>PROFIL</h1>
             <span class="material-symbols-outlined avatar">
                 account_circle
             </span>
@@ -50,8 +47,8 @@ export default function Profil() {
                     <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
                 </div>
             </form>
-            <p onClick={addAvatar()}>change picture?</p>
-            <p onClick={handleLogOut()} style={{ textAlign: "left" }}>log out</p>
+            <p onClick={(event) => addAvatar()}>change picture?</p>
+            <p onClick={(event) => handleLogOut()} style={{ textAlign: "left" }}>log out</p>
         </div>
     )
 }

@@ -13,7 +13,7 @@ export default function LogIn() {
 
     return(
         <div className="form-grid-logIn">
-            <h1>LOG IN</h1>
+            <h1 style={{color: localStorage.getItem("Title-Colors")}}>LOG IN</h1>
             <form>
                 <h4>Username</h4>
                 <input type="text" id="usernameLogIn"/>

@@ -13,7 +13,7 @@ export default function SignIn() {
 
     return(
         <div className="form-grid-signIn">
-            <h1>SIGN IN</h1>
+            <h1 style={{color: localStorage.getItem("Title-Colors")}}>SIGN IN</h1>
             <form>
                 <h4>Username</h4>
                 <input type="text" id="username" placeholder="myUser-Name_"/>

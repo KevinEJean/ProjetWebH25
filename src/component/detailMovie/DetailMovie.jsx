@@ -15,8 +15,7 @@ function DetailMovie() {
     if (!movieOmdb) return <p>Film information is loading...</p>;
     if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
     if (!movieActors) return <p>Actors information is loading...</p>;
-    
-    setInterval(troubleShoot(), 5);
+    troubleShoot();
 
     function loadMoviePosterBackdrops(choices){
         if (ongletMedia == "Posters") {
