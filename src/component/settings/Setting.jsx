@@ -1,31 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { troubleShoot } from "../utils/useUtils";
 import './Setting.css';
 
 export default function Setting() {
 
-    function colorPicker(thisColor) { // to be continued
+    troubleShoot();
 
-        // SETTINGS PAGE
+    function colorPicker(thisColor) {
+        if (thisColor == null) {
+            thisColor = localStorage.getItem("Title-Colors");
+        }
         localStorage.setItem("Title-Colors", thisColor);
-        // if (localStorage.getItem("Title-Colors")) {
-        //     var allH1Titles = document.getElementsByTagName("h1");
-        //     for (let i = 0; i < allH1Titles.length; i++) {
-        //         allH1Titles[i].style.color = thisColor;
-        //     }
-        // }
-
-
-        // HOME PAGE
-
-
-        // MOVIE PAGE
-
-
-        // DETAIL_MOVIE PAGE
-
-
-        // PROFIL PAGE
+        var allH1Titles = document.getElementsByTagName("h1");
+        for (let i = 0; i < allH1Titles.length; i++) {
+            allH1Titles[i].style.color = localStorage.getItem("Title-Colors");
+        }
     }
 
     function copy() {

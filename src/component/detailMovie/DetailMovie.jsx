@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import useDetailMovie from './useDetailMovie';
 import Carousel3 from '../movieCard/carousel/Carousel3';
+import { troubleShoot } from '../utils/useUtils';
 // function CheckAvailability() {}
 
 function DetailMovie() {
@@ -14,14 +15,8 @@ function DetailMovie() {
     if (!movieOmdb) return <p>Film information is loading...</p>;
     if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
     if (!movieActors) return <p>Actors information is loading...</p>;
-
-
-    // (bug) la page ne load pas, elle est vide
-    // (solution) reload la page
-    if (window.location.hash != "#loaded") {
-        window.location.hash = "#loaded"
-        window.location.reload();
-    }
+    
+    setInterval(troubleShoot(), 5);
 
     function loadMoviePosterBackdrops(choices){
         if (ongletMedia == "Posters") {

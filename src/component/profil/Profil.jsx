@@ -45,7 +45,7 @@ export default function Profil() {
                 <input type="text" id="lname" readOnly />
                 <h4>Username</h4>
                 <input type="text" id="username" readOnly />
-                <div style={{margin: " 20px 0 0 20px"}}>
+                <div style={{ margin: " 20px 0 0 20px" }}>
                     <button className="yesBTN" onClick={allowUpdate()} style={{ color: "green", marginRight: "10px", }}>Update</button>
                     <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
                 </div>

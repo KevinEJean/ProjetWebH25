@@ -6,6 +6,7 @@ import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import useMoviePage from './useMoviePage';
 import useUtils from '../utils/useUtils';
+import { troubleShoot } from '../utils/useUtils';
 
 const genresTv = [
     {name:"Action & Adventure", id:10759},{name:"Animation ", id:16},{name:"Comedy", id:35},
@@ -23,9 +24,11 @@ function MoviePage() {
     
     if (!moviesTrending) return <p>Chargement des film ....</p>
 
+    troubleShoot();
+
     return (
         <div className='movie-container'>
-            <h2 style={{marginRight:"100%"}}>Movies</h2>
+            <h2 style={{textAlign: "center", marginTop: "1em"}}>Movies</h2>
             <div className="content-filter">
                 <div className="filters">
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
