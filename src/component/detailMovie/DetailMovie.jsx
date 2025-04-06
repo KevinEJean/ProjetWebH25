@@ -9,10 +9,6 @@ import { troubleShoot } from '../utils/useUtils';
 function DetailMovie() {
     // const { id,title } = useParams();
     const { movieOmdb, moviePosterTmdb, movieRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, movieActors, movieCrew, movieImages, movieVideos } = useDetailMovie();
-    const [netflixAvailability, setNetflixAvailability] = useState();
-    const [primeAvailability, setPrimeAvailability] = useState();
-    const [huluAvailability, setHuluAvailability] = useState();
-    const [craveAvailability, setCraveAvailability] = useState();
 
     // ############################# BUG FIXES #############################
     if (!movieOmdb) return <p>Film information is loading...</p>;
@@ -45,9 +41,14 @@ function DetailMovie() {
 
         // crave
         window.open(`https://www.crave.ca/fr/movies/${title.textContent}`, '_blank').focus();
+        // if 404 do nothing
+        // else hulu.style.display = "initial";
 
         // hulu
-        // 
+        window.open(`https://www.hulu.com/movie/${title.textContent}`, '_blank').focus();
+        // if 404 do nothing
+        // else hulu.style.display = "initial";
+
 
         // prime video
         // code here
@@ -91,12 +92,12 @@ function DetailMovie() {
                         <p><strong>Type :</strong> {movieOmdb.Type}</p>
                         <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
                         <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
-                        <p><strong>Availaible on : </strong>
-                            <img className='netflix' alt='netflixLogo' src='/src/assets/netflix.png' style={{display: netflixAvailability ? "initial" : "none"}}/>
-                            <img className='crave' alt='craveLogo' src='/src/assets/crave.png' style={{display: craveAvailability ? "initial" : "none"}}/>
-                            <img className='hulu' alt='huluLogo' src='/src/assets/hulu.png' style={{display: huluAvailability ? "initial" : "none"}}/>
-                            <img className='primeVideo' alt='primeVideoLogo' src='/src/assets/prime_video.png' style={{display: primeAvailability ? "initial" : "none"}}/>
-                        </p>
+                        {/* <p><strong>Availaible on : </strong>
+                            <img className='netflix' alt='netflixLogo' src='/src/assets/netflix.png' />
+                            <img className='crave' alt='craveLogo' src='/src/assets/crave.png' />
+                            <img className='hulu' alt='huluLogo' src='/src/assets/hulu.png' />
+                            <img className='primeVideo' alt='primeVideoLogo' src='/src/assets/prime_video.png' />
+                        </p> */}
                         {/* <hr />
                             <strong>Details:</strong>
                             <ul>

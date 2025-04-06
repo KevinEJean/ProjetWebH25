@@ -13,7 +13,7 @@ function SearchMovie() {
                 {imageFiltre}
                 <input type="text" className="searchTerm" value={inputCritere} placeholder="Search by title, genre, year" onChange={(e) => setInputCritere(e.target.value)} required />
                 
-                <button onClick={(event) => handlecritere} type="submit" className="searchButton">
+                <button onClick={handlecritere} type="submit" className="searchButton">
                     <i className="fa fa-search"></i>
                 </button>
             </div>
