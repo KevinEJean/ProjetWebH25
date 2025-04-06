@@ -10,7 +10,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
     padding: 10px;
-    height: 500px;
+    max-height: 530px;
     margin: auto;
     color: whitesmoke;   
     display: flex;
@@ -240,6 +240,11 @@
     height: 100%;
 }
 
+.content-info img {
+    max-width: 50px;
+    height: 30px;
+}
+
 /*//////// Content info recommendation //////////////////////////////////////////////*/
 
 .container-detail .recommandations {
@@ -258,15 +263,18 @@
 }
 
 .container-detail .addToInfoList {
-    border: 1px solid;
+    border: 1px solid white;
     width: 100%;
-    color: rgba(245, 245, 245, 0.463);
+    background: transparent;
+    color: whitesmoke;
     transition: transform 0.3s ease-in-out;
     &:hover {
-        color: white;
-        transform: scale(1.03);
+        border-color: green;
+        color: green;
+        transform: scale(1.015);
     }
     &:active {
+        border-color: greenyellow;
         color: greenyellow;
     }
 }
