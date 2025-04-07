@@ -1,8 +1,16 @@
 #  🎬 Projet de dévelopement d'une application web
 ### Prévue de notre UI
-![](./images/HomePage.png?raw=true) 
+<h3 align="center">HOME PAGE</h3>
+
+![](./images/HomePage.png?raw=true)
+<h3 align="center">SEARCH PAGE</h3>
+
 ![](./images/SearchPage.png?raw=true)
+<h3 align="center">MOVIES PAGE</h3>
+
 ![](./images/MoviesPage.png?raw=true)
+<h3 align="center">SETTINGS PAGE</h3>
+
 ![](./images/SettingsPage.png?raw=true)
 
 # 📖 Description
