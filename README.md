@@ -21,6 +21,7 @@
 - getByTitle
 - getByType
 - getById
+- update (err)
 
 ### Connection
     http://localhost:{port}/connection/...
@@ -30,9 +31,6 @@
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
 - Connecter au Frontend
-- Ajouter option pour API Film :
-  - supprimer
-  - modifier
 
 ## Erreur
-- aucune
+- ne gere pas les epsaces dans les call putmapping film/update
