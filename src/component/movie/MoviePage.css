@@ -2,7 +2,6 @@
     margin-top: 50px;
     /* border: 2px solid; */
     border-radius: 20px;
-    
     /*temporaire le temp de changer l'adaptabilité*/
     width: 100%;
     color: white;
@@ -11,16 +10,18 @@
 /*//////////// affichage des film en bas des filter*/
 .movie-container .content {
     /* border: 2px solid red; */    
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 10px;
 }
 
-.movie-container .content .pagination {
+.movie-container .pagination-box .pagination {
     /* border: 2px solid; */
-    gap: 10px;
+    margin: auto;
+    width: min-content;
     font-size: 30px;
     cursor: pointer;
     transition: transform 0.3 ease-in-out;

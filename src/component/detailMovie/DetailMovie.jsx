@@ -10,7 +10,7 @@ import { troubleShoot } from '../utils/useUtils';
 function DetailMovie() {
     // const { id,title } = useParams();
     const { movieOmdb, moviePosterTmdb, movieRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, movieActors, movieCrew, movieImages, movieVideos } = useDetailMovie();
-    const [netflix, setNetflix] = useState();
+    const [paramount, setParamount] = useState();
     const [crave, setCrave] = useState();
     const [hulu, setHulu] = useState();
     const [primeVideo, setPrimeVideo] = useState();
@@ -35,36 +35,48 @@ function DetailMovie() {
         }
     }
 
-    setTimeout(function checkAvailability() {
+    function checkAvailability() {
         var title = document.getElementById("movieTitle").textContent.trim().toLowerCase().replace(/\s+/g, '-');
-    
-        // netflix
-        // code here
-    
-        // crave
-        window.open(`https://www.crave.ca/fr/movies/${title.textContent}`, '_blank');
-        if (window.location != `https://www.hulu.com/movie/${title}`) {
-            setCrave(true);
-            console.log("CRAVE : Page found !");
-        } else {
-            setCrave(false);
-            console.log("CRAVE : Page not found !");
-        }
-    
+
+        // paramount  
+        // *************juste pour les série*************
+        // function paramount() {
+        //     window.open(`https://www.paramountplus.com/ca/shows//${title}/`, '_blank');
+        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
+        //         setCrave(true);
+        //         console.log("PARAMOUNT : Page found !");
+        //     } else {
+        //         setCrave(false);
+        //         console.log("PARAMOUNT : Page not found !");
+        //     }
+        // };
+
+        //crave
+        // setTimeout(function crave() {
+        //     window.open(`https://www.crave.ca/fr/movies/${title}`, '_blank').focus();
+        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
+        //         setCrave(true);
+        //         console.log("CRAVE : Page found !");
+        //     } else {
+        //         setCrave(false);
+        //         console.log("CRAVE : Page not found !");
+        //     }
+        // });
+
         // hulu
-        window.open(`https://www.hulu.com/movie/${title}`, '_blank');
-        if (window.location != `https://www.hulu.com/movie/${title}`) {
-            setHulu(true);
-            console.log("HULU : Page found !");
-        } else {
-            setHulu(false);
-            console.log("HULU : Page not found !");
-        }
-    
-    
-        // prime video
-        // code here
-    });
+        // setTimeout(function hulu() {
+        //     window.open(`https://www.hulu.com/movie/${title}`, '_blank');
+        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
+        //         setHulu(true);
+        //         console.log("HULU : Page found !");
+        //     } else {
+        //         setHulu(false);
+        //         console.log("HULU : Page not found !");
+        //     }
+        // }, 2000);
+    }
+
+    // window.onclick = function() {checkAvailability();}
 
     return (
         <div className="container-detail" >
@@ -100,12 +112,11 @@ function DetailMovie() {
                         <p><strong>Type :</strong> {movieOmdb.Type}</p>
                         <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
                         <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
-                        <p><strong>Availaible on : </strong>
-                            <img className='netflix' alt='netflixLogo' src='/src/assets/netflix.png' style={{display: netflix ? "initial" : "none"}}/>
-                            <img className='crave' alt='craveLogo' src='/src/assets/crave.png' style={{display: crave ? "initial" : "none"}}/>
-                            <img className='hulu' alt='huluLogo' src='/src/assets/hulu.png' style={{display: hulu ? "initial" : "none"}}/>
-                            <img className='primeVideo' alt='primeVideoLogo' src='/src/assets/prime_video.png' style={{display: primeVideo ? "initial" : "none"}}/>
-                        </p>
+                        {/* <p><strong>Availaible on : </strong>
+                            <img alt='paramountLogo' src='/src/assets/paramount.png' style={{ display: paramount ? "initial" : "none" }} />
+                            <img alt='craveLogo' src='/src/assets/crave.png' style={{ display: crave ? "initial" : "none" }} />
+                            <img alt='huluLogo' src='/src/assets/hulu.png' style={{ display: hulu ? "initial" : "none" }} />
+                        </p> */}
                         {/* <hr />
                             <strong>Details:</strong>
                             <ul>

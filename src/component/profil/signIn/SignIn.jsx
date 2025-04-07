@@ -5,10 +5,18 @@ import './SignIn.css';
 export default function SignIn() {
 
     const [show, setShow] = useState();
+    const [submit, setSubmit] = useState(false);
 
     function save() {
-        // postMapping(/user/add)
-        location.href = 'logIn';
+        const username = document.getElementById("username").textContent.trim();
+        const passwd = document.getElementById("password").textContent.trim();
+        const email = document.getElementById("email").textContent.trim();
+
+        if (submit) {
+            console.log("Username : " + username);
+            console.log("Password : " + passwd);
+            console.log("Email : " + email);
+        }
     }
 
     return(
