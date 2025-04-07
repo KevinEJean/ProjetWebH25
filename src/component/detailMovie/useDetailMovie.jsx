@@ -122,4 +122,13 @@ function useDetailMovie() {
     }
 }
 
+export function blankAvatarStyler() {
+    var allImages = document.getElementsByTagName("img");
+    for (let i = 0; i < allImages.length; i++) {
+        if (allImages[i].src == "http://localhost/src/assets/stockAvatar.jpg") {    
+            console.log(allImages[i].alt);
+        }
+    }
+}
+
 export default useDetailMovie;

@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import './DetailMovie.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import useDetailMovie from './useDetailMovie';
+import { blankAvatarStyler } from './useDetailMovie';
 import Carousel3 from '../movieCard/carousel/Carousel3';
 import { troubleShoot } from '../utils/useUtils';
 
 function DetailMovie() {
     // const { id,title } = useParams();
     const { movieOmdb, moviePosterTmdb, movieRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, movieActors, movieCrew, movieImages, movieVideos } = useDetailMovie();
+    const [netflix, setNetflix] = useState();
+    const [crave, setCrave] = useState();
+    const [hulu, setHulu] = useState();
+    const [primeVideo, setPrimeVideo] = useState();
 
     // ############################# BUG FIXES #############################
     if (!movieOmdb) return <p>Film information is loading...</p>;
     if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
     if (!movieActors) return <p>Actors information is loading...</p>;
     troubleShoot();
+    blankAvatarStyler();
 
     function loadMoviePosterBackdrops(choices) {
         if (ongletMedia == "Posters") {
@@ -29,34 +35,36 @@ function DetailMovie() {
         }
     }
 
-    function CheckAvailability() {
-        var netflix = document.getElementsByClassName("netflix");
-        var crave = document.getElementsByClassName("crave");
-        var hulu = document.getElementsByClassName("hulu");
-        var primeVideo = document.getElementsByClassName("primeVideo");
-        var title = document.getElementById("movieTitle");
-
+    setTimeout(function checkAvailability() {
+        var title = document.getElementById("movieTitle").textContent.trim().toLowerCase().replace(/\s+/g, '-');
+    
         // netflix
         // code here
-
+    
         // crave
-        window.open(`https://www.crave.ca/fr/movies/${title.textContent}`, '_blank').focus();
-        // if 404 do nothing
-        // else hulu.style.display = "initial";
-
+        window.open(`https://www.crave.ca/fr/movies/${title.textContent}`, '_blank');
+        if (window.location != `https://www.hulu.com/movie/${title}`) {
+            setCrave(true);
+            console.log("CRAVE : Page found !");
+        } else {
+            setCrave(false);
+            console.log("CRAVE : Page not found !");
+        }
+    
         // hulu
-        window.open(`https://www.hulu.com/movie/${title.textContent}`, '_blank').focus();
-        // if 404 do nothing
-        // else hulu.style.display = "initial";
-
-
+        window.open(`https://www.hulu.com/movie/${title}`, '_blank');
+        if (window.location != `https://www.hulu.com/movie/${title}`) {
+            setHulu(true);
+            console.log("HULU : Page found !");
+        } else {
+            setHulu(false);
+            console.log("HULU : Page not found !");
+        }
+    
+    
         // prime video
         // code here
-    }
-
-    // window.onclick = () => {
-    //     CheckAvailability();
-    // }
+    });
 
     return (
         <div className="container-detail" >
@@ -92,12 +100,12 @@ function DetailMovie() {
                         <p><strong>Type :</strong> {movieOmdb.Type}</p>
                         <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
                         <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
-                        {/* <p><strong>Availaible on : </strong>
-                            <img className='netflix' alt='netflixLogo' src='/src/assets/netflix.png' />
-                            <img className='crave' alt='craveLogo' src='/src/assets/crave.png' />
-                            <img className='hulu' alt='huluLogo' src='/src/assets/hulu.png' />
-                            <img className='primeVideo' alt='primeVideoLogo' src='/src/assets/prime_video.png' />
-                        </p> */}
+                        <p><strong>Availaible on : </strong>
+                            <img className='netflix' alt='netflixLogo' src='/src/assets/netflix.png' style={{display: netflix ? "initial" : "none"}}/>
+                            <img className='crave' alt='craveLogo' src='/src/assets/crave.png' style={{display: crave ? "initial" : "none"}}/>
+                            <img className='hulu' alt='huluLogo' src='/src/assets/hulu.png' style={{display: hulu ? "initial" : "none"}}/>
+                            <img className='primeVideo' alt='primeVideoLogo' src='/src/assets/prime_video.png' style={{display: primeVideo ? "initial" : "none"}}/>
+                        </p>
                         {/* <hr />
                             <strong>Details:</strong>
                             <ul>
