@@ -26,7 +26,6 @@ function Home() {
             
             {sections.map((section, index) => (
                 <div key={index} className=''>
-                    {/* <h3 className='rate' style={{ float: "left" }}>{section.title}</h3> */}
                     <div class="wrapper">
                     <div class="bg"> {section.title} </div>
                     <div class="fg"> {section.title} </div>

@@ -2,86 +2,13 @@
     padding: 0;
     margin: 0;
 }
-.containerHome .presentation {
-    /* margin-top: 80px; */
-    border: 2px solid;
-    width: 100%;
-    height: 500px;
-}
-
-.containerHome .presentation img {
-    border: 2px solid red;
-    width: 100%;
-    height: 500px;
-}
 
 .containerHome {
-    /* border: 2px solid white;  */
     margin-top: 50px;
     padding: 10px;
     color: white;
     width: 100%;
 }
-
-
-
-/*///////////////// Carrrousel image /////////////////*/
-.content-main-movie {
-    border: 2px solid white;
-    display: flex;
-    width: 100%;
-    height: 500px;
-    gap: 10px;
-    /* justify-content: center; */
-    overflow: auto;
-}
-
-/*//// Ajouter une background image avec les info par dessus en z-index///////////////*/
-/*//////////// À SUPPRIMER ///////////////*/
-.carouselBox {
-    margin-top: 50px;
-    border-top: 2px solid ; 
-    border-bottom: 2px solid; 
-    border-radius: 70px;
-    box-shadow: 10px 10px 10px 7px rgb(50, 50, 50);
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.carouselBox button {
-    border-top: 2px solid ; 
-    border-bottom: 2px solid; 
-    border-radius: 70px;
-    box-shadow: 10px 10px 10px rgb(50, 50, 50);
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-
-
-.carousel-inner img {
-    /* border: 2px solid; */
-    border-radius: 20px;
-    box-shadow: 4px 4px 4px black;
-    width: 420px;
-    height: 530px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out
-
-}
-
-.carousel-inner img:hover {
-    border: 1px solid grey;
-    transform: scale(1.02);
-    
-
-}
-
-.carousel-inner img:active {
-    /* border: 2px solid; */
-    border: 4px solid black;
-}
-
 
 /*//////////////// Container Trending //////////////////////////////////////////////////////////////////////////////////////////3*/
 
@@ -166,18 +93,12 @@
 }
 
 .containerHome .trending {
-    /* border: 2px solid;     */
     width: 100%;
-    /* margin: 15px; */
     padding: 10px;
     display: flex;  
-    /* flex-wrap: wrap;
-        // créer un slider/swiper à la place ces mieux pour l'interaction et plus amusannt
-    */
     overflow: auto;
     gap: 15px;
     align-items: center;
-    /* justify-content: center;     */
     border-radius: 20px;
 }
 

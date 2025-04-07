@@ -1,24 +1,24 @@
-.movie-container {
+.serie-container {
     margin-top: 50px;
     /* border: 2px solid; */
     border-radius: 20px;
+    
     /*temporaire le temp de changer l'adaptabilité*/
     width: 100%;
     color: white;
 }
 
 /*//////////// affichage des film en bas des filter*/
-.movie-container .content {
+.serie-container .content {
+    /* border: 2px solid red; */    
     display: flex;
-    /* grid-template-columns: auto auto auto auto auto; */
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 10px;
 }
 
-.movie-container .pagination-box .pagination {
-    /* border: 2px solid; */
+.serie-container .pagination-box .pagination {
     margin: auto;
     width: min-content;
     font-size: 30px;
@@ -26,47 +26,47 @@
     transition: transform 0.3 ease-in-out;
 }
 
-.movie-container .content .pagination #left:hover {
+.serie-container .content .pagination #left:hover {
     transform: scale(1.3);
 }
-.movie-container .content .pagination #right:hover {
+.serie-container .content .pagination #right:hover {
     transform: scale(1.3);
 }
 
 /*////////// content Filter/////////////////////////*/
-.movie-container .content-filter {
+.serie-container .content-filter {
     border-bottom: 2px solid;
     display: flex;
     justify-content: space-between;
 }
 
-.movie-container .content-filter .filters {
+.serie-container .content-filter .filters {
     display: flex;
     padding: 10px;
     gap: 90px;
 }
 
-.movie-container .content-filter .filters a:hover {
+.serie-container .content-filter .filters a:hover {
     color: grey;
     cursor: pointer;
 }
-.movie-container .content-filter .filters a:active {
+.serie-container .content-filter .filters a:active {
     color: rgb(5, 84, 194);
     cursor: pointer;
 }
 
-.movie-container #genre {
+.serie-container #genre {
     display: flex;
     padding: 10px;
     align-items: center;
     margin-right: 70px;
 }
 
-.movie-container .content-filter #genre:hover {
+.serie-container .content-filter #genre:hover {
     color: grey;
     cursor: pointer;
 }
-.movie-container .content-filter #genre:active {
+.serie-container .content-filter #genre:active {
     color: gold;
     cursor: pointer;
 }
@@ -75,7 +75,7 @@
 
 /*////////// content Filter Genre /////////////////////////*/
  
-.movie-container .filter-genre {
+.serie-container .filter-genre {
     position: fixed;    
     z-index: 2;
     background-color: black;
@@ -87,15 +87,18 @@
     margin-top: 5px;
 }
  
-.movie-container .filter-genre form {
-
+.serie-container .filter-genre form {
+    /* border: 2px solid red; */
+    /* width: 50px; */
+    /* padding: 10px; */
+    /* border: 2px solid; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
 }
  
-.movie-container .filter-genre form div {
+.serie-container .filter-genre form div {
     margin: 5px;
     /* border: 2px solid; */
     border-radius: 10px;
@@ -103,12 +106,12 @@
     cursor: pointer;
 }
  
-.movie-container .filter-genre form div:focus {
+.serie-container .filter-genre form div:focus {
     background-color: red;
 }
 
  
-.movie-container .filter-genre form label {
+.serie-container .filter-genre form label {
     display: flex;
     align-items: center;
     padding: 5px;
@@ -121,22 +124,22 @@
     text-shadow: 1px 1px black;
 }
 
-.movie-container .filter-genre form label:hover {
+.serie-container .filter-genre form label:hover {
     background-color: grey;
 }
 
-.movie-container .filter-genre button {
+.serie-container .filter-genre button {
     border: 0.5px solid white;
-    background-color: rgba(245, 210, 11, 0.797);
+    background-color: whitesmoke;
     width: 40%;
     margin: 10px;
     font-weight: bold;
     text-shadow: 1px 1px black;
 }
-.movie-container .filter-genre button:hover {
+.serie-container .filter-genre button:hover {
     background-color: rgb(51, 61, 73);
 }
-.movie-container .filter-genre button:active {
+.serie-container .filter-genre button:active {
     background-color: rgb(202, 201, 201);
     color: black;
 }

@@ -47,7 +47,7 @@ function MoviePage() {
                     {
                         genresMovie && genresMovie.map((genre) => (
                             <div >
-                                <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? "gold" : "rgb(95, 94, 94)"}>
+                                <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? localStorage.getItem("Title-Colors") : "rgb(95, 94, 94)"}>
                                     <input id={genre.id} onChange={() => handleCheckCheckbox(genre.id)} type="checkbox" />
                                     <span>{genre.name}</span>
                                 </label>
@@ -91,14 +91,15 @@ function MoviePage() {
                         ))
                 }
             </div>
+            
             <div className='pagination-box'>
                 <div className="pagination">
-                    <FaRegArrowAltCircleLeft id='left'
+                    <FaRegArrowAltCircleLeft id='left' style={{ color: localStorage.getItem("Title-Colors") }}
                         onClick={page > 1 ? () => setPage(page - 1) : () => setPage(1)} />
 
                     <h4>{page}/{maxPage}</h4>
 
-                    <FaRegArrowAltCircleRight id='right'
+                    <FaRegArrowAltCircleRight id='right' style={{ color: localStorage.getItem("Title-Colors") }}
                         onClick={page <= maxPage ? () => setPage(page + 1) : () => setPage(maxPage)} />
                 </div>
             </div>

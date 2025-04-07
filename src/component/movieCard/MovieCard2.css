@@ -3,7 +3,6 @@
   align-items: center;
   gap: 20px;
   background-color: #1c1c1c;
-  color: white;
   border-radius: 10px;
   padding: 0px;
   width: 260px;
@@ -24,11 +23,9 @@ h1 {
 }
 
 .content-card:hover {
-  /* background: linear-gradient(-45deg, rgb(116, 115, 115), rgb(149, 132, 155), rgb(159, 173, 189), rgb(142, 145, 146)); */
   background-size: 400% 400%;
-  background-color: rgba(255, 255, 255, 0.733);
+  background-color: rgba(245, 245, 245, 0.537);
   animation: gradient 15s ease infinite;
-  color: black;
 }
 
 @keyframes gradient {
@@ -64,6 +61,7 @@ h1 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
+
 }
 
 .content-card .movie-info p {

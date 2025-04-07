@@ -19,6 +19,7 @@ import Carousel1 from './component/movieCard/carousel/Carousel1';
 import Carousel2 from './component/movieCard/carousel/Carousel2';
 import Carousel3 from './component/movieCard/carousel/Carousel3';
 import Test from './component/test';
+import SeriePage from './component/serie/SeriePage';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='/search' element={<SearchMovie/>}/>
           <Route path='/detail/:id/:title' element={<DetailMovie/>}/>  
           <Route path='/movie' element={<MoviePage />}/>  
+          <Route path='/serie' element={<SeriePage />}/>  
           <Route path='/test' element={<Test />}/>  
           <Route path='/profil' element={<Profil/>}/>
           <Route path='/logIn' element={<LogIn/>}/>
