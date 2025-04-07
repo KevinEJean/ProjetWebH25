@@ -42,4 +42,10 @@ public class MovieController {
     public MovieSerie byType(@RequestBody String type) {
         return service.getMovieByType(type);
     }
+
+    @PutMapping("/update/{title}")
+    public String update(@RequestBody MovieSerie newMovieSerie, @PathVariable String title) {
+        service.updateMovie(newMovieSerie, title);
+        return "Movie update";
+    }
 }

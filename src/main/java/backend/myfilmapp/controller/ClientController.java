@@ -29,7 +29,7 @@ public class ClientController {
         return service.getAllClient();
     }
 
-    @GetMapping("/byId")
+    @GetMapping("/getById")
     public Client byId(@RequestBody int id) {
         return service.getClientById(id);
     }

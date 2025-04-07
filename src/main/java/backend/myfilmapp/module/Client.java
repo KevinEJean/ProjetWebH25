@@ -32,6 +32,9 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<FavoriteList> favorites;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean subscribed = false;
+
 
 
 

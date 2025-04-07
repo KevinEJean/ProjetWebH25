@@ -34,4 +34,30 @@ public class MovieService {
     public MovieSerie getMovieByType(String type) {
         return rep.getByMovieType(type);
     }
+
+    // #######################################################################################################
+    // ###################################### DOES NOT WORK WITH SPACES ######################################
+
+    public void updateMovie(MovieSerie newMovieService, String title) {
+        MovieSerie movieSerie = rep.getByMovieTitle(title);
+        movieSerie.setMovieId(newMovieService.getMovieId()); // HERE
+        movieSerie.setMovieTitle(newMovieService.getMovieTitle());
+        movieSerie.setMovieMetascore(newMovieService.getMovieMetascore());
+        movieSerie.setMovieImdbRating(newMovieService.getMovieImdbRating());
+        movieSerie.setMovieYear(newMovieService.getMovieYear());
+        movieSerie.setMovieRuntime(newMovieService.getMovieRuntime());
+        movieSerie.setMoviePlot(newMovieService.getMoviePlot());
+        movieSerie.setMovieRelease(newMovieService.getMovieRelease());
+        movieSerie.setMovieDirectors(newMovieService.getMovieDirectors());
+        movieSerie.setMovieGenre(newMovieService.getMovieGenre());
+        movieSerie.setMovieType(newMovieService.getMovieType());
+        movieSerie.setMovieActors(newMovieService.getMovieActors());
+        movieSerie.setMovieProduction(newMovieService.getMovieProduction());
+        movieSerie.setMovieLanguage(newMovieService.getMovieLanguage());
+        movieSerie.setMovieCountry(newMovieService.getMovieCountry());
+        movieSerie.setMovieAwards(newMovieService.getMovieAwards());
+        movieSerie.setMovieBoxOffice(newMovieService.getMovieBoxOffice());
+        movieSerie.setMovieDvd(newMovieService.getMovieDvd());
+        rep.save(movieSerie);
+    }
 }

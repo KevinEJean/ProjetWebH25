@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import backend.myfilmapp.service.LoginService;
 
 @RestController
-@RequestMapping("/client/connection")
+@RequestMapping("/connection")
 @CrossOrigin
 public class LoginController {
 
