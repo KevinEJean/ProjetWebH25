@@ -31,12 +31,19 @@
   - Ajouter des films à une liste de favoris
   - Filtrer des films par catégorie
   - Note et critique de film
+  - Personaliser l'affichage du site
+  - Création d'un profil
+  - Disponibiliter d'un film
 
-  # ✅ Installation & Exécution
-  ## Prérequis
+# 🌐 Site supporté
+  - Google Chrome
+  - Microsoft Edge
+
+# ✅ Installation & Exécution
+### Prérequis
   - Avoir [Nodejs](https://nodejs.org/en/download) d'installer
-  ## Exécution
-    - Git clone https://github.com/KevinEJean/ProjetWebH25.git
-    - cd ProjetWebH25
-    - npm install
-    - npm run dev
+### Exécution
+  - Git clone https://github.com/KevinEJean/ProjetWebH25.git
+  - cd ProjetWebH25
+  - npm install
+  - npm run dev
