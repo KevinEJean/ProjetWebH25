@@ -31,6 +31,7 @@
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
 - Connecter au Frontend
+- client/subcribe controller
 
 ## Erreur
 - ne gere pas les epsaces dans les call putmapping film/update
