@@ -55,9 +55,9 @@ export default function SeriePage() {
                 {
                     serieFindByFiltre.length > 0 ?
                     serieFindByFiltre.map((serie) => (
-                            <div key={serie.id} onClick={() => handleDetail(serie.id, serie.title)}>
+                            <div key={serie.id} onClick={() => handleDetail("tv", serie.id, serie.title)}>
                                 
-                                <MovieCard2 onClick={() => handleDetail(serie.id, serie.title)}
+                                <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 
                                     title={serie.title} 
                                     type="TV"
@@ -70,7 +70,7 @@ export default function SeriePage() {
                         :
                         // movieRate === "now_playing" ? 
                         serieRate.map((serie) => (
-                            <div key={serie.id} onClick={() => handleDetail(serie.id, serie.title)}>
+                            <div key={serie.id} onClick={() => handleDetail("tv", serie.id, serie.title)}>
                           
                                 <MovieCard2 
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 

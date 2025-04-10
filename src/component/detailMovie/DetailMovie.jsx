@@ -9,27 +9,27 @@ import { troubleShoot } from '../utils/useUtils';
 
 function DetailMovie() {
     // const { id,title } = useParams();
-    const { movieOmdb, moviePosterTmdb, movieRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, movieActors, movieCrew, movieImages, movieVideos } = useDetailMovie();
+    const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
     const [paramount, setParamount] = useState();
     const [crave, setCrave] = useState();
     const [hulu, setHulu] = useState();
     const [primeVideo, setPrimeVideo] = useState();
 
     // ############################# BUG FIXES #############################
-    if (!movieOmdb) return <p>Film information is loading...</p>;
-    if (!movieRecommendation) return <p>Movie recommendations are loading...</p>;
-    if (!movieActors) return <p>Actors information is loading...</p>;
+    if (!DataOmdb) return <p>Film information is loading...</p>;
+    if (!dataRecommendation) return <p>Movie recommendations are loading...</p>;
+    if (!dataActors) return <p>Actors information is loading...</p>;
     troubleShoot();
     blankAvatarStyler();
 
     function loadMoviePosterBackdrops(choices) {
         if (ongletMedia == "Posters") {
-            return movieImages.posters.map((image, key) => (
+            return dataImages.posters.map((image, key) => (
                 <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
             ))
         }
         if (ongletMedia == "Backdrops") {
-            return movieImages.backdrops.map((image, key) => (
+            return dataImages.backdrops.map((image, key) => (
                 <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
             ))
         }
@@ -83,53 +83,68 @@ function DetailMovie() {
 
             <div className="movie-detail"
             // à voir si à garder ou pas
-            // style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${moviePosterTmdb.poster_path}`})`}}
+            // style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${dataPosterTmdb.poster_path}`})`}}
             >
 
                 {/*///////// Movie Info////////////////////////////////////////////// */}
                 <div className="movie-image" >
-                    <img src={`https://image.tmdb.org/t/p/original${moviePosterTmdb.poster_path}`} alt={moviePosterTmdb.title || "Affiche du film"} />
+                    <img src={`https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`} alt={dataPosterTmdb.title || "Affiche du film"} />
                 </div>
 
-                <div className="movie-info">
+                {
+                    type === "movie" ? 
+                    <div className="movie-info">
                     <div className="content-info">
-                        <h1 id='movieTitle' style={{ textShadow: "2px 2px black" }}>{movieOmdb.Title}</h1>
+                        <h1 id='movieTitle' style={{ textShadow: "2px 2px black" }}>{DataOmdb.Title}</h1>
                         <p className='rate'>
 
-                            <strong>Metascore: ⭐{movieOmdb.Metascore}% </strong>
+                        <strong>Metascore: ⭐{DataOmdb.Metascore}% </strong>
 
-                            <span id='OMDb'>OMDb</span>
-                            <span id='rating'>{movieOmdb.imdbRating}/10</span>
-                            <span id='r'>{movieOmdb.Year}</span>
-                            <span id='r'>{movieOmdb.Runtime}</span>
+                        <span id='OMDb'>OMDb</span>
+                        <span id='rating'>{DataOmdb.imdbRating}/10</span>
+                        <span id='r'>{DataOmdb.Year}</span>
+                        <span id='r'>{DataOmdb.Runtime}</span>
 
                         </p>
-                        <p>{movieOmdb.Plot}</p>
+                        <p>{dataInfo.overview}</p>
                         <hr />
-                        <p><strong>Release :</strong> {movieOmdb.Released}</p>
-                        <p><strong>Director :</strong> {movieOmdb.Director}</p>
-                        <p><strong>Genre :</strong> {movieOmdb.Genre}</p>
-                        <p><strong>Type :</strong> {movieOmdb.Type}</p>
-                        <p><strong>Actor : </strong>{movieOmdb.Actors}</p>
-                        <p><strong>Writer : </strong>{movieOmdb.Writer}</p>
-                        {/* <p><strong>Availaible on : </strong>
-                            <img alt='paramountLogo' src='/src/assets/paramount.png' style={{ display: paramount ? "initial" : "none" }} />
-                            <img alt='craveLogo' src='/src/assets/crave.png' style={{ display: crave ? "initial" : "none" }} />
-                            <img alt='huluLogo' src='/src/assets/hulu.png' style={{ display: hulu ? "initial" : "none" }} />
-                        </p> */}
-                        {/* <hr />
-                            <strong>Details:</strong>
-                            <ul>
-                                <li><strong>Production:</strong> {movieOmdb.Production}</li>
-                                <li><strong>Language:</strong> {movieOmdb.Language}</li>
-                                <li><strong>Country:</strong> {movieOmdb.Country}</li>
-                                <li><strong>Awards :</strong> {movieOmdb.Awards}</li>
-                                <li><strong>Box Office :</strong> {movieOmdb.BoxOffice}</li>
-                                <li><strong>DVD :</strong> {movieOmdb.DVD}</li>
-                            </ul> */}
+                        <p><strong>Release :</strong> {DataOmdb.Released}</p>
+                        <p><strong>Director :</strong> {DataOmdb.Director}</p>
+                        <p><strong>Genre :</strong> {DataOmdb.Genre}</p>
+                        <p><strong>Type :</strong> {type}</p>
+                        <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
+                        <p><strong>Budget : </strong>{dataInfo.budget} $</p>
+
                         <button className='addToInfoList'>Add to InfoList</button>
                     </div>
                 </div>
+                :
+                <div className="movie-info">
+                    <div className="content-info">
+                        <h1 id='movieTitle' style={{ textShadow: "2px 2px black" }}>{DataOmdb.Title}</h1>
+                        <p className='rate'>
+
+                        <strong>Metascore: ⭐{Math.round(dataInfo.vote_average)/10 * 100}% </strong>
+
+                        <span id='OMDb'>OMDb</span>
+                        <span id='rating'>{DataOmdb.imdbRating}/10</span>
+                        <span id='r'>{DataOmdb.Year}</span>
+                        <span id='r'>{DataOmdb.Runtime}</span>
+
+                        </p>
+                        <p>{dataInfo.overview}</p>
+                        <hr />
+                        <p><strong>Release :</strong> {DataOmdb.Released}</p>
+                        <p><strong>Nombre de saison :</strong> {dataInfo.number_of_seasons}</p>
+                        <p><strong>Genre :</strong> {DataOmdb.Genre}</p>
+                        <p><strong>Type :</strong> {dataInfo.type}</p>
+                        <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
+                        {/* <p><strong>Budget : </strong>{dataInfo.budget} $</p> */}
+
+                        <button className='addToInfoList'>Add to InfoList</button>
+                    </div>
+                </div>
+                }
             </div>
             <hr />
 
@@ -144,12 +159,12 @@ function DetailMovie() {
             </div>
             <div className="content-actor">
 
-                {ongletActor === "Cast" && movieActors.length > 0 &&
-                    <Carousel3 actorCarousel={movieActors} poster={null} />
+                {ongletActor === "Cast" && dataActors.length > 0 &&
+                    <Carousel3 actorCarousel={dataActors}/>
                 }
 
-                {ongletActor === "Crew" && movieCrew.length > 0 &&
-                    <Carousel3 actorCarousel={movieCrew} poster={null} />
+                {ongletActor === "Crew" && dataCrew.length > 0 &&
+                    <Carousel3 actorCarousel={dataCrew} />
                 }
             </div>
 
@@ -168,7 +183,7 @@ function DetailMovie() {
                     ongletMedia === "Videos" &&
                     <div className='media-video'>
                         {
-                            movieVideos.slice(0, 10).map((video, key) => (
+                            dataVideos.slice(0, 10).map((video, key) => (
                                 <iframe key={key} width="560" height="315"
                                     src={`https://www.youtube.com/embed/${video.key}`}
                                     title="YouTube video player"
@@ -187,7 +202,7 @@ function DetailMovie() {
             {/*///////// Film recommendé////////////////////////////////////////////// */}
             <h3>Titre similaire</h3>
             <div className="recommandations">
-                <Carousel1 movieCarousel={movieRecommendation} actorCarousel={null} />
+                <Carousel1 movieCarousel={dataRecommendation} type={type} />
             </div>
 
         </div>

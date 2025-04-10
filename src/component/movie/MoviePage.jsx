@@ -63,9 +63,9 @@ function MoviePage() {
                 {
                     movieFindByFiltre.length > 0 ?
                         movieFindByFiltre.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
+                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
-                                <MovieCard2 onClick={() => handleDetail(movie.id, movie.title)}
+                                <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                     title={movie.title}
                                     type="Movie"
@@ -77,7 +77,7 @@ function MoviePage() {
                         ))
                         :
                         moviesTrending.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
+                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

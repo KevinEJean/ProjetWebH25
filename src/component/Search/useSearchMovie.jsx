@@ -15,9 +15,10 @@ const imageFiltre = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="1
 
 function useSearchMovie() {
     const [inputCritere, setInputCritere] = useState('');
-    const [critereMovie, setCritereMovie] = useState('');
+    const [critere, setCritere] = useState('');
     const [movies, setMovies] = useState([]);
     const [moviesTrending, setMoviesTrending] = useState([]);
+    const [genreSelect, setGenreSelect] = useState("movie")
 
 
 
@@ -27,13 +28,13 @@ function useSearchMovie() {
 
     const handlecritere = () => {
         console.log("Critère: ", inputCritere);
-        setCritereMovie(inputCritere);
+        setCritere(inputCritere);
         setInputCritere("");
     };
 
 
     const searchMovies = async () => {
-        const response = await fetch(`${API_URL_TMDB}${critereMovie}`);
+        const response = await fetch(`${`https://api.themoviedb.org/3/search/${genreSelect}?api_key=${API_KEY_TMDB}&query=`}${critere}`);
         const data = await response.json();
         setMovies(data.results || []);   
     };
@@ -47,26 +48,26 @@ function useSearchMovie() {
 
     useEffect(() => {
         searchTrendingMovie()
-        if (critereMovie) {
+        if (critere) {
             searchMovies();
         }
-    }, [critereMovie]);
+    }, [genreSelect,critere]);
 
-    console.log("Movie Trending: ",moviesTrending)
-    console.log("Movie result: ",movies)
+    console.log("Movie Trending: ", moviesTrending)
+    console.log("Movie result: ", movies)
     return {
         inputCritere,
-        setInputCritere,
-        critereMovie,
+        critere,
         movies,
-        setMovies,
+        genreSelect, 
         moviesTrending,
+        setGenreSelect,
+        setMovies,
+        setInputCritere,
         setMoviesTrending,
-        imageFiltre,
         handlecritere,
         handleDetail
-    }
-    ;
+    };
 }
 
 export default useSearchMovie;

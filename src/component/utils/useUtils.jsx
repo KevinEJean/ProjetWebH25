@@ -4,8 +4,8 @@ export default function useUtils() {
 
     const navigate = useNavigate()
 
-    const handleDetail = (id, title) => {
-        navigate(`/detail/${id}/${title}`);
+    const handleDetail = (type, id, title) => {
+        navigate(`/detail/${type}/${id}/${title}`);
     };
     return {
         handleDetail

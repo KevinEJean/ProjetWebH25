@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/search' element={<SearchMovie/>}/>
-          <Route path='/detail/:id/:title' element={<DetailMovie/>}/>  
+          <Route path='/detail/:type/:id/:title' element={<DetailMovie/>}/>  
           <Route path='/movie' element={<MoviePage />}/>  
           <Route path='/serie' element={<SeriePage />}/>  
           <Route path='/test' element={<Test />}/>  
