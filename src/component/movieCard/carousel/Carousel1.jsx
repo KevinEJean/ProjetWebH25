@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import useUtils from '../../utils/useUtils';
 
 // à renommer
-export default function Carousel1({ movieCarousel = [null] }) {
+export default function Carousel1({ movieCarousel = [null], type = null }) {
 
   const {handleDetail} = useUtils();
 
@@ -33,7 +33,7 @@ export default function Carousel1({ movieCarousel = [null] }) {
           movieCarousel && 
           movieCarousel.map((movie, index) => (
             <SwiperSlide key={index}>
-              <div onClick={() => handleDetail(movie.id ,movie.title) }>
+              <div onClick={() => handleDetail(type, movie.id ,movie.title) }>
                 <MovieCard url={movie.image || `https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
               </div>
             </SwiperSlide>

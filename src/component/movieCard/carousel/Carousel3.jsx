@@ -13,7 +13,7 @@ import { Navigation } from 'swiper/modules';
 // régler le problème des poster,vide,backdrops qui arrive pas à affcier l'image
 
 // à renommer
-export default function Carousel3({ actorCarousel = [null], poster = [null] }) {
+export default function Carousel3({ actorCarousel = [null]}) {
 
 
     function actorImg(actor) {
@@ -30,7 +30,7 @@ export default function Carousel3({ actorCarousel = [null], poster = [null] }) {
     return (
         <>
             {
-                actorCarousel && poster == null &&
+                actorCarousel &&
                 <Swiper
                     pagination={{
                         clickable: 'fraction',
@@ -59,62 +59,6 @@ export default function Carousel3({ actorCarousel = [null], poster = [null] }) {
                     }
                 </Swiper>
             }
-
-
-            {/* {
-                poster && actorCarousel == null &&
-                <Swiper
-                    pagination={{
-                    clickable: 'fraction',
-                    }}
-                    slidesPerView={5}
-                    spaceBetween={20}
-                    navigation={true}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                >
-                    {
-                        poster && 
-                        poster.posters.map((image, key) => (
-                            <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />                        
-                        )) 
-                    }
-                    
-                </Swiper>
-            } */}
-
-            {/* {
-                actorCarousel && poster == null &&
-                <Swiper
-                    pagination={{
-                    clickable: 'fraction',
-                    }}
-                    slidesPerView={5}
-                    spaceBetween={20}
-                    navigation={true}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                >
-                    {
-                        actorCarousel && 
-                        actorCarousel.map((actor, key) => (
-                            <SwiperSlide>
-                                <div className='card-actor' key={key}>
-                                    <img 
-                                    src={actorImg(actor)}
-                                    alt={actor.name} 
-                                    />
-                                    <strong>{actor.name}</strong>
-                                    <p>{actor.character}</p>
-                                </div>
-                            </SwiperSlide>
-                        ))
-                    }
-                    
-                </Swiper>
-            } */}
-
-
         </>
     );
 }

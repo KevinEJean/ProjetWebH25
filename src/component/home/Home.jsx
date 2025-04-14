@@ -9,18 +9,18 @@ function Home() {
     const { moviesRecent, moviesTopRated, moviesTrending, moviesPopular, moviesUpcoming, seriePopular, serieTopRated, serieTrending } = useHome();
 
     const sections = [
-        { title: "Top Rated Movie", data: moviesTopRated },
-        { title: "Trending Movie", data: moviesTrending },
-        { title: "Popular Movie", data: moviesPopular },
-        { title: "Upcoming Movie", data: moviesUpcoming },
-        { title: "Popular TV", data: seriePopular },
-        { title: "Top Rated TV", data: serieTopRated },
-        { title: "Trending TV", data: serieTrending },
+        { title: "Top Rated Movie", data: moviesTopRated, type:"movie"},
+        { title: "Trending Movie", data: moviesTrending, type:"movie" },
+        { title: "Popular Movie", data: moviesPopular, type:"movie" },
+        { title: "Upcoming Movie", data: moviesUpcoming, type:"movie" },
+        { title: "Popular TV", data: seriePopular, type:"tv" },
+        { title: "Top Rated TV", data: serieTopRated, type:"tv" },
+        { title: "Trending TV", data: serieTrending, type:"tv" },
     ];
 
     return (
         <div className="containerHome">
-            <Carousel2 movieRecent={moviesRecent} /> 
+            <Carousel2 movieRecent={moviesRecent} type={"movie"} /> 
 
             <hr style={{color: localStorage.getItem("Title-Colors")}}/>
             
@@ -32,7 +32,7 @@ function Home() {
                     </div>
                     <div className="containerTrending">
                         <div className="trending">
-                            <Carousel1 movieCarousel={section.data} />
+                            <Carousel1 movieCarousel={section.data} type={section.type}/>
                         </div>
                     </div>
                     <hr style={{color: localStorage.getItem("Title-Colors")}}/>

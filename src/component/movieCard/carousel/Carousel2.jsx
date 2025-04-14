@@ -14,7 +14,7 @@ import { Parallax, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import useUtils from '../../utils/useUtils';
 
 
-export default function Carousel2({ movieRecent = [] }) {
+export default function Carousel2({ movieRecent = [], type = null }) {
   const {handleDetail} = useUtils();
 
   return (
@@ -52,7 +52,7 @@ export default function Carousel2({ movieRecent = [] }) {
                               <hr />
                               <h6>{movie.overview}</h6>
                               <hr />
-                              <button onClick={() => handleDetail(movie.id ,movie.title)} key={key}><FaInfoCircle/>Info</button>
+                              <button onClick={() => handleDetail(type, movie.id ,movie.title)} key={key}><FaInfoCircle/>Info</button>
                             </div>
                             
                         </figcaption> 

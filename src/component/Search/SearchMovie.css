@@ -16,6 +16,13 @@
 
 /*////////////////// Container Search Bar(Input et button)///////////////////////////*/
 
+.containerSearch .searchBar select {
+    color: white;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    padding: 5px;
+}
+
 .containerSearch .searchBar input {
     border: 2px solid grey;
     background-color: rgb(35, 34, 34);
@@ -23,6 +30,7 @@
     padding: 7px;
     border-radius: 15px;
     margin: 10px;
+    color: white;
 }
 
 .containerSearch .searchBar button {

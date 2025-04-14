@@ -13,112 +13,127 @@ const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700";
 // ############# Hook personnalisé on va développer tout nos fonction ici et l'envoyer de l'autre coté #############################
 
 function useDetailMovie() {
-    const { id,title } = useParams();
-    const [movieOmdb, setMovieOmdb] = useState(null);  
-    const [moviePosterTmdb, setMoviePosterTmdb] = useState(null);  
-    const [movieRecommendation, setMovieRecommendation] = useState(null)
+    const {type, id, title } = useParams();
+    const [DataOmdb, setDataOmdb] = useState(null);  
+    const [dataPosterTmdb, setDataPosterTmdb] = useState(null);  
+    const [dataRecommendation, setDataRecommendation] = useState(null)
     const [ongletActor, setOngletActor] = useState("Cast");
     const [ongletMedia, setOngletMedia] = useState("Videos");
-    const [movieActors, setMovieActor] = useState(null)
-    const [movieCrew, setMovieCrew] = useState(null)
-    const [movieImages, setMovieImages] = useState(null)
-    const [movieVideos, setMovieVideos] = useState(null)
+    const [dataActors, setMovieActor] = useState(null)
+    const [dataCrew, setDataCrew] = useState(null)
+    const [dataImages, setDataImages] = useState(null)
+    const [dataVideos, setDataVideos] = useState(null)
+    const [dataInfo, setDataInfo] = useState(null)
     
         //// -> cette fonction va trouver un seul et unique film dépendament du titre
-        const searchMoviesOmdb = async () => {
+        const searchDataOmdb = async () => {
             if (title) {
                 const response = await fetch(`${API_URL_OMDB}&t=${title}`); 
                 const data = await response.json();
-                console.log("info Omdbc:",data)
-                setMovieOmdb(data || []);
+                // console.log("info Omdbc:",data)
+                setDataOmdb(data || []);
             }
         };
     
-        const searchPosterTmdb = async () => {
+        const searchDataPoster = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY_TMDB}`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
                 // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
                 const data = await response.json();
-                setMoviePosterTmdb(data || []);
-                console.log("TMDB: ", data)
+                setDataPosterTmdb(data || []);
+                // console.log("TMDB: ", data)
             // }
         };  
 
-        const searchMovieRecommendations = async () => {
+        const searchDataInfo = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
                 // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
                 const data = await response.json();
-                console.log("Recommandations TMDB: ", data);
-                setMovieRecommendation(data.results || []);
+                setDataInfo(data || []);
+                console.log("TMDB info: ", data)
+            // }
+        };  
+
+        const searchDataRecommendations = async () => {
+            // if (movieId) {
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
+                // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
+                const data = await response.json();
+                // console.log("Recommandations TMDB: ", data);
+                setDataRecommendation(data.results || []);
             // }
         };
     
-        const searchMovieActor = async () => {
+        const searchDataActor = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY_TMDB}`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY_TMDB}`); 
                 const data = await response.json();
-                console.log("movie Actor: ", data);
+                // console.log("movie Actor: ", data);
                 setMovieActor(data.cast || []);
             // }
         };
-        const searchMovieCrew = async () => {
+        const searchDataCrew = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY_TMDB}`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY_TMDB}`); 
                 const data = await response.json();
-                console.log("movie Crew: ", data);
-                setMovieCrew(data.crew || []);
+                // console.log("movie Crew: ", data);
+                setDataCrew(data.crew || []);
             // }
         };
-        const searchMovieVideo = async () => {
+        const searchDataVideo = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY_TMDB}`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY_TMDB}`); 
                 const data = await response.json();
-                console.log("movie Video: ", data);
-                setMovieVideos(data.results || []);
+                // console.log("movie Video: ", data);
+                setDataVideos(data.results || []);
             // }
         };
-        const searchMovieImage = async () => {
+        const searchDataImage = async () => {
             // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${API_KEY_TMDB}`); 
+                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${API_KEY_TMDB}`); 
                 const data = await response.json();
-                console.log("movie Images: ", data);
-                setMovieImages(data  || []);
+                // console.log("movie Images: ", data);
+                setDataImages(data  || []);
             // }
         };
     
         useEffect(() => {
             if (id,title) {
-                searchMoviesOmdb(); 
-                searchMovieRecommendations();
-                searchMovieActor();
-                searchMovieCrew();
-                searchMovieVideo();
-                searchMovieImage();
-                searchPosterTmdb()
+                searchDataOmdb(); 
+                searchDataInfo();
+                searchDataRecommendations();
+                searchDataActor();
+                searchDataCrew();
+                searchDataVideo();
+                searchDataImage();
+                searchDataPoster()
             }
         }, [id,title]);
     
+    // supprimer les export ne servant a rien
     return {
         id,
+        type,
         title,
-        movieOmdb,
-        setMovieOmdb,
-        movieRecommendation,
-        setMovieRecommendation,
-        moviePosterTmdb,
+        dataInfo,
+        DataOmdb,
+        setDataOmdb,
+        dataRecommendation,
+        setDataRecommendation,
+        dataPosterTmdb,
         ongletActor,
         setOngletActor,
         ongletMedia,
         setOngletMedia,
-        movieActors,
+        dataActors,
         setMovieActor,
-        movieCrew,
-        setMovieCrew,
-        movieImages,
-        setMovieImages,
-        movieVideos,
-        setMovieVideos
+        dataCrew,
+        setDataCrew,
+        dataImages,
+        setDataImages,
+        dataVideos,
+        setDataVideos
     }
 }
 

@@ -5,12 +5,16 @@ import useSearchMovie from './useSearchMovie';
 
 
 function SearchMovie() {
-    const {inputCritere, setInputCritere, movies, moviesTrending, imageFiltre, handlecritere, handleDetail} = useSearchMovie();
-
+    const {inputCritere, setInputCritere, movies, moviesTrending, genreSelect, setGenreSelect,handlecritere, handleDetail} = useSearchMovie();
+    
+    let type = genreSelect;
     return (
         <div className='containerSearch'>
             <div className="searchBar">
-                {imageFiltre}
+                <select id="genreSelect" onChange={(e) => setGenreSelect(e.target.value)}>
+                    <option value="movie">Film</option>
+                    <option value="tv">serie</option>
+                </select>
                 <input type="text" className="searchTerm" value={inputCritere} placeholder="Search by title, genre, year" onChange={(e) => setInputCritere(e.target.value)} required />
                 
                 <button onClick={handlecritere} type="submit" className="searchButton">
@@ -23,20 +27,26 @@ function SearchMovie() {
             <div className="searchResult">
                 {
                     movies.length > 0 ? 
-                    movies.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
-                                    <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
-                                    {/* <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} /> */}
-                            </div>
-                    ))
+                        genreSelect === "movie" ? 
+                            movies.map((movie, key) => (
+                                <div key={key} onClick={() => handleDetail(type ,movie.id, movie.title)}>
+                                        <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
+                                </div>
+                        )) 
+                        :
+                        movies.map((serie) => (
+                            <div key={serie.id} onClick={() => handleDetail(type ,serie.id, serie.title)}>
+                                    <MovieCard url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} title={serie.original_name} />
+                                </div>
+                            ))
                     :
                     moviesTrending.length > 0 ?
                         moviesTrending.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail(movie.id, movie.title)}>
-                                <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
-                            </div>
-                        ))
-                        : <h3>Aucun résultat trouvé</h3> 
+                        <div key={key} onClick={() => handleDetail(type, movie.id, movie.title)}>
+                            <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
+                        </div>
+                    ))
+                    : <h3>Aucun résultat trouvé</h3> 
                 }
             </div>
         </div>
