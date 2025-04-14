@@ -21,7 +21,7 @@
 - getByTitle
 - getByType
 - getById
-- update (err)
+- update (erreur #1)
 
 ### Connection
     http://localhost:{port}/connection/...
@@ -34,4 +34,4 @@
 - client/subcribe controller
 
 ## Erreur
-- ne gere pas les epsaces dans les call putmapping film/update
+1- Ne gère pas les epsaces (" ") dans les variables
