@@ -25,7 +25,7 @@
 
 ### Connection
     http://localhost:{port}/connection/...
-- login
+- login/{username}/{password}
 - signin
 
 ## Autre fonction a implémenter
