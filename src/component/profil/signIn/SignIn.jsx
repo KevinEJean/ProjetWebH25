@@ -5,36 +5,41 @@ import './SignIn.css';
 export default function SignIn() {
 
     const [show, setShow] = useState();
-    const [usernameValue, setUsernameValue] = useState("");
-    const [submit, setSubmit] = useState(false);
+    const [title, setTitle] = useState("SIGN IN");
+    const [notAllowed, setNotAllowed] = useState();
 
     const handleSignin = (event) => {
-        var usernameInput = document.getElementById("username");
         var currentValue = (event.target.value);
-        for (let n = 0; n < currentValue.length; n++) {
-            if (currentValue[n].value == "+") {
-                console.log(currentValue[n].value + " IS NOT ALLOWED!");
-            }
-        }
+        submitRules(currentValue, event.target.id);
     }
 
-    function submitRules(userInput) {
-        const allowedChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', null];
-        for (let i = 0; i < allowedChars.length; i++) {
-            for (let n = 0; n < userInput.length; n++) {
-                if (allowedChars[i] != userInput[n].value) {
-                    console.log(userInput[n].value + " IS NOT ALLOWED!");
-                }
+    function submitRules(userInput, id) {
+        const allowedChars = 
+        [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+            null, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, '_', '-'
+        ];
+
+        for (let i = 0; i < userInput.length; i++) {
+            if (!allowedChars.includes(userInput[i])) {
+                setNotAllowed(true);
+            } else {
+                setTitle("SIGN IN");
             }
+        }
+
+        if (notAllowed) {
+            setTitle(`${id} cannot contain ${userInput[i]}`);
         }
     }
 
     return (
         <div className="form-grid-signIn">
-            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN IN</h1>
+            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>{title}</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" id="username" placeholder="playerOne" value={usernameValue} onChange={handleSignin}/>
+                <input type="text" id="username" placeholder="playerOne" onChange={handleSignin}/>
                 <p className="info-text">cannot be changed later</p>
                 <h4>
                     Password
@@ -42,15 +47,15 @@ export default function SignIn() {
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="passwd" />
+                <input type={show ? "text" : "password"} id="password" onChange={handleSignin}/>
                 <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
                 <h4>Email</h4>
-                <input type="text" id="email" />
+                <input type="text" id="email" onChange={handleSignin}/>
                 <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
-                <input type={show ? "text" : "password"} id="passwdVerif" />
+                <input type={show ? "text" : "password"} id="passwordVerif" onChange={handleSignin}/>
             </form>
             <Link to={"/logIn"}><p style={{ textAlign: "left" }}>Already have an account?</p></Link>
             <div>
