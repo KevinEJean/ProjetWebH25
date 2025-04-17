@@ -32,7 +32,7 @@
 # ✏️ Architcture
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
-  ### Logiciel de testage
+  ### Logiciel de test
   - [Postman](https://www.postman.com/explore) pour les API
 
 # 🧰 Fonctionnalité
