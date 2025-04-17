@@ -20,7 +20,14 @@ export default function SeriePage() {
 
     return (
         <div className='serie-container'>
-            <h2 style={{textAlign: "center", marginTop: "1em"}}>Series</h2>
+
+            <div className='wrapper-main'>
+                <div className="wrapper">
+                    <div className="bg"> Series </div>
+                    <div className="fg"> Series </div>
+                </div>
+            </div>
+
             <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
@@ -89,7 +96,7 @@ export default function SeriePage() {
                         <FaRegArrowAltCircleLeft id='left' style={{ color: localStorage.getItem("Title-Colors") }}
                             onClick={page > 1 ? () => setPage(page - 1) : () => setPage(1)} />
                 
-                        <h4>{page}/{maxPage}</h4>
+                        <h2>{page}/{maxPage}</h2>
                 
                         <FaRegArrowAltCircleRight id='right' style={{ color: localStorage.getItem("Title-Colors") }}
                             onClick={page <= maxPage ? () => setPage(page + 1) : () => setPage(maxPage)} />

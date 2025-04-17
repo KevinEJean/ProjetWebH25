@@ -26,9 +26,9 @@ function Home() {
             
             {sections.map((section, index) => (
                 <div key={index} className=''>
-                    <div class="wrapper">
-                    <div class="bg"> {section.title} </div>
-                    <div class="fg"> {section.title} </div>
+                    <div className="wrapper">
+                    <div className="bg"> {section.title} </div>
+                    <div className="fg"> {section.title} </div>
                     </div>
                     <div className="containerTrending">
                         <div className="trending">

@@ -18,8 +18,8 @@ import Fifa from './component/sport/soccer/Fifa';
 import Carousel1 from './component/movieCard/carousel/Carousel1';
 import Carousel2 from './component/movieCard/carousel/Carousel2';
 import Carousel3 from './component/movieCard/carousel/Carousel3';
-import Test from './component/test';
 import SeriePage from './component/serie/SeriePage';
+import FavoritPage from './component/favorit/FavoritPage';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
           <Route path='/detail/:type/:id/:title' element={<DetailMovie/>}/>  
           <Route path='/movie' element={<MoviePage />}/>  
           <Route path='/serie' element={<SeriePage />}/>  
-          <Route path='/test' element={<Test />}/>  
+          <Route path='/favorit' element={<FavoritPage />}/>  
           <Route path='/profil' element={<Profil/>}/>
           <Route path='/logIn' element={<LogIn/>}/>
           <Route path='/signIn' element={<SignIn/>}/>

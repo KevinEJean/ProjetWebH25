@@ -24,13 +24,13 @@ function DetailMovie() {
 
     function loadMoviePosterBackdrops(choices) {
         if (ongletMedia == "Posters") {
-            return dataImages.posters.map((image, key) => (
-                <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
+            return dataImages.posters.map((image) => (
+                <img key={image.id} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
             ))
         }
         if (ongletMedia == "Backdrops") {
             return dataImages.backdrops.map((image, key) => (
-                <img key={key} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
+                <img key={image.id} src={`https://image.tmdb.org/t/p/original/${image.file_path}`} />
             ))
         }
     }

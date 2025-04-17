@@ -1,106 +1,104 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .containerHome {
-    margin-top: 50px;
-    padding: 10px;
-    color: white;
-    width: 100%;
+  margin-top: 50px;
+  padding: 10px;
+  color: white;
+  width: 100%;
 }
 
 /*//////////////// Container Trending //////////////////////////////////////////////////////////////////////////////////////////3*/
 
 .containerTrending {
-    /* border: 2px solid;     */
-    width: 100%;
-    display: flex;
-    align-items: center ;
-    justify-content: center;
-    /* overflow-x: hidden; */
+  /* border: 2px solid;     */
+  width: 100%;
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  /* overflow-x: hidden; */
 }
 
 .containerHome .rate {
-    border-left: 5px solid rgba(255, 0, 0, 0.815);
-    padding-left: 10px;
-    font-weight: bold;
+  border-left: 5px solid rgba(255, 0, 0, 0.815);
+  padding-left: 10px;
+  font-weight: bold;
 }
 
 
 /*//////// top description/////////////*/
 :root {
-    --gold: white;
-    --light-shadow: #1a1a1a;
-    --dark-shadow: white;
+  /* --gold: white;
+  --light-shadow: #1a1a1a;
+  --dark-shadow: white; */
 
-    /* --gold: black;
-    --light-shadow: white;
-    --dark-shadow: white; */
-  }
-.wrapper {
-    border-left: 5px solid white;
-    padding-left: 15px;
-    background: radial-gradient(#272727, #1b1b1b);
-    display: grid;
-    grid-template-areas: 'overlap';
-    place-content: center;
-    text-transform: uppercase;
-    /* text-align: left; */
-    float: left;
-    /* height: 100vh; */
-  }
-  .wrapper > div {
-    /* text-align: left; */
-    background-clip: text;  
-    -webkit-background-clip: text;
-    color: #363833;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 50px;
-    grid-area: overlap;
-    letter-spacing: 1px;
-    -webkit-text-stroke: 4px transparent;
-  }
-  div.bg {
-    background-image: repeating-linear-gradient( 105deg, 
-      var(--gold) 0% , 
-      var(--dark-shadow) 5%,
-      var(--gold) 12%);
-    color: transparent;
-    filter: drop-shadow(5px 15px 15px black);
-    transform: scaleY(1.05);
-    transform-origin: top;
-  }
-  div.fg{
-    background-image: repeating-linear-gradient( 5deg,  
-      var(--gold) 0% , 
-      var(--light-shadow) 23%, 
-      var(--gold) 31%);
-    color: #1e2127;
-    transform: scale(1);
-  }
+  --gold: #1a1a1a;
+  --light-shadow: white;
+  --dark-shadow: rgba(255, 255, 255, 0.705); 
+
+}
+.containerHome .wrapper {
+  border-left: 5px solid rgb(214, 10, 10);
+  padding-left: 15px;
+  background: radial-gradient(#272727, #1b1b1b);
+  display: grid;
+  grid-template-areas: 'overlap';
+  place-content: center;
+  text-transform: uppercase;
+  /* text-align: left; */
+  float: left;
+  /* height: 100vh; */
+}
+.containerHome .wrapper > div {
+  /* text-align: left; */
+  background-clip: text;  
+  -webkit-background-clip: text;
+  color: #363833;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  grid-area: overlap;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 4px transparent;
+}
+.containerHome div.bg {
+  background-image: repeating-linear-gradient( 105deg, 
+    var(--gold) 0% , 
+    var(--dark-shadow) 5%,
+    var(--gold) 12%);
+  color: transparent;
+  filter: drop-shadow(5px 15px 15px black);
+  transform: scaleY(1.05);
+  transform-origin: top;
+}
+.containerHome div.fg{
+  background-image: repeating-linear-gradient( 5deg,  
+    var(--gold) 0% , 
+    var(--light-shadow) 23%, 
+    var(--gold) 31%);
+  color: #1e2127;
+  transform: scale(1);
+}
 /*/////////////////////*/
 
 
 .containerTrending button:hover {
-    border: 1px solid white;
-    transform: scale(1.02);
+  border: 1px solid white;
+  transform: scale(1.02);
 }
 
 .containerTrending button:active {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .containerHome .trending {
-    width: 100%;
-    padding: 10px;
-    display: flex;  
-    overflow: auto;
-    gap: 15px;
-    align-items: center;
-    border-radius: 20px;
+  width: 100%;
+  padding: 10px;
+  display: flex;  
+  overflow: auto;
+  gap: 15px;
+  align-items: center;
+  border-radius: 20px;
 }
-
-
-
