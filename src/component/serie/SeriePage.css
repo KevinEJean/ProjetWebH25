@@ -11,9 +11,10 @@
 /*//////////// affichage des film en bas des filter*/
 .serie-container .content {
     /* border: 2px solid red; */    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     gap: 10px;
     padding: 10px;
 }
@@ -21,7 +22,8 @@
 .serie-container .pagination-box .pagination {
     margin: auto;
     width: min-content;
-    font-size: 30px;
+    font-size: 40px;
+    padding: 2px;
     cursor: pointer;
     transition: transform 0.3 ease-in-out;
 }
@@ -35,8 +37,9 @@
 
 /*////////// content Filter/////////////////////////*/
 .serie-container .content-filter {
-    border-bottom: 2px solid;
-    display: flex;
+    border-bottom: 10px solid rgba(245, 245, 245, 0.651);
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 20px;    display: flex;
     justify-content: space-between;
 }
 
@@ -134,7 +137,6 @@
     width: 40%;
     margin: 10px;
     font-weight: bold;
-    text-shadow: 1px 1px black;
 }
 .serie-container .filter-genre button:hover {
     background-color: rgb(51, 61, 73);
@@ -143,7 +145,61 @@
     background-color: rgb(202, 201, 201);
     color: black;
 }
- 
-.page-selector {
-    max-width: 50px;
-}
+
+/*/////////////////////////////////////////////////////////////*/
+:root {
+    /* --gold: white;
+    --light-shadow: #1a1a1a;
+    --dark-shadow: white; */
+  
+    --gold: #1a1a1a;
+    --light-shadow: white;
+    --dark-shadow: rgba(255, 255, 255, 0.705); 
+  
+  }
+  .serie-container  .wrapper-main { 
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .serie-container .wrapper-main .wrapper {
+    display: grid;
+    grid-template-areas: 'overlap';
+    place-content: center;
+    text-transform: uppercase;
+    width: 20%;
+  }
+
+
+  .serie-container .wrapper > div {
+    /* text-align: left; */
+    background-clip: text;  
+    -webkit-background-clip: text;
+    color: #363833;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 800%;
+    grid-area: overlap;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 4px transparent;
+  }
+  .serie-container div.bg {
+    background-image: repeating-linear-gradient( 105deg, 
+      var(--gold) 0% , 
+      var(--dark-shadow) 5%,
+      var(--gold) 12%);
+    color: transparent;
+    filter: drop-shadow(5px 15px 15px black);
+    transform: scaleY(1.05);
+    transform-origin: top;
+  }
+  .serie-container div.fg{
+    background-image: repeating-linear-gradient( 5deg,  
+      var(--gold) 0% , 
+      var(--light-shadow) 23%, 
+      var(--gold) 31%);
+    color: #1e2127;
+    transform: scale(1);
+  }
+  /*/////////////////////*/
