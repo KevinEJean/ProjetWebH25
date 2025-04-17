@@ -5,6 +5,8 @@ import "./Profil.css";
 
 export default function Profil() {
 
+    // CHECK LOGIN.JSX AND SIGNIN.JSX
+
     function isLoggedIn() {
         // check si user est connecter
         // if true afficher info du user (read only)
