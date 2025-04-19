@@ -26,7 +26,7 @@ export default function Profil() {
     return (
         <div className="form-grid">
             <h1 style={{color: localStorage.getItem("Title-Colors")}}>PROFIL</h1>
-            <span class="material-symbols-outlined avatar">
+            <span className="material-symbols-outlined avatar">
                 account_circle
             </span>
             <form>
