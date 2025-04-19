@@ -6,10 +6,26 @@ export default function LogIn() {
 
     const [show, setShow] = useState();
 
-    function login() {
-        // login user
-        location.href = 'profil';
-    }
+    // import canSubmit function from signIn.jsx and handleSign
+    // make a useUtil for the entire profil folder
+
+    // function login() {
+    //     const username = document.getElementById("usernameLogin").value;
+    //     const password = document.getElementById("passwordLogin").value;
+
+    //     if (canSubmit) { // login controller
+    //         fetch(`http://localhost:8080/connection/login/${username}/${password}`, {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" }
+
+    //         }).then(() => {
+    //             // setUserIsLoggedIn(true); <= auth (access to profil.jsx, NBA,jsx, FIFA.jsx)
+    //             console.log("User succesfully logged in");
+    //         })
+    //     } else {
+    //         console.log("CANNOT SUBMIT, CHECK SYNTAX !");
+    //     }
+    // }
 
     return(
         <div className="form-grid-logIn">
@@ -23,7 +39,7 @@ export default function LogIn() {
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="passwd"/>
+                <input type={show ? "text" : "password"} id="passwordLogin"/>
                 <Link to={"/forgotPassword"}><p className="info" style={{textAlign: "right"}}>reset password?</p></Link>
             </form>
             <Link to={"/signIn"}><p>Don't have an account?</p></Link>
