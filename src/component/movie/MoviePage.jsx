@@ -53,7 +53,7 @@ function MoviePage() {
                 <form>
                     {
                         genresMovie && genresMovie.map((genre) => (
-                            <div >
+                            <div key={genre.id}>
                                 <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? localStorage.getItem("Title-Colors") : "rgb(95, 94, 94)"}>
                                     <input id={genre.id} onChange={() => handleCheckCheckbox(genre.id)} type="checkbox" />
                                     <span>{genre.name}</span>
@@ -69,8 +69,8 @@ function MoviePage() {
             <div className="content">
                 {
                     movieFindByFiltre.length > 0 ?
-                        movieFindByFiltre.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
+                        movieFindByFiltre.map((movie) => (
+                            <div key={movie.id} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -83,8 +83,8 @@ function MoviePage() {
                             </div>
                         ))
                         :
-                        moviesTrending.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
+                        moviesTrending.map((movie) => (
+                            <div key={movie.id} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

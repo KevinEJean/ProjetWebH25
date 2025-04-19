@@ -28,8 +28,8 @@ function SearchMovie() {
                 {
                     movies.length > 0 ? 
                         genreSelect === "movie" ? 
-                            movies.map((movie, key) => (
-                                <div key={key} onClick={() => handleDetail(type ,movie.id, movie.title)}>
+                            movies.map((movie) => (
+                                <div key={movie.id} onClick={() => handleDetail(type, movie.id, movie.title)}>
                                         <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
                                 </div>
                         )) 
@@ -41,8 +41,8 @@ function SearchMovie() {
                             ))
                     :
                     moviesTrending.length > 0 ?
-                        moviesTrending.map((movie, key) => (
-                        <div key={key} onClick={() => handleDetail(type, movie.id, movie.title)}>
+                        moviesTrending.map((movie) => (
+                        <div key={movie.id} onClick={() => handleDetail(type, movie.id, movie.title)}>
                             <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} title={movie.title} />
                         </div>
                     ))

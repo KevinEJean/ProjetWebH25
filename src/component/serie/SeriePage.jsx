@@ -45,7 +45,7 @@ export default function SeriePage() {
                     <form>
                         {                            
                             genresTv && genresTv.map((genre) => (
-                                <div >
+                                <div key={genre.id}>
                                     <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? localStorage.getItem("Title-Colors") : "rgb(95, 94, 94)"}>
                                     <input id={genre.id}  onChange={() => handleCheckCheckbox(genre.id)} type="checkbox" />
                                     <span>{genre.name}</span>
@@ -66,7 +66,7 @@ export default function SeriePage() {
                                 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 
-                                    title={serie.title} 
+                                    title={serie.original_name} 
                                     type="TV"
                                     rate={serie.vote_average.toFixed(1)}
                                     year={serie.first_air_date.split('-')[0]}

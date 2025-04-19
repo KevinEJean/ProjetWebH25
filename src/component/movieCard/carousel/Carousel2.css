@@ -49,7 +49,10 @@
 }
 
 .content-main .swiper figure figcaption .movie-info button {
-    width: 15%;
+    width: 20%;
     color: black;
+    display: flex;
+    align-items: center;
+    gap: 2px;
     background-color:whitesmoke
 }
