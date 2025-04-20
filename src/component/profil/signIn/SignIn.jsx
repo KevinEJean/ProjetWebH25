@@ -6,7 +6,7 @@ import './SignIn.css';
 export default function SignIn() { 
 
     // npm install --save-dev express cors
-    /* DISABLES CORS */
+    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
 
     const [show, setShow] = useState(false);
     var canSubmit = false;
