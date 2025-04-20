@@ -35,10 +35,10 @@ public class Client {
 
     @OneToMany(mappedBy = "clientId")
     private List<FavoriteList> favorites;
-    private LocalDateTime dateInscription = LocalDateTime.now();
+    private LocalDateTime creationDate = LocalDateTime.now();
 
     @Column(columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean isLogedIn;
+    private boolean online;
 
 
 
@@ -105,20 +105,36 @@ public class Client {
     public void setActive(boolean active) {
         this.active = active;
     }
-//
-//    public List<FavoriteList> getFavorites() {
-//        return favorites;
-//    }
-//
-//    public void setFavorites(List<FavoriteList> favorites) {
-//        this.favorites = favorites;
-//    }
-    
-    // public boolean isLogedIn() {
-    //     return isLogedIn;
-    // }
 
-    // public void setLogedIn(boolean isLogedIn) {
-    //     this.isLogedIn = isLogedIn;
-    // }
+    public boolean getSubscriptionStatus() {
+        return subscribed;
+    }
+
+    public void setSubscriptionStatus(boolean subscribed) {
+        this.subscribed = subscribed;
+    }
+
+    public List<FavoriteList> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<FavoriteList> favorites) {
+        this.favorites = favorites;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public boolean getOnlineStatus() {
+        return online;
+    }
+
+    public void setOnlineStatus(boolean onlineStatus) {
+        this.online = onlineStatus;
+    }
 }

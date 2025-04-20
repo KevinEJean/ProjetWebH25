@@ -13,11 +13,16 @@ public class LoginService {
          this.rep = rep;
      }
 
-     // public Client LoginHandler(String username) {
-     //      Client client = rep.getClientByUsername(username);
-     //      client.setLogedIn(!client.isLogedIn());
-     //      return client.getId();
-     // }
+     public int LoginHandler(String username) {
+          Client client = rep.getClientByUsername(username);
+          client.setOnlineStatus(true);
+          return client.getId();
+     }
+
+     public void LogoutUser(String username) {
+         Client client = rep.getClientByUsername(username);
+         client.setOnlineStatus(false);
+     }
 
      public Boolean LoginUser(String username, String password) {
          try {
@@ -37,7 +42,7 @@ public class LoginService {
              if (clientError.getUsername().equals(client.getUsername())) {
                  return "Username '" + clientError.getUsername() + "' already taken. Try logging in?";
              }
-         } catch (Exception e) { // si getClientByUsername return rien, le code catch s'exécute, donc un nouveau utilisateur peut être ajouté
+         } catch (Exception e) { // si getClientByUsername retourne rien, le code catch s'exécute, donc un nouveau utilisateur peut être ajouté
              rep.save(client);
              return "New user created!";
          }

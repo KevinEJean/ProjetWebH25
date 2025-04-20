@@ -18,7 +18,7 @@ public class ClientService {
 
     public void saveClient(Client client) {
         if (client.getUsername().contains("del-user") || client.getUsername().contains("admin")) { // pour empêcher erreur de login/signin
-            System.console().printf("Name not valid");
+            System.console().printf("Name not valid !");
         } else {
             rep.save(client);
         }
@@ -69,5 +69,10 @@ public class ClientService {
         Client client = rep.getClientByUsername(username);
         client.setPassword(password);
         rep.save(client);
+    }
+
+    public Boolean getOnlineStatus(int id) {
+        Client client = rep.getClientById(id);
+        return client.getOnlineStatus();
     }
 }

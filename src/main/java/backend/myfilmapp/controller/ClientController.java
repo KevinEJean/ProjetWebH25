@@ -29,23 +29,28 @@ public class ClientController {
         return service.getAllClient();
     }
 
-    @GetMapping("/getById")
-    public Client byId(@RequestBody int id) {
+    @GetMapping("/getById/{id}")
+    public Client byId(@PathVariable int id) {
         return service.getClientById(id);
     }
 
-    @GetMapping("/getByUsername")
-    public Client byUsername(@RequestBody String username) {
+    @GetMapping("/getByUsername/{username}")
+    public Client byUsername(@PathVariable String username) {
         return service.getClientByUsername(username);
     }
 
-    @GetMapping("/getByEmail")
-    public Client byEmail(@RequestBody String email) {
+    @GetMapping("/getByEmail/{email}")
+    public Client byEmail(@PathVariable String email) {
         return service.getClientByEmail(email);
     }
 
-    @PutMapping("/remove")
-    public String remove(@RequestBody String username) {
+    @GetMapping("/getOnlineStatus/{id}")
+    public Boolean getOnlineStatus(@PathVariable int id) {
+        return service.getOnlineStatus(id);
+    }
+
+    @PutMapping("/remove/{username}")
+    public String remove(@PathVariable String username) {
         service.removeClient(username);
         return "Client removed!";
     }
