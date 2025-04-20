@@ -114,11 +114,11 @@ public class Client {
 //        this.favorites = favorites;
 //    }
     
-    public boolean isLogedIn() {
-        return isLogedIn;
-    }
+    // public boolean isLogedIn() {
+    //     return isLogedIn;
+    // }
 
-    public void setLogedIn(boolean isLogedIn) {
-        this.isLogedIn = isLogedIn;
-    }
+    // public void setLogedIn(boolean isLogedIn) {
+    //     this.isLogedIn = isLogedIn;
+    // }
 }
