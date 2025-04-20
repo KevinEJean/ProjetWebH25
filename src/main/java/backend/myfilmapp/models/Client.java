@@ -37,6 +37,9 @@ public class Client {
     private List<FavoriteList> favorites;
     private LocalDateTime dateInscription = LocalDateTime.now();
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean isLogedIn;
+
 
 
     public Client(String username, String email, String password) {
@@ -110,4 +113,12 @@ public class Client {
 //    public void setFavorites(List<FavoriteList> favorites) {
 //        this.favorites = favorites;
 //    }
+    
+    public boolean isLogedIn() {
+        return isLogedIn;
+    }
+
+    public void setLogedIn(boolean isLogedIn) {
+        this.isLogedIn = isLogedIn;
+    }
 }
