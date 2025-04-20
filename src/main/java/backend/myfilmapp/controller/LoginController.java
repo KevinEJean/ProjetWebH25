@@ -16,6 +16,11 @@ public class LoginController {
         this.service = service;
     }
 
+    // @PutMapping("/logger/{username}")
+    // public void Logger(@PathVariable String username) {
+    //     service.LoggerHandler(username);
+    // }
+
      @PostMapping("/login/{username}/{password}")
      public Boolean Login(@PathVariable String username, @PathVariable String password) {
          return service.LoginUser(username, password);
