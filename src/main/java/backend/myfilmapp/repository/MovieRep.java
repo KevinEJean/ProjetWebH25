@@ -1,6 +1,6 @@
 package backend.myfilmapp.repository;
 
-import backend.myfilmapp.module.MovieSerie;
+import backend.myfilmapp.models.MovieSerie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

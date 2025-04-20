@@ -1,4 +1,4 @@
-package backend.myfilmapp.module;
+package backend.myfilmapp.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

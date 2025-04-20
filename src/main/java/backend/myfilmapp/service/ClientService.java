@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import backend.myfilmapp.module.Client;
+import backend.myfilmapp.models.Client;
 import backend.myfilmapp.repository.ClientRep;
 
 @Service

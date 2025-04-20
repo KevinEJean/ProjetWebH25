@@ -1,6 +1,6 @@
 package backend.myfilmapp.service;
 
-import backend.myfilmapp.module.MovieSerie;
+import backend.myfilmapp.models.MovieSerie;
 import backend.myfilmapp.repository.MovieRep;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package backend.myfilmapp.controller;
 
-import backend.myfilmapp.module.Client;
+import backend.myfilmapp.models.Client;
 import org.springframework.web.bind.annotation.*;
 
 import backend.myfilmapp.service.LoginService;

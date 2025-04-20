@@ -1,6 +1,6 @@
 package backend.myfilmapp.controller;
 
-import backend.myfilmapp.module.MovieSerie;
+import backend.myfilmapp.models.MovieSerie;
 import backend.myfilmapp.service.MovieService;
 import org.springframework.web.bind.annotation.*;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import backend.myfilmapp.module.Client;
+import backend.myfilmapp.models.Client;
 import backend.myfilmapp.service.ClientService;
 
 @RestController
