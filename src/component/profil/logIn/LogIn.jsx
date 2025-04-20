@@ -1,45 +1,62 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import { submitRules } from '../UseConnection';
 import './LogIn.css';
 
 export default function LogIn() {
 
-    const [show, setShow] = useState();
+    // npm install --save-dev express cors
+    /* DISABLES CORS */
 
-    // import canSubmit function from signIn.jsx and handleSign
-    // make a useUtil for the entire profil folder
+    const [show, setShow] = useState(false);
+    var canSubmit = false;
 
-    // function login() {
-    //     const username = document.getElementById("usernameLogin").value;
-    //     const password = document.getElementById("passwordLogin").value;
+    const handleLogin = (event) => {
+        var currentValue = (event.target.value); // li la valeur de chaque input
+        canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
+    }
 
-    //     if (canSubmit) { // login controller
-    //         fetch(`http://localhost:8080/connection/login/${username}/${password}`, {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" }
+    function login() {
+        const username = document.getElementById("usernameLogin").value;
+        const password = document.getElementById("passwordLogin").value;
 
-    //         }).then(() => {
-    //             // setUserIsLoggedIn(true); <= auth (access to profil.jsx, NBA,jsx, FIFA.jsx)
-    //             console.log("User succesfully logged in");
-    //         })
-    //     } else {
-    //         console.log("CANNOT SUBMIT, CHECK SYNTAX !");
-    //     }
-    // }
+        if (canSubmit) {
+            fetch(`http://localhost:8080/connection/login/${username}/${password}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+
+            }).then((response) => {
+                if (response) {
+                    fetch(`http://localhost:8080/connection/loginHandler/${username}`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" }
+                    }).then((response) => {
+                        localStorage.setItem("isLoggedIn", "true");
+                        localStorage.setItem("userID", `${response}`);
+                        console.log("User succesfully logged in !");
+                    })
+                } else {
+                    console.log("Credentials don't match !");
+                }
+            })
+        } else {
+            console.log("CANNOT SUBMIT, CHECK SYNTAX !");
+        }
+    }
 
     return(
         <div className="form-grid-logIn">
             <h1 style={{color: localStorage.getItem("Title-Colors")}}>LOG IN</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" id="usernameLogIn"/>
+                <input type="text" id="usernameLogIn" onChange={handleLogin}/>
                 <h4>
                     Password
                     <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="passwordLogin"/>
+                <input type={show ? "text" : "password"} id="passwordLogin" onChange={handleLogin}/>
                 <Link to={"/forgotPassword"}><p className="info" style={{textAlign: "right"}}>reset password?</p></Link>
             </form>
             <Link to={"/signIn"}><p>Don't have an account?</p></Link>
