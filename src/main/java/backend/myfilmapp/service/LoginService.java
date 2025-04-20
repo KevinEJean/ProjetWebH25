@@ -13,11 +13,17 @@ public class LoginService {
          this.rep = rep;
      }
 
-     // public Client LoginHandler(String username) {
-     //      Client client = rep.getClientByUsername(username);
-     //      client.setLogedIn(!client.isLogedIn());
-     //      return client.getId();
-     // }
+     public Client LoginHandler(String username) {
+          Client client = rep.getClientByUsername(username);
+          if (!client.isLoggedIn) {
+               client.setLogedIn(true);
+               return client.getId();
+               
+          } else {
+               System.out.print("User already logged in !");
+          }
+          return null;
+     }
 
      public Boolean LoginUser(String username, String password) {
          try {
