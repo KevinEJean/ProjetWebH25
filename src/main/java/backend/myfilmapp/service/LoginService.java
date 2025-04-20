@@ -13,6 +13,11 @@ public class LoginService {
          this.rep = rep;
      }
 
+     // public void LoginHandler(String username) {
+     //      Client client = rep.getClientByUsername(username);
+     //      client.setLogedIn(!client.isLogedIn());
+     // }
+
      public Boolean LoginUser(String username, String password) {
          try {
              Client client = rep.getClientByUsername(username);
