@@ -25,6 +25,7 @@
 
 ### Connection
     http://localhost:{port}/connection/...
+- loginHandler/{username}
 - login/{username}/{password}
 - signin
 
