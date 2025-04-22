@@ -1,10 +1,12 @@
 # Page de progrès pour le coté Backend de l'application
 
-## Fonction de notre API Interne
+<h3 align='center'>Fonctionnalité de notre API Interne</h3>
+
 ### Client
     http://localhost:{port}/client/...
 - add
 - remove/{username}
+- getOnlineStatus/{username}
 - getAll
 - getByUsername/{username}
 - getByEmail/{email}
@@ -14,20 +16,17 @@
 - updateEmail/{username}/{email}
 - updatePassword/{username}/{password}
 
-### Favorit
+### Subcription
     http://localhost:{port}/subscription/...
-- ...
+- geStatus/{username}
+- updateStatus/{username}
 
 ### Connection
     http://localhost:{port}/connection/...
-- loginHandler/{username}
+- logout/{username}
 - login/{username}/{password}
 - signin
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
-- Connecter au Frontend
-- client/subcribe controller
-
-## Erreur
-1- Ne gère pas les epsaces (" ") dans les variables
+- Les controleurs gère pas les epsaces dans les variables
