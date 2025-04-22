@@ -13,12 +13,6 @@ public class LoginService {
          this.rep = rep;
      }
 
-     public int LoginHandler(String username) {
-          Client client = rep.getClientByUsername(username);
-          client.setOnlineStatus(true);
-          return client.getId();
-     }
-
      public void LogoutUser(String username) {
          Client client = rep.getClientByUsername(username);
          client.setOnlineStatus(false);
@@ -28,6 +22,7 @@ public class LoginService {
          try {
              Client client = rep.getClientByUsername(username);
              if (client.getUsername().equals(username) && client.getPassword().equals(password)) {
+                 client.setOnlineStatus(true);
                  return true;
              }
          } catch (Exception e) {

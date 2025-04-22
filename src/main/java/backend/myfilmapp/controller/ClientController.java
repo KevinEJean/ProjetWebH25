@@ -44,9 +44,9 @@ public class ClientController {
         return service.getClientByEmail(email);
     }
 
-    @GetMapping("/getOnlineStatus/{id}")
-    public Boolean getOnlineStatus(@PathVariable int id) {
-        return service.getOnlineStatus(id);
+    @GetMapping("/getOnlineStatus/{username}")
+    public Boolean getOnlineStatus(@PathVariable String username) {
+        return service.getOnlineStatus(username);
     }
 
     @PutMapping("/remove/{username}")

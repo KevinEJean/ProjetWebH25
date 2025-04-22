@@ -71,8 +71,8 @@ public class ClientService {
         rep.save(client);
     }
 
-    public Boolean getOnlineStatus(int id) {
-        Client client = rep.getClientById(id);
+    public Boolean getOnlineStatus(String username) {
+        Client client = rep.getClientByUsername(username);
         return client.getOnlineStatus();
     }
 }

@@ -16,14 +16,9 @@ public class LoginController {
         this.service = service;
     }
 
-     @PutMapping("/loginHandler/{username}")
-     public int LoginHandler(@PathVariable String username) {
-         return service.LoginHandler(username);
-     }
-
     @PutMapping("/logout/{username}")
     public void Logout(@PathVariable String username) {
-        service.LoginHandler(username);
+        service.LogoutUser(username);
     }
 
      @PostMapping("/login/{username}/{password}")
