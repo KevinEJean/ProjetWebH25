@@ -23,7 +23,6 @@
 
 ### Connection
     http://localhost:{port}/connection/...
-- loginHandler/{username}
 - logout/{username}
 - login/{username}/{password}
 - signin
