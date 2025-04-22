@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { submitRules } from '../UseConnection';
+import submitRules from '../UseConnection';
 import './LogIn.css';
 
 export default function LogIn() {
-
-    // npm install --save-dev express cors
-    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
 
     const [show, setShow] = useState(false);
     var canSubmit = false;
@@ -26,23 +23,8 @@ export default function LogIn() {
                 headers: { "Content-Type": "application/json" }
 
             }).then((response) => {
-                /* 
-                Les méthodes sont séparé pour : 
-                    - Éviter des erreurs
-                    - Facilite le déboguage
-                */ 
-                if (response) { // si info sont bons, connecter le user 
-                    fetch(`http://localhost:8080/connection/loginHandler/${username}`, {
-                        method: "PUT",
-                        headers: { "Content-Type": "application/json" }
-                    }).then((response) => {
-                        localStorage.setItem("isLoggedIn", "true"); // ceci empêche qu'un autre client se connecte pendant que la sesion est ouverte
-                        localStorage.setItem("userID", `${response}`); // pour Profil.jsx (ligne 13)
-                        console.log("User succesfully logged in !");
-                    })
-                } else {
-                    console.log("Credentials don't match !");
-                }
+                sessionStorage.setItem("Username", username);
+                console.log(response);
             })
         } else {
             console.log("CANNOT SUBMIT, CHECK SYNTAX !");

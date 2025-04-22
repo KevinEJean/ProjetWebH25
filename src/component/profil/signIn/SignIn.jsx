@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { submitRules } from '../UseConnection';
+import submitRules from '../UseConnection';
 import './SignIn.css';
 
 export default function SignIn() { 
-
-    // npm install --save-dev express cors
-    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
 
     const [show, setShow] = useState(false);
     var canSubmit = false;
@@ -23,7 +20,7 @@ export default function SignIn() {
         const passwordVerif = document.getElementById("passwordVerif").value;
 
         if (canSubmit && password === passwordVerif) {
-            fetch("http://localhost:8080/connection/signIn", {
+            fetch("http://localhost:8080/connection/signin", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(email, username, password)

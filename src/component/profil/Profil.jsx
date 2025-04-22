@@ -5,21 +5,14 @@ import "./Profil.css";
 
 export default function Profil() {
 
-    // npm install --save-dev express cors
-    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
-
     function isLoggedIn() {
-        /*
-            J'ai décider d'utiliser l'id des clients pour accèder au donnée, car cela permet de 
-            tout simplement appeler la requête 'getById' et la sécurité des données n'est pas 
-            affecter puisqu'il n'affiche pas donnée sensible, par exemple : username, password, email, name
-        */
         if(localStorage.getItem("isLoggedIn")) {
-            fetch(`http://localhost:8080/client/getById/${localStorage.getItem("userID")}`, {
+            fetch(`http://localhost:8080/client/getOnlineStatus/${sessionStorage.getItem("Username")}}`, {
                 method: "GET",
                 headers: { "Content-Type": "application/json" }
             }).then((response) => {
-                // afficher dans les inputs
+                // afficher dans les inputs if true
+                console.log(response);
             })
         } else {
             window.location.href = "/logIn";
