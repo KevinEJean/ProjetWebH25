@@ -1,6 +1,6 @@
 # Page de progrès pour le coté Backend de l'application
 
-<h3 align='center'>Fonctionnalité de notre API Interne</h3>
+<h3 align='center'>fonctionnalité de notre API Interne</h3>
 
 ### Client
     http://localhost:{port}/client/...
