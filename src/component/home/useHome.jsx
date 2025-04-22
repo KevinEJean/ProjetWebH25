@@ -36,7 +36,7 @@ export default function useHome() {
             const response = await fetch(`${url}${1}`);
             const data = await response.json();
             setter(data.results || []);
-            console.log(data)
+            // console.log(data)
         };
     
         useEffect(() => {

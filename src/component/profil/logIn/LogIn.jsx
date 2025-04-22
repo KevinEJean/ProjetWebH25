@@ -1,14 +1,52 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import { submitRules } from '../UseConnection';
 import './LogIn.css';
 
 export default function LogIn() {
 
-    const [show, setShow] = useState();
+    // npm install --save-dev express cors
+    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
+
+    const [show, setShow] = useState(false);
+    var canSubmit = false;
+
+    const handleLogin = (event) => {
+        var currentValue = (event.target.value); // li la valeur de chaque input
+        canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
+    }
 
     function login() {
-        // login user
-        location.href = 'profil';
+        const username = document.getElementById("usernameLogin").value;
+        const password = document.getElementById("passwordLogin").value;
+
+        if (canSubmit) {
+            fetch(`http://localhost:8080/connection/login/${username}/${password}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+
+            }).then((response) => {
+                /* 
+                Les méthodes sont séparé pour : 
+                    - Éviter des erreurs
+                    - Facilite le déboguage
+                */ 
+                if (response) { // si info sont bons, connecter le user 
+                    fetch(`http://localhost:8080/connection/loginHandler/${username}`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" }
+                    }).then((response) => {
+                        localStorage.setItem("isLoggedIn", "true"); // ceci empêche qu'un autre client se connecte pendant que la sesion est ouverte
+                        localStorage.setItem("userID", `${response}`); // pour Profil.jsx (ligne 13)
+                        console.log("User succesfully logged in !");
+                    })
+                } else {
+                    console.log("Credentials don't match !");
+                }
+            })
+        } else {
+            console.log("CANNOT SUBMIT, CHECK SYNTAX !");
+        }
     }
 
     return(
@@ -16,14 +54,14 @@ export default function LogIn() {
             <h1 style={{color: localStorage.getItem("Title-Colors")}}>LOG IN</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" id="usernameLogIn"/>
+                <input type="text" id="usernameLogIn" onChange={handleLogin}/>
                 <h4>
                     Password
                     <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="passwd"/>
+                <input type={show ? "text" : "password"} id="passwordLogin" onChange={handleLogin}/>
                 <Link to={"/forgotPassword"}><p className="info" style={{textAlign: "right"}}>reset password?</p></Link>
             </form>
             <Link to={"/signIn"}><p>Don't have an account?</p></Link>

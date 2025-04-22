@@ -20,7 +20,14 @@ export default function SeriePage() {
 
     return (
         <div className='serie-container'>
-            <h2 style={{textAlign: "center", marginTop: "1em"}}>Series</h2>
+
+            <div className='wrapper-main'>
+                <div className="wrapper">
+                    <div className="bg"> Series </div>
+                    <div className="fg"> Series </div>
+                </div>
+            </div>
+
             <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
@@ -38,7 +45,7 @@ export default function SeriePage() {
                     <form>
                         {                            
                             genresTv && genresTv.map((genre) => (
-                                <div >
+                                <div key={genre.id}>
                                     <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? localStorage.getItem("Title-Colors") : "rgb(95, 94, 94)"}>
                                     <input id={genre.id}  onChange={() => handleCheckCheckbox(genre.id)} type="checkbox" />
                                     <span>{genre.name}</span>
@@ -59,7 +66,7 @@ export default function SeriePage() {
                                 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 
-                                    title={serie.title} 
+                                    title={serie.original_name} 
                                     type="TV"
                                     rate={serie.vote_average.toFixed(1)}
                                     year={serie.first_air_date.split('-')[0]}
@@ -89,7 +96,7 @@ export default function SeriePage() {
                         <FaRegArrowAltCircleLeft id='left' style={{ color: localStorage.getItem("Title-Colors") }}
                             onClick={page > 1 ? () => setPage(page - 1) : () => setPage(1)} />
                 
-                        <h4>{page}/{maxPage}</h4>
+                        <h2>{page}/{maxPage}</h2>
                 
                         <FaRegArrowAltCircleRight id='right' style={{ color: localStorage.getItem("Title-Colors") }}
                             onClick={page <= maxPage ? () => setPage(page + 1) : () => setPage(maxPage)} />

@@ -43,9 +43,9 @@ export default function Carousel3({ actorCarousel = [null]}) {
                 >
                     {
                         actorCarousel &&
-                        actorCarousel.map((actor, key) => (
-                            <SwiperSlide>
-                                <div className='card-actor' key={key}>
+                        actorCarousel.map((actor) => (
+                            <SwiperSlide key={actor.id}>
+                                <div className='card-actor'>
                                     <div className='actor-image' style={{ backgroundImage: `url(${actorImg(actor)})` }}></div>
                                     {/* <img 
                                     src={actorImg(actor)}

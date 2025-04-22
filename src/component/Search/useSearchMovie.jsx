@@ -27,7 +27,7 @@ function useSearchMovie() {
 
 
     const handlecritere = () => {
-        console.log("Critère: ", inputCritere);
+        // console.log("Critère: ", inputCritere);
         setCritere(inputCritere);
         setInputCritere("");
     };
@@ -53,8 +53,8 @@ function useSearchMovie() {
         }
     }, [genreSelect,critere]);
 
-    console.log("Movie Trending: ", moviesTrending)
-    console.log("Movie result: ", movies)
+    // console.log("Movie Trending: ", moviesTrending)
+    // console.log("Movie result: ", movies)
     return {
         inputCritere,
         critere,

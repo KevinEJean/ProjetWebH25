@@ -51,7 +51,7 @@ function useDetailMovie() {
                 // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
                 const data = await response.json();
                 setDataInfo(data || []);
-                console.log("TMDB info: ", data)
+                // console.log("TMDB info: ", data)
             // }
         };  
 

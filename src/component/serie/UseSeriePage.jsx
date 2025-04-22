@@ -78,13 +78,13 @@ export default function UseSeriePage() {
         var checkbox = document.getElementById(id);
       
         if (checkbox.checked) {
-          console.log(`le genre ${id} à été coché`);
+        //   console.log(`le genre ${id} à été coché`);
           document.getElementById(id).style.backgroundColor = "gold"
           if (!preFiltre.includes(id)) {
             setPreFiltre(prev => [...prev, id])
           }
         } else {
-          console.log(`le genre ${id} à été décoché`);
+        //   console.log(`le genre ${id} à été décoché`);
           if (preFiltre.includes(id)) {
             setPreFiltre(prev => prev.filter(genre => genre !== id))
           }
@@ -94,7 +94,7 @@ export default function UseSeriePage() {
 
     // function me permettant d'aller chercher les film par à traver le filtre
     const searchMoviesByGenre = async (filtre) => {
-        if (filtre.length === 0) return searchMovieOrTvBy(API_URL_TV_POPULAR,setSeriePopular);
+        // if (filtre.length === 0) return searchMovieOrTvBy(API_URL_TV_POPULAR);
         const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=${filtre}&page=${page}`);
         // const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=${filtre}&page=${page}`);
         const data = await response.json();
@@ -107,7 +107,7 @@ export default function UseSeriePage() {
         // searchMovieByRate(movieRate,page);
     }, [filtre,movieRate,page]);
 
-    console.log("movie filtre trouvé: ", serieFindByFiltre)
+    // console.log("movie filtre trouvé: ", serieFindByFiltre)
     
     return {
         serieRate,

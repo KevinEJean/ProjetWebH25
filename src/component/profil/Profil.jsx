@@ -5,12 +5,25 @@ import "./Profil.css";
 
 export default function Profil() {
 
+    // npm install --save-dev express cors
+    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
+
     function isLoggedIn() {
-        // check si user est connecter
-        // if true afficher info du user (read only)
-        // getMapping(/user/byId)
-        // input.value = fname, etc
-        // else to LogIn
+        /*
+            J'ai décider d'utiliser l'id des clients pour accèder au donnée, car cela permet de 
+            tout simplement appeler la requête 'getById' et la sécurité des données n'est pas 
+            affecter puisqu'il n'affiche pas donnée sensible, par exemple : username, password, email, name
+        */
+        if(localStorage.getItem("isLoggedIn")) {
+            fetch(`http://localhost:8080/client/getById/${localStorage.getItem("userID")}`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            }).then((response) => {
+                // afficher dans les inputs
+            })
+        } else {
+            window.location.href = "/logIn";
+        }
     }
 
     function addAvatar() {
@@ -26,7 +39,7 @@ export default function Profil() {
     return (
         <div className="form-grid">
             <h1 style={{color: localStorage.getItem("Title-Colors")}}>PROFIL</h1>
-            <span class="material-symbols-outlined avatar">
+            <span className="material-symbols-outlined avatar">
                 account_circle
             </span>
             <form>
@@ -43,7 +56,7 @@ export default function Profil() {
                 <h4>Username</h4>
                 <input type="text" id="username" readOnly />
                 <div style={{ margin: " 20px 0 0 20px" }}>
-                    <button className="yesBTN" onClick={allowUpdate()} style={{ color: "green", marginRight: "10px", }}>Update</button>
+                    <button className="yesBTN" onClick={(event) => allowUpdate()} style={{ color: "green", marginRight: "10px", }}>Update</button>
                     <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
                 </div>
             </form>

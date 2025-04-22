@@ -6,13 +6,13 @@ function Test(props) {
     return (
         <div>
             <div className='container-info-carousel'>
-            <div class="title_wrapper">
-                    <h1 class="has-text-white">{props.title}</h1>
+            <div className="title_wrapper">
+                    <h1 className="has-text-white">{props.title}</h1>
                     <hr />
-                    {/* <p class="title is-1 has-text-white">{props.plot}</p> */}
+                    {/* <p className="title is-1 has-text-white">{props.plot}</p> */}
                 </div>
                 <div>
-                    <img src={props.url} class="featured"/>
+                    <img src={props.url} className="featured"/>
                 </div>
             </div>
         </div>

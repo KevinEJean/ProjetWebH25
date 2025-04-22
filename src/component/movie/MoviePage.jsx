@@ -28,7 +28,14 @@ function MoviePage() {
 
     return (
         <div className='movie-container'>
-            <h2 style={{ textAlign: "center", marginTop: "1em" }}>Movies</h2>
+            {/* <h2 style={{ textAlign: "center", marginTop: "1em" }}>Movies</h2> */}
+            <div className='wrapper-main'>
+                <div className="wrapper">
+                    <div className="bg"> Movie </div>
+                    <div className="fg"> Movie </div>
+                </div>
+            </div>
+
             <div className="content-filter" style={{ color: localStorage.getItem("Title-Colors") }}>
                 <div className="filters">
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
@@ -46,7 +53,7 @@ function MoviePage() {
                 <form>
                     {
                         genresMovie && genresMovie.map((genre) => (
-                            <div >
+                            <div key={genre.id}>
                                 <label id='container' onClick={(e) => e.currentTarget.style.color = e.currentTarget.style.color === "rgb(95, 94, 94)" ? localStorage.getItem("Title-Colors") : "rgb(95, 94, 94)"}>
                                     <input id={genre.id} onChange={() => handleCheckCheckbox(genre.id)} type="checkbox" />
                                     <span>{genre.name}</span>
@@ -62,8 +69,8 @@ function MoviePage() {
             <div className="content">
                 {
                     movieFindByFiltre.length > 0 ?
-                        movieFindByFiltre.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
+                        movieFindByFiltre.map((movie) => (
+                            <div key={movie.id} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -76,8 +83,8 @@ function MoviePage() {
                             </div>
                         ))
                         :
-                        moviesTrending.map((movie, key) => (
-                            <div key={key} onClick={() => handleDetail("movie", movie.id, movie.title)}>
+                        moviesTrending.map((movie) => (
+                            <div key={movie.id} onClick={() => handleDetail("movie", movie.id, movie.title)}>
 
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -97,7 +104,7 @@ function MoviePage() {
                     <FaRegArrowAltCircleLeft id='left' style={{ color: localStorage.getItem("Title-Colors") }}
                         onClick={page > 1 ? () => setPage(page - 1) : () => setPage(1)} />
 
-                    <h4>{page}/{maxPage}</h4>
+                    <h2>{page}/{maxPage}</h2>
 
                     <FaRegArrowAltCircleRight id='right' style={{ color: localStorage.getItem("Title-Colors") }}
                         onClick={page <= maxPage ? () => setPage(page + 1) : () => setPage(maxPage)} />

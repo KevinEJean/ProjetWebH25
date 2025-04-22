@@ -60,19 +60,19 @@ export default function useMoviePage() {
     });
     }
 
-    console.log(filtre)
+    // console.log(filtre)
     // function me permettant de voir si les checkbox on été checked yes/no
     function handleCheckCheckbox(id) {
         var checkbox = document.getElementById(id);
       
         if (checkbox.checked) {
-          console.log(`le genre ${id} à été coché`);
+        //   console.log(`le genre ${id} à été coché`);
           document.getElementById(id).style.backgroundColor = "gold"
           if (!preFiltre.includes(id)) {
             setPreFiltre(prev => [...prev, id])
           }
         } else {
-          console.log(`le genre ${id} à été décoché`);
+        //   console.log(`le genre ${id} à été décoché`);
           if (preFiltre.includes(id)) {
             setPreFiltre(prev => prev.filter(genre => genre !== id))
           }
@@ -94,7 +94,7 @@ export default function useMoviePage() {
         const data = await response.json();
         setMoviesTrending(data.results || []);
         setMaxPage(data.total_pages)
-        console.log(`Les film ${movieRate} on chargé avec succès`)
+        // console.log(`Les film ${movieRate} on chargé avec succès`)
     };
     
     // function me permettant d'aller chercher les film par à traver le filtre
@@ -105,7 +105,7 @@ export default function useMoviePage() {
         const data = await response.json();
         setMovieFindByFiltre(data.results || []);
         setMaxPage(data.total_pages);
-        console.log(`Les film de type ${filtre} on chargé avec succès`)
+        // console.log(`Les film de type ${filtre} on chargé avec succès`)
     };
     
        
