@@ -9,14 +9,16 @@
 - getByUsername/{username}
 - getByEmail/{email}
 - getById/{id}
+- getOnlineStatus/{username}
 - updateFname/{username}/{fname}
 - updateLname/{username}/{lname}
 - updateEmail/{username}/{email}
 - updatePassword/{username}/{password}
 
-### Favorit
+### Subcription
     http://localhost:{port}/subscription/...
-- ...
+- geStatus/{username}
+- updateStatus/{username}
 
 ### Connection
     http://localhost:{port}/connection/...
@@ -26,8 +28,4 @@
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
-- Connecter au Frontend
-- client/subcribe controller
-
-## Erreur
-1- Ne gère pas les epsaces (" ") dans les variables
+- Les controleurs gère pas les epsaces dans les variables
