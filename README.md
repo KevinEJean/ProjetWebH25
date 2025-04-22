@@ -16,7 +16,7 @@
 - updateEmail/{username}/{email}
 - updatePassword/{username}/{password}
 
-### Subcription
+### Subcription (en progrès)
     http://localhost:{port}/subscription/...
 - geStatus/{username}
 - updateStatus/{username}
