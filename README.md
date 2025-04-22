@@ -4,24 +4,19 @@
 ### Client
     http://localhost:{port}/client/...
 - add
-- remove
+- remove/{username}
 - getAll
-- getByUsername
-- getByEmail
-- getById
+- getByUsername/{username}
+- getByEmail/{email}
+- getById/{id}
 - updateFname/{username}/{fname}
 - updateLname/{username}/{lname}
 - updateEmail/{username}/{email}
 - updatePassword/{username}/{password}
 
-### Film
-    http://localhost:{port}/movie/...
-- add
-- getAll
-- getByTitle
-- getByType
-- getById
-- update (erreur #1)
+### Favorit
+    http://localhost:{port}/subscription/...
+- ...
 
 ### Connection
     http://localhost:{port}/connection/...
