@@ -5,11 +5,11 @@
     http://localhost:{port}/client/...
 - add
 - remove/{username}
+- getOnlineStatus/{username}
 - getAll
 - getByUsername/{username}
 - getByEmail/{email}
 - getById/{id}
-- getOnlineStatus/{username}
 - updateFname/{username}/{fname}
 - updateLname/{username}/{lname}
 - updateEmail/{username}/{email}
