@@ -7,6 +7,8 @@ import { CgProfile } from "react-icons/cg";
 import { CiBookmark } from "react-icons/ci";
 import { FaTv } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
+import { PiSoccerBallFill } from "react-icons/pi";
+import { BiBasketball } from "react-icons/bi";
 
 
 import logo from "../../assets/logo.png";
@@ -23,11 +25,13 @@ export default function NavBar() {
                     <Link to="/" title='Home'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/movie" title='Movie'><li><MdMovieCreation style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/serie" title='Serie'><li><FaTv style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/favorit" title='favorit'><li><CiBookmark style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/profil" title='profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/setting" title='setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/favorit" title='Favorit'><li><CiBookmark style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/nba" title='NBA'><li><BiBasketball style={{fontSize:"20px"}}/></li></Link> {/* auth */}
+                    <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link> {/* auth */}
+                    <Link to="/profil" title='Profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/setting" title='Setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
                 </ul>
-                <Link to="/search"><button className="search">search</button></Link>
+                <Link to="/search" title='Search'><button className="search">search</button></Link>
             </nav>
         </div>
     );

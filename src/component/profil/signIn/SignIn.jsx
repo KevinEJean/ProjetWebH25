@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { submitRules } from '../UseConnection';
+import submitRules from '../UseConnection';
 import './SignIn.css';
 
 export default function SignIn() { 
