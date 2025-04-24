@@ -19,7 +19,7 @@ public class ClientController {
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody Client user) {
+    public boolean add(@RequestBody Client user) {
         return service.saveClient(user);
 //        return "New client added!";
     }
@@ -56,22 +56,22 @@ public class ClientController {
     }
 
     @PutMapping("/updateFname/{username}/{fname}")
-    public String updateFname(@PathVariable String username, @PathVariable String fname) {
+    public boolean updateFname(@PathVariable String username, @PathVariable String fname) {
         return service.updateClientFname(username, fname);
     }
 
     @PutMapping("/updateLname/{username}/{lname}")
-    public String updateLname(@PathVariable String username, @PathVariable String lname) {
+    public boolean updateLname(@PathVariable String username, @PathVariable String lname) {
         return service.updateClientLname(username, lname);
     }
 
     @PutMapping("/updateEmail/{username}/{email}")
-    public String updateEmail(@PathVariable String username, @PathVariable String email) {
+    public boolean updateEmail(@PathVariable String username, @PathVariable String email) {
         return service.updateClientEmail(username, email);
     }
 
     @PutMapping("/updatePassword/{username}/{password}")
-    public String updatePassword(@PathVariable String username, @PathVariable String passwordConfirm, @PathVariable String password) {
+    public boolean updatePassword(@PathVariable String username, @PathVariable String passwordConfirm, @PathVariable String password) {
         return service.updateClientPassword(username, passwordConfirm, password);
     }
 }
