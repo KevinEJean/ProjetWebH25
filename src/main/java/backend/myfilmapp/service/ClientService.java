@@ -24,6 +24,7 @@ public class ClientService {
         if (client.getUsername().contains("del-user") || client.getUsername().contains("admin")) { // pour empêcher erreur de login/signin
             return "Name not valid !";
         }
+
         // a voir si on peut utilise un regex(plus sûr)
         if (!client.getEmail().contains("@")){ return "Email not valid"; }
 
@@ -87,7 +88,7 @@ public class ClientService {
         return "Client not found";
     }
 
-    public String updateClientPassword(String username, String passwordConfirm, String password) {
+    public String updateClientPassword(String username, String password, String passwordConfirm) {
         // à changer pour faire une confirmation de passwd avant de changer le changer
         Client client = rep.getClientByUsername(username);
         if (client != null) {

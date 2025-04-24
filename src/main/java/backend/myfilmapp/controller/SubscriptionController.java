@@ -1,10 +1,7 @@
 package backend.myfilmapp.controller;
 
-import backend.myfilmapp.service.ClientService;
-import backend.myfilmapp.service.LoginService;
 import backend.myfilmapp.service.SubscriptionService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/subscription")
@@ -20,5 +17,10 @@ public class SubscriptionController {
     @GetMapping("/getStatus/{username}")
     public Boolean getStatus(@PathVariable String username) {
         return service.getSubscriptionStatus(username);
+    }
+
+    @GetMapping("/updateStatus/{username}/{status}")
+    public void updateStatus(@PathVariable String username, @PathVariable Boolean status) {
+        service.updateSubscriptionStatus(username, status);
     }
 }

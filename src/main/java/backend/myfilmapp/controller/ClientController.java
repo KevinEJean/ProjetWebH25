@@ -18,17 +18,19 @@ public class ClientController {
         this.service = service;
     }
 
+    // utiliser pour tester
     @PostMapping("/add")
-    public String add(@RequestBody Client user) {
-        return service.saveClient(user);
-//        return "New client added!";
+    public void add(@RequestBody Client user) {
+        service.saveClient(user);
     }
 
+    // utiliser pour tester
     @GetMapping("/getAll")
     public List<Client> getAll() {
         return service.getAllClient();
     }
 
+    // utiliser pour tester
     @GetMapping("/getById/{id}")
     public Client byId(@PathVariable int id) {
         return service.getClientById(id);
@@ -70,8 +72,8 @@ public class ClientController {
         return service.updateClientEmail(username, email);
     }
 
-    @PutMapping("/updatePassword/{username}/{password}")
-    public String updatePassword(@PathVariable String username, @PathVariable String passwordConfirm, @PathVariable String password) {
-        return service.updateClientPassword(username, passwordConfirm, password);
+    @PutMapping("/updatePassword/{username}/{password}/{passwordConfirm}")
+    public String updatePassword(@PathVariable String username, @PathVariable String password, @PathVariable String passwordConfirm) {
+        return service.updateClientPassword(username, password, passwordConfirm);
     }
 }

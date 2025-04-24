@@ -27,7 +27,7 @@ public class LoginController {
          return service.LoginUser(username, password);
      }
 
-     @PostMapping("/signin")
+     @PostMapping("/signup")
      public String SignIn(@RequestBody Client client) {
          return service.SignInUser(client);
      }
