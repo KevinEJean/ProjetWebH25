@@ -95,14 +95,14 @@ function DetailMovie() {
                     type === "movie" ? 
                     <div className="movie-info">
                     <div className="content-info">
-                        <h1 id='movieTitle' style={{ textShadow: "2px 2px black" }}>{DataOmdb.Title}</h1>
+                        <h1 id='movieTitle' style={{ textShadow: "2px 2px black" }}>{DataOmdb.Title}({DataOmdb.Released.split(' ')[2]})</h1>
                         <p className='rate'>
 
-                        <strong>Metascore: ⭐{DataOmdb.Metascore}% </strong>
+                        <strong>Rating: ⭐{DataOmdb.Metascore}% </strong>
 
                         <span id='OMDb'>OMDb</span>
                         <span id='rating'>{DataOmdb.imdbRating}/10</span>
-                        <span id='r'>{DataOmdb.Year}</span>
+                        {/* <span id='r'>{DataOmdb.Year}</span> */}
                         <span id='r'>{DataOmdb.Runtime}</span>
 
                         </p>
@@ -110,7 +110,8 @@ function DetailMovie() {
                         <hr />
                         <p><strong>Release :</strong> {DataOmdb.Released}</p>
                         <p><strong>Director :</strong> {DataOmdb.Director}</p>
-                        <p><strong>Genre :</strong> {DataOmdb.Genre}</p>
+                        <p><strong>Genre :</strong> <p>{DataOmdb.Genre}</p></p>
+                        
                         <p><strong>Type :</strong> {type}</p>
                         <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
                         <p><strong>Budget : </strong>{dataInfo.budget} $</p>
