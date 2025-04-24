@@ -84,7 +84,7 @@ public class ClientService {
         return false;
     }
 
-    public boolean updateClientPassword(String username, String passwordConfirm, String password) {
+    public boolean updateClientPassword(String username, String password, String passwordConfirm) {
         // à changer pour faire une confirmation de passwd avant de changer le changer
         Client client = rep.getClientByUsername(username);
         if (client != null) {

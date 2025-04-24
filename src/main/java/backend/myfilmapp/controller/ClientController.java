@@ -21,7 +21,6 @@ public class ClientController {
     @PostMapping("/add")
     public boolean add(@RequestBody Client user) {
         return service.saveClient(user);
-//        return "New client added!";
     }
 
     @GetMapping("/getAll")
@@ -71,7 +70,7 @@ public class ClientController {
     }
 
     @PutMapping("/updatePassword/{username}/{password}")
-    public boolean updatePassword(@PathVariable String username, @PathVariable String passwordConfirm, @PathVariable String password) {
+    public boolean updatePassword(@PathVariable String username, @PathVariable String password, @PathVariable String passwordConfirm) {
         return service.updateClientPassword(username, passwordConfirm, password);
     }
 }

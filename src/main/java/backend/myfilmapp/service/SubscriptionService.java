@@ -17,4 +17,10 @@ public class SubscriptionService {
         Client client = rep.getClientByUsername(username);
         return client.getSubscriptionStatus();
     }
+
+    public void updateSubscriptionStatus(String username, Boolean status) {
+        Client client = rep.getClientByUsername(username);
+        client.setSubscriptionStatus(status);
+        rep.save(client);
+    }
 }
