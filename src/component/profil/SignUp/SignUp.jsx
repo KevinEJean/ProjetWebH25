@@ -9,12 +9,9 @@ export default function SignUp() {
     const [show, setShow] = useState(false);
     const [user, setUser] = useState({username: "", email: "", password: ""})
     const navigate = useNavigate()
+    
     var canSubmit = false;
 
-    // const handleSignin = (event) => {
-    //     var currentValue = (event.target.value); // lie la valeur de chaque input
-    //     canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
-    // }
 
     // change les valeur de user avec onchange
     const handleChange = (e) => {
@@ -23,36 +20,60 @@ export default function SignUp() {
         setUser({...user, [e.target.name]: e.target.value})
     }
 
-    const handleNewUser = () => {
+    const handleNewUser = async () => {
         // e.prevenDefault()
-        
-        axios.post("http://localhost:8888/client/add", user)
-        .then(navigate("/profil"))
-        .catch((error) => console.log(error))
-    } 
+        const passwordVerif = document.getElementById("passwordVerif").value;
 
+        if (user.password.length >= 5 && user.password.length <= 16) {
+            if (user.password === passwordVerif) {
+                const response = await axios.post("http://localhost:8888/client/add", user);
+                if (response.data) {
+                    navigate("/profil");
+                    console.log("request true")
+                } else{
+                    console.log("request false")
+                }
+            } else {
+                console.log("password mismatching")
+            }
+        } else {
+            console.log("the password must be between 5 and 16 charactere")
+        }
+
+        // try {
+        //     const response = await axios.post("http://localhost:8888/client/add", user);
+        //     if (response.data) {
+        //         navigate("/profil");
+        //         console.log("request true")
+        //     } else{
+        //         console.log("request false")
+        //     }
+        // } catch (err) {
+        //     console.error("signUp failed", err);
+        // }
+    } 
 
     
 
-    function signin() {
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const passwordVerif = document.getElementById("passwordVerif").value;
+    // function signin() {
+    //     const username = document.getElementById("username").value;
+    //     const email = document.getElementById("email").value;
+    //     const password = document.getElementById("password").value;
+    //     const passwordVerif = document.getElementById("passwordVerif").value;
 
-        if (canSubmit && password === passwordVerif) {
-            fetch("http://localhost:8080/connection/signin", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(email, username, password)
+    //     if (canSubmit && password === passwordVerif) {
+    //         fetch("http://localhost:8080/connection/signin", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(email, username, password)
 
-            }).then((response) => {
-                console.log(response);
-            })
-        } else {
-            console.log("CANNOT SUBMIT, CHECK SYNTAX !");
-        }
-    }
+    //         }).then((response) => {
+    //             console.log(response);
+    //         })
+    //     } else {
+    //         console.log("CANNOT SUBMIT, CHECK SYNTAX !");
+    //     }
+    // }
 
 
     // console.log(user)
@@ -63,7 +84,7 @@ export default function SignUp() {
             <form>
 
                 <h4>Username</h4>
-                <input type="text" name="username" placeholder="playerOne" onChange={(e) => handleChange(e)} />
+                <input type="text" name="username" placeholder="playerOne" required onChange={(e) => handleChange(e)} />
                 <p className="info-text">cannot be changed later</p>
                 <h4>
                     Password
@@ -71,7 +92,7 @@ export default function SignUp() {
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} name="password" onChange={(e) => handleChange(e)} />
+                <input type={show ? "text" : "password"} name="password" min={5} onChange={(e) => handleChange(e)} />
                 <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
@@ -79,7 +100,7 @@ export default function SignUp() {
                 <input type="text" name="email" onChange={(e) => handleChange(e)} />
                 <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
-                <input type={show ? "text" : "password"} name="passwordVerif" onChange={(e) => handleChange(e)} />
+                <input type={show ? "text" : "password"} id="passwordVerif" onChange={(e) => handleChange(e)} />
             </form>
             <Link to={"/logIn"}><p style={{ textAlign: "left" }}>Already have an account?</p></Link>
             <div>
