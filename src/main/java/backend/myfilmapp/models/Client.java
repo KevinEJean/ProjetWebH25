@@ -41,11 +41,11 @@ public class Client {
     private boolean online;
 
 
-
-    public Client(String username, String email, String password) {
+    public Client(String username, String email, String password, LocalDateTime creationDate) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.creationDate = creationDate;
     }
 
     public Client() {}

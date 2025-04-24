@@ -11,16 +11,17 @@ import backend.myfilmapp.service.LoginService;
 public class LoginController {
 
     private final LoginService service;
-
     public LoginController(LoginService service) {
         this.service = service;
     }
 
+    // à remplacer pour requestBody après la fin de nos test
     @PutMapping("/logout/{username}")
     public void Logout(@PathVariable String username) {
         service.LogoutUser(username);
     }
 
+    // à remplacer pour requestBody après la fin de nos test
      @PostMapping("/login/{username}/{password}")
      public Boolean Login(@PathVariable String username, @PathVariable String password) {
          return service.LoginUser(username, password);

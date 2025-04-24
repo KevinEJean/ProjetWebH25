@@ -2,6 +2,7 @@ package backend.myfilmapp.service;
 
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import backend.myfilmapp.models.Client;
@@ -10,18 +11,26 @@ import backend.myfilmapp.repository.ClientRep;
 @Service
 public class ClientService {
 
-    private final ClientRep rep;
+    // permet de crypter les passwd des client
+    // comme cela pas besoin de créer une table avec le passwd ce qui est trop fragile niveaux sécurité
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    private final ClientRep rep;
     public ClientService(ClientRep rep) {
         this.rep = rep;
     }
 
-    public void saveClient(Client client) {
+    public String saveClient(Client client) {
         if (client.getUsername().contains("del-user") || client.getUsername().contains("admin")) { // pour empêcher erreur de login/signin
-            System.console().printf("Name not valid !");
-        } else {
-            rep.save(client);
+            return "Name not valid !";
         }
+        // a voir si on peut utilise un regex(plus sûr)
+        if (!client.getEmail().contains("@")){ return "Email not valid"; }
+
+        client.setPassword(passwordEncoder.encode(client.getPassword()));
+        rep.save(client);
+
+        return "New client added!";
     }
 
     public List<Client> getAllClient() {
@@ -47,28 +56,49 @@ public class ClientService {
         rep.save(client);
     }
 
-    public void updateClientFname(String username, String fname) {
+    public String updateClientFname(String username, String fname) {
         Client client = rep.getClientByUsername(username);
-        client.setFname(fname);
-        rep.save(client);
+        if (client != null) {
+            client.setFname(fname);
+            rep.save(client);
+            return "Fname have been update with succès";
+        }
+        return "Client not found";
     }
 
-    public void updateClientLname(String username, String lname) {
+    public String updateClientLname(String username, String lname) {
         Client client = rep.getClientByUsername(username);
-        client.setLname(lname);
-        rep.save(client);
+        if (client != null){
+            client.setLname(lname);
+            rep.save(client);
+            return "Lname have been updated with succès";
+        }
+        return "Client not found";
+
     }
 
-    public void updateClientEmail(String username, String email) {
+    public String updateClientEmail(String username, String email) {
         Client client = rep.getClientByUsername(username);
-        client.setEmail(email);
-        rep.save(client);
+        if(client != null) {
+            client.setEmail(email);
+            rep.save(client);
+            return "Email have been updated with succès!";
+        }
+        return "Client not found";
     }
 
-    public void updateClientPassword(String username, String password) {
+    public String updateClientPassword(String username, String passwordConfirm, String password) {
+        // à changer pour faire une confirmation de passwd avant de changer le changer
         Client client = rep.getClientByUsername(username);
-        client.setPassword(password);
-        rep.save(client);
+        if (client != null) {
+            if (passwordEncoder.matches(passwordConfirm, client.getPassword())) {
+                client.setPassword(password);
+                rep.save(client);
+                return "Password have been updated with succès!";
+            }
+            return "Password incorrect! try again";
+        }
+        return "Client not found";
     }
 
     public Boolean getOnlineStatus(String username) {
@@ -76,3 +106,5 @@ public class ClientService {
         return client.getOnlineStatus();
     }
 }
+
+

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
      private final ClientRep rep;
-
      public LoginService(ClientRep rep) {
          this.rep = rep;
      }
+
 
      public void LogoutUser(String username) {
          Client client = rep.getClientByUsername(username);
