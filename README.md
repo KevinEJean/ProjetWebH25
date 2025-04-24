@@ -16,10 +16,10 @@
 - updateEmail/{username}/{email}
 - updatePassword/{username}/{password}
 
-### Subcription (en progrès)
+### Subcription
     http://localhost:{port}/subscription/...
 - geStatus/{username}
-- updateStatus/{username}
+- updateStatus/{username} *in progress*
 
 ### Connection
     http://localhost:{port}/connection/...
