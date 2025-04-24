@@ -16,7 +16,7 @@ public class LoginService {
      public void LogoutUser(String username) {
          Client client = rep.getClientByUsername(username);
          client.setOnlineStatus(false);
-          rep.save(client);
+         rep.save(client);
      }
 
      public Boolean LoginUser(String username, String password) {
