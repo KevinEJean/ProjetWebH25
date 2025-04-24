@@ -19,7 +19,7 @@
 ### Subcription
     http://localhost:{port}/subscription/...
 - geStatus/{username}
-- updateStatus/{username} ***in progress
+- updateStatus/{username}
 
 ### Connection
     http://localhost:{port}/connection/...
