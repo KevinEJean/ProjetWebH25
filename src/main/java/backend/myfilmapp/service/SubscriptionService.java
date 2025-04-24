@@ -13,8 +13,8 @@ public class SubscriptionService {
         this.rep = rep;
     }
 
-    public Boolean getSubscriptionStatus(int id) {
-        Client client = rep.getClientById(id);
+    public Boolean getSubscriptionStatus(String username) {
+        Client client = rep.getClientByUsername(username);
         return client.getSubscriptionStatus();
     }
 }
