@@ -4,28 +4,23 @@
 
 ### Client
     http://localhost:{port}/client/...
-- add
-- remove/{username}
-- getOnlineStatus/{username}
-- getAll
-- getByUsername/{username}
-- getByEmail/{email}
-- getById/{id}
-- updateFname/{username}/{fname}
-- updateLname/{username}/{lname}
-- updateEmail/{username}/{email}
-- updatePassword/{username}/{password}
+- PUT remove/{username}
+- GET getOnlineStatus/{username}
+- PUT updateFname/{username}/{fname}
+- PUT updateLname/{username}/{lname}
+- PUT updateEmail/{username}/{email}
+- PUT updatePassword/{username}/{password}
 
 ### Subcription
     http://localhost:{port}/subscription/...
-- geStatus/{username}
-- updateStatus/{username}
+- GET geStatus/{username}
+- PUT updateStatus/{username}
 
 ### Connection
     http://localhost:{port}/connection/...
-- logout/{username}
-- login/{username}/{password}
-- signin
+- PUT logout/{username}
+- PUT login
+- POST signUp
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
