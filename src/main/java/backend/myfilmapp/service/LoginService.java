@@ -16,13 +16,15 @@ public class LoginService {
      public void LogoutUser(String username) {
          Client client = rep.getClientByUsername(username);
          client.setOnlineStatus(false);
+          rep.save(client);
      }
 
      public Boolean LoginUser(String username, String password) {
          try {
              Client client = rep.getClientByUsername(username);
              if (client.getUsername().equals(username) && client.getPassword().equals(password)) {
-                 client.setOnlineStatus(true);
+                  client.setOnlineStatus(true);
+                  rep.save(client);
                  return true;
              }
          } catch (Exception e) {
