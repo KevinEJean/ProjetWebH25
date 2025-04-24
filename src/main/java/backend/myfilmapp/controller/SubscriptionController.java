@@ -6,6 +6,9 @@ import backend.myfilmapp.service.SubscriptionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+@RestController
+@RequestMapping("/subscription")
+@CrossOrigin
 public class SubscriptionController {
 
     private final SubscriptionService service;
@@ -14,8 +17,8 @@ public class SubscriptionController {
         this.service = service;
     }
 
-    @GetMapping("/getSubscriptionStatus/{id}")
-    public Boolean getSubscriptionStatus(@PathVariable int id) {
-        return service.getSubscriptionStatus(id);
+    @GetMapping("/getStatus/{username}")
+    public Boolean getStatus(@PathVariable String username) {
+        return service.getSubscriptionStatus(username);
     }
 }
