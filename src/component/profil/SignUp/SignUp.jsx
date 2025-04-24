@@ -1,17 +1,38 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import submitRules from '../UseConnection';
-import './SignIn.css';
+import './SignUp.css';
+import axios from "axios";
 
-export default function SignIn() { 
+export default function SignUp() { 
 
     const [show, setShow] = useState(false);
+    const [user, setUser] = useState({username: "", email: "", password: ""})
+    const navigate = useNavigate()
     var canSubmit = false;
 
-    const handleSignin = (event) => {
-        var currentValue = (event.target.value); // lie la valeur de chaque input
-        canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
+    // const handleSignin = (event) => {
+    //     var currentValue = (event.target.value); // lie la valeur de chaque input
+    //     canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
+    // }
+
+    // change les valeur de user avec onchange
+    const handleChange = (e) => {
+        // var currentValue = (e.target.value); // lie la valeur de chaque input
+        // canSubmit = submitRules(currentValue, e.target.id); // si sa retourne true => utilisateur peut submit
+        setUser({...user, [e.target.name]: e.target.value})
     }
+
+    const handleNewUser = () => {
+        // e.prevenDefault()
+        
+        axios.post("http://localhost:8888/client/add", user)
+        .then(navigate("/profil"))
+        .catch((error) => console.log(error))
+    } 
+
+
+    
 
     function signin() {
         const username = document.getElementById("username").value;
@@ -33,32 +54,36 @@ export default function SignIn() {
         }
     }
 
+
+    // console.log(user)
+
     return (
         <div className="form-grid-signIn">
             <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN IN</h1>
             <form>
+
                 <h4>Username</h4>
-                <input type="text" id="username" placeholder="playerOne" onChange={handleSignin} />
+                <input type="text" name="username" placeholder="playerOne" onChange={(e) => handleChange(e)} />
                 <p className="info-text">cannot be changed later</p>
                 <h4>
                     Password
-                    <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
+                    <span onClick={(event) => setShow(s => !s)} className="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="password" onChange={handleSignin} />
+                <input type={show ? "text" : "password"} name="password" onChange={(e) => handleChange(e)} />
                 <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
                 <h4>Email</h4>
-                <input type="text" id="email" onChange={handleSignin} />
+                <input type="text" name="email" onChange={(e) => handleChange(e)} />
                 <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
-                <input type={show ? "text" : "password"} id="passwordVerif" onChange={handleSignin} />
+                <input type={show ? "text" : "password"} name="passwordVerif" onChange={(e) => handleChange(e)} />
             </form>
             <Link to={"/logIn"}><p style={{ textAlign: "left" }}>Already have an account?</p></Link>
             <div>
-                <button style={{ color: "green", marginRight: "10px" }} onClick={(event) => signin()}>Sign In</button>
+                <button style={{ color: "green", marginRight: "10px" }} onClick={handleNewUser}>Sign In</button>
                 <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
             </div>
         </div>
