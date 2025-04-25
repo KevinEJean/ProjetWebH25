@@ -19,18 +19,18 @@ public class LoginService {
          rep.save(client);
      }
 
-     public Boolean LoginUser(String username, String password) {
+     public int LoginUser(String username, String password) {
          try {
              Client client = rep.getClientByUsername(username);
              if (client.getUsername().equals(username) && client.getPassword().equals(password)) {
                   client.setOnlineStatus(true);
                   rep.save(client);
-                 return true;
+                 return client.getId();
              }
          } catch (Exception e) {
              System.out.print("Invalid credentials");
          }
-         return false;
+         return -1;
      }
 
      public String SignInUser(Client client) {
