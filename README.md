@@ -22,4 +22,3 @@
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
 - Les controleurs gère pas les epsaces dans les variables
-- GET Login doit retourner id
