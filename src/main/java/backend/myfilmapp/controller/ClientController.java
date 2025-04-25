@@ -18,6 +18,35 @@ public class ClientController {
         this.service = service;
     }
 
+
+
+    /*######## UTLISÉ DANS LE FRONTEND ########*/
+
+    @PutMapping("/remove/{username}")
+    public String remove(@PathVariable String username) {
+        service.removeClient(username);
+        return "Client removed!";
+    }
+
+    @PutMapping("/update/{username}/{email}/{fname}/{lname}")
+    public Boolean update(@PathVariable String username, @PathVariable String email, @PathVariable String fname, @PathVariable String lname) {
+        return service.updateClient(username, email, fname, lname);
+    }
+
+    @PutMapping("/updatePassword/{username}/{password}")
+    public Boolean updatePassword(@PathVariable String username, @PathVariable String password) {
+        return service.updateClientPassword(username, password);
+    }
+
+    @GetMapping("/getOnlineStatus/{username}")
+    public Boolean getOnlineStatus(@PathVariable String username) {
+        return service.getOnlineStatus(username);
+    }
+
+
+
+    /*######## POUR TEST ########*/
+
     @PostMapping("/add")
     public boolean add(@RequestBody Client user) {
         return service.saveClient(user);
@@ -41,36 +70,5 @@ public class ClientController {
     @GetMapping("/getByEmail/{email}")
     public Client byEmail(@PathVariable String email) {
         return service.getClientByEmail(email);
-    }
-
-    @GetMapping("/getOnlineStatus/{username}")
-    public Boolean getOnlineStatus(@PathVariable String username) {
-        return service.getOnlineStatus(username);
-    }
-
-    @PutMapping("/remove/{username}")
-    public String remove(@PathVariable String username) {
-        service.removeClient(username);
-        return "Client removed!";
-    }
-
-    @PutMapping("/updateFname/{username}/{fname}")
-    public boolean updateFname(@PathVariable String username, @PathVariable String fname) {
-        return service.updateClientFname(username, fname);
-    }
-
-    @PutMapping("/updateLname/{username}/{lname}")
-    public boolean updateLname(@PathVariable String username, @PathVariable String lname) {
-        return service.updateClientLname(username, lname);
-    }
-
-    @PutMapping("/updateEmail/{username}/{email}")
-    public boolean updateEmail(@PathVariable String username, @PathVariable String email) {
-        return service.updateClientEmail(username, email);
-    }
-
-    @PutMapping("/updatePassword/{username}/{password}")
-    public boolean updatePassword(@PathVariable String username, @PathVariable String password, @PathVariable String passwordConfirm) {
-        return service.updateClientPassword(username, passwordConfirm, password);
     }
 }

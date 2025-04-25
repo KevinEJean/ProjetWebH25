@@ -22,27 +22,21 @@ public class LoginService {
      public Boolean LoginUser(String username, String password) {
          try {
              Client client = rep.getClientByUsername(username);
-             if (client.getUsername().equals(username) && client.getPassword().equals(password)) {
+             if (client.getUsername().equals(username) && client.getPassword().equals(password) && client.isActive() == true && client.getOnlineStatus() == false) {
                   client.setOnlineStatus(true);
                   rep.save(client);
                  return true;
              }
-         } catch (Exception e) {
-             System.out.print("Invalid credentials");
-         }
+         } catch (Exception e) {}
          return false;
      }
 
      public String SignInUser(Client client) {
-         try {
-             Client clientError = rep.getClientByUsername(client.getUsername());
-             if (clientError.getUsername().equals(client.getUsername())) {
-                 return "Username '" + clientError.getUsername() + "' already taken. Try logging in?";
-             }
-         } catch (Exception e) { // si getClientByUsername retourne rien, le code catch s'exécute, donc un nouveau utilisateur peut être ajouté
+         Client thisClient = rep.getClientByUsername(client.getUsername());
+         if (thisClient == null) {
              rep.save(client);
              return "New user created!";
          }
-         return "Invalid credentials";
+         return "Username unavailable!";
      }
 }

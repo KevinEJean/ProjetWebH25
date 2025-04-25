@@ -19,7 +19,7 @@ public class SubscriptionController {
         return service.getSubscriptionStatus(username);
     }
 
-    @GetMapping("/updateStatus/{username}/{status}")
+    @PutMapping("/updateStatus/{username}/{status}")
     public void updateStatus(@PathVariable String username, @PathVariable Boolean status) {
         service.updateSubscriptionStatus(username, status);
     }
