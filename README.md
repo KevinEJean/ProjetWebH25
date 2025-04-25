@@ -9,6 +9,13 @@
 - PUT updatePassword/{username}/{password}
 - GET getOnlineStatus/{username}
 
+### Liste de Favorite
+    http://localhost:{port}/connection/...
+- POST add
+- DELETE remove/{id}
+- GET getByListId/{id}
+- GET getByClientId/{id}
+
 ### Connection
     http://localhost:{port}/connection/...
 - PUT logout/{username}
@@ -22,4 +29,3 @@
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
-- Les controleurs gère pas les epsaces dans les variables
