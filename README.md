@@ -4,20 +4,20 @@
 
 ### Client
     http://localhost:{port}/client/...
-- PUT remove/{id}
-- PUT update/{id}
-- PUT updatePassword/{id}/{password}
-
-### Subcription
-    http://localhost:{port}/subscription/...
-- GET geStatus/{id}
-- PUT updateStatus/{id}
+- PUT remove/{username}
+- PUT update/{username}
+- PUT updatePassword/{username}/{password}
 
 ### Connection
     http://localhost:{port}/connection/...
-- PUT logout/{id}
-- GET login
+- PUT logout/{username}
+- GET login/{username}/{password}
 - POST signUp
+
+### Subcription
+    http://localhost:{port}/subscription/...
+- GET geStatus/{username}
+- PUT updateStatus/{username}/{status}
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
