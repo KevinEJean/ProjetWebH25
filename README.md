@@ -4,19 +4,19 @@
 
 ### Client
     http://localhost:{port}/client/...
-- PUT remove/{username}
-- PUT update
-- PUT updatePassword/{username}/{password}
+- PUT remove/{id}
+- PUT update/{id}
+- PUT updatePassword/{id}/{password}
 
 ### Subcription
     http://localhost:{port}/subscription/...
-- GET geStatus/{username}
-- PUT updateStatus/{username}
+- GET geStatus/{id}
+- PUT updateStatus/{id}
 
 ### Connection
     http://localhost:{port}/connection/...
-- PUT logout/{username}
-- GET login 
+- PUT logout/{id}
+- GET login
 - POST signUp
 
 ## Autre fonction a implémenter
