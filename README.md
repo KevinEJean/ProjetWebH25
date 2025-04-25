@@ -53,7 +53,7 @@
 ### Prérequis
   - Avoir [Nodejs](https://nodejs.org/en/download) d'installer
 ### Exécution
-  - Git clone https://github.com/KevinEJean/ProjetWebH25.git
-  - cd ProjetWebH25
-  - npm install
-  - npm run dev
+    Git clone https://github.com/KevinEJean/ProjetWebH25.git
+    cd ProjetWebH25
+    npm install
+    npm run dev
