@@ -22,8 +22,8 @@ public class LoginController {
     }
 
     // à remplacer pour requestBody après la fin de nos test
-     @PutMapping("/login/{username}/{password}")
-     public Boolean Login(@PathVariable String username, @PathVariable String password) {
+     @GetMapping("/login/{username}/{password}")
+     public int Login(@PathVariable String username, @PathVariable String password) {
          return service.LoginUser(username, password);
      }
 
