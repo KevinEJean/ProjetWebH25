@@ -4,20 +4,16 @@ import submitRules from '../UseConnection';
 import './SignUp.css';
 import axios from "axios";
 
-export default function SignUp() { 
+export default function SignUp() {
 
     const [show, setShow] = useState(false);
-    const [user, setUser] = useState({username: "", email: "", password: ""})
-    const navigate = useNavigate()
-    
-    var canSubmit = false;
-
+    const [user, setUser] = useState({ username: "", email: "", password: "" })
+    const navigate = useNavigate();
 
     // change les valeur de user avec onchange
     const handleChange = (e) => {
-        // var currentValue = (e.target.value); // lie la valeur de chaque input
-        // canSubmit = submitRules(currentValue, e.target.id); // si sa retourne true => utilisateur peut submit
-        setUser({...user, [e.target.name]: e.target.value})
+        setUser({ ...user, [e.target.name]: e.target.value });
+        console.log(`${e.target.name} : ${e.target.value}`);
     }
 
     const handleNewUser = async () => {
@@ -26,65 +22,34 @@ export default function SignUp() {
 
         if (user.password.length >= 5 && user.password.length <= 16) {
             if (user.password === passwordVerif) {
-                const response = await axios.post("http://localhost:8888/client/add", user);
-                if (response.data) {
-                    navigate("/profil");
-                    console.log("request true")
-                } else{
-                    console.log("request false")
+                if (submitRules(user.username, user.email, user.password) && username != null && email != null) {
+                    user.username.trim();
+                    user.email.trim();
+                    user.password.trim();
+                    const response = await axios.post("http://localhost:8080/connection/signUp", user);
+                    if (response.data) {
+                        navigate("/login");
+                    } else {
+                        alert("Server is experiencing difficulties, please try again later.");
+                    }
+                } else {
+                    alert("Credentials cannot contain special characters or spaces and email must contain : @ and .");
                 }
             } else {
-                console.log("password mismatching")
+                alert("Passwords are mismatching");
             }
         } else {
-            console.log("the password must be between 5 and 16 charactere")
+            alert("Password must be 5 to 16 characters long.");
         }
-
-        // try {
-        //     const response = await axios.post("http://localhost:8888/client/add", user);
-        //     if (response.data) {
-        //         navigate("/profil");
-        //         console.log("request true")
-        //     } else{
-        //         console.log("request false")
-        //     }
-        // } catch (err) {
-        //     console.error("signUp failed", err);
-        // }
-    } 
-
-    
-
-    // function signin() {
-    //     const username = document.getElementById("username").value;
-    //     const email = document.getElementById("email").value;
-    //     const password = document.getElementById("password").value;
-    //     const passwordVerif = document.getElementById("passwordVerif").value;
-
-    //     if (canSubmit && password === passwordVerif) {
-    //         fetch("http://localhost:8080/connection/signin", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify(email, username, password)
-
-    //         }).then((response) => {
-    //             console.log(response);
-    //         })
-    //     } else {
-    //         console.log("CANNOT SUBMIT, CHECK SYNTAX !");
-    //     }
-    // }
-
-
-    // console.log(user)
+    }
 
     return (
         <div className="form-grid-signIn">
-            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN IN</h1>
+            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN UP</h1>
             <form>
 
                 <h4>Username</h4>
-                <input type="text" name="username" placeholder="playerOne" required onChange={(e) => handleChange(e)} />
+                <input type="text" name="username" placeholder="playerOne" required onChange={handleChange} />
                 <p className="info-text">cannot be changed later</p>
                 <h4>
                     Password
@@ -92,7 +57,7 @@ export default function SignUp() {
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} name="password" min={5} onChange={(e) => handleChange(e)} />
+                <input type={show ? "text" : "password"} name="password" min={5} onChange={handleChange} />
                 <p className="info-text">5-16 charachters & no special charachters</p>
             </form>
             <form>
@@ -100,7 +65,7 @@ export default function SignUp() {
                 <input type="text" name="email" onChange={(e) => handleChange(e)} />
                 <p className="info-text">exemple : test@gmail.com</p>
                 <h4>Confirm Password</h4>
-                <input type={show ? "text" : "password"} id="passwordVerif" onChange={(e) => handleChange(e)} />
+                <input type={show ? "text" : "password"} name="passwordVerif" id="passwordVerif" onChange={handleChange} />
             </form>
             <Link to={"/logIn"}><p style={{ textAlign: "left" }}>Already have an account?</p></Link>
             <div>

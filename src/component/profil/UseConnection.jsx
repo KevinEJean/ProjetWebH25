@@ -1,32 +1,42 @@
-export default function submitRules(userInput, id) {
+export default function submitRules(username, email, password) {
 
-    var result = false;
+    var rules = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    var emailRules = /[ `!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
 
-    const allowedChars =
-        [
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-            null, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '_', '-'
-        ];
-
-    const emailChars =
-        [
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-            null, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '_', '-', '@', '.'
-        ];
-
-    for (let i = 0; i < userInput.length; i++) { // envoie une erreur si un charactere non-autorisé est présent
-        if (id != "email" && !allowedChars.includes(userInput[i])) {
-            console.log(`'${userInput[i]}' is not allowed ! Only special characters allowed : '_' and '-'`); // ***put error message in UI
-            result = false;
-        } else if (id == "email" && !emailChars.includes(userInput[i])) {
-            console.log(`'${userInput[i]}' is not allowed !Check the syntax of the email, it must contain : '@' and '.'`); // ***put error message in UI
-            result = false;
-        } else {
-            result = true;
-        }
+    if (rules.test(username)) {
+        return false;
     }
 
-    return result;
+    if (emailRules.test(email)) {
+        return true;
+    }
+
+    if (rules.test(password)) {
+        return false;
+    }
+
+    if (!rules.test(username) && !emailRules.test(email) && !rules.test(password) && email.includes('@') && email.includes('.')) {
+        return true;
+    } else {
+        return false;
+    }
+
+    // test() retourne s'il y a un match entre les deux valeurs donc : 
+    // true = match 
+    // false = no match
+}
+
+export function handleLogOut() {
+    // code pour déconnecter le user
+    window.location = "logIn";
+}
+
+export function isLoggedIn() {
+    if (localStorage.getItem("OnlineStatus") === "true") {
+        // get client par son id, car id est plus sécuritaire que d'afficher son username
+        axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}}`);
+        // afficher les données
+    } else {
+        window.location.href = "/logIn";
+    }
 }

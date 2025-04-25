@@ -26,8 +26,8 @@ export default function NavBar() {
                     <Link to="/movie" title='Movie'><li><MdMovieCreation style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/serie" title='Serie'><li><FaTv style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/favorit" title='Favorit'><li><CiBookmark style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/nba" title='NBA'><li><BiBasketball style={{fontSize:"20px"}}/></li></Link> {/* auth */}
-                    <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link> {/* auth */}
+                    {/* <Link to="/nba" title='NBA'><li><BiBasketball style={{fontSize:"20px"}}/></li></Link> */}
+                    {/* <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link> */}
                     <Link to="/profil" title='Profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/setting" title='Setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
                 </ul>

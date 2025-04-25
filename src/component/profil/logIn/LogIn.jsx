@@ -1,55 +1,58 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { data, Link, useNavigate } from 'react-router-dom';
 import submitRules from '../UseConnection';
 import './LogIn.css';
+import axios from 'axios';
 
 export default function LogIn() {
 
     const [show, setShow] = useState(false);
-    var canSubmit = false;
+    const [user, setUser] = useState({ username: "", password: "" });
+    const navigate = useNavigate();
 
-    const handleLogin = (event) => {
-        var currentValue = (event.target.value); // li la valeur de chaque input
-        canSubmit = submitRules(currentValue, event.target.id); // si sa retourne true => utilisateur peut submit
+    // change les valeur de user avec onchange
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+        console.log(`${e.target.name} : ${e.target.value}`);
     }
 
-    function login() {
-        const username = document.getElementById("usernameLogin").value;
-        const password = document.getElementById("passwordLogin").value;
-
-        if (canSubmit) {
-            fetch(`http://localhost:8080/connection/login/${username}/${password}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" }
-
-            }).then((response) => {
-                sessionStorage.setItem("Username", username);
-                console.log(response);
-            })
+    const handleLogin = async () => {
+        // e.prevenDefault()
+        if (submitRules(user.username, "@.", user.password)) {
+            user.username.trim();
+            user.password.trim();
+            const response = await axios.post("http://localhost:8080/connection/login", user);
+            if (response.data) {
+                sessionStorage.setItem("OnlineStatus", true);
+                // sessionStorage.setItem("UserID", response); response === id de l'utilisateur, check /UseConnection.jsx ligne 36-37 pourquoi
+                navigate("/profil");
+            } else {
+                alert("Server is experiencing difficulties, please try again later.");
+            }
         } else {
-            console.log("CANNOT SUBMIT, CHECK SYNTAX !");
+            alert("Credentials cannot contain special characters or spaces. Also the password must be 5 to 16 characters long.");
         }
     }
 
-    return(
+    return (
         <div className="form-grid-logIn">
-            <h1 style={{color: localStorage.getItem("Title-Colors")}}>LOG IN</h1>
+            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>LOG IN</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" id="usernameLogIn" onChange={handleLogin}/>
+                <input type="text" name="usernameLogIn" onChange={handleChange} />
                 <h4>
                     Password
                     <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="passwordLogin" onChange={handleLogin}/>
-                <Link to={"/forgotPassword"}><p className="info" style={{textAlign: "right"}}>reset password?</p></Link>
+                <input type={show ? "text" : "password"} name="passwordLogin" onChange={handleChange} />
+                <Link to={"/forgotPassword"}><p className="info" style={{ textAlign: "right" }}>reset password?</p></Link>
             </form>
             <Link to={"/signUp"}><p>Don't have an account?</p></Link>
             <div>
-                <button onClick={(e) => login()} style={{color: "green", marginRight: "10px"}}>Log In</button>
-                <Link to={"/"}><button style={{color: "red"}}>Cancel</button></Link>
+                <button onClick={(e) => handleLogin()} style={{ color: "green", marginRight: "10px" }}>Log In</button>
+                <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
             </div>
         </div>
     )
