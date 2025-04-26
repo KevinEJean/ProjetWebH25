@@ -1,6 +1,6 @@
 import 'react'
 import './NavBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GrHomeRounded } from "react-icons/gr";
 import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
@@ -9,12 +9,20 @@ import { FaTv } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
 import { PiSoccerBallFill } from "react-icons/pi";
 import { BiBasketball } from "react-icons/bi";
-
-
 import logo from "../../assets/logo.png";
 
 // régler le problème du a in LINK
 export default function NavBar() {
+    const navigate = useNavigate()
+    
+    function handleProfilRedirection() {
+        if (sessionStorage.getItem("onlineStatus") !== "null" &&  localStorage.getItem("onlineStatus") !== "undefined") {
+            navigate("/profil")
+        } else {
+            navigate("/login")
+        }
+    }
+
     return (
         <div className='nav-grid'>
             <nav>
@@ -28,7 +36,8 @@ export default function NavBar() {
                     <Link to="/favorit" title='Favorit'><li><CiBookmark style={{fontSize:"20px"}}/></li></Link>
                     {/* <Link to="/nba" title='NBA'><li><BiBasketball style={{fontSize:"20px"}}/></li></Link> */}
                     {/* <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link> */}
-                    <Link to="/profil" title='Profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link>
+                    <li onClick={handleProfilRedirection}><CgProfile style={{fontSize:"20px"}}/></li>
+                    {/* <Link to="/profil" title='Profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link> */}
                     <Link to="/setting" title='Setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
                 </ul>
                 <Link to="/search" title='Search'><button className="search">search</button></Link>

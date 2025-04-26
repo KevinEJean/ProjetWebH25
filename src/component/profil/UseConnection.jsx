@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export default function submitRules(username, email, password) {
 
     var rules = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
@@ -21,22 +23,24 @@ export default function submitRules(username, email, password) {
         return false;
     }
 
-    // test() retourne s'il y a un match entre les deux valeurs donc : 
-    // true = match 
-    // false = no match
 }
+
 
 export function handleLogOut() {
+    // const navigate = useNavigate()
+
     // code pour déconnecter le user
-    window.location = "logIn";
-}
+    sessionStorage.setItem("onlineStatus", null)
+    window.location = "/logIn";}
 
 export function isLoggedIn() {
-    if (localStorage.getItem("OnlineStatus") === "true") {
+    const navigate = useNavigate()
+
+    if (sessionStorage.getItem("OnlineStatus") === "true") {
         // get client par son id, car id est plus sécuritaire que d'afficher son username
         axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}}`);
         // afficher les données
     } else {
-        window.location.href = "/logIn";
+        window.location = "logIn";
     }
 }

@@ -23,8 +23,10 @@ export default function LogIn() {
             user.password.trim();
             const response = await axios.post("http://localhost:8080/connection/login", user);
             if (response.data) {
-                sessionStorage.setItem("OnlineStatus", true);
-                // sessionStorage.setItem("UserID", response); response === id de l'utilisateur, check /UseConnection.jsx ligne 36-37 pourquoi
+                console.log(response.data)
+                sessionStorage.setItem("id", response.data.id);
+                sessionStorage.setItem("username", response.data.usernameResponse);
+                sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
                 navigate("/profil");
             } else {
                 alert("Server is experiencing difficulties, please try again later.");
@@ -39,14 +41,14 @@ export default function LogIn() {
             <h1 style={{ color: localStorage.getItem("Title-Colors") }}>LOG IN</h1>
             <form>
                 <h4>Username</h4>
-                <input type="text" name="usernameLogIn" onChange={handleChange} />
+                <input type="text" name="username" onChange={handleChange} />
                 <h4>
                     Password
                     <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} name="passwordLogin" onChange={handleChange} />
+                <input type={show ? "text" : "password"} name="password" onChange={handleChange} />
                 <Link to={"/forgotPassword"}><p className="info" style={{ textAlign: "right" }}>reset password?</p></Link>
             </form>
             <Link to={"/signUp"}><p>Don't have an account?</p></Link>

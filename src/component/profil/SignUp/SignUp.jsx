@@ -8,9 +8,9 @@ export default function SignUp() {
 
     const [show, setShow] = useState(false);
     const [user, setUser] = useState({ username: "", email: "", password: "" })
+    // const [auth, setAuth] = useState(false)
     const navigate = useNavigate();
 
-    // change les valeur de user avec onchange
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
         console.log(`${e.target.name} : ${e.target.value}`);
@@ -22,13 +22,18 @@ export default function SignUp() {
 
         if (user.password.length >= 5 && user.password.length <= 16) {
             if (user.password === passwordVerif) {
-                if (submitRules(user.username, user.email, user.password) && username != null && email != null) {
+                if (submitRules(user.username, user.email, user.password) && user.username != null && user.email != null) {
                     user.username.trim();
                     user.email.trim();
                     user.password.trim();
-                    const response = await axios.post("http://localhost:8080/connection/signUp", user);
+                    const response = await axios.post("http://localhost:8080/connection/signup", user);
                     if (response.data) {
-                        navigate("/login");
+                        console.log(response.data)
+                        setAuth(true)
+                        sessionStorage.setItem("id", response.data.id);
+                        sessionStorage.setItem("username", response.data.usernameResponse);
+                        sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
+                        navigate("/profil");
                     } else {
                         alert("Server is experiencing difficulties, please try again later.");
                     }
@@ -47,7 +52,6 @@ export default function SignUp() {
         <div className="form-grid-signIn">
             <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN UP</h1>
             <form>
-
                 <h4>Username</h4>
                 <input type="text" name="username" placeholder="playerOne" required onChange={handleChange} />
                 <p className="info-text">cannot be changed later</p>
