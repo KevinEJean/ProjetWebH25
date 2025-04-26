@@ -1,6 +1,7 @@
 package backend.myfilmapp.controller;
 
 import backend.myfilmapp.models.Client;
+import backend.myfilmapp.models.LoginResponse;
 import org.springframework.web.bind.annotation.*;
 
 import backend.myfilmapp.service.LoginService;
@@ -20,13 +21,18 @@ public class LoginController {
         service.LogoutUser(username);
     }
 
-     @GetMapping("/login/{username}/{password}")
-     public Boolean Login(@PathVariable String username, @PathVariable String password) {
-         return service.LoginUser(username, password);
-     }
+//    @GetMapping("/login/username/{username}/password/{password}")
+//    public LoginResponse Login(@PathVariable String username, @PathVariable String password) {
+//        return service.LoginUser(username, password);
+//    }
+
+    @PostMapping("/login")
+    public LoginResponse Login(@RequestBody Client client) {
+        return service.LoginUser(client);
+    }
 
      @PostMapping("/signup")
-     public String SignIn(@RequestBody Client client) {
+     public LoginResponse SignIn(@RequestBody Client client) {
          return service.SignInUser(client);
      }
 }

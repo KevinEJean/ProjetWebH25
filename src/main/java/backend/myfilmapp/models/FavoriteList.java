@@ -10,11 +10,11 @@ public class FavoriteList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @JoinColumn(name = "client_id")
     @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
     private Client clientId;
 
-    @Column(name = "movie_api_id", unique = true, nullable = false)
+    @Column(name = "movie_api_id", nullable = false)
     private  int movieApiId;
 
     @Column(columnDefinition = "varchar(200)", name = "Titre", nullable = false)
@@ -58,15 +58,5 @@ public class FavoriteList {
     public LocalDateTime getDateAjout() { return dateAjout; }
 
     public void setDateAjout(LocalDateTime dateAjout) { this.dateAjout = dateAjout; }
-
-    // on va surement en réutilliser
-
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    //    @JoinColumn(name = "CLIENT_ID")
-    //    private Client client;
-    //
-    //    @ManyToOne(fetch = FetchType.LAZY)
-    //    @JoinColumn(name = "MOVIE_ID")
-    //    private MovieSerie movieSerie;
 
 }

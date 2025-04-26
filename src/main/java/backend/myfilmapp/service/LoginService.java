@@ -1,6 +1,7 @@
 package backend.myfilmapp.service;
 
 import backend.myfilmapp.models.Client;
+import backend.myfilmapp.models.LoginResponse;
 import backend.myfilmapp.repository.ClientRep;
 import org.springframework.stereotype.Service;
 
@@ -19,24 +20,29 @@ public class LoginService {
          rep.save(client);
      }
 
-     public Boolean LoginUser(String username, String password) {
-         try {
-             Client client = rep.getClientByUsername(username);
-             if (client.getUsername().equals(username) && client.getPassword().equals(password) && client.isActive() == true && client.getOnlineStatus() == false) {
-                  client.setOnlineStatus(true);
-                  rep.save(client);
-                 return true;
-             }
-         } catch (Exception e) {}
-         return false;
-     }
+    public LoginResponse LoginUser(Client clientRequest) {
+        try {
+            Client clientInDb = rep.getClientByUsername(clientRequest.getUsername());
+            // && !clientInDb.getOnlineStatus() laisser le temp des test
+            if (clientInDb != null && clientInDb.getPassword().equals(clientRequest.getPassword()) && clientInDb.isActive()) {
+                clientInDb.setOnlineStatus(true);
+                rep.save(clientInDb);
+                return new LoginResponse(clientInDb.getId(), clientInDb.getUsername(), clientInDb.getOnlineStatus());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 
-     public String SignInUser(Client client) {
+
+     public LoginResponse SignInUser(Client client) {
          Client thisClient = rep.getClientByUsername(client.getUsername());
-         if (thisClient == null) {
+         if (thisClient == null && client.isActive() && !client.getOnlineStatus()) {
+             client.setOnlineStatus(true);
              rep.save(client);
-             return "New user created!";
+             return new LoginResponse(client.getId(), client.getUsername(), client.getOnlineStatus());
          }
-         return "Username unavailable!";
+         return null;
      }
 }

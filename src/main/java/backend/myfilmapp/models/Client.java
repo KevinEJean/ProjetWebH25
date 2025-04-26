@@ -27,18 +27,19 @@ public class Client {
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
-    @Column(unique = true, nullable = false, columnDefinition = "varchar(20)")
+    @Column(nullable = false, columnDefinition = "varchar(20)")
     private String username;
 
     @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
     private String password;
 
-    @OneToMany(mappedBy = "clientId")
-    private List<FavoriteList> favorites;
+//    @OneToMany(mappedBy = "clientId")
+//    private List<FavoriteList> favorites;
+
     private LocalDateTime creationDate = LocalDateTime.now();
 
     @Column(columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean online;
+    private boolean onlineStatus;
 
 
     public Client(String username, String email, String password, LocalDateTime creationDate) {
@@ -114,14 +115,6 @@ public class Client {
         this.subscribed = subscribed;
     }
 
-    public List<FavoriteList> getFavorites() {
-        return favorites;
-    }
-
-    public void setFavorites(List<FavoriteList> favorites) {
-        this.favorites = favorites;
-    }
-
     public LocalDateTime getCreationDate() {
         return creationDate;
     }
@@ -131,10 +124,10 @@ public class Client {
     }
 
     public boolean getOnlineStatus() {
-        return online;
+        return onlineStatus;
     }
 
     public void setOnlineStatus(boolean onlineStatus) {
-        this.online = onlineStatus;
+        this.onlineStatus = onlineStatus;
     }
 }

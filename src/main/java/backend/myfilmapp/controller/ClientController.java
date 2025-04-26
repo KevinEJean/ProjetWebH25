@@ -22,6 +22,7 @@ public class ClientController {
 
     /*######## UTLISÉ DANS LE FRONTEND ########*/
 
+    // a définir le retour en bool pour get le retour dans le response
     @PutMapping("/remove/{username}")
     public String remove(@PathVariable String username) {
         service.removeClient(username);

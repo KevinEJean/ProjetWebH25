@@ -5,8 +5,12 @@ import backend.myfilmapp.models.FavoriteList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.TreeSet;
+
 @Repository
 public interface FavoriteListRep extends JpaRepository<FavoriteList, Integer> {
-    FavoriteList getFavoriteListById(int id);
-//    FavoriteList getFavoriteListByClientId(Client clientId);
+    public List<FavoriteList> findByClientIdId(int clientId);
+    //public FavoriteList findByMovieApiId(int movieApiId);
+
 }
