@@ -8,7 +8,7 @@ import MoviePage from './component/movie/MoviePage'
 import Home from './component/home/Home';
 import Profil from './component/profil/Profil';
 import LogIn from './component/profil/logIn/LogIn';
-import SignIn from './component/profil/signIn/SignIn';
+import SignUp from './component/profil/SignUp/SignUp';
 import ForgotPassword from './component/profil/resetPassword/forgotPassword/ForgotPassword';
 import ResetPage from './component/profil/resetPassword/ResetPage';
 import Setting from './component/settings/Setting';
@@ -37,7 +37,7 @@ function App() {
           <Route path='/favorit' element={<FavoritPage />}/>  
           <Route path='/profil' element={<Profil/>}/>
           <Route path='/logIn' element={<LogIn/>}/>
-          <Route path='/signIn' element={<SignIn/>}/>
+          <Route path='/signUp' element={<SignUp/>}/>
           <Route path='/forgotPassword' element={<ForgotPassword/>}/>
           <Route path='/resetPassword' element={<ResetPage/>}/>
           <Route path='/setting' element={<Setting/>}/>

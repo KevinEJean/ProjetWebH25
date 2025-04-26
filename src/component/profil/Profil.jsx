@@ -1,39 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { handleLogOut } from "../utils/useUtils";
+import { handleLogOut, isLoggedIn } from "./UseConnection";
 import "./Profil.css";
+import axios from "axios"; // besoin pour allowUpdate
+import { useState } from "react";
 
 export default function Profil() {
 
-    // npm install --save-dev express cors
-    /* JE NE PEUT PAS TESTER LE BACKEND SUR MON ORDIS */
+    // const [user, setUser] = useState({ username: "", password: "", email: "", fname: "", lname: "" });
 
-    function isLoggedIn() {
-        /*
-            J'ai décider d'utiliser l'id des clients pour accèder au donnée, car cela permet de 
-            tout simplement appeler la requête 'getById' et la sécurité des données n'est pas 
-            affecter puisqu'il n'affiche pas donnée sensible, par exemple : username, password, email, name
-        */
-        if(localStorage.getItem("isLoggedIn")) {
-            fetch(`http://localhost:8080/client/getById/${localStorage.getItem("userID")}`, {
-                method: "GET",
-                headers: { "Content-Type": "application/json" }
-            }).then((response) => {
-                // afficher dans les inputs
-            })
-        } else {
-            window.location.href = "/logIn";
-        }
-    }
+    // isLoggedIn();
 
     function addAvatar() {
         // change picture
     }
 
     function allowUpdate() {
-        // change this.button to 'save' button
-        // then onClick (this.button) revert to update.button
-        // then getMapping (refresh page)
+        // change update.button to save.button && change readOnly = false (with useState)
+            // "are you sure?" screen
+                // no  => refresh page
+                // yes => onClick axios.put("http://locahost:8080/client/update", user)
+                    // then revert button to update.button
+        // sleep(10 minutes) attendre avant de changé encore
+        // refresh page
     }
 
     return (
@@ -44,15 +33,15 @@ export default function Profil() {
             </span>
             <form>
                 <h4>First Name</h4>
-                <input type="text" id="fname" readOnly />
+                <input type="text" id="Fname" readOnly />
                 <h4>Email</h4>
-                <input type="text" id="email" readOnly />
+                <input type="text" id="Email" readOnly />
                 <h4>Password</h4>
-                <input type="password" id="passwd" readOnly />
+                <input type="password" id="Password" readOnly />
             </form>
             <form>
                 <h4>Last Name</h4>
-                <input type="text" id="lname" readOnly />
+                <input type="text" id="Lname" readOnly />
                 <h4>Username</h4>
                 <input type="text" id="username" readOnly />
                 <div style={{ margin: " 20px 0 0 20px" }}>

@@ -7,11 +7,10 @@ export default function ForgotPassword() {
     function handleForgotPassword() {
 
         // envoyé un code par email 
-        let codeInput = document.getElementById('code')
+        // si codeInput.value === randint();
+        // then location.href = 'resetPassword'
+        let codeInput = document.getElementById('code');
         codeInput.readOnly = false;
-
-        // if code.value = code
-        location.href = 'resetPassword';
     }
 
     return (

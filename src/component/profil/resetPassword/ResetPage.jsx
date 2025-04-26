@@ -10,8 +10,9 @@ export default function ResetPassword() {
     function passwordReset() {
         // if passwd.value.contains = special chars
             // alert("Password can only contain 18 letters including numbers")
-        //else update password
-        handleLogOut(); // log out l'utilisateur
+        // else
+            // fetch updatePassword
+            // then handleLogOut()
     }
 
     return (

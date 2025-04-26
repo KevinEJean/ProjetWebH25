@@ -12,11 +12,6 @@ export default function useUtils() {
     };
 }
 
-export function handleLogOut() {
-    // code pour déconnecter le user
-    window.location = "logIn";
-}
-
 export function troubleShoot() {
 
     // Reload la page pour fixer quelque bug d'affichage
