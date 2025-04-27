@@ -3,8 +3,15 @@ import { useNavigate } from 'react-router-dom';
 export default function useUtils() {
 
     const navigate = useNavigate()
-
+    
     const handleDetail = (type, id, title) => {
+        // permet de limiter la vision au info tant que la connection n'a pas été effectué
+        // if (sessionStorage.getItem("onlineStatus") !== "null" &&  sessionStorage.getItem("onlineStatus") !== "undefined") {
+        //     navigate(`/detail/${type}/${id}/${title}`);
+        // } else {
+        //     navigate("/login")
+        // }
+
         navigate(`/detail/${type}/${id}/${title}`);
     };
     return {

@@ -16,7 +16,7 @@ export default function NavBar() {
     const navigate = useNavigate()
     
     function handleProfilRedirection() {
-        if (sessionStorage.getItem("onlineStatus") !== "null" &&  localStorage.getItem("onlineStatus") !== "undefined") {
+        if (sessionStorage.getItem("onlineStatus") !== "null" &&  sessionStorage.getItem("onlineStatus") !== "undefined") {
             navigate("/profil")
         } else {
             navigate("/login")

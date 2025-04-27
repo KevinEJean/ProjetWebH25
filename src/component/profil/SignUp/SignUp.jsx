@@ -16,8 +16,8 @@ export default function SignUp() {
         console.log(`${e.target.name} : ${e.target.value}`);
     }
 
-    const handleNewUser = async () => {
-        // e.prevenDefault()
+    const handleNewUser = async (e) => {
+        e.preventDefault();
         const passwordVerif = document.getElementById("passwordVerif").value;
 
         if (user.password.length >= 5 && user.password.length <= 16) {
@@ -29,7 +29,6 @@ export default function SignUp() {
                     const response = await axios.post("http://localhost:8080/connection/signup", user);
                     if (response.data) {
                         console.log(response.data)
-                        setAuth(true)
                         sessionStorage.setItem("id", response.data.id);
                         sessionStorage.setItem("username", response.data.usernameResponse);
                         sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
@@ -49,33 +48,38 @@ export default function SignUp() {
     }
 
     return (
-        <div className="form-grid-signIn">
-            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>SIGN UP</h1>
-            <form>
-                <h4>Username</h4>
-                <input type="text" name="username" placeholder="playerOne" required onChange={handleChange} />
-                <p className="info-text">cannot be changed later</p>
-                <h4>
-                    Password
-                    <span onClick={(event) => setShow(s => !s)} className="material-symbols-outlined show_icon">
-                        visibility
-                    </span>
-                </h4>
-                <input type={show ? "text" : "password"} name="password" min={5} onChange={handleChange} />
-                <p className="info-text">5-16 charachters & no special charachters</p>
+        <>
+            <form className="form" onSubmit={(e) => handleNewUser(e)}>
+                <div className="title">Welcome</div>
+                <div className="subtitle">Let's create your account!</div>
+        
+                <div className="input-container ic1">
+                    <input name="username" type="text" required placeholder="Username" onChange={handleChange}/>
+                </div>
+        
+                <div className="input-container ic2">
+                    <input name="email" type="email" required placeholder="Email" onChange={handleChange}/>
+                </div>
+        
+                <div className="input-container ic2">
+                    <input name="password" type={show ? "text" : "password"}  required placeholder="Password" min={5} onChange={handleChange}/>
+                </div>
+        
+                <div className="input-container ic2">
+                    <input type={show ? "text" : "password"} name="passwordVerif" id="passwordVerif" required placeholder="Confirm Password" onChange={handleChange}/> 
+                    <span onClick={(event) => setShow(s => !s)} className="material-symbols-outlined show_icon">visibility</span>
+                </div>
+        
+                <div className="input-container ic2">
+                    <Link to={"/logIn"}>
+                        <p style={{ textAlign: "center", color: "blue" }}>Already have an account?</p>
+                    </Link>
+                </div>
+        
+                <button type="submit" className="submit">Sign Up</button>
+                {/* <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link> */}
+
             </form>
-            <form>
-                <h4>Email</h4>
-                <input type="text" name="email" onChange={(e) => handleChange(e)} />
-                <p className="info-text">exemple : test@gmail.com</p>
-                <h4>Confirm Password</h4>
-                <input type={show ? "text" : "password"} name="passwordVerif" id="passwordVerif" onChange={handleChange} />
-            </form>
-            <Link to={"/logIn"}><p style={{ textAlign: "left" }}>Already have an account?</p></Link>
-            <div>
-                <button style={{ color: "green", marginRight: "10px" }} onClick={handleNewUser}>Sign In</button>
-                <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
-            </div>
-        </div>
+        </>
     )
 }
