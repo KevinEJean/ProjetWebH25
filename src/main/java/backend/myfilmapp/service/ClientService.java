@@ -30,7 +30,7 @@ public class ClientService {
         return true;
     }
 
-    public void removeClient(String username) {
+    public void removeClient(String username, String password) {
         Client client = rep.getClientByUsername(username);
         if (client.getPassword().equals(password) {
             client.setActive(false);
