@@ -6,10 +6,12 @@ import useDetailMovie from './useDetailMovie';
 import { blankAvatarStyler } from './useDetailMovie';
 import Carousel3 from '../movieCard/carousel/Carousel3';
 import { troubleShoot } from '../utils/useUtils';
+import axios from 'axios';
 
 function DetailMovie() {
     // const { id,title } = useParams();
     const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
+    const [favorit, setFavorit] = useState([])
     const [paramount, setParamount] = useState();
     const [crave, setCrave] = useState();
     const [hulu, setHulu] = useState();
@@ -21,6 +23,18 @@ function DetailMovie() {
     if (!dataActors) return <p>Actors information is loading...</p>;
     troubleShoot();
     blankAvatarStyler();
+
+    function addFavorit() {
+        if (type == "movie") {
+            setFavorit((fav) => [...fav, dataPosterTmdb.id, dataPosterTmdb.original_title, `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`, type])
+        }
+        if (type == "tv") {
+            setFavorit((fav) => [...fav, dataPosterTmdb.id, dataPosterTmdb.original_name, `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`, type])
+        }
+        axios.post(`http://localhost:8080/favoriteList/add/${sessionStorage.getItem("id")}`, favorit)
+    }
+    
+    console.log(favorit)
 
     function loadMoviePosterBackdrops(choices) {
         if (ongletMedia == "Posters") {
@@ -116,7 +130,7 @@ function DetailMovie() {
                         <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
                         <p><strong>Budget : </strong>{dataInfo.budget} $</p>
 
-                        <button className='addToInfoList'>Add to InfoList</button>
+                        <button className='addToInfoList' onClick={() => addFavorit()}>Add to InfoList</button>
                     </div>
                 </div>
                 :
@@ -142,7 +156,7 @@ function DetailMovie() {
                         <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
                         {/* <p><strong>Budget : </strong>{dataInfo.budget} $</p> */}
 
-                        <button className='addToInfoList'>Add to InfoList</button>
+                        <button className='addToInfoList' onClick={addFavorit}>Add to InfoList</button>
                     </div>
                 </div>
                 }

@@ -16,9 +16,18 @@ export default function NavBar() {
     const navigate = useNavigate()
     
     function handleProfilRedirection() {
-        if (sessionStorage.getItem("onlineStatus") !== "null" &&  sessionStorage.getItem("onlineStatus") !== "undefined") {
+        if (sessionStorage.getItem("onlineStatus") == "true") {
             navigate("/profil")
         } else {
+            alert("You must login first")
+            navigate("/login")
+        }
+    }
+    function handleFavoritRedirection() {
+        if (sessionStorage.getItem("onlineStatus") == "true") {
+            navigate("/favorit")
+        } else {
+            alert("You must login first")
             navigate("/login")
         }
     }
@@ -33,10 +42,10 @@ export default function NavBar() {
                     <Link to="/" title='Home'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/movie" title='Movie'><li><MdMovieCreation style={{fontSize:"20px"}}/></li></Link>
                     <Link to="/serie" title='Serie'><li><FaTv style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/favorit" title='Favorit'><li><CiBookmark style={{fontSize:"20px"}}/></li></Link>
+                    <li title='favorit' onClick={handleFavoritRedirection}><CiBookmark style={{fontSize:"20px"}}/></li>
                     {/* <Link to="/nba" title='NBA'><li><BiBasketball style={{fontSize:"20px"}}/></li></Link> */}
                     {/* <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link> */}
-                    <li onClick={handleProfilRedirection}><CgProfile style={{fontSize:"20px"}}/></li>
+                    <li title="profil" onClick={handleProfilRedirection}><CgProfile style={{fontSize:"20px"}}/></li>
                     {/* <Link to="/profil" title='Profil'><li><CgProfile style={{fontSize:"20px"}}/></li></Link> */}
                     <Link to="/setting" title='Setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
                 </ul>

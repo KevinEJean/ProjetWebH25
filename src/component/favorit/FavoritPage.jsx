@@ -2,16 +2,18 @@ import React from "react";
 
 import "./FavoritPage.css"
 import useDetailMovie from "../detailMovie/useDetailMovie";
+import DetailMovie from "../detailMovie/DetailMovie";
 
 // donné sera envoyé depuis la bd 
 export default function FavoritPage() {
     
+    const {favorit} = DetailMovie()
 
-
+    console.log(favorit)
     return (
         <>
-            <h1>Page des favorit</h1>
-            <p>les donnée vont provenir de la base de donnée</p>
+            <h1>Favorit</h1>
+        
         </>
     )
 }

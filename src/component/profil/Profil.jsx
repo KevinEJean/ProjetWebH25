@@ -51,7 +51,7 @@ export default function Profil() {
                 </div>
             </form>
             <p onClick={(event) => addAvatar()}>change picture?</p>
-            <p onClick={(event) => handleLogOut()} style={{ textAlign: "left" }}>log out</p>
+            <p onClick={() => handleLogOut()} style={{ textAlign: "left" }}>log out</p>
         </div>
     )
 }

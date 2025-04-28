@@ -25,20 +25,23 @@ export default function submitRules(username, email, password) {
 
 }
 
-
+import axios from "axios";
 export function handleLogOut() {
     // const navigate = useNavigate()
 
     // code pour déconnecter le user
-    sessionStorage.setItem("onlineStatus", null)
-    window.location = "/logIn";}
+    // isLoggedIn
+    sessionStorage.setItem("onlineStatus", false)
+    axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}`);
+    window.location = "/logIn";
+}
 
 export function isLoggedIn() {
     const navigate = useNavigate()
 
-    if (sessionStorage.getItem("OnlineStatus") === "true") {
+    if (sessionStorage.getItem("OnlineStatus") == "true") {
         // get client par son id, car id est plus sécuritaire que d'afficher son username
-        axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}}`);
+        axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}}`);
         // afficher les données
     } else {
         window.location = "logIn";
