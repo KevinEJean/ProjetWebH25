@@ -13,11 +13,14 @@ public class LoginService {
          this.rep = rep;
      }
 
-
-     public void LogoutUser(String username) {
-         Client client = rep.getClientByUsername(username);
-         client.setOnlineStatus(false);
-         rep.save(client);
+     public boolean LogoutUser(int id) {
+         Client client = rep.getClientById(id);
+         if (client != null) {
+             client.setOnlineStatus(false);
+             rep.save(client);
+             return true;
+         }
+         return false;
      }
 
     public LoginResponse LoginUser(Client clientRequest) {

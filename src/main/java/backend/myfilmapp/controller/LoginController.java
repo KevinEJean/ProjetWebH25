@@ -17,8 +17,8 @@ public class LoginController {
     }
 
     @PutMapping("/logout/{username}")
-    public void Logout(@PathVariable String username) {
-        service.LogoutUser(username);
+    public boolean Logout(@PathVariable int id) {
+        return service.LogoutUser(id);
     }
 
 //    @GetMapping("/login/username/{username}/password/{password}")
