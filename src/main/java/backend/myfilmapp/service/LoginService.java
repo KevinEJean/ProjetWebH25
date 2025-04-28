@@ -14,8 +14,8 @@ public class LoginService {
      }
 
 
-     public void LogoutUser(String username) {
-         Client client = rep.getClientByUsername(username);
+     public void LogoutUser(int id) {
+         Client client = rep.getClientById(id);
          client.setOnlineStatus(false);
          rep.save(client);
      }
