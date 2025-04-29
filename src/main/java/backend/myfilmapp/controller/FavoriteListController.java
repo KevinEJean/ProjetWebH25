@@ -25,6 +25,11 @@ public class FavoriteListController {
         return service.addFavorite(clientId, favorite);
     }
 
+    @GetMapping("getMovie/{clientId}/{movieApiId}")
+    public boolean getFavorite(@PathVariable int clientId, @PathVariable int movieApiId) {
+        return service.isFavorite(clientId, movieApiId);
+    }
+
     @GetMapping("/getByListId/{id}")
     public List<FavoriteList> getByListId(@PathVariable int id) {
         return service.getListById(id);
