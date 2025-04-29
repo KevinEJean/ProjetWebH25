@@ -20,13 +20,16 @@ public class FavoriteListService {
         this.clientRep = clientRep;
     }
 
-    // ajouter une exception .orElse pour réduction du code
     // filtrer le movieApiId par client(ne peut avoir le même film dans la même list)
     public boolean addFavorite(int clientId, FavoriteList favorite) {
         Client client = clientRep.getClientById(clientId);
         if (client != null) {
             favorite.setClientId(client);
-            favoriteListRep.save(favorite);
+            FavoriteList favoriteList = favoriteListRep.findByMovieApiId(favorite.getMovieApiId());
+            if (favoriteList == null) {
+                favoriteListRep.save(favorite);
+                return true;
+            }
             return true;
         }
         return false;

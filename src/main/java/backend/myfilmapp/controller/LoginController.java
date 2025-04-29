@@ -16,15 +16,12 @@ public class LoginController {
         this.service = service;
     }
 
-    @PutMapping("/logout/{username}")
+    @PutMapping("/logout/{id}")
     public boolean Logout(@PathVariable int id) {
         return service.LogoutUser(id);
     }
 
-//    @GetMapping("/login/username/{username}/password/{password}")
-//    public LoginResponse Login(@PathVariable String username, @PathVariable String password) {
-//        return service.LoginUser(username, password);
-//    }
+    
 
     @PostMapping("/login")
     public LoginResponse Login(@RequestBody Client client) {
