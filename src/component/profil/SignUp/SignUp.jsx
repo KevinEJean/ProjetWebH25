@@ -34,7 +34,7 @@ export default function SignUp() {
                         sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
                         navigate("/profil");
                     } else {
-                        alert("Server is experiencing difficulties, please try again later.");
+                        alert("Make sure to have a account before login !   ");
                     }
                 } else {
                     alert("Credentials cannot contain special characters or spaces and email must contain : @ and .");

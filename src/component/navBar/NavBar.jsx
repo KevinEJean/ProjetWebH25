@@ -19,7 +19,6 @@ export default function NavBar() {
         if (sessionStorage.getItem("onlineStatus") == "true") {
             navigate("/profil")
         } else {
-            alert("You must login first")
             navigate("/login")
         }
     }

@@ -1,0 +1,30 @@
+.favorit-container {
+    /* border: 2px solid; */
+    margin-top: 60px;
+    width: 100%;
+    padding: 10px;
+}
+.favorit-content {
+    /* border: 2px solid; */
+    /* margin-top: 60px; */
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+}
+
+.favorit-container h1 {
+    border-bottom: 10px solid rgb(228, 228, 228);
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+
+.favorit-container .favorit-content button {
+    width: 85%;
+}
+.favorit-container .favorit-content button:hover {
+    width: 85%;
+    background-color: rgba(245, 245, 245, 0.719);
+}

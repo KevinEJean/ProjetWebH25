@@ -11,7 +11,6 @@ import axios from 'axios';
 function DetailMovie() {
     // const { id,title } = useParams();
     const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
-    const [favorit, setFavorit] = useState([])
     const [paramount, setParamount] = useState();
     const [crave, setCrave] = useState();
     const [hulu, setHulu] = useState();
@@ -24,17 +23,23 @@ function DetailMovie() {
     troubleShoot();
     blankAvatarStyler();
 
+
     function addFavorit() {
-        if (type == "movie") {
-            setFavorit((fav) => [...fav, dataPosterTmdb.id, dataPosterTmdb.original_title, `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`, type])
-        }
-        if (type == "tv") {
-            setFavorit((fav) => [...fav, dataPosterTmdb.id, dataPosterTmdb.original_name, `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`, type])
-        }
-        axios.post(`http://localhost:8080/favoriteList/add/${sessionStorage.getItem("id")}`, favorit)
+        let favoriToAdd = {
+            movieApiId: dataPosterTmdb.id,
+            titre: type === "movie" ? dataPosterTmdb.original_title : dataPosterTmdb.original_name,
+            imageUrl: `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`,
+            type: type
+        };
+
+        axios.post(`http://localhost:8080/favoriteList/add/${sessionStorage.getItem("id")}`, favoriToAdd)
+        .then(response => {
+            console.log(`${favoriToAdd.titre} à été ajouté au Favori avec succès`, response.data);
+        })
+        .catch(error => {
+            console.error("Erreur lors de l'ajout du favori", error);
+        });
     }
-    
-    console.log(favorit)
 
     function loadMoviePosterBackdrops(choices) {
         if (ongletMedia == "Posters") {
@@ -124,7 +129,7 @@ function DetailMovie() {
                         <hr />
                         <p><strong>Release :</strong> {DataOmdb.Released}</p>
                         <p><strong>Director :</strong> {DataOmdb.Director}</p>
-                        <p><strong>Genre :</strong> <p>{DataOmdb.Genre}</p></p>
+                        <p><strong>Genre :</strong> {DataOmdb.Genre}</p>
                         
                         <p><strong>Type :</strong> {type}</p>
                         <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
