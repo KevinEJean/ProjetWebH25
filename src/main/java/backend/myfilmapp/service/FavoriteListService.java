@@ -37,12 +37,13 @@ public class FavoriteListService {
 
 ////////////////////////////////////////////////////////////////////////////3
     // Vérifier si un film est déjà dans la liste des favoris d'un client
-    public boolean isFavorite(int clientId, int git ) {
+    public boolean isFavorite(int clientId, int movieApiId) {
         Client client = clientRep.getClientById(clientId);
         FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiId);
         return favoriteList != null; // Si non null, le film est déjà un favori
     }
-////////////////////////////////////////////////////////////////////////////3
+////////////////////////////////////////////////////////////////////////////3ls
+
 
 
     public List<FavoriteList> getListById(int id) {
