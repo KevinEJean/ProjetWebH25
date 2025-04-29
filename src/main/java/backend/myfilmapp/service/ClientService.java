@@ -30,11 +30,13 @@ public class ClientService {
         return true;
     }
 
-    public void removeClient(String username) {
+    public void removeClient(String username, String password) {
         Client client = rep.getClientByUsername(username);
-        client.setActive(false);
-        client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
-        rep.save(client);
+        if (client.getPassword().equals(password) {
+            client.setActive(false);
+            client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
+            rep.save(client);
+        }
     }
 
     public Boolean updateClientPassword(String username, String password) {
