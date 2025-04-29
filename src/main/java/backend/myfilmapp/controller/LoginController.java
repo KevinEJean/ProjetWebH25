@@ -21,7 +21,6 @@ public class LoginController {
         return service.LogoutUser(id);
     }
 
-    
 
     @PostMapping("/login")
     public LoginResponse Login(@RequestBody Client client) {

@@ -32,7 +32,7 @@ public class ClientService {
 
     public void removeClient(String username, String password) {
         Client client = rep.getClientByUsername(username);
-        if (client.getPassword().equals(password) {
+        if (client.getPassword().equals(password)) {
             client.setActive(false);
             client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
             rep.save(client);
