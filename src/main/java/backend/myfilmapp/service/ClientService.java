@@ -22,10 +22,7 @@ public class ClientService {
         if (client.getUsername().contains("del-user") || client.getUsername().equals("admin")) { // pour empêcher erreur de login/signin
             return false;
         }
-        // a voir si on peut utilise un regex(plus sûr)
-        if (!client.getEmail().contains("@") && !client.getEmail().contains(".")) {
-            return false;
-        }
+
         rep.save(client);
         return true;
     }

@@ -25,8 +25,7 @@ public class FavoriteListService {
         Client client = clientRep.getClientById(clientId);
         if (client != null) {
             favorite.setClientId(client);
-            FavoriteList favoriteList = favoriteListRep.findByMovieApiId(favorite.getMovieApiId());
-            if (favoriteList == null) {
+            if (!isFavorite((client.getId()), favorite.getMovieApiId())) {
                 favoriteListRep.save(favorite);
                 return true;
             }
@@ -35,14 +34,22 @@ public class FavoriteListService {
         return false;
     }
 
-    ////////////////////////////////////////////////////////////////////////////3
+    public boolean deleteFavorite(int clientId, int movieApoID) {
+        if (isFavorite(clientId, movieApoID)) {
+            Client client = clientRep.getClientById(clientId);
+            FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApoID);
+            favoriteListRep.delete(favoriteList);
+            return true;
+        }
+        return false;
+    }
+
     // Vérifier si un film est déjà dans la liste des favoris d'un client
     public boolean isFavorite(int clientId, int movieApiId) {
         Client client = clientRep.getClientById(clientId);
         FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiId);
-        return favoriteList != null; // Si non null, le film est déjà un favori
+        return favoriteList != null;
     }
-////////////////////////////////////////////////////////////////////////////3
 
     public List<FavoriteList> getListById(int id) {
         return favoriteListRep.findByClientIdId(id);

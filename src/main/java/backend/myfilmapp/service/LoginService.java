@@ -26,7 +26,6 @@ public class LoginService {
     public LoginResponse LoginUser(Client clientRequest) {
         try {
             Client clientInDb = rep.getClientByUsername(clientRequest.getUsername());
-            // && !clientInDb.getOnlineStatus() laisser le temp des test
             if (clientInDb != null && clientInDb.getPassword().equals(clientRequest.getPassword()) && clientInDb.isActive()) {
                 clientInDb.setOnlineStatus(true);
                 rep.save(clientInDb);
@@ -48,4 +47,9 @@ public class LoginService {
          }
          return null;
      }
+
+    public boolean isClientExist(String username) {
+        Client client = rep.getClientByUsername(username);
+        return client != null;
+    }
 }

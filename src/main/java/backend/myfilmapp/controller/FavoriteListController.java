@@ -25,6 +25,11 @@ public class FavoriteListController {
         return service.addFavorite(clientId, favorite);
     }
 
+    @DeleteMapping("/delete/{clientId}/{movieApiId}")
+    public boolean deleteFavorite(@PathVariable int clientId, @PathVariable int movieApiId) {
+        return service.deleteFavorite(clientId, movieApiId);
+    }
+
     @GetMapping("getMovie/{clientId}/{movieApiId}")
     public boolean getFavorite(@PathVariable int clientId, @PathVariable int movieApiId) {
         return service.isFavorite(clientId, movieApiId);

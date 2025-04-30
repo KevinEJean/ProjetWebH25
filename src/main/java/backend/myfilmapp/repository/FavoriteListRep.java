@@ -12,8 +12,5 @@ import java.util.TreeSet;
 public interface FavoriteListRep extends JpaRepository<FavoriteList, Integer> {
     public List<FavoriteList> findByClientIdId(int clientId);
     public FavoriteList findByMovieApiId(int movieApiId);
-    public FavoriteList findByClientIdAndMovieApiId(Client client, int ovieApiId);
-
-//    public FavoriteList findByClientIdAndMovieApiId(int clientId, int movieApiId);
-    public FavoriteList findByClientIdAndMovieApiId(Client client, int ovieApiId);
+    public FavoriteList findByClientIdAndMovieApiId(Client client, int movieApiId);
 }
