@@ -1,8 +1,8 @@
-.fifa-root {
+.sport-container-root {
     width: fit-content;
 }
 
-.fifa-container {
+.sport-container {
     background-color: rgb(59, 58, 58);
     border-radius: 20px;
     box-shadow: 0 2px 8px 0 rgb(130, 130, 130);
@@ -16,16 +16,16 @@
     align-content: center;
 }
 
-.fifa-container h2 {
+.sport-container h2 {
     margin: 0;
     color: white;
 }
 
-.fifa-container p {
+.sport-container p {
     margin: 0;
     color: white;
 }
 
-.fifa-container img {
+.sport-container img {
     width: 100px;
 }

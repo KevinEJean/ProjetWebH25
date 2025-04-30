@@ -10,7 +10,8 @@ export default function Fifa() {
                 <div className='title-fg'>Sport</div>
             </div>
             <div className='container'>
-                <Container className='fifa' />
+                <h1 style={{ color: localStorage.getItem("Title-Colors") }}>UEFA Champions League</h1>
+                <Container className='fifa-cl' />
             </div>
         </div>
     )

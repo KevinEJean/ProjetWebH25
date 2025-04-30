@@ -1,17 +1,13 @@
-.fifa-root {
-    margin: 0;
-}
-
 /* ################### TITRE ################### */
 
-div.title {
+.fifa-root div.title {
     display: grid;
     grid-template-areas: 'overlap';
     place-content: center;
     text-transform: uppercase;
 }
 
-div.title > div {
+.fifa-root div.title > div {
     background-clip: text;  
     -webkit-background-clip: text;
     color: #363833;
@@ -23,7 +19,7 @@ div.title > div {
     -webkit-text-stroke: 4px transparent;
 }
 
-div.title-bg {
+.fifa-root div.title-bg {
     background-image: repeating-linear-gradient( 105deg, 
         var(--gold) 0% , 
         var(--dark-shadow) 5%,
@@ -36,7 +32,7 @@ div.title-bg {
     grid-area: overlap;
 }
 
-div.title-fg {
+.fifa-root div.title-fg {
     background-image: repeating-linear-gradient( 5deg,  
       var(--gold) 0% , 
       var(--light-shadow) 23%, 
@@ -49,8 +45,14 @@ div.title-fg {
 
 .fifa-root div.container {
     padding: 0;
+    width: 100vw;
 }
 
-.fifa-root div.container > div {
-    margin: 0;
+
+/* ################### AUTRE ################### */
+
+.fifa-root h1 {
+    text-align: left;
+    margin: 20px 0 30px 0;
+    color: white;
 }
