@@ -26,14 +26,18 @@ export default function submitRules(username, email, password) {
 }
 
 import axios from "axios";
+
 export function handleLogOut() {
     // const navigate = useNavigate()
 
     // code pour déconnecter le user
     // isLoggedIn
     sessionStorage.setItem("onlineStatus", false)
-    axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}`);
-    window.location = "/logIn";
+    axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}`)
+    .then(() => {
+        sessionStorage.setItem("onlineStatus", false)
+        window.location = "/logIn";
+    }).catch((error) => console.log(error));
 }
 
 export function isLoggedIn() {

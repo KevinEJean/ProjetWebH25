@@ -20,10 +20,20 @@ import Carousel2 from './component/movieCard/carousel/Carousel2';
 import Carousel3 from './component/movieCard/carousel/Carousel3';
 import SeriePage from './component/serie/SeriePage';
 import FavoritPage from './component/favorit/FavoritPage';
+import { useEffect } from 'react';
 
 
 function App() {
 
+  // empéche l'accès via l'url sans connection
+  // problème react le lit une fois donc lors du changement a true l'url change mais pas la page
+  const sessionEtat = sessionStorage.getItem("onlineStatus") === "true";
+  
+  // let sessionEtat = "";
+  // useEffect(() => {
+  //   sessionEtat = sessionStorage.getItem("onlineStatus") === "true";
+  
+  // }, [sessionEtat])
   return (
       <>
       <BrowserRouter>
@@ -34,10 +44,10 @@ function App() {
           <Route path='/detail/:type/:id/:title' element={<DetailMovie/>}/>  
           <Route path='/movie' element={<MoviePage />}/>  
           <Route path='/serie' element={<SeriePage />}/>  
-          <Route path='/favorit' element={<FavoritPage />}/>  
-          <Route path='/profil' element={<Profil/>}/>
-          <Route path='/logIn' element={<LogIn/>}/>
-          <Route path='/signUp' element={<SignUp/>}/>
+          <Route path='/favorit' element={sessionEtat ? <FavoritPage /> : <LogIn/>}/>  
+          <Route path='/profil' element={<Profil />}/>
+          <Route path='/logIn' element={sessionEtat ? <Profil /> : <LogIn/>}/>
+          <Route path='/signUp' element={sessionEtat ? <Profil /> : <SignUp/>}/>
           <Route path='/forgotPassword' element={<ForgotPassword/>}/>
           <Route path='/resetPassword' element={<ResetPage/>}/>
           <Route path='/setting' element={<Setting/>}/>
@@ -49,6 +59,7 @@ function App() {
       </BrowserRouter>
     </>
   )
+
 }
 
 export default App;

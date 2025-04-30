@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { troubleShoot } from "../utils/useUtils";
 import './Setting.css';
 
 export default function Setting() {
-
+    const navigate = useNavigate()
     troubleShoot();
 
     function colorPicker(thisColor) {
@@ -28,6 +28,14 @@ export default function Setting() {
         localStorage.setItem("Title-Colors", "lightgrey");
         alert('Data succesfully erased !')
         window.location.reload();
+    }
+
+    function handleRedirectionDeleteAccount() {
+        if (sessionStorage.getItem("onlineStatus") ==  "true") {
+            navigate("/userDelete")
+        } else{
+            alert("you must login/signup first")
+        }
     }
 
     return (
@@ -56,7 +64,7 @@ export default function Setting() {
                 </div>
                 <div style={{ display: "flex" }}>
                     <p>This will permanatly erase your account (Non-Reversable)</p>
-                    <Link to="/userDelete"><button style={{ marginLeft: "10px", color: "red" }}>Delete</button></Link>
+                    <button onClick={() => handleRedirectionDeleteAccount()} style={{ marginLeft: "10px", color: "red" }}>Delete</button>
                 </div>
             </div>
             <div className="contact-group">

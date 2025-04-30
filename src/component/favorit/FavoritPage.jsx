@@ -9,6 +9,17 @@ import useUtils from "../utils/useUtils";
 // donné sera envoyé depuis la bd 
 export default function FavoritPage() {
     const [favorit, setFavorit] = useState([])    
+
+    function deleteFavorit(movieId) {
+        axios.delete(`http://localhost:8080/favoriteList/delete/${sessionStorage.getItem("id")}/${movieId}`)
+        .then(() => {
+            setFavorit(favorit.filter(movie => movie.movieApiId !== movieId))
+        })
+        .catch(error => {
+            console.error("Erreur lors de la suppression :", error);
+        });
+    }
+    
     useEffect(() => {
         axios.get(`http://localhost:8080/favoriteList/getByListId/${sessionStorage.getItem("id")}`)
           .then(response => {
@@ -30,14 +41,12 @@ export default function FavoritPage() {
             <div className="favorit-content">
             {
                 favorit && 
-                // favorit.type == "movie" &&
                 favorit.map((movie) => (
-                    <div>
+                    <div key={movie.id}>
                         <div onClick={() => handleDetail(movie.type, movie.movieApiId   , movie.titre) }>
                             <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.imageUrl}`} title={movie.titre} />
                         </div>
-                        {/* ajouter la fonction du delete */}
-                        <button>delete</button>
+                        <button onClick={() => deleteFavorit(movie.movieApiId)}>delete</button>
 
                     </div>
                 ))

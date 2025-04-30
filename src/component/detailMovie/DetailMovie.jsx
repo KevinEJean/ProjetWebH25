@@ -1,16 +1,17 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import './DetailMovie.css';
-import { useNavigate, useParams } from 'react-router-dom';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import useDetailMovie from './useDetailMovie';
 import { blankAvatarStyler } from './useDetailMovie';
 import Carousel3 from '../movieCard/carousel/Carousel3';
 import { troubleShoot } from '../utils/useUtils';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function DetailMovie() {
     // const { id,title } = useParams();
     const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
+    const navigate = useNavigate()
     const [paramount, setParamount] = useState();
     const [crave, setCrave] = useState();
     const [hulu, setHulu] = useState();
@@ -22,23 +23,29 @@ function DetailMovie() {
     if (!dataActors) return <p>Actors information is loading...</p>;
     troubleShoot();
     blankAvatarStyler();
+    
 
 
     function addFavorit() {
-        let favoriToAdd = {
-            movieApiId: dataPosterTmdb.id,
-            titre: type === "movie" ? dataPosterTmdb.original_title : dataPosterTmdb.original_name,
-            imageUrl: `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`,
-            type: type
-        };
-
-        axios.post(`http://localhost:8080/favoriteList/add/${sessionStorage.getItem("id")}`, favoriToAdd)
-        .then(response => {
-            console.log(`${favoriToAdd.titre} à été ajouté au Favori avec succès`, response.data);
-        })
-        .catch(error => {
-            console.error("Erreur lors de l'ajout du favori", error);
-        });
+        if (sessionStorage.getItem("onlineStatus") == "true") {
+            let favoriToAdd = {
+                movieApiId: dataPosterTmdb.id,
+                titre: type === "movie" ? dataPosterTmdb.original_title : dataPosterTmdb.original_name,
+                imageUrl: `https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`,
+                type: type
+            };
+    
+            axios.post(`http://localhost:8080/favoriteList/add/${sessionStorage.getItem("id")}`, favoriToAdd)
+            .then(response => {
+                console.log(`${favoriToAdd.titre} à été ajouté au Favori avec succès`, response.data);
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'ajout du favori", error);
+            });
+        } else {
+            alert("you must login first")
+            navigate("/login")
+        }
     }
 
     function loadMoviePosterBackdrops(choices) {
