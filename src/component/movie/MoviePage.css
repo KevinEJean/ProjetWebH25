@@ -1,6 +1,5 @@
 .movie-container {
     margin-top: 60px;
-    /* border: 2px solid; */
     border-radius: 20px;
     width: 100%;
     color: white;
@@ -17,7 +16,6 @@
 }
 
 .movie-container .pagination-box .pagination {
-    /* border: 2px solid; */
     margin: auto;
     width: min-content;
     font-size: 40px;
@@ -101,9 +99,7 @@
  
 .movie-container .filter-genre form div {
     margin: 5px;
-    /* border: 2px solid; */
     border-radius: 10px;
-    /* width: 100px; */
     cursor: pointer;
 }
  
@@ -148,10 +144,6 @@
 
 /*//////// top description/////////////*/
 :root {
-    /* --gold: white;
-    --light-shadow: #1a1a1a;
-    --dark-shadow: white; */
-  
     --gold: #1a1a1a;
     --light-shadow: white;
     --dark-shadow: rgba(255, 255, 255, 0.705); 
@@ -173,7 +165,6 @@
 
 
   .movie-container .wrapper > div {
-    /* text-align: left; */
     background-clip: text;  
     -webkit-background-clip: text;
     color: #363833;
@@ -202,4 +193,3 @@
     color: #1e2127;
     transform: scale(1);
   }
-  /*/////////////////////*/

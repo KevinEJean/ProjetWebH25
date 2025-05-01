@@ -4,11 +4,8 @@ import { useState, useEffect } from 'react';
 // const genres = "28,12";
 const API_KEY = "bbe34269651625cd81a39afd38610700"; 
 const API_URL_BY_RATE = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`;
-// const API_Genre_Filtre = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genres}&page=1`;
 
-const imageFiltre = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
-    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-    </svg>
+const imageFiltre = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16"> <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/></svg>
 
 // TYPE de genre des film de TMDB et leur id
 const genresMovie = [ 
@@ -30,9 +27,8 @@ export default function useMoviePage() {
     const [page, setPage] = useState(1);
     const [maxPage, setMaxPage] = useState(1)
 
-
     
-    // function me permettant d'afficher les genre et de les cacher
+    // function me permettant d'afficher les genreFiltre et de les cacher
     const handleDisplayGenre = () => {
         let displayType = document.getElementById('filter-genre');
         
@@ -60,7 +56,6 @@ export default function useMoviePage() {
     });
     }
 
-    // console.log(filtre)
     // function me permettant de voir si les checkbox on été checked yes/no
     function handleCheckCheckbox(id) {
         var checkbox = document.getElementById(id);
@@ -94,7 +89,6 @@ export default function useMoviePage() {
         const data = await response.json();
         setMoviesTrending(data.results || []);
         setMaxPage(data.total_pages)
-        // console.log(`Les film ${movieRate} on chargé avec succès`)
     };
     
     // function me permettant d'aller chercher les film par à traver le filtre
@@ -105,13 +99,11 @@ export default function useMoviePage() {
         const data = await response.json();
         setMovieFindByFiltre(data.results || []);
         setMaxPage(data.total_pages);
-        // console.log(`Les film de type ${filtre} on chargé avec succès`)
     };
     
        
     useEffect(() => {
         searchMoviesByGenre(filtre)
-        // searchMovieByRate(movieRate,page);
     }, [filtre,movieRate,page]);
 
     

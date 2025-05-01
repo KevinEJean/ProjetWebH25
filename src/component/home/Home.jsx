@@ -3,7 +3,6 @@ import './Home.css';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import Carousel2 from '../movieCard/carousel/Carousel2';
 import useHome from './useHome';
-import Carousel3 from '../movieCard/carousel/Carousel3';
 
 function Home() {
     const { moviesRecent, moviesTopRated, moviesTrending, moviesPopular, moviesUpcoming, seriePopular, serieTopRated, serieTrending } = useHome();
@@ -19,7 +18,7 @@ function Home() {
     ];
 
     return (
-        <div className="containerHome">
+        <div className="container-home-page">
             <Carousel2 movieRecent={moviesRecent} type={"movie"} /> 
 
             <hr style={{color: localStorage.getItem("Title-Colors")}}/>
@@ -30,8 +29,8 @@ function Home() {
                     <div className="bg"> {section.title} </div>
                     <div className="fg"> {section.title} </div>
                     </div>
-                    <div className="containerTrending">
-                        <div className="trending">
+                    <div className="container-movie">
+                        <div className="movies">
                             <Carousel1 movieCarousel={section.data} type={section.type}/>
                         </div>
                     </div>
