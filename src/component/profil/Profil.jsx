@@ -7,9 +7,9 @@ import { useState } from "react";
 
 export default function Profil() {
 
-    // const [user, setUser] = useState({ username: "", password: "", email: "", fname: "", lname: "" });
+    const [user, setUser] = useState({ username: "", password: "", email: "", fname: "", lname: "" });
 
-    // console.log(isLoggedIn());
+    isLoggedIn(user);
 
     function addAvatar() {
         // change picture
@@ -34,17 +34,17 @@ export default function Profil() {
             </span>
             <form>
                 <h4>First Name</h4>
-                <input type="text" id="Fname" readOnly />
+                <input type="text" id="Fname" value={user.fname} readOnly />
                 <h4>Email</h4>
-                <input type="text" id="Email" readOnly />
+                <input type="text" id="Email" value={user.email} readOnly />
                 <h4>Password</h4>
-                <input type="password" id="Password" readOnly />
+                <input type="password" id="Password" value={user.password} readOnly />
             </form>
             <form>
                 <h4>Last Name</h4>
-                <input type="text" id="Lname" readOnly />
+                <input type="text" id="Lname" value={user.lname} readOnly />
                 <h4>Username</h4>
-                <input type="text" id="username" readOnly />
+                <input type="text" id="username" value={sessionStorage.getItem("username")} readOnly />
                 <div style={{ margin: " 20px 0 0 20px" }}>
                     <button className="yesBTN" onClick={(event) => allowUpdate()} style={{ color: "green", marginRight: "10px", }}>Update</button>
                     <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>

@@ -33,25 +33,31 @@ export function handleLogOut() {
     // code pour déconnecter le user
     sessionStorage.setItem("onlineStatus", false)
     axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}`)
-    .then(() => {
-        sessionStorage.setItem("onlineStatus", false)
-        window.location = "/logIn";
-    }).catch((error) => console.log(error));
+        .then(() => {
+            sessionStorage.setItem("onlineStatus", false)
+            window.location = "/logIn";
+        }).catch((error) => console.log(error));
 }
 
-export function isLoggedIn() {
+export function isLoggedIn(user) {
     // const navigate = useNavigate()
 
-    // if (sessionStorage.getItem("onlineStatus") == "true") {
-    //     // fonctionne pas
-    //     async function getUserInfo() {
-    //         axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}`)
-    //         .then((response) => {
-    //             return response.data;
-    //         })
-    //     }
-    //     return getUserInfo();
-    // } else {
-    //     window.location = "logIn";
-    // }
+    if (sessionStorage.getItem("onlineStatus") == "true") {
+        async function getUserInfo() {
+            try {
+                const response = await axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}`)
+                user.email = response.data.email;
+                user.password = response.data.password;
+                if (response.data.fname != null && response.data.lname != null) {
+                    user.fname = response.data.fname;
+                    user.lname = response.data.lname;
+                }
+            } catch (error) {
+                return error;
+            }
+        }
+        return getUserInfo();
+    } else {
+        window.location = "logIn";
+    }
 }
