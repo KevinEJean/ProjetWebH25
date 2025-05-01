@@ -9,7 +9,7 @@ export default function Profil() {
 
     // const [user, setUser] = useState({ username: "", password: "", email: "", fname: "", lname: "" });
 
-    // isLoggedIn();
+    // console.log(isLoggedIn());
 
     function addAvatar() {
         // change picture

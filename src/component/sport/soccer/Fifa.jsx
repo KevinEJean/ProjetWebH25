@@ -9,9 +9,10 @@ export default function Fifa() {
                 <div className='title-bg'>Sport</div>
                 <div className='title-fg'>Sport</div>
             </div>
-            <div className='container'>
-                <h1 style={{ color: localStorage.getItem("Title-Colors") }}>UEFA Champions League</h1>
-                <Container className='fifa-cl' />
+            <h1 style={{ color: localStorage.getItem("Title-Colors") }}>UEFA Champions League</h1>
+            <div className='container-grid'>
+                {/* <Container className='fifa-cl' /> */}
+                <Container className='fifa-cl-test' />
             </div>
         </div>
     )
