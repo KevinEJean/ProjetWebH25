@@ -1,45 +1,32 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.containerHome {
+.container-home-page {
   margin-top: 50px;
   padding: 10px;
-  color: white;
   width: 100%;
 }
 
-/*//////////////// Container Trending //////////////////////////////////////////////////////////////////////////////////////////3*/
+/*//////////////// Container movie movies //////////////////////////////////////////////////////////////////////////////////////////3*/
 
-.containerTrending {
-  /* border: 2px solid;     */
+.container-home-page .container-movie {
   width: 100%;
   display: flex;
   align-items: center ;
   justify-content: center;
-  /* overflow-x: hidden; */
 }
 
-.containerHome .rate {
+.container-home-page .rate {
   border-left: 5px solid rgba(255, 0, 0, 0.815);
   padding-left: 10px;
   font-weight: bold;
 }
 
 
-/*//////// top description/////////////*/
+/*//////// title section style/////////////*/
 :root {
-  /* --gold: white;
-  --light-shadow: #1a1a1a;
-  --dark-shadow: white; */
-
   --gold: #1a1a1a;
   --light-shadow: white;
   --dark-shadow: rgba(255, 255, 255, 0.705); 
-
 }
-.containerHome .wrapper {
+.container-home-page .wrapper {
   border-left: 5px solid rgb(214, 10, 10);
   padding-left: 15px;
   background: radial-gradient(#272727, #1b1b1b);
@@ -47,12 +34,10 @@
   grid-template-areas: 'overlap';
   place-content: center;
   text-transform: uppercase;
-  /* text-align: left; */
   float: left;
-  /* height: 100vh; */
 }
-.containerHome .wrapper > div {
-  /* text-align: left; */
+
+.container-home-page .wrapper > div {
   background-clip: text;  
   -webkit-background-clip: text;
   color: #363833;
@@ -63,7 +48,7 @@
   letter-spacing: 1px;
   -webkit-text-stroke: 4px transparent;
 }
-.containerHome div.bg {
+.container-home-page div.bg {
   background-image: repeating-linear-gradient( 105deg, 
     var(--gold) 0% , 
     var(--dark-shadow) 5%,
@@ -73,7 +58,7 @@
   transform: scaleY(1.05);
   transform-origin: top;
 }
-.containerHome div.fg{
+.container-home-page div.fg{
   background-image: repeating-linear-gradient( 5deg,  
     var(--gold) 0% , 
     var(--light-shadow) 23%, 
@@ -81,19 +66,17 @@
   color: #1e2127;
   transform: scale(1);
 }
-/*/////////////////////*/
 
-
-.containerTrending button:hover {
+.container-home-page .container-movie button:hover {
   border: 1px solid white;
   transform: scale(1.02);
 }
 
-.containerTrending button:active {
+.container-home-page .container-movie button:active {
   border: 1px solid black;
 }
 
-.containerHome .trending {
+.container-home-page .movies {
   width: 100%;
   padding: 10px;
   display: flex;  

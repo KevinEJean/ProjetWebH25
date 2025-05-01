@@ -1,21 +1,11 @@
 import React from 'react';
 import "./MoviePage.css";
-import { useNavigate } from 'react-router-dom';
 import MovieCard2 from '../movieCard/MovieCard2';
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import useMoviePage from './useMoviePage';
 import useUtils from '../utils/useUtils';
 import { troubleShoot } from '../utils/useUtils';
-
-const genresTv = [
-    { name: "Action & Adventure", id: 10759 }, { name: "Animation ", id: 16 }, { name: "Comedy", id: 35 },
-    { name: "Crime", id: 80 }, { name: "Documentary", id: 99 }, { name: "Drama", id: 18 },
-    { name: "Family", id: 10751 }, { name: "Kids", id: 10762 }, { name: "Mystery", id: 9648 },
-    { name: "News", id: 10763 }, { name: "Reality", id: 10764 }, { name: "Sci-Fi & Fantasy", id: 10765 },
-    { name: "Soap", id: 10766 }, { name: "Talk", id: 10767 }, { name: "War & Politics", id: 10768 },
-    { name: "Western", id: 37 }
-]
 
 function MoviePage() {
     const { moviesTrending, movieFindByFiltre, page, maxPage, genresMovie, imageFiltre, setPage, setMovieRate, handleDisplayGenre, handleCheckCheckbox, handlefiltre, handleResetfiltre } = useMoviePage();
@@ -28,7 +18,6 @@ function MoviePage() {
 
     return (
         <div className='movie-container'>
-            {/* <h2 style={{ textAlign: "center", marginTop: "1em" }}>Movies</h2> */}
             <div className='wrapper-main'>
                 <div className="wrapper">
                     <div className="bg"> Movie </div>
@@ -41,10 +30,9 @@ function MoviePage() {
                     <a onClick={() => setMovieRate('now_playing')}>Latest </a>
                     <a onClick={() => setMovieRate('trending')}>Trending </a>
                     <a onClick={() => setMovieRate('top_rated')}>Top-Rated</a>
-
                 </div>
 
-                <a id='genre' onClick={handleDisplayGenre}>Genre <span style={{ paddingLeft: "4px" }}>{imageFiltre}</span></a>
+                <a id='genre' onClick={handleDisplayGenre}> Genre <span style={{ paddingLeft: "4px" }}>{imageFiltre}</span></a>
 
             </div>
 
