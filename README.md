@@ -33,8 +33,8 @@
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
   ### Logiciel de test
-  - [Selenium](https://www.selenium.dev/)
-  - [Mockito](https://site.mockito.org/)
+  - [Selenium](https://www.selenium.dev/) pour le Frontend
+  - [Mockito](https://site.mockito.org/) pour le Backend
   - [Postman](https://www.postman.com/explore) pour les API
 
 # 🧰 Fonctionnalité
