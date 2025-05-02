@@ -9,9 +9,9 @@
 <h3 align="center">MOVIES PAGE</h3>
 
 ![](./images/MoviesPage.png?raw=true)
-<h3 align="center">SETTINGS PAGE</h3>
+<h3 align="center">SPORTS PAGE</h3>
 
-![](./images/SettingsPage.png?raw=true)
+![](./images/SportsPage.png?raw=true)
 
 # 📖 Description
 <p align="justify">Une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.</p>
