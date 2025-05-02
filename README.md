@@ -19,7 +19,7 @@
 ### Connection
     http://localhost:{port}/connection/...
 - PUT logout/{username}
-- GET login/{username}/{password}
+- POST login/{username}/{password}
 - POST signUp
 
 ### Subcription
