@@ -28,13 +28,13 @@
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
   - Schéma SQL ➡️ [Figma](https://www.figma.com/design/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=360-258&p=f&t=eMfe6mdC26dAn8n8-0)
-  - Test Unitaire ➡️ [Selenium](https://www.selenium.dev/)
-  - Test Unitaire ➡️ [Mockito](https://site.mockito.org/)
 
 # ✏️ Architcture
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
   ### Logiciel de test
+  - [Selenium](https://www.selenium.dev/)
+  - [Mockito](https://site.mockito.org/)
   - [Postman](https://www.postman.com/explore) pour les API
 
 # 🧰 Fonctionnalité
