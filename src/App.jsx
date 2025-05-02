@@ -48,8 +48,8 @@ function App() {
           <Route path='/profil' element={<Profil />}/>
           <Route path='/logIn' element={sessionEtat ? <Profil /> : <LogIn/>}/>
           <Route path='/signUp' element={sessionEtat ? <Profil /> : <SignUp/>}/>
-          <Route path='/forgotPassword' element={<ForgotPassword/>}/>
-          <Route path='/resetPassword' element={<ResetPage/>}/>
+          {/* <Route path='/forgotPassword' element={<ForgotPassword/>}/> */} {/* reste juste a implémenter gmail + backend */}
+          {/* <Route path='/resetPassword' element={<ResetPage/>}/> */} {/* depend de forgotPassword */}
           <Route path='/setting' element={<Setting/>}/>
           <Route path='/userDelete' element={<UserDelete/>}/>
           <Route path='/nba' element={<Nba/>}/>

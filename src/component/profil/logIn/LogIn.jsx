@@ -13,26 +13,36 @@ export default function LogIn() {
     // change les valeur de user avec onchange
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
-        console.log(`${e.target.name} : ${e.target.value}`);
     }
 
     const handleLogin = async () => {
+        
         // e.prevenDefault()
-        if (submitRules(user.username, "@.", user.password)) {
-            user.username.trim();
-            user.password.trim();
-            const response = await axios.post("http://localhost:8080/connection/login", user);
-            if (response.data) {
-                console.log(response.data)
-                sessionStorage.setItem("id", response.data.id);
-                sessionStorage.setItem("username", response.data.usernameResponse);
-                sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
-                navigate("/profil");
-            } else {
-                alert("Server is experiencing difficulties, please try again later.");
-            }
+
+        if (user.username == "" || user.password == "") {
+            alert("The fields are empty");
         } else {
-            alert("Credentials cannot contain special characters or spaces. Also the password must be 5 to 16 characters long.");
+            if (submitRules(user.username, "@.", user.password)) {
+                user.username.trim();
+                user.password.trim();
+                try {
+                    const response = await axios.post("http://localhost:8080/connection/login", user);
+                    if (response.data) {
+                        // console.log(response.data);
+                        sessionStorage.setItem("id", response.data.id);
+                        sessionStorage.setItem("username", response.data.usernameResponse);
+                        sessionStorage.setItem("onlineStatus", response.data.onlineStatus);
+                        navigate("/profil");
+                    } else {
+                        alert("Incorrect login credentials, please try again.");
+                    }
+                } catch (error) {
+                    alert("Server is experiencing difficulties, please try again later.");
+                    console.error(error);
+                }
+            } else {
+                alert("Credentials cannot contain special characters or spaces. Also the password must be 5 to 16 characters long.");
+            }
         }
     }
 

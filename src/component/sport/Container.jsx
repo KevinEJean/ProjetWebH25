@@ -11,8 +11,8 @@ export default function Container({ className = "" }) {
     var today = `${year}-${month}-${day}`;
 
 
-    if (localStorage.getItem("AwayTeamNameCL") == undefined) {
-        // il y une limite de 100 call par jour, donc on call 1 fois puis on stock dans localStorage
+    if (sessionStorage.getItem("AwayTeamNameCL") == undefined) {
+        // il y une limite de 100 call par jour, donc on call 1 fois puis on stock dans sessionStorage
         axios({
             method: "get",
             headers: { "X-Auth-Token": "93d6121a8813417785020f8bc7dfcdfa" },
@@ -22,17 +22,17 @@ export default function Container({ className = "" }) {
             for (let i = 0; i < 190; i++) {
                 if (response.data.matches[i].utcDate.includes(today) && response.data.matches[i].awayTeam.shortName != undefined) {
 
-                    localStorage.setItem("AwayTeamNameCL", response.data.matches[i].awayTeam.tla);
-                    localStorage.setItem("HomeTeamNameCL", response.data.matches[i].homeTeam.tla);
+                    sessionStorage.setItem("AwayTeamNameCL", response.data.matches[i].awayTeam.tla);
+                    sessionStorage.setItem("HomeTeamNameCL", response.data.matches[i].homeTeam.tla);
 
-                    localStorage.setItem("AwayTeamCrestCL", response.data.matches[i].awayTeam.crest);
-                    localStorage.setItem("HomeTeamCrestCL", response.data.matches[i].homeTeam.crest);
+                    sessionStorage.setItem("AwayTeamCrestCL", response.data.matches[i].awayTeam.crest);
+                    sessionStorage.setItem("HomeTeamCrestCL", response.data.matches[i].homeTeam.crest);
 
-                    localStorage.setItem("AwayTeamScoreCL", response.data.matches[i].score.fullTime.away);
-                    localStorage.setItem("HomeTeamScoreCL", response.data.matches[i].score.fullTime.home);
+                    sessionStorage.setItem("AwayTeamScoreCL", response.data.matches[i].score.fullTime.away);
+                    sessionStorage.setItem("HomeTeamScoreCL", response.data.matches[i].score.fullTime.home);
 
-                    localStorage.setItem("MatchStatusCL", response.data.matches[i].status);
-                    localStorage.setItem("MatchStageCL", response.data.matches[i].stage);
+                    sessionStorage.setItem("MatchStatusCL", response.data.matches[i].status);
+                    sessionStorage.setItem("MatchStageCL", response.data.matches[i].stage);
 
                     if (awayTeamScore > homeTeamScore) {
                         document.getElementById("awayTeamScore").style.textDecoration = "underline";
@@ -41,43 +41,47 @@ export default function Container({ className = "" }) {
                     }
                     break;
                 } else {
-                    if (localStorage.getItem("AwayTeamName1") == undefined) {
+                    if (sessionStorage.getItem("AwayTeamName1") == undefined) {
                         let index = 1;
                         for (let n = 168; n < 172; n++) {
-                            localStorage.setItem(`AwayTeamName${index}`, response.data.matches[n].awayTeam.tla);
-                            localStorage.setItem(`HomeTeamName${index}`, response.data.matches[n].homeTeam.tla);
+                            sessionStorage.setItem(`AwayTeamName${index}`, response.data.matches[n].awayTeam.tla);
+                            sessionStorage.setItem(`HomeTeamName${index}`, response.data.matches[n].homeTeam.tla);
 
-                            localStorage.setItem(`AwayTeamCrest${index}`, response.data.matches[n].awayTeam.crest);
-                            localStorage.setItem(`HomeTeamCrest${index}`, response.data.matches[n].homeTeam.crest);
+                            sessionStorage.setItem(`AwayTeamCrest${index}`, response.data.matches[n].awayTeam.crest);
+                            sessionStorage.setItem(`HomeTeamCrest${index}`, response.data.matches[n].homeTeam.crest);
 
-                            localStorage.setItem(`AwayTeamScore${index}`, response.data.matches[n].score.fullTime.away);
-                            localStorage.setItem(`HomeTeamScore${index}`, response.data.matches[n].score.fullTime.home);
+                            sessionStorage.setItem(`AwayTeamScore${index}`, response.data.matches[n].score.fullTime.away);
+                            sessionStorage.setItem(`HomeTeamScore${index}`, response.data.matches[n].score.fullTime.home);
 
-                            localStorage.setItem(`MatchStatus${index}`, response.data.matches[n].status);
-                            localStorage.setItem(`MatchStage${index++}`, response.data.matches[n].stage);
+                            sessionStorage.setItem(`MatchStatus${index}`, response.data.matches[n].status);
+                            sessionStorage.setItem(`MatchStage${index++}`, response.data.matches[n].stage);
                         }
                     }
                 }
                 break;
             }
         })
+        if (window.location.hash != "#loaded") {
+            window.location.hash = "#loaded";
+            window.location.reload();
+        }
     }
 
     if (className == "fifa-cl") {
         return (
             <div className="sport-container-root">
                 <div className="sport-container">
-                    <h2>{localStorage.getItem("AwayTeamNameCL")}</h2>
-                    <p>{localStorage.getItem("MatchStageCL")}</p>
-                    <h2>{localStorage.getItem("HomeTeamNameCL")}</h2>
+                    <h2 id="nullChecker">{sessionStorage.getItem("AwayTeamNameCL")}</h2>
+                    <p>{sessionStorage.getItem("MatchStageCL")}</p>
+                    <h2>{sessionStorage.getItem("HomeTeamNameCL")}</h2>
 
-                    <img alt={localStorage.getItem("AwayTeamNameCL")} src={localStorage.getItem("AwayTeamCrestCL")} />
+                    <img alt={sessionStorage.getItem("AwayTeamNameCL")} src={sessionStorage.getItem("AwayTeamCrestCL")} />
                     <h2>VS</h2>
-                    <img alt={localStorage.getItem("HomeTeamNameCL")} src={localStorage.getItem("HomeTeamCrestCL")} />
+                    <img alt={sessionStorage.getItem("HomeTeamNameCL")} src={sessionStorage.getItem("HomeTeamCrestCL")} />
 
-                    <h2 id="awayTeamScore">{localStorage.getItem("AwayTeamScoreCL")}</h2>
-                    <p style={{ color: "yellow" }}>{localStorage.getItem("MatchStatusCL")}</p>
-                    <h2 id="homeTeamScore">{localStorage.getItem("HomeTeamScoreCL")}</h2>
+                    <h2 id="awayTeamScore">{sessionStorage.getItem("AwayTeamScoreCL")}</h2>
+                    <p style={{ color: "yellow" }}>{sessionStorage.getItem("MatchStatusCL")}</p>
+                    <h2 id="homeTeamScore">{sessionStorage.getItem("HomeTeamScoreCL")}</h2>
                 </div>
             </div>
         );
@@ -90,17 +94,17 @@ export default function Container({ className = "" }) {
             <>
                 <div className="sport-container-root">
                     <div className="sport-container">
-                        <h2>{localStorage.getItem("AwayTeamName1")}</h2>
-                        <p>{localStorage.getItem("MatchStage1")}</p>
-                        <h2>{localStorage.getItem("HomeTeamName1")}</h2>
+                        <h2>{sessionStorage.getItem("AwayTeamName1")}</h2>
+                        <p>{sessionStorage.getItem("MatchStage1")}</p>
+                        <h2>{sessionStorage.getItem("HomeTeamName1")}</h2>
 
-                        <img alt={localStorage.getItem("AwayTeamName1")} src={localStorage.getItem("AwayTeamCrest1")} />
+                        <img alt={sessionStorage.getItem("AwayTeamName1")} src={sessionStorage.getItem("AwayTeamCrest1")} />
                         <h2>VS</h2>
-                        <img alt={localStorage.getItem("HomeTeamName1")} src={localStorage.getItem("HomeTeamCrest1")} />
+                        <img alt={sessionStorage.getItem("HomeTeamName1")} src={sessionStorage.getItem("HomeTeamCrest1")} />
 
-                        <h2 id="awayTeamScore">{localStorage.getItem("AwayTeamScore1")}</h2>
-                        <p style={{ color: "yellow" }}>{localStorage.getItem("MatchStatus1")}</p>
-                        <h2 id="homeTeamScore">{localStorage.getItem("HomeTeamScore1")}</h2>
+                        <h2 id="awayTeamScore">{sessionStorage.getItem("AwayTeamScore1")}</h2>
+                        <p style={{ color: "yellow" }}>{sessionStorage.getItem("MatchStatus1")}</p>
+                        <h2 id="homeTeamScore">{sessionStorage.getItem("HomeTeamScore1")}</h2>
                     </div>
                 </div>
 
@@ -111,17 +115,17 @@ export default function Container({ className = "" }) {
 
                 <div className="sport-container-root">
                     <div className="sport-container">
-                        <h2>{localStorage.getItem("AwayTeamName2")}</h2>
-                        <p>{localStorage.getItem("MatchStage2")}</p>
-                        <h2>{localStorage.getItem("HomeTeamName2")}</h2>
+                        <h2>{sessionStorage.getItem("AwayTeamName2")}</h2>
+                        <p>{sessionStorage.getItem("MatchStage2")}</p>
+                        <h2>{sessionStorage.getItem("HomeTeamName2")}</h2>
 
-                        <img alt={localStorage.getItem("AwayTeamName2")} src={localStorage.getItem("AwayTeamCrest2")} />
+                        <img alt={sessionStorage.getItem("AwayTeamName2")} src={sessionStorage.getItem("AwayTeamCrest2")} />
                         <h2>VS</h2>
-                        <img alt={localStorage.getItem("HomeTeamName2")} src={localStorage.getItem("HomeTeamCrest2")} />
+                        <img alt={sessionStorage.getItem("HomeTeamName2")} src={sessionStorage.getItem("HomeTeamCrest2")} />
 
-                        <h2 id="awayTeamScore">{localStorage.getItem("AwayTeamScore2")}</h2>
-                        <p style={{ color: "yellow" }}>{localStorage.getItem("MatchStatus2")}</p>
-                        <h2 id="homeTeamScore">{localStorage.getItem("HomeTeamScore2")}</h2>
+                        <h2 id="awayTeamScore">{sessionStorage.getItem("AwayTeamScore2")}</h2>
+                        <p style={{ color: "yellow" }}>{sessionStorage.getItem("MatchStatus2")}</p>
+                        <h2 id="homeTeamScore">{sessionStorage.getItem("HomeTeamScore2")}</h2>
                     </div>
                 </div>
 
@@ -131,17 +135,17 @@ export default function Container({ className = "" }) {
 
                 <div className="sport-container-root">
                     <div className="sport-container">
-                        <h2>{localStorage.getItem("AwayTeamName3")}</h2>
-                        <p>{localStorage.getItem("MatchStage3")}</p>
-                        <h2>{localStorage.getItem("HomeTeamName3")}</h2>
+                        <h2>{sessionStorage.getItem("AwayTeamName3")}</h2>
+                        <p>{sessionStorage.getItem("MatchStage3")}</p>
+                        <h2>{sessionStorage.getItem("HomeTeamName3")}</h2>
 
-                        <img alt={localStorage.getItem("AwayTeamName3")} src={localStorage.getItem("AwayTeamCrest3")} />
+                        <img alt={sessionStorage.getItem("AwayTeamName3")} src={sessionStorage.getItem("AwayTeamCrest3")} />
                         <h2>VS</h2>
-                        <img alt={localStorage.getItem("HomeTeamName3")} src={localStorage.getItem("HomeTeamCrest3")} />
+                        <img alt={sessionStorage.getItem("HomeTeamName3")} src={sessionStorage.getItem("HomeTeamCrest3")} />
 
-                        <h2 id="awayTeamScore">{localStorage.getItem("AwayTeamScore3")}</h2>
-                        <p style={{ color: "yellow" }}>{localStorage.getItem("MatchStatus3")}</p>
-                        <h2 id="homeTeamScore">{localStorage.getItem("HomeTeamScore3")}</h2>
+                        <h2 id="awayTeamScore">{sessionStorage.getItem("AwayTeamScore3")}</h2>
+                        <p style={{ color: "yellow" }}>{sessionStorage.getItem("MatchStatus3")}</p>
+                        <h2 id="homeTeamScore">{sessionStorage.getItem("HomeTeamScore3")}</h2>
                     </div>
                 </div>
 
@@ -151,17 +155,17 @@ export default function Container({ className = "" }) {
 
                 <div className="sport-container-root">
                     <div className="sport-container">
-                        <h2>{localStorage.getItem("AwayTeamName4")}</h2>
-                        <p>{localStorage.getItem("MatchStage4")}</p>
-                        <h2>{localStorage.getItem("HomeTeamName4")}</h2>
+                        <h2>{sessionStorage.getItem("AwayTeamName4")}</h2>
+                        <p>{sessionStorage.getItem("MatchStage4")}</p>
+                        <h2>{sessionStorage.getItem("HomeTeamName4")}</h2>
 
-                        <img alt={localStorage.getItem("AwayTeamName4")} src={localStorage.getItem("AwayTeamCrest4")} />
+                        <img alt={sessionStorage.getItem("AwayTeamName4")} src={sessionStorage.getItem("AwayTeamCrest4")} />
                         <h2>VS</h2>
-                        <img alt={localStorage.getItem("HomeTeamName4")} src={localStorage.getItem("HomeTeamCrest4")} />
+                        <img alt={sessionStorage.getItem("HomeTeamName4")} src={sessionStorage.getItem("HomeTeamCrest4")} />
 
-                        <h2 id="awayTeamScore">{localStorage.getItem("AwayTeamScore4")}</h2>
-                        <p style={{ color: "yellow" }}>{localStorage.getItem("MatchStatus4")}</p>
-                        <h2 id="homeTeamScore">{localStorage.getItem("HomeTeamScore4")}</h2>
+                        <h2 id="awayTeamScore">{sessionStorage.getItem("AwayTeamScore4")}</h2>
+                        <p style={{ color: "yellow" }}>{sessionStorage.getItem("MatchStatus4")}</p>
+                        <h2 id="homeTeamScore">{sessionStorage.getItem("HomeTeamScore4")}</h2>
                     </div>
                 </div>
             </>
