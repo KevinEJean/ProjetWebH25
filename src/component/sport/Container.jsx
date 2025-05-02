@@ -61,9 +61,10 @@ export default function Container({ className = "" }) {
                 break;
             }
         })
+
         if (window.location.hash != "#loaded") {
             window.location.hash = "#loaded";
-            window.location.reload();
+            setTimeout(window.location.reload(), 3000);
         }
     }
 

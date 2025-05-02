@@ -16,9 +16,9 @@ export default function ResetPassword() {
         setUser({...user, [e.target.id]: e.target.value});
     }
 
-    const passwordReset = () => {
+    const passwordReset = (e) => {
 
-        // e.prevenDefault();
+        e.prevenDefault();
 
         if (user.passwd == "" || user.passwdVerif == "") {
             alert("The fields are empty");

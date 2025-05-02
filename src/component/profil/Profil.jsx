@@ -21,6 +21,7 @@ export default function Profil() {
                 try {
                     const response = await axios.get(`http://localhost:8080/client/getById/${sessionStorage.getItem("id")}`);
                     setUser({ password: response.data.password, email: response.data.email });
+                    
                     if (response.data.fname != null) {
                         setUser({ fname: response.data.fname });
                     }
