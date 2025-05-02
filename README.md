@@ -5,8 +5,8 @@
 ### Client
     http://localhost:{port}/client/...
 - PUT remove/{username}
-- PUT update/{username}/{email}/{fname}/{lname}
-- PUT updatePassword/{username}/{password}
+- PUT update/{username}/{newEmail}/{neWFname}/{newLname}
+- PUT updatePassword/{username}/{newPassword}
 - GET getOnlineStatus/{username}
 
 ### Liste de Favorite
