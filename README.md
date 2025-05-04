@@ -22,10 +22,5 @@
 - POST login/{username}/{password}
 - POST signUp
 
-### Subcription
-    http://localhost:{port}/subscription/...
-- GET geStatus/{username}
-- PUT updateStatus/{username}/{status}
-
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
