@@ -1,7 +1,23 @@
 import Container from '../Container';
 import './Fifa.css';
+import { Navigate } from 'react-router-dom';
 
 export default function Fifa() {
+
+    if (sessionStorage.getItem("onlineStatus") != "true") {
+        alert("You need an account to gain access to this page !");
+        location.href = "/";
+    } else {
+
+        function refresh() {
+            if (sessionStorage.getItem("MatchStage4") != null && window.location.hash != "#loaded") {
+                window.location.hash = "#loaded";
+                window.location.reload();
+            }
+        }
+
+        setTimeout(refresh, 2000);
+    }
 
     return (
         <div className='fifa-root'>

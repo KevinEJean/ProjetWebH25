@@ -5,14 +5,17 @@ export default function submitRules(username, email, password) {
     var emailRules = /[ `!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
 
     if (rules.test(username)) {
+        console.log("username error!");
         return false;
     }
 
     if (emailRules.test(email)) {
+        console.log("email error!");
         return false;
     }
 
     if (rules.test(password)) {
+        console.log("password error!");
         return false;
     }
 

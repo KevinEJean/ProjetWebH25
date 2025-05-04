@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// import sgMail from "@sendgrid/mail";
 import './ForgotPassword.css';
 
 export default function ForgotPassword() {
 
+    // const gmail = "2GXTU13FPN9HX1A396AYZDF6";
+    // const gmailTokem = "9435c1ca13d0a2615926a767151d0b07";
+    // const gmailKey = "ACa19865197f8427f09d5aabb2bc7c73cc";
+    // const SENDGRID_API_KEY = "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";
+    const [show, setShow] = useState();
     const [userInput, setUserInput] = useState();
 
     function randint() {
@@ -16,18 +22,41 @@ export default function ForgotPassword() {
         setUserInput(e.target.value);
     }
 
-    function handleForgotPassword() {
+    const handleForgotPassword = (e) => {
 
-        const randomCode = randint();
+        // e.preventDefault();
+        // const randomCode = randint();
+        // var email = document.getElementById("email");
 
-        // envoyé randint() par email
+        // if (!show) {
+        //     setShow(true);
+        //     e.target.textContent = "Confirm";
 
-        let codeInput = document.getElementById('code');
-        if (codeInput === randomCode.toString()) {
-            location.href = "/resetPassword";
-        } else {
-            alert("The code is incorrect !");
-        }
+        //     // envoyé randomCode par email
+        //     sgMail.setApiKey(SENDGRID_API_KEY)
+        //     const msg = {
+        //         to: email.value,
+        //         from: 'filmapph25@gmail.com',
+        //         subject: 'Verification code to reset your password!',
+        //         text: 'If you did not request to reset your password, you may have been hacked...',
+        //         html: `If you did, here's the code: <strong>${randomCode}</strong>`
+        //     }
+        //     sgMail
+        //         .send(msg)
+        //         .then(() => {
+        //             console.log('Email sent!')
+        //         })
+        //         .catch((error) => {
+        //             console.error(error)
+        //         })
+        // } else {
+        //     let codeInput = document.getElementById('code');
+        //     if (codeInput === randomCode.toString()) {
+        //         location.href = "/resetPassword";
+        //     } else {
+        //         alert("The code is incorrect !");
+        //     }
+        // }
     }
 
     return (
@@ -37,12 +66,12 @@ export default function ForgotPassword() {
                 <p className="info-text">this may take a few minutes...</p>
                 <h4>Email</h4>
                 <input type="text" id="email" />
-                <div className="temp-cell">
+                <div className="temp-cell" style={{ display: show ? "initial" : "none" }}>
                     <h4>Code</h4>
                     <input type="text" id="code" onChange={handleCode} />
                 </div>
                 <div>
-                    <button onClick={(e) => handleForgotPassword()} style={{ color: "green", marginRight: "10px" }}>Confirm</button>
+                    <button onClick={handleForgotPassword} style={{ color: "green", marginRight: "10px" }}>Send Code</button>
                     <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
                 </div>
             </form>

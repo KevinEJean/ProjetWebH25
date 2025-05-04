@@ -61,11 +61,6 @@ export default function Container({ className = "" }) {
                 break;
             }
         })
-
-        if (window.location.hash != "#loaded") {
-            window.location.hash = "#loaded";
-            setTimeout(window.location.reload(), 3000);
-        }
     }
 
     if (className == "fifa-cl") {
