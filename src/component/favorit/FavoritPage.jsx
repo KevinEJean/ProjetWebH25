@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./FavoritPage.css"
 import MovieCard from "../movieCard/MovieCard";
-import Aquaman from "/src/assets/aquaman.jpg"
 import axios from "axios";
-import Carousel1 from "../movieCard/carousel/Carousel1";
 import useUtils from "../utils/useUtils";
 
 // donné sera envoyé depuis la bd 

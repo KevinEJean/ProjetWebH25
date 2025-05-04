@@ -1,4 +1,3 @@
-import { data, useNavigate } from "react-router-dom";
 
 export default function submitRules(username, email, password) {
 
@@ -28,7 +27,6 @@ export default function submitRules(username, email, password) {
 import axios from "axios";
 
 export function handleLogOut() {
-    // const navigate = useNavigate()
 
     // code pour déconnecter le user
     sessionStorage.setItem("onlineStatus", false)

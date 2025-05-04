@@ -128,7 +128,6 @@ function DetailMovie() {
 
                         <span id='OMDb'>OMDb</span>
                         <span id='rating'>{DataOmdb.imdbRating}/10</span>
-                        {/* <span id='r'>{DataOmdb.Year}</span> */}
                         <span id='r'>{DataOmdb.Runtime}</span>
 
                         </p>
@@ -166,7 +165,6 @@ function DetailMovie() {
                         <p><strong>Genre :</strong> {DataOmdb.Genre}</p>
                         <p><strong>Type :</strong> {dataInfo.type}</p>
                         <p><strong>Actor : </strong>{DataOmdb.Actors}</p>
-                        {/* <p><strong>Budget : </strong>{dataInfo.budget} $</p> */}
 
                         <button className='addToInfoList' onClick={addFavorit}>Add to InfoList</button>
                     </div>

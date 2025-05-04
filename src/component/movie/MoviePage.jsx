@@ -37,7 +37,6 @@ function MoviePage() {
             </div>
 
             <div className="filter-genre" id='filter-genre' style={{ display: "none" }}>
-                {/*// problème de couleur à régler*/}
                 <form>
                     {
                         genresMovie && genresMovie.map((genre) => (

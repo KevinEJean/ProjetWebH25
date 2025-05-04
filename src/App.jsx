@@ -29,11 +29,6 @@ function App() {
   // problème react le lit une fois donc lors du changement a true l'url change mais pas la page
   const sessionEtat = sessionStorage.getItem("onlineStatus") === "true";
   
-  // let sessionEtat = "";
-  // useEffect(() => {
-  //   sessionEtat = sessionStorage.getItem("onlineStatus") === "true";
-  
-  // }, [sessionEtat])
   return (
       <>
       <BrowserRouter>

@@ -23,11 +23,12 @@ function Home() {
 
             <hr style={{color: localStorage.getItem("Title-Colors")}}/>
             
-            {sections.map((section, index) => (
-                <div key={index} className=''>
+            {
+            sections.map((section, index) => (
+                <div key={index}>
                     <div className="wrapper">
-                    <div className="bg"> {section.title} </div>
-                    <div className="fg"> {section.title} </div>
+                        <div className="bg"> {section.title} </div>
+                        <div className="fg"> {section.title} </div>
                     </div>
                     <div className="container-movie">
                         <div className="movies">

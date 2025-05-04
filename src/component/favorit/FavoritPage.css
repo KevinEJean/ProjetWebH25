@@ -1,12 +1,9 @@
 .favorit-container {
-    /* border: 2px solid; */
     margin-top: 60px;
     width: 100%;
     padding: 10px;
 }
 .favorit-content {
-    /* border: 2px solid; */
-    /* margin-top: 60px; */
     width: 100%;
     padding: 10px;
     display: grid;

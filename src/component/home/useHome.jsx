@@ -15,7 +15,6 @@ const API_URL_TV_TOP_RATED = `https://api.themoviedb.org/3/tv/top_rated?api_key=
 const API_URL_TV_TRENDING = `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=`;
 
 
-
 const URL_API = [
     // url movie
     {API_URL_A_l_AFFICHE: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=`},

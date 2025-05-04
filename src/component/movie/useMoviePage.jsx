@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 // URL POUR LES REQUÊTES API
-// const genres = "28,12";
 const API_KEY = "bbe34269651625cd81a39afd38610700"; 
 const API_URL_BY_RATE = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`;
 

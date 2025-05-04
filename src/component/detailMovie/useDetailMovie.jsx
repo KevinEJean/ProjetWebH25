@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 ////// Api de OMDB pour récupération des info/////////////////////////
 const API_KEY_OMDB = "a34708ad"; 
 const API_URL_OMDB = `https://www.omdbapi.com/?apikey=${API_KEY_OMDB}`;
 
 ///// Api recommendation TMDB pour les film recommandé //////////////////
 const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700"; 
-// const API_URL_TMDB_RECOMMENDATIONS = `https://api.themoviedb.org/3/movie/movie_id/recommendations?api_key=${API_KEY_TMDB}&page=1`;
-// const API_URL_FIND_ACTOR = `https://api.themoviedb.org/3/search/person?api_key=bbe34269651625cd81a39afd38610700&query=`;
-
 //  ##########################################################################################################################
-// ############# Hook personnalisé on va développer tout nos fonction ici et l'envoyer de l'autre coté #############################
+//  ############ Hook personnalisé on va développer tout nos fonction ici et l'envoyer de l'autre coté #######################
 
 function useDetailMovie() {
     const {type, id, title } = useParams();
@@ -27,75 +25,48 @@ function useDetailMovie() {
     
         //// -> cette fonction va trouver un seul et unique film dépendament du titre
         const searchDataOmdb = async () => {
-            if (title) {
-                const response = await fetch(`${API_URL_OMDB}&t=${title}`); 
-                const data = await response.json();
-                // console.log("info Omdbc:",data)
-                setDataOmdb(data || []);
-            }
+            const response = await fetch(`${API_URL_OMDB}&t=${title}`); 
+            const data = await response.json();
+            setDataOmdb(data || []);
         };
     
         const searchDataPoster = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
-                // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
-                const data = await response.json();
-                setDataPosterTmdb(data || []);
-                // console.log("TMDB: ", data)
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            setDataPosterTmdb(data || []);
         };  
 
         const searchDataInfo = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
-                // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
-                const data = await response.json();
-                setDataInfo(data || []);
-                // console.log("TMDB info: ", data)
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            setDataInfo(data || []);
         };  
 
         const searchDataRecommendations = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
-                // const response = await fetch(API_URL_TMDB_RECOMMENDATIONS.replace("{movie_id}", title)); 
-                const data = await response.json();
-                // console.log("Recommandations TMDB: ", data);
-                setDataRecommendation(data.results || []);
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=${API_KEY_TMDB}&page=1`); 
+            const data = await response.json();
+            setDataRecommendation(data.results || []);
         };
     
         const searchDataActor = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY_TMDB}`); 
-                const data = await response.json();
-                // console.log("movie Actor: ", data);
-                setMovieActor(data.cast || []);
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            setMovieActor(data.cast || []);
         };
         const searchDataCrew = async () => {
-            // if (movieId) {
                 const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY_TMDB}`); 
                 const data = await response.json();
-                // console.log("movie Crew: ", data);
                 setDataCrew(data.crew || []);
-            // }
         };
         const searchDataVideo = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY_TMDB}`); 
-                const data = await response.json();
-                // console.log("movie Video: ", data);
-                setDataVideos(data.results || []);
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            setDataVideos(data.results || []);
         };
         const searchDataImage = async () => {
-            // if (movieId) {
-                const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${API_KEY_TMDB}`); 
-                const data = await response.json();
-                // console.log("movie Images: ", data);
-                setDataImages(data  || []);
-            // }
+            const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/images?api_key=${API_KEY_TMDB}`); 
+            const data = await response.json();
+            setDataImages(data  || []);
         };
     
         useEffect(() => {
