@@ -21,8 +21,8 @@ public class Client {
     @Column(columnDefinition ="BOOLEAN DEFAULT true")
     private boolean active = true;
 
-    @Column(columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean subscribed = false;
+    // @Column(columnDefinition = "BOOLEAN DEFAULT false")
+    // private boolean subscribed = false;
 
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
@@ -107,13 +107,13 @@ public class Client {
         this.active = active;
     }
 
-    public boolean getSubscriptionStatus() {
-        return subscribed;
-    }
+    // public boolean getSubscriptionStatus() {
+    //     return subscribed;
+    // }
 
-    public void setSubscriptionStatus(boolean subscribed) {
-        this.subscribed = subscribed;
-    }
+    // public void setSubscriptionStatus(boolean subscribed) {
+    //     this.subscribed = subscribed;
+    // }
 
     public LocalDateTime getCreationDate() {
         return creationDate;
