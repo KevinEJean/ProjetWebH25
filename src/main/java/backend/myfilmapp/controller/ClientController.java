@@ -34,9 +34,9 @@ public class ClientController {
         return service.updateClient(username, email, fname, lname);
     }
 
-    @PutMapping("/updatePassword/{username}/{password}")
-    public Boolean updatePassword(@PathVariable String username, @PathVariable String password) {
-        return service.updateClientPassword(username, password);
+    @PutMapping("/updatePassword/{username}/{newPassword}")
+    public Boolean updatePassword(@PathVariable String username, @PathVariable String newPassword) {
+        return service.updateClientPassword(username, newPassword);
     }
 
     @GetMapping("/getOnlineStatus/{username}")

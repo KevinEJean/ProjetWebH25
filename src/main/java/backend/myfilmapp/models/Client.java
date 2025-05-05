@@ -27,7 +27,7 @@ public class Client {
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
-    @Column(nullable = false, columnDefinition = "varchar(20)")
+    @Column(unique = true, nullable = false, columnDefinition = "varchar(20)")
     private String username;
 
     @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
