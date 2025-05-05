@@ -19,12 +19,12 @@ public class ClientService {
     }
 
     public boolean saveClient(Client client) {
-        if (client.getUsername().contains("del-user") || client.getUsername().equals("admin")) { // pour empêcher erreur de login/signin
+        if (client.getUsername().contains("del-user") || client.getUsername().contains("admin")) { // pour empêcher erreur de login/signin
             return false;
+        } else {
+            rep.save(client);
+            return true;
         }
-
-        rep.save(client);
-        return true;
     }
 
     public void removeClient(String username, String password) {
