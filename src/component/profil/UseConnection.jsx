@@ -20,7 +20,12 @@ export default function submitRules(username, email, password) {
     }
 
     if (!rules.test(username) && !rules.test(password) && password.length <= 16 && password.length >= 5 && !emailRules.test(email) && email.includes('@') && email.includes('.')) {
-        return true;
+        if (username === "admin" || username.includes("del-user")) {
+            console.log("email @ and . error");
+            return false;
+        } else {
+            return true;
+        }
     } else {
         return false;
     }
@@ -35,6 +40,6 @@ export function handleLogOut() {
             sessionStorage.removeItem("username");
             sessionStorage.removeItem("id");
             sessionStorage.removeItem("onlineStatus");
-            window.location = "/logIn";
+            window.location = "/login";
         }).catch((error) => console.log(error));
 }

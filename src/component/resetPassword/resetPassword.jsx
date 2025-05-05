@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import submitRules from "../profil/UseConnection";
 import axios from "axios";
 import './ResetPage.css';  
@@ -30,6 +30,7 @@ export default function ResetPassword() {
                         .then(() => {
                             navigate("/profil")
                             alert("your password have been update with succèes")
+
                         })
                     } catch (error) {
                         alert("Server is experiencing difficulties, please try again later.");

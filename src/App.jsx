@@ -37,7 +37,12 @@ function App() {
           <Route path='/profil' element={<Profil />}/>
           <Route path='/logIn' element={sessionEtat ? <Profil /> : <LogIn/>}/>
           <Route path='/signUp' element={sessionEtat ? <Profil /> : <SignUp/>}/>
+<<<<<<< HEAD
           <Route path='/resetPassword' element={<ResetPassword/>}/>        
+=======
+          {/* <Route path='/forgotPassword' element={<ForgotPassword/>}/>           reste juste a implémenter sgMail */}
+          <Route path='/resetPassword' element={<ResetPage/>}/>                 {/* depend de forgotPassword */}
+>>>>>>> 1481378a73a855ff91fa9d08149b7fd720ee7f1b
           <Route path='/setting' element={<Setting/>}/>
           <Route path='/userDelete' element={<UserDelete/>}/>
           <Route path='/fifa' element={<Fifa/>}/>

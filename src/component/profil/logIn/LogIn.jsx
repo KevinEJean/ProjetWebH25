@@ -57,7 +57,7 @@ export default function LogIn() {
                 </h4>
                 <input type={show ? "text" : "password"} name="password" onChange={handleChange} />
             </form>
-            
+
             <Link to={"/signUp"}><p name="toSignUp">Don't have an account?</p></Link>
             <div>
                 <button onClick={(e) => handleLogin(e)} id="login-btn" style={{ color: "green", marginRight: "10px" }}>Log In</button>

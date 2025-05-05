@@ -53,7 +53,7 @@ export default function SeriePage() {
                             ))    
                         }
                     </form>
-                    <button onClick={handlefiltre}>Appliquer</button>   
+                    <button id='confirmGenreBtn' onClick={handlefiltre}>Appliquer</button>   
                     <button onClick={handleResetfiltre}>Reset</button>   
                 </div>
 
