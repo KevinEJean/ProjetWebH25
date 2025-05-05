@@ -16,7 +16,7 @@ export default function Fifa() {
             }
         }
 
-        setTimeout(refresh, 2000);
+        setTimeout(refresh, 1000);
     }
 
     return (

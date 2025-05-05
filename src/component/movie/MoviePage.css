@@ -153,6 +153,7 @@
     height: 100px;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
   }
 
   .movie-container .wrapper-main .wrapper {
