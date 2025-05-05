@@ -28,14 +28,15 @@
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
   - Schéma SQL ➡️ [Figma](https://www.figma.com/design/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=360-258&p=f&t=eMfe6mdC26dAn8n8-0)
+  - Container ➡️ [Docker](https://www.docker.com/)
 
 # ✏️ Architcture
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
   ### Logiciel de test
   - [Selenium](https://www.selenium.dev/) pour le Frontend
-  - [Mockito](https://site.mockito.org/) pour le Backend
-  - [Postman](https://www.postman.com/explore) pour les API
+  - [Mockito](https://site.mockito.org/) pour le Backend et la BD
+  - [Postman](https://www.postman.com/explore) pour les APIs
 
 # 🧰 Fonctionnalité
   - Recherche des films par titre
@@ -46,6 +47,7 @@
   - Personaliser l'affichage du site
   - Création d'un profil
   - Affichage de match de la UEFA Champions League
+  - Modifier son mots de passe
 
 # 🌐 Site supporté
   - Google Chrome
@@ -54,6 +56,7 @@
 # ✅ Installation & Exécution
 ### Prérequis
   - Avoir [Nodejs](https://nodejs.org/en/download) d'installer
+  - Avoir [Docker](https://www.docker.com/) d'installer
 ### Exécution
     Git clone https://github.com/KevinEJean/ProjetWebH25.git
     cd ProjetWebH25
