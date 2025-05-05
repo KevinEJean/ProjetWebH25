@@ -1,6 +1,5 @@
 import React from 'react';
 import "./SeriePage.css";
-import { useNavigate } from 'react-router-dom';
 import MovieCard2 from '../movieCard/MovieCard2';
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
@@ -14,6 +13,7 @@ export default function SeriePage() {
     const {handleDisplayGenre} = useMoviePage();
     const {handleDetail} = useUtils();
     
+    console.log("series: ", serieFindByFiltre)
     if (!serieRate) return <p>Chargement des film ....</p>
 
     troubleShoot();
@@ -30,9 +30,9 @@ export default function SeriePage() {
 
             <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
-                    <a onClick={() => setMovieRate('now_playing')}></a>
-                    <a onClick={() => setMovieRate('trending')}></a> 
-                    <a onClick={() => setMovieRate('top_rated')}></a> 
+                    <a onClick={() => setMovieRate('now_playing')}>now_playing</a>
+                    <a onClick={() => setMovieRate('trending')}>trending</a> 
+                    <a onClick={() => setMovieRate('top_rated')}>top_rated</a> 
 
                 </div>
                 
@@ -56,13 +56,11 @@ export default function SeriePage() {
                     <button id='confirmGenreBtn' onClick={handlefiltre}>Appliquer</button>   
                     <button onClick={handleResetfiltre}>Reset</button>   
                 </div>
-
             <div className="content">
                 {
                     serieFindByFiltre.length > 0 ?
                     serieFindByFiltre.map((serie) => (
                             <div key={serie.id} onClick={() => handleDetail("tv", serie.id, serie.title)}>
-                                
                                 <MovieCard2
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 
                                     title={serie.original_name} 
@@ -76,7 +74,6 @@ export default function SeriePage() {
                         :
                         serieRate.map((serie) => (
                             <div key={serie.id} onClick={() => handleDetail("tv", serie.id, serie.title)}>
-                          
                                 <MovieCard2 
                                     url={`https://image.tmdb.org/t/p/original/${serie.poster_path}`} 
                                     title={serie.original_name} 

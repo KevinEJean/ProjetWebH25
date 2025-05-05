@@ -15,6 +15,7 @@
 }
 
 .movie-container .pagination-box .pagination {
+  color: black;
     margin: auto;
     width: min-content;
     font-size: 40px;
@@ -122,6 +123,7 @@
 .movie-container .filter-genre button {
     border: 0.5px solid white;
     background-color: whitesmoke;    
+    color: black;
     width: 40%;
     margin: 10px;
     font-weight: bold;
@@ -134,11 +136,11 @@
     color: black;
 }
 
-<<<<<<< HEAD
 .movie-container  .wrapper-main { 
   height: 100px;
   display: flex;
   justify-content: center;
+  margin: 10px;
 }
 .movie-container .wrapper-main .wrapper {
   display: grid;
@@ -176,59 +178,3 @@
   color: #1e2127;
   transform: scale(1);
 }
-=======
-
-
-/*//////// top description/////////////*/
-:root {
-    --gold: #1a1a1a;
-    --light-shadow: white;
-    --dark-shadow: rgba(255, 255, 255, 0.705); 
-  
-  }
-  .movie-container  .wrapper-main { 
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-
-  .movie-container .wrapper-main .wrapper {
-    display: grid;
-    grid-template-areas: 'overlap';
-    place-content: center;
-    text-transform: uppercase;
-    width: 20%;
-  }
-
-
-  .movie-container .wrapper > div {
-    background-clip: text;  
-    -webkit-background-clip: text;
-    color: #363833;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    font-size: 800%;
-    grid-area: overlap;
-    letter-spacing: 1px;
-    -webkit-text-stroke: 4px transparent;
-  }
-  .movie-container div.bg {
-    background-image: repeating-linear-gradient( 105deg, 
-      var(--gold) 0% , 
-      var(--dark-shadow) 5%,
-      var(--gold) 12%);
-    color: transparent;
-    filter: drop-shadow(5px 15px 15px black);
-    transform: scaleY(1.05);
-    transform-origin: top;
-  }
-  .movie-container div.fg{
-    background-image: repeating-linear-gradient( 5deg,  
-      var(--gold) 0% , 
-      var(--light-shadow) 23%, 
-      var(--gold) 31%);
-    color: #1e2127;
-    transform: scale(1);
-  }
->>>>>>> 1481378a73a855ff91fa9d08149b7fd720ee7f1b

@@ -9,11 +9,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function DetailMovie() {
-    // const { id,title } = useParams();
     const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
     const navigate = useNavigate()
 
-    // ############################# BUG FIXES #############################
     if (!DataOmdb) return <p>Film information is loading...</p>;
     if (!dataRecommendation) return <p>Movie recommendations are loading...</p>;
     if (!dataActors) return <p>Actors information is loading...</p>;

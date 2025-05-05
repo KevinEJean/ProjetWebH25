@@ -8,7 +8,6 @@ import { CiBookmark } from "react-icons/ci";
 import { FaTv } from "react-icons/fa";
 import { MdMovieCreation } from "react-icons/md";
 import { PiSoccerBallFill } from "react-icons/pi";
-import logo from "../../assets/logo.png";
 
 export default function NavBar() {
     const navigate = useNavigate()
@@ -32,7 +31,7 @@ export default function NavBar() {
     return (
         <div className='nav-grid'>
             <nav>
-                <a href="#" style={{color: localStorage.getItem("Title-Colors")}}>LOGO</a>
+                <a href="/" style={{color: localStorage.getItem("Title-Colors")}}>Info-Movie</a>
 
                 <ul className="list">
                     <Link to="/" title='Home' name='home-page'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>

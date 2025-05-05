@@ -1,17 +1,11 @@
 import { useState, useEffect } from 'react';
-import useMoviePage from '../movie/useMoviePage';
 
 // URL POUR LES REQUÊTES API
-// const genres = "28,12";
 const API_KEY = "bbe34269651625cd81a39afd38610700"; 
-// const API_Genre_Filtre = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genres}&page=1`;
 
 const imageFiltre = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
     <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
     </svg>
-
-const API_URL_TV_POPULAR = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&page=`;
-
 
 const genresTv = [
     {name:"Action & Adventure", id:10759},{name:"Animation ", id:16},{name:"Comedy", id:35},
@@ -31,12 +25,6 @@ export default function UseSeriePage() {
     const [serieFindByFiltre, setSerieFindByFiltre] = useState([]);
     const [serieRate, setSerieRate] = useState([])
 
-    const searchMovieOrTvBy = async (url, setter) => {
-        const response = await fetch(`${url}${page}`);
-        const data = await response.json();
-        setter(data.results || []);
-        setMaxPage(data.total_pages)
-    };
 
     const searchSerieByRate = async () => {
         let response = "";
@@ -86,6 +74,8 @@ export default function UseSeriePage() {
 
 
     const searchMoviesByGenre = async (filtre) => {
+        if (filtre.length === 0) return searchSerieByRate(serieRate,page);
+
         const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=${filtre}&page=${page}`);
         const data = await response.json();
         setSerieFindByFiltre(data.results || []);

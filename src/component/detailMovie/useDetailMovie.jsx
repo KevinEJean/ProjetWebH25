@@ -79,7 +79,6 @@ function useDetailMovie() {
             }
         }, [id,title]);
     
-    // supprimer les export ne servant a rien
     return {
         id,
         type,

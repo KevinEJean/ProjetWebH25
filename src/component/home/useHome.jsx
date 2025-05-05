@@ -32,14 +32,12 @@ export default function useHome() {
         };
     
         useEffect(() => {
-            // movie
             searchMovieOrTvBy(API_URL_A_l_AFFICHE, setMoviesMoviesRecent)
             searchMovieOrTvBy(API_URL_TRENDING, setMoviesTrending)
             searchMovieOrTvBy(API_URL_TOP_RATED, setMoviesTopRated)
             searchMovieOrTvBy(API_URL_POPULAR,setMoviesPopular)
             searchMovieOrTvBy(API_URL_UPCOMING, setMoviesUpcoming)
     
-            // serie
             searchMovieOrTvBy(API_URL_TV_POPULAR, setSeriePopular)
             searchMovieOrTvBy(API_URL_TV_TOP_RATED, setSerieTopRated)
             searchMovieOrTvBy(API_URL_TV_TRENDING, setSerieTrending)

@@ -19,8 +19,6 @@ import ResetPassword from './component/resetPassword/resetPAssword';
 
 function App() {
 
-  // empéche l'accès via l'url sans connection
-  // problème react le lit une fois donc lors du changement a true l'url change mais pas la page
   const sessionEtat = sessionStorage.getItem("onlineStatus") === "true";
   
   return (
@@ -37,12 +35,7 @@ function App() {
           <Route path='/profil' element={<Profil />}/>
           <Route path='/logIn' element={sessionEtat ? <Profil /> : <LogIn/>}/>
           <Route path='/signUp' element={sessionEtat ? <Profil /> : <SignUp/>}/>
-<<<<<<< HEAD
-          <Route path='/resetPassword' element={<ResetPassword/>}/>        
-=======
-          {/* <Route path='/forgotPassword' element={<ForgotPassword/>}/>           reste juste a implémenter sgMail */}
-          <Route path='/resetPassword' element={<ResetPage/>}/>                 {/* depend de forgotPassword */}
->>>>>>> 1481378a73a855ff91fa9d08149b7fd720ee7f1b
+          <Route path='/resetPassword' element={sessionEtat ? <ResetPassword/> : <LogIn/>}/>        
           <Route path='/setting' element={<Setting/>}/>
           <Route path='/userDelete' element={<UserDelete/>}/>
           <Route path='/fifa' element={<Fifa/>}/>

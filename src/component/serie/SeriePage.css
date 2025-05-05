@@ -40,7 +40,8 @@
 .serie-container .content-filter .filters {
     display: flex;
     padding: 10px;
-    gap: 90px;
+    font-size: 20px;
+    gap: 60px;
 }
 
 .serie-container .content-filter .filters a:hover {
@@ -118,6 +119,7 @@
 .serie-container .filter-genre button {
     border: 0.5px solid white;
     background-color: whitesmoke;
+    color: black;
     width: 40%;
     margin: 10px;
     font-weight: bold;
@@ -130,13 +132,13 @@
     color: black;
 }
 
-
-
 .serie-container  .wrapper-main { 
-  height: 100px;
-  display: flex;
-  justify-content: center;
-}
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  
 .serie-container .wrapper-main .wrapper {
   display: grid;
   grid-template-areas: 'overlap';
@@ -144,17 +146,20 @@
   text-transform: uppercase;
   width: 20%;
 }
+
 .serie-container .wrapper > div {
-  background-clip: text;  
-  -webkit-background-clip: text;
-  color: #363833;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
-  font-size: 800%;
-  grid-area: overlap;
-  letter-spacing: 1px;
-  -webkit-text-stroke: 4px transparent;
+    margin-left: 50px;
+    background-clip: text;  
+    -webkit-background-clip: text;
+    color: #363833;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 800%;
+    grid-area: overlap;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 4px transparent;
 }
+
 .serie-container div.bg {
   background-image: repeating-linear-gradient( 105deg, 
     var(--gold) 0% , 
@@ -165,6 +170,7 @@
   transform: scaleY(1.05);
   transform-origin: top;
 }
+
 .serie-container div.fg{
   background-image: repeating-linear-gradient( 5deg,  
     var(--gold) 0% , 

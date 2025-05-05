@@ -15,7 +15,6 @@ const genresMovie = [
 ]
 
 export default function useMoviePage() {
-    
     const [movieRate, setMovieRate] = useState('now_playing')
     const [filtre, setfiltre] = useState([]);
     const [preFiltre, setPreFiltre] = useState([])
@@ -64,8 +63,6 @@ export default function useMoviePage() {
           }
         }   
       }
-
-    
 
 
     const searchMovieByRate = async (movieRate,page) => {

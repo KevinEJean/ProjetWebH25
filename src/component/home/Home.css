@@ -45,6 +45,7 @@
   letter-spacing: 1px;
   -webkit-text-stroke: 4px transparent;
 }
+
 .container-home-page div.bg {
   background-image: repeating-linear-gradient( 105deg, 
     var(--gold) 0% , 
