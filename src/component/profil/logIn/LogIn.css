@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto;
-    background-color: rgb(54, 53, 53);
+    background-color: rgba(140, 208, 247, 0.918);
     padding: 20px;
     border-radius: 20px;
 }
@@ -29,6 +29,9 @@
     border: none;
     color: white;
     width: 400px;
+    font-size: 18px;
+    outline: 0;
+    padding: 4px 5px;
 }
 
 .info {

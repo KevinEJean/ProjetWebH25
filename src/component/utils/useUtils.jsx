@@ -5,13 +5,6 @@ export default function useUtils() {
     const navigate = useNavigate()
     
     const handleDetail = (type, id, title) => {
-        // permet de limiter la vision au info tant que la connection n'a pas été effectué
-        // if (sessionStorage.getItem("onlineStatus") !== "null" &&  sessionStorage.getItem("onlineStatus") !== "undefined") {
-        //     navigate(`/detail/${type}/${id}/${title}`);
-        // } else {
-        //     navigate("/login")
-        // }
-
         navigate(`/detail/${type}/${id}/${title}`);
     };
     return {
@@ -26,9 +19,6 @@ export function troubleShoot() {
         window.location.hash = "#loaded"
         window.location.reload();
     } else {
-        // Set la couleur des éléments "h1/h2/h3" a la valeur choisi 
-        // dans Settings.jsx qui est stocké dans localStorage
-        // Copier cette couleur avec : style={{color: localStorage.getItem("Title-Colors")}}
         setTimeout(function () {
             var allH1Titles = document.getElementsByTagName("h1");
             var allH2Titles = document.getElementsByTagName("h2");

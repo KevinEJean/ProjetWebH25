@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // nouvelle api TMDB
 // url movie
@@ -13,21 +13,6 @@ const API_URL_UPCOMING = `https://api.themoviedb.org/3/movie/upcoming?api_key=${
 const API_URL_TV_POPULAR = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&page=`;
 const API_URL_TV_TOP_RATED = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&page=`;
 const API_URL_TV_TRENDING = `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=`;
-
-
-const URL_API = [
-    // url movie
-    {API_URL_A_l_AFFICHE: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=`},
-    {API_URL_TOP_RATED: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=`},
-    {API_URL_TRENDING: `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`},
-    {API_URL_POPULAR: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=`},
-    {API_URL_UPCOMING: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&page=`},
-    
-    // url tv
-    {API_URL_TV_POPULAR: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&page=`},
-    {API_URL_TV_TOP_RATED: `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&page=`},
-    {API_URL_TV_TRENDING: `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=`}
-]
 
 export default function useHome() {
         const [moviesRecent, setMoviesMoviesRecent] = useState([])

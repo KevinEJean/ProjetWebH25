@@ -30,9 +30,9 @@ export default function SeriePage() {
 
             <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
-                    <a onClick={() => setMovieRate('now_playing')}>{/*Latest */}</a> {/* NE FONCTIONNE PAS */}
-                    <a onClick={() => setMovieRate('trending')}>{/*Trending*/}</a> {/* NE FONCTIONNE PAS */}
-                    <a onClick={() => setMovieRate('top_rated')}>{/*Top-Rated*/}</a> {/* NE FONCTIONNE PAS */}
+                    <a onClick={() => setMovieRate('now_playing')}></a>
+                    <a onClick={() => setMovieRate('trending')}></a> 
+                    <a onClick={() => setMovieRate('top_rated')}></a> 
 
                 </div>
                 
@@ -41,7 +41,6 @@ export default function SeriePage() {
             </div>
 
             <div className="filter-genre" id='filter-genre' style={{display:"none"}}>
-                    {/*// problème de couleur à régler*/}
                     <form>
                         {                            
                             genresTv && genresTv.map((genre) => (
@@ -75,7 +74,6 @@ export default function SeriePage() {
                             </div>
                         )) 
                         :
-                        // movieRate === "now_playing" ? 
                         serieRate.map((serie) => (
                             <div key={serie.id} onClick={() => handleDetail("tv", serie.id, serie.title)}>
                           

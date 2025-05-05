@@ -5,12 +5,9 @@ import 'swiper/css/navigation';
 import './Carousel1.css';
 import './Carousel3.css';
 
-// import required modules
 import { Navigation } from 'swiper/modules';
 
-// régler le problème des poster,vide,backdrops qui arrive pas à affcier l'image
 
-// à renommer
 export default function Carousel3({ actorCarousel = [null]}) {
 
 

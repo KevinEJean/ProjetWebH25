@@ -30,7 +30,6 @@ export default function UseSeriePage() {
     const [maxPage, setMaxPage] = useState(1)
     const [serieFindByFiltre, setSerieFindByFiltre] = useState([]);
     const [serieRate, setSerieRate] = useState([])
-    // const {handleCheckCheckbox} = useMoviePage()
 
     const searchMovieOrTvBy = async (url, setter) => {
         const response = await fetch(`${url}${page}`);
@@ -40,7 +39,6 @@ export default function UseSeriePage() {
     };
 
     const searchSerieByRate = async () => {
-        // const response = await fetch(`${url}${page}`);
         let response = "";
         if (movieRate === "now_playing") { response = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&page=${page}`) } 
         else if (movieRate === "trending") { response = await fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=${page}`) } 
@@ -56,14 +54,12 @@ export default function UseSeriePage() {
         searchSerieByRate()
     }, [page, movieRate]);
 
-    // permet de confirmer la rechercher du filtre
     const handlefiltre = () => {
         setfiltre(preFiltre);
         let displayType = document.getElementById('filter-genre');
         displayType.style.display = "none";
     }
 
-    // permet de reset la recherche du filtre
     const handleResetfiltre = () => {
         setfiltre([]);
         let displayType = document.getElementById('filter-genre');
@@ -73,18 +69,15 @@ export default function UseSeriePage() {
         });
     }
 
-    // function me permettant de voir si les checkbox on été checked yes/no
     function handleCheckCheckbox(id) {
         var checkbox = document.getElementById(id);
       
         if (checkbox.checked) {
-        //   console.log(`le genre ${id} à été coché`);
           document.getElementById(id).style.backgroundColor = "gold"
           if (!preFiltre.includes(id)) {
             setPreFiltre(prev => [...prev, id])
           }
         } else {
-        //   console.log(`le genre ${id} à été décoché`);
           if (preFiltre.includes(id)) {
             setPreFiltre(prev => prev.filter(genre => genre !== id))
           }
@@ -92,11 +85,8 @@ export default function UseSeriePage() {
       }
 
 
-    // function me permettant d'aller chercher les film par à traver le filtre
     const searchMoviesByGenre = async (filtre) => {
-        // if (filtre.length === 0) return searchMovieOrTvBy(API_URL_TV_POPULAR);
         const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=${filtre}&page=${page}`);
-        // const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=${filtre}&page=${page}`);
         const data = await response.json();
         setSerieFindByFiltre(data.results || []);
         setMaxPage(data.total_pages);
@@ -104,10 +94,7 @@ export default function UseSeriePage() {
     
     useEffect(() => {
         searchMoviesByGenre(filtre)
-        // searchMovieByRate(movieRate,page);
     }, [filtre,movieRate,page]);
-
-    // console.log("movie filtre trouvé: ", serieFindByFiltre)
     
     return {
         serieRate,

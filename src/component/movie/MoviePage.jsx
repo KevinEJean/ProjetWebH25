@@ -13,7 +13,6 @@ function MoviePage() {
     const { handleDetail } = useUtils();
 
     if (!moviesTrending) return <p>Chargement des film ....</p>
-
     troubleShoot();
 
     return (

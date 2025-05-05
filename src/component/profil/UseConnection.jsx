@@ -30,9 +30,6 @@ export default function submitRules(username, email, password) {
 import axios from "axios";
 
 export function handleLogOut() {
-
-    // code pour déconnecter le user
-    sessionStorage.setItem("onlineStatus", false)
     axios.put(`http://localhost:8080/connection/logout/${sessionStorage.getItem("id")}`)
         .then(() => {
             sessionStorage.removeItem("username");

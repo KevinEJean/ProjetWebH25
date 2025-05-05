@@ -8,7 +8,6 @@ export default function SignUp() {
 
     const [show, setShow] = useState(false);
     const [user, setUser] = useState({ username: "", email: "", password: "" })
-    // const [auth, setAuth] = useState(false)
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -71,7 +70,7 @@ export default function SignUp() {
 
                 <div className="input-container ic2">
                     <input type={show ? "text" : "password"} name="passwordVerif" id="passwordVerif" required placeholder="Confirm Password" onChange={handleChange} />
-                    <span onClick={(event) => setShow(s => !s)} className="material-symbols-outlined show_icon">visibility</span>
+                    <span onClick={() => setShow(s => !s)} className="material-symbols-outlined show_icon" >visibility</span>
                 </div>
 
                 <div className="input-container ic2">

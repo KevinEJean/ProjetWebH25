@@ -4,8 +4,6 @@
   width: 100%;
 }
 
-/*//////////////// Container movie movies //////////////////////////////////////////////////////////////////////////////////////////3*/
-
 .container-home-page .container-movie {
   width: 100%;
   display: flex;
@@ -20,7 +18,6 @@
 }
 
 
-/*//////// title section style/////////////*/
 :root {
   --gold: #1a1a1a;
   --light-shadow: white;

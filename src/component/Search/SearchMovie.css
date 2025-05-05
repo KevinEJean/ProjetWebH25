@@ -1,20 +1,13 @@
 .containerSearch {
-        border-left: 2px solid;   
-        border-right: 2px solid;   
-
-        /*temporaire le temp de changer l'adaptabilité*/
-        width: 100%;
-        margin-top: 70px;
-        border-radius: 20px;
-        /* min-height: 100vh; */
-        padding: 5px;
-        display: inline-block;
-        /* margin-left: 80px; */
-        color: white;
+    border-left: 2px solid;   
+    border-right: 2px solid;   
+    width: 100%;
+    margin-top: 70px;
+    border-radius: 20px;
+    padding: 5px;
+    display: inline-block;
+    color: white;
 }
-
-
-/*////////////////// Container Search Bar(Input et button)///////////////////////////*/
 
 .containerSearch .searchBar select {
     color: white;
@@ -49,10 +42,7 @@
     transform: scale(0.9);
 }
 
-/*/////// cotnainer search rsult //////////////////////*/
-
 .containerSearch .searchResult {
-    /* border: 2px solid red;  */
     margin: 15px;
     padding: 10px;
     display: flex;  
@@ -62,10 +52,8 @@
     justify-content: center;    
 }
 .containerSearch .searchResult .card-movie{
-    /* border: 2px solid white;   */
     width: 300px;
     display: flex;
     align-items: center;
     border: 2px solid;
-  
 }

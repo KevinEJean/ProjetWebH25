@@ -9,17 +9,12 @@ import Home from './component/home/Home';
 import Profil from './component/profil/Profil';
 import LogIn from './component/profil/logIn/LogIn';
 import SignUp from './component/profil/SignUp/SignUp';
-import ForgotPassword from './component/profil/resetPassword/forgotPassword/ForgotPassword';
-import ResetPage from './component/profil/resetPassword/ResetPage';
 import Setting from './component/settings/Setting';
 import UserDelete from './component/settings/UserDelete';
 import Fifa from './component/sport/soccer/Fifa';
-import Carousel1 from './component/movieCard/carousel/Carousel1';
-import Carousel2 from './component/movieCard/carousel/Carousel2';
-import Carousel3 from './component/movieCard/carousel/Carousel3';
 import SeriePage from './component/serie/SeriePage';
 import FavoritPage from './component/favorit/FavoritPage';
-import { useEffect } from 'react';
+import ResetPassword from './component/resetPassword/resetPAssword';
 
 
 function App() {
@@ -42,8 +37,7 @@ function App() {
           <Route path='/profil' element={<Profil />}/>
           <Route path='/logIn' element={sessionEtat ? <Profil /> : <LogIn/>}/>
           <Route path='/signUp' element={sessionEtat ? <Profil /> : <SignUp/>}/>
-          {/* <Route path='/forgotPassword' element={<ForgotPassword/>}/>           reste juste a implémenter sgMail */}
-          {/* <Route path='/resetPassword' element={<ResetPage/>}/>                 depend de forgotPassword */}
+          <Route path='/resetPassword' element={<ResetPassword/>}/>        
           <Route path='/setting' element={<Setting/>}/>
           <Route path='/userDelete' element={<UserDelete/>}/>
           <Route path='/fifa' element={<Fifa/>}/>

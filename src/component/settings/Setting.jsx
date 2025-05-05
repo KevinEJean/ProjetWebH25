@@ -43,24 +43,24 @@ export default function Setting() {
             <div className="theme-group">
                 <h1 name="theme-title">Theme Preferences</h1>
                 <div className="theme-grid">
-                    <button name="default" onClick={(event) => colorPicker("lightgrey")} style={{ color: "lightgrey" }}>default</button>
-                    <button name="red" onClick={(event) => colorPicker("red")} style={{ color: "red" }}>red</button>
-                    <button name="blue" onClick={(event) => colorPicker("cornflowerblue")} style={{ color: "cornflowerblue" }}>blue</button>
-                    <button name="green" onClick={(event) => colorPicker("chartreuse")} style={{ color: "chartreuse" }}>green</button>
-                    <button name="yellow" onClick={(event) => colorPicker("yellow")} style={{ color: "yellow" }}>yellow</button>
-                    <button name="orange" onClick={(event) => colorPicker("orangered")} style={{ color: "orangered" }}>orange</button>
-                    <button name="purple" onClick={(event) => colorPicker("blueviolet")} style={{ color: "blueviolet" }}>purple</button>
-                    <button name="cyan" onClick={(event) => colorPicker("cyan")} style={{ color: "cyan" }}>cyan</button>
-                    <button name="pink" onClick={(event) => colorPicker("hotpink")} style={{ color: "hotpink" }}>pink</button>
-                    <button name="teal" onClick={(event) => colorPicker("teal")} style={{ color: "teal" }}>teal</button>
-                    <button name="brown" onClick={(event) => colorPicker("chocolate")} style={{ color: "chocolate" }}>brown</button>
+                    <button name="default" onClick={() => colorPicker("lightgrey")} style={{ color: "lightgrey" }}>default</button>
+                    <button name="red" onClick={() => colorPicker("red")} style={{ color: "red" }}>red</button>
+                    <button name="blue" onClick={() => colorPicker("cornflowerblue")} style={{ color: "cornflowerblue" }}>blue</button>
+                    <button name="green" onClick={() => colorPicker("chartreuse")} style={{ color: "chartreuse" }}>green</button>
+                    <button name="yellow" onClick={() => colorPicker("yellow")} style={{ color: "yellow" }}>yellow</button>
+                    <button name="orange" onClick={() => colorPicker("orangered")} style={{ color: "orangered" }}>orange</button>
+                    <button name="purple" onClick={() => colorPicker("blueviolet")} style={{ color: "blueviolet" }}>purple</button>
+                    <button name="cyan" onClick={() => colorPicker("cyan")} style={{ color: "cyan" }}>cyan</button>
+                    <button name="pink" onClick={() => colorPicker("hotpink")} style={{ color: "hotpink" }}>pink</button>
+                    <button name="teal" onClick={() => colorPicker("teal")} style={{ color: "teal" }}>teal</button>
+                    <button name="brown" onClick={() => colorPicker("chocolate")} style={{ color: "chocolate" }}>brown</button>
                 </div>
             </div>
             <div className="data-group">
                 <h1>Data</h1>
                 <div style={{ display: "flex" }}>
                     <p>This will erase all your data including saved films and series (Non-Reversable)</p>
-                    <button onClick={(event) => dataReset()} style={{ marginLeft: "10px", color: "red" }}>Reset</button>
+                    <button onClick={() => dataReset()} style={{ marginLeft: "10px", color: "red" }}>Reset</button>
                 </div>
                 <div style={{ display: "flex" }}>
                     <p>This will permanatly erase your account (Non-Reversable)</p>

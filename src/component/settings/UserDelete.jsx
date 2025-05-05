@@ -49,7 +49,7 @@ export default function UserDelete() {
                 <input type="text" id="username" value={username} readOnly />
                 <h4>
                     Password
-                    <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
+                    <span onClick={() => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>

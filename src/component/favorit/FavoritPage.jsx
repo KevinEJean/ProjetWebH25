@@ -4,7 +4,6 @@ import MovieCard from "../movieCard/MovieCard";
 import axios from "axios";
 import useUtils from "../utils/useUtils";
 
-// donné sera envoyé depuis la bd 
 export default function FavoritPage() {
     const [favorit, setFavorit] = useState([])    
 
@@ -21,7 +20,7 @@ export default function FavoritPage() {
     useEffect(() => {
         axios.get(`http://localhost:8080/favoriteList/getByListId/${sessionStorage.getItem("id")}`)
           .then(response => {
-            setFavorit(response.data); // en supposant que la réponse est un tableau de films favoris
+            setFavorit(response.data); 
           })
           .catch(error => {
             console.error("Il y a eu une erreur lors de la récupération des films favoris !", error);
@@ -45,10 +44,8 @@ export default function FavoritPage() {
                             <MovieCard url={`https://image.tmdb.org/t/p/original/${movie.imageUrl}`} title={movie.titre} />
                         </div>
                         <button onClick={() => deleteFavorit(movie.movieApiId)}>delete</button>
-
                     </div>
                 ))
-
             } 
         </div>
         </div>

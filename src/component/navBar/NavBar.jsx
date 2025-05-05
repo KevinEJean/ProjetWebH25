@@ -10,7 +10,6 @@ import { MdMovieCreation } from "react-icons/md";
 import { PiSoccerBallFill } from "react-icons/pi";
 import logo from "../../assets/logo.png";
 
-// régler le problème du a in LINK
 export default function NavBar() {
     const navigate = useNavigate()
     
@@ -34,7 +33,6 @@ export default function NavBar() {
         <div className='nav-grid'>
             <nav>
                 <a href="#" style={{color: localStorage.getItem("Title-Colors")}}>LOGO</a>
-                {/* <img src={logo} alt="logo" width={100} style={{borderRadius:"50%"}} /> */}
 
                 <ul className="list">
                     <Link to="/" title='Home' name='home-page'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>

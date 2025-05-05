@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 ////// Api de OMDB pour récupération des info/////////////////////////
@@ -7,8 +7,6 @@ const API_URL_OMDB = `https://www.omdbapi.com/?apikey=${API_KEY_OMDB}`;
 
 ///// Api recommendation TMDB pour les film recommandé //////////////////
 const API_KEY_TMDB = "bbe34269651625cd81a39afd38610700"; 
-//  ##########################################################################################################################
-//  ############ Hook personnalisé on va développer tout nos fonction ici et l'envoyer de l'autre coté #######################
 
 function useDetailMovie() {
     const {type, id, title } = useParams();
@@ -23,7 +21,6 @@ function useDetailMovie() {
     const [dataVideos, setDataVideos] = useState(null)
     const [dataInfo, setDataInfo] = useState(null)
     
-        //// -> cette fonction va trouver un seul et unique film dépendament du titre
         const searchDataOmdb = async () => {
             const response = await fetch(`${API_URL_OMDB}&t=${title}`); 
             const data = await response.json();

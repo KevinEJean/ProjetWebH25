@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 
-// URL POUR LES REQUÊTES API
 const API_KEY = "bbe34269651625cd81a39afd38610700"; 
 const API_URL_BY_RATE = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=`;
 
 const imageFiltre = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16"> <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/></svg>
 
-// TYPE de genre des film de TMDB et leur id
 const genresMovie = [ 
     {name: "Action", id:28}, {name:"Adventure", id:12}, {name:"Animation", id:16},
     {name:"Comedy", id:35}, {name:"Crime", id:80}, {name:"Documentary", id:99},
@@ -27,7 +25,6 @@ export default function useMoviePage() {
     const [maxPage, setMaxPage] = useState(1)
 
     
-    // function me permettant d'afficher les genreFiltre et de les cacher
     const handleDisplayGenre = () => {
         let displayType = document.getElementById('filter-genre');
         
@@ -38,14 +35,12 @@ export default function useMoviePage() {
         }
     }
 
-    // permet de confirmer la rechercher du filtre
     const handlefiltre = () => {
         setfiltre(preFiltre);
         let displayType = document.getElementById('filter-genre');
         displayType.style.display = "none";
     }
 
-    // permet de reset la recherche du filtre
     const handleResetfiltre = () => {
         setfiltre([]);
         let displayType = document.getElementById('filter-genre');
@@ -55,18 +50,15 @@ export default function useMoviePage() {
     });
     }
 
-    // function me permettant de voir si les checkbox on été checked yes/no
     function handleCheckCheckbox(id) {
         var checkbox = document.getElementById(id);
       
         if (checkbox.checked) {
-        //   console.log(`le genre ${id} à été coché`);
           document.getElementById(id).style.backgroundColor = "gold"
           if (!preFiltre.includes(id)) {
             setPreFiltre(prev => [...prev, id])
           }
         } else {
-        //   console.log(`le genre ${id} à été décoché`);
           if (preFiltre.includes(id)) {
             setPreFiltre(prev => prev.filter(genre => genre !== id))
           }
@@ -76,7 +68,6 @@ export default function useMoviePage() {
     
 
 
-    // function permettant de chercher les film de différent rate(trending, top rate, latest)
     const searchMovieByRate = async (movieRate,page) => {
         let response = null;
     
@@ -90,7 +81,6 @@ export default function useMoviePage() {
         setMaxPage(data.total_pages)
     };
     
-    // function me permettant d'aller chercher les film par à traver le filtre
     const searchMoviesByGenre = async (filtre) => {
         if (filtre.length === 0) return searchMovieByRate(movieRate,page);
         

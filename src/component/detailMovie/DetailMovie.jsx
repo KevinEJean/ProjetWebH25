@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './DetailMovie.css';
 import Carousel1 from '../movieCard/carousel/Carousel1';
 import useDetailMovie from './useDetailMovie';
@@ -12,10 +12,6 @@ function DetailMovie() {
     // const { id,title } = useParams();
     const {type, DataOmdb, dataInfo, dataPosterTmdb, dataRecommendation, ongletActor, setOngletActor, ongletMedia, setOngletMedia, dataActors, dataCrew, dataImages, dataVideos } = useDetailMovie();
     const navigate = useNavigate()
-    const [paramount, setParamount] = useState();
-    const [crave, setCrave] = useState();
-    const [hulu, setHulu] = useState();
-    const [primeVideo, setPrimeVideo] = useState();
 
     // ############################# BUG FIXES #############################
     if (!DataOmdb) return <p>Film information is loading...</p>;
@@ -60,59 +56,12 @@ function DetailMovie() {
             ))
         }
     }
-
-    function checkAvailability() {
-        var title = document.getElementById("movieTitle").textContent.trim().toLowerCase().replace(/\s+/g, '-');
-
-        // paramount  
-        // *************juste pour les série*************
-        // function paramount() {
-        //     window.open(`https://www.paramountplus.com/ca/shows//${title}/`, '_blank');
-        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
-        //         setCrave(true);
-        //         console.log("PARAMOUNT : Page found !");
-        //     } else {
-        //         setCrave(false);
-        //         console.log("PARAMOUNT : Page not found !");
-        //     }
-        // };
-
-        //crave
-        // setTimeout(function crave() {
-        //     window.open(`https://www.crave.ca/fr/movies/${title}`, '_blank').focus();
-        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
-        //         setCrave(true);
-        //         console.log("CRAVE : Page found !");
-        //     } else {
-        //         setCrave(false);
-        //         console.log("CRAVE : Page not found !");
-        //     }
-        // });
-
-        // hulu
-        // setTimeout(function hulu() {
-        //     window.open(`https://www.hulu.com/movie/${title}`, '_blank');
-        //     if (window.location != `https://www.hulu.com/movie/${title}`) {
-        //         setHulu(true);
-        //         console.log("HULU : Page found !");
-        //     } else {
-        //         setHulu(false);
-        //         console.log("HULU : Page not found !");
-        //     }
-        // }, 2000);
-    }
-
-    // window.onclick = function() {checkAvailability();}
-
+    
     return (
         <div className="container-detail" >
 
-            <div className="movie-detail"
-            // à voir si à garder ou pas
-            // style={{backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${dataPosterTmdb.poster_path}`})`}}
-            >
+            <div className="movie-detail" >
 
-                {/*///////// Movie Info////////////////////////////////////////////// */}
                 <div className="movie-image" >
                     <img src={`https://image.tmdb.org/t/p/original${dataPosterTmdb.poster_path}`} alt={dataPosterTmdb.title || "Affiche du film"} />
                 </div>
@@ -173,8 +122,6 @@ function DetailMovie() {
             </div>
             <hr />
 
-            {/*///////// Actor Info////////////////////////////////////////////// */}
-
             <div className="container-nav-media">
                 <h3>Tête d'affiche</h3>
                 <div className="nav-media">
@@ -192,8 +139,6 @@ function DetailMovie() {
                     <Carousel3 actorCarousel={dataCrew} />
                 }
             </div>
-
-            {/*///////// Media(video,image,poster)////////////////////////////////////////////// */}
 
             <div className="container-nav-media">
                 <h3>Média</h3>
@@ -224,7 +169,7 @@ function DetailMovie() {
 
             </div>
             <hr />
-            {/*///////// Film recommendé////////////////////////////////////////////// */}
+
             <h3>Titre similaire</h3>
             <div className="recommandations">
                 <Carousel1 movieCarousel={dataRecommendation} type={type} />
