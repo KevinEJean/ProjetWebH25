@@ -56,7 +56,7 @@ export default function UserDelete() {
                 <input type={show ? "text" : "password"} id="passwd" onChange={handlePassword} />
             </form>
             <div>
-                <button onClick={deleteUser}>Delete</button>
+                <button name="confirmBtn" onClick={deleteUser}>Delete</button>
                 <Link to={"/setting"}><button style={{ color: "red", margin: "10px 0 0 10px" }}>Cancel</button></Link>
             </div>
         </div>

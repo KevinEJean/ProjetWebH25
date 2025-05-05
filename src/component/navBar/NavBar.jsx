@@ -37,13 +37,13 @@ export default function NavBar() {
                 {/* <img src={logo} alt="logo" width={100} style={{borderRadius:"50%"}} /> */}
 
                 <ul className="list">
-                    <Link to="/" title='Home'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/movie" title='Movie'><li><MdMovieCreation style={{fontSize:"20px"}}/></li></Link>
-                    <Link to="/serie" title='Serie'><li><FaTv style={{fontSize:"20px"}}/></li></Link>
-                    <li title='favorit' onClick={handleFavoritRedirection}><CiBookmark style={{fontSize:"20px"}}/></li>
-                    <Link to="/fifa" title='FIFA'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link>
-                    <li title="profil" onClick={handleProfilRedirection}><CgProfile style={{fontSize:"20px"}}/></li>
-                    <Link to="/setting" title='Setting'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/" title='Home' name='home-page'><li><GrHomeRounded style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/movie" title='Movie' name='movie-page'><li><MdMovieCreation style={{fontSize:"20px"}}/></li></Link>
+                    <Link to="/serie" title='Serie' name='serie-page'><li><FaTv style={{fontSize:"20px"}}/></li></Link>
+                    <li title='favorit' name='favorit-page' onClick={handleFavoritRedirection}><CiBookmark style={{fontSize:"20px"}}/></li>
+                    <Link to="/fifa" title='FIFA' name='sports-page'><li><PiSoccerBallFill style={{fontSize:"20px"}}/></li></Link>
+                    <li title="profil" name='profil-page' onClick={handleProfilRedirection}><CgProfile style={{fontSize:"20px"}}/></li>
+                    <Link to="/setting" title='Setting' name='settings-page'><li><IoMdSettings style={{fontSize:"20px"}}/></li></Link>
                 </ul>
                 <Link to="/search" title='Search'><button className="search">search</button></Link>
             </nav>

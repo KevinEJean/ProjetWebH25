@@ -18,9 +18,9 @@ export default function Setting() {
         }
     }
 
-    function copy() {
-        navigator.clipboard.writeText('filmApp@gmail.com');
-        alert('Email saved !')
+    const copy = (e) => {
+        navigator.clipboard.writeText(e.target.name);
+        alert(`${e.target.textContent} saved !`);
     }
 
     function dataReset() {
@@ -41,19 +41,19 @@ export default function Setting() {
     return (
         <div className="setting">
             <div className="theme-group">
-                <h1>Theme Preferences</h1>
+                <h1 name="theme-title">Theme Preferences</h1>
                 <div className="theme-grid">
-                    <button onClick={(event) => colorPicker("lightgrey")} style={{ color: "lightgrey" }}>default</button>
-                    <button onClick={(event) => colorPicker("red")} style={{ color: "red" }}>red</button>
-                    <button onClick={(event) => colorPicker("cornflowerblue")} style={{ color: "cornflowerblue" }}>blue</button>
-                    <button onClick={(event) => colorPicker("chartreuse")} style={{ color: "chartreuse" }}>green</button>
-                    <button onClick={(event) => colorPicker("yellow")} style={{ color: "yellow" }}>yellow</button>
-                    <button onClick={(event) => colorPicker("orangered")} style={{ color: "orangered" }}>orange</button>
-                    <button onClick={(event) => colorPicker("blueviolet")} style={{ color: "blueviolet" }}>purple</button>
-                    <button onClick={(event) => colorPicker("cyan")} style={{ color: "cyan" }}>cyan</button>
-                    <button onClick={(event) => colorPicker("hotpink")} style={{ color: "hotpink" }}>pink</button>
-                    <button onClick={(event) => colorPicker("teal")} style={{ color: "teal" }}>teal</button>
-                    <button onClick={(event) => colorPicker("chocolate")} style={{ color: "chocolate" }}>brown</button>
+                    <button name="default" onClick={(event) => colorPicker("lightgrey")} style={{ color: "lightgrey" }}>default</button>
+                    <button name="red" onClick={(event) => colorPicker("red")} style={{ color: "red" }}>red</button>
+                    <button name="blue" onClick={(event) => colorPicker("cornflowerblue")} style={{ color: "cornflowerblue" }}>blue</button>
+                    <button name="green" onClick={(event) => colorPicker("chartreuse")} style={{ color: "chartreuse" }}>green</button>
+                    <button name="yellow" onClick={(event) => colorPicker("yellow")} style={{ color: "yellow" }}>yellow</button>
+                    <button name="orange" onClick={(event) => colorPicker("orangered")} style={{ color: "orangered" }}>orange</button>
+                    <button name="purple" onClick={(event) => colorPicker("blueviolet")} style={{ color: "blueviolet" }}>purple</button>
+                    <button name="cyan" onClick={(event) => colorPicker("cyan")} style={{ color: "cyan" }}>cyan</button>
+                    <button name="pink" onClick={(event) => colorPicker("hotpink")} style={{ color: "hotpink" }}>pink</button>
+                    <button name="teal" onClick={(event) => colorPicker("teal")} style={{ color: "teal" }}>teal</button>
+                    <button name="brown" onClick={(event) => colorPicker("chocolate")} style={{ color: "chocolate" }}>brown</button>
                 </div>
             </div>
             <div className="data-group">
@@ -64,14 +64,15 @@ export default function Setting() {
                 </div>
                 <div style={{ display: "flex" }}>
                     <p>This will permanatly erase your account (Non-Reversable)</p>
-                    <button onClick={() => handleRedirectionDeleteAccount()} style={{ marginLeft: "10px", color: "red" }}>Delete</button>
+                    <button name="deleteBtn" onClick={() => handleRedirectionDeleteAccount()} style={{ marginLeft: "10px", color: "red" }}>Delete</button>
                 </div>
             </div>
             <div className="contact-group">
                 <h1>Information</h1>
                 <div style={{ display: "flex", marginBottom: "50px" }}>
                     <p>Contact Us ?</p>
-                    <button onClick={(event) => copy()} style={{ marginLeft: "10px", color: "lightgrey" }}>filmapp25@gmail.com</button>
+                    <button name="filmapph25@gmail.com" onClick={copy} style={{ marginLeft: "10px", color: "lightgrey" }}>Email</button>
+                    <button name="https://github.com/KevinEJean/ProjetWebH25" onClick={copy} style={{ marginLeft: "10px", color: "lightgrey" }}>Github</button>
                 </div>
             </div>
         </div>

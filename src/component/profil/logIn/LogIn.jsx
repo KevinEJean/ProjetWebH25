@@ -61,9 +61,9 @@ export default function LogIn() {
                 <input type={show ? "text" : "password"} name="password" onChange={handleChange} />
                 <Link to={"/forgotPassword"}><p className="info" style={{ textAlign: "right" }}>reset password?</p></Link>
             </form>
-            <Link to={"/signUp"}><p>Don't have an account?</p></Link>
+            <Link to={"/signUp"}><p name="toSignUp">Don't have an account?</p></Link>
             <div>
-                <button onClick={(e) => handleLogin()} style={{ color: "green", marginRight: "10px" }}>Log In</button>
+                <button onClick={(e) => handleLogin()} id="login-btn" style={{ color: "green", marginRight: "10px" }}>Log In</button>
                 <Link to={"/"}><button style={{ color: "red" }}>Cancel</button></Link>
             </div>
         </div>

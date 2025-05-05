@@ -12,8 +12,8 @@ function SearchMovie() {
         <div className='containerSearch'>
             <div className="searchBar">
                 <select id="genreSelect" onChange={(e) => setGenreSelect(e.target.value)}>
-                    <option value="movie">Film</option>
-                    <option value="tv">serie</option>
+                    <option id='genreMovie' value="movie">Film</option>
+                    <option id='genreTv' value="tv">serie</option>
                 </select>
                 <input type="text" className="searchTerm" value={inputCritere} placeholder="Search by title, genre, year" onChange={(e) => setInputCritere(e.target.value)} required />
                 

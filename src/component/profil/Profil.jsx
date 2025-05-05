@@ -52,11 +52,11 @@ export default function Profil() {
         //     setUser({ ...user, [e.target.id]: e.target.value });
         // }
 
-        // document.getElementById("Fname").readOnly = false;
-        // document.getElementById("Lname").readOnly = false;
+        // document.getElementById("fname").readOnly = false;
+        // document.getElementById("lname").readOnly = false;
 
-        // document.getElementById("Fname").onchange = handleUpdate;
-        // document.getElementById("Lname").onchange = handleUpdate;
+        // document.getElementById("fname").onchange = handleUpdate;
+        // document.getElementById("lname").onchange = handleUpdate;
 
         // alert("You can only update your first name and last name from this screen. To change password you need to click on 'logout' then click 'reset password'.");
 
@@ -95,20 +95,20 @@ export default function Profil() {
             </span>
             <form>
                 <h4>First Name</h4>
-                <input type="text" id="Fname" value={user.fname} readOnly />
+                <input type="text" id="fname" value={user.fname} readOnly />
                 <h4>Email</h4>
-                <input type="text" id="Email" value={user.email} readOnly />
+                <input type="text" id="email" value={user.email} readOnly />
                 <h4>
                     Password
                     <span onClick={(event) => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="Password" value={user.password} readOnly />
+                <input type={show ? "text" : "password"} id="password" value={user.password} readOnly />
             </form>
             <form>
                 <h4>Last Name</h4>
-                <input type="text" id="Lname" value={user.lname} readOnly />
+                <input type="text" id="lname" value={user.lname} readOnly />
                 <h4>Username</h4>
                 <input type="text" id="username" value={username} readOnly />
                 <div style={{ margin: " 20px 0 0 20px" }}>

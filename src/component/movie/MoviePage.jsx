@@ -27,9 +27,9 @@ function MoviePage() {
 
             <div className="content-filter" style={{ color: localStorage.getItem("Title-Colors") }}>
                 <div className="filters">
-                    <a onClick={() => setMovieRate('now_playing')}>Latest </a>
-                    <a onClick={() => setMovieRate('trending')}>Trending </a>
-                    <a onClick={() => setMovieRate('top_rated')}>Top-Rated</a>
+                    <a id='latest-flt' onClick={() => setMovieRate('now_playing')}>Latest </a>
+                    <a id='trending-flt' onClick={() => setMovieRate('trending')}>Trending </a>
+                    <a id='topRated-flt' onClick={() => setMovieRate('top_rated')}>Top-Rated</a>
                 </div>
 
                 <a id='genre' onClick={handleDisplayGenre}> Genre <span style={{ paddingLeft: "4px" }}>{imageFiltre}</span></a>
@@ -49,7 +49,7 @@ function MoviePage() {
                         ))
                     }
                 </form>
-                <button onClick={handlefiltre}>Appliquer</button>
+                <button id='confirmGenreBtn' onClick={handlefiltre}>Appliquer</button>
                 <button onClick={handleResetfiltre}>Reset</button>
             </div>
 

@@ -30,9 +30,9 @@ export default function SeriePage() {
 
             <div className="content-filter" style={{color: localStorage.getItem("Title-Colors")}}>
                 <div className="filters">
-                    <a onClick={() => setMovieRate('now_playing')}>Latest </a>
-                    <a onClick={() => setMovieRate('trending')}>Trending </a>
-                    <a onClick={() => setMovieRate('top_rated')}>Top-Rated</a>
+                    <a onClick={() => setMovieRate('now_playing')}>{/*Latest */}</a> {/* NE FONCTIONNE PAS */}
+                    <a onClick={() => setMovieRate('trending')}>{/*Trending*/}</a> {/* NE FONCTIONNE PAS */}
+                    <a onClick={() => setMovieRate('top_rated')}>{/*Top-Rated*/}</a> {/* NE FONCTIONNE PAS */}
 
                 </div>
                 
