@@ -4,23 +4,23 @@
 
 ### Client
     http://localhost:{port}/client/...
-- PUT remove/{username}
+- PUT remove/{username}/{password}
 - PUT update/{username}/{newEmail}/{neWFname}/{newLname}
 - PUT updatePassword/{username}/{newPassword}
 - GET getOnlineStatus/{username}
 
 ### Liste de Favorite
     http://localhost:{port}/connection/...
-- POST add
-- DELETE remove/{id}
-- GET getByListId/{id}
-- GET getByClientId/{id}
+- POST add/{clientId}, body: { favorite: [] }
+- DELETE remove/{clientId}/{movieApiId}
+- GET getByListId/{clientId}/{movieApiId}
+- GET getByClientId/{clientId}
 
 ### Connection
     http://localhost:{port}/connection/...
-- PUT logout/{username}
-- POST login/{username}/{password}
-- POST signUp
+- PUT logout/{id}
+- POST login, body : { username: string, password: string }
+- POST signUp, body : { username: string, email: string, password: string }
 
 ## Autre fonction a implémenter
 - Détaillée les gestions d'erreurs
