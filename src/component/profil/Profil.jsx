@@ -68,7 +68,7 @@ export default function Profil() {
                 <input type="text" id="username" value={username} readOnly />
             </form>
             <p>change picture?</p>
-            <p onClick={() => handleLogOut()} style={{ textAlign: "left" }}>log out</p>
+            <p id="logout" onClick={() => handleLogOut()} style={{ textAlign: "left" }}>log out</p>
             <Link to={"/resetPassword"}><p className="info" style={{ textAlign: "right" }}>reset password?</p></Link>
 
         </div>
