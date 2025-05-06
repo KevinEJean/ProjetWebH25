@@ -19,7 +19,6 @@ public class FavoriteListService {
         this.clientRep = clientRep;
     }
 
-    // filtrer le movieApiId par client(ne peut avoir le même film dans la même list)
     public boolean addFavorite(int clientId, FavoriteList favorite) {
         Client client = clientRep.getClientById(clientId);
         if (client != null) {
@@ -43,7 +42,6 @@ public class FavoriteListService {
         return false;
     }
 
-    // Vérifier si un film est déjà dans la liste des favoris d'un client
     public boolean isFavorite(int clientId, int movieApiId) {
         Client client = clientRep.getClientById(clientId);
         FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiId);

@@ -17,7 +17,6 @@ public class FavoriteListController {
         this.service = service;
     }
 
-
     @PostMapping("/add/{clientId}")
     public boolean addFavorite(@PathVariable int clientId, @RequestBody FavoriteList favorite) {
         return service.addFavorite(clientId, favorite);
