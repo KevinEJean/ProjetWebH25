@@ -50,20 +50,20 @@ export default function Profil() {
 
             <form>
                 <h4>First Name</h4>
-                <input type="text" id="Fname" value={user.fname} readOnly />
+                <input type="text" id="fname" value={user.fname} readOnly />
                 <h4>Email</h4>
-                <input type="text" id="Email" value={user.email} readOnly />
+                <input type="text" id="email" value={user.email} readOnly />
                 <h4>
                     Password
                     <span onClick={() => setShow(s => !s)} class="material-symbols-outlined show_icon">
                         visibility
                     </span>
                 </h4>
-                <input type={show ? "text" : "password"} id="Password" value={user.password} readOnly />
+                <input type={show ? "text" : "password"} id="password" value={user.password} readOnly />
             </form>
             <form>
                 <h4>Last Name</h4>
-                <input type="text" id="Lname" value={user.lname} readOnly />
+                <input type="text" id="lname" value={user.lname} readOnly />
                 <h4>Username</h4>
                 <input type="text" id="username" value={username} readOnly />
             </form>
