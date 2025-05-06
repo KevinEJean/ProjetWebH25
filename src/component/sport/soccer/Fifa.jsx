@@ -1,6 +1,5 @@
 import Container from '../Container';
 import './Fifa.css';
-import { Navigate } from 'react-router-dom';
 
 export default function Fifa() {
 
