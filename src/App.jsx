@@ -14,7 +14,7 @@ import UserDelete from './component/settings/UserDelete';
 import Fifa from './component/sport/soccer/Fifa';
 import SeriePage from './component/serie/SeriePage';
 import FavoritPage from './component/favorit/FavoritPage';
-import ResetPassword from './component/resetPassword/resetPAssword';
+import ResetPassword from './component/resetPassword/ResetPassword';
 
 
 function App() {
