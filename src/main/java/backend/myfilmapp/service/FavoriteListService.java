@@ -34,10 +34,10 @@ public class FavoriteListService {
         return false;
     }
 
-    public boolean deleteFavorite(int clientId, int movieApoID) {
-        if (isFavorite(clientId, movieApoID)) {
+    public boolean deleteFavorite(int clientId, int movieApiID) {
+        if (isFavorite(clientId, movieApiID)) {
             Client client = clientRep.getClientById(clientId);
-            FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApoID);
+            FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiID);
             favoriteListRep.delete(favoriteList);
             return true;
         }
