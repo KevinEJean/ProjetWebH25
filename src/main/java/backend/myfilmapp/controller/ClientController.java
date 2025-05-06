@@ -44,32 +44,8 @@ public class ClientController {
         return service.getOnlineStatus(username);
     }
 
-
-
-    /*######## POUR TEST ########*/
-
-    @PostMapping("/add")
-    public boolean add(@RequestBody Client user) {
-        return service.saveClient(user);
-    }
-
-    @GetMapping("/getAll")
-    public List<Client> getAll() {
-        return service.getAllClient();
-    }
-
     @GetMapping("/getById/{id}")
     public Client byId(@PathVariable int id) {
         return service.getClientById(id);
-    }
-
-    @GetMapping("/getByUsername/{username}")
-    public Client byUsername(@PathVariable String username) {
-        return service.getClientByUsername(username);
-    }
-
-    @GetMapping("/getByEmail/{email}")
-    public Client byEmail(@PathVariable String email) {
-        return service.getClientByEmail(email);
     }
 }
