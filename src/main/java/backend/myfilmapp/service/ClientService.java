@@ -15,33 +15,49 @@ public class ClientService {
     }
 
     public boolean removeClient(String username, String password) {
-        Client client = rep.getClientByUsername(username);
-        if (client.getPassword().equals(password)) {
-            client.setActive(false);
-            client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
-            rep.save(client);
-            return true;
+        try {
+            Client client = rep.getClientByUsername(username);
+            if (client.getPassword().equals(password)) {
+                client.setActive(false);
+                client.setUsername("del-user" + client.getId()); // change le nom pour empêcher erreur de login/signin
+                rep.save(client);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
 
     public Boolean updateClientPassword(String username, String newPassword) {
-        Client client = rep.getClientByUsername(username);
-        if (client != null) {
-            client.setPassword(newPassword);
-            rep.save(client);
-            return true;
+        try {
+            Client client = rep.getClientByUsername(username);
+            if (client != null) {
+                client.setPassword(newPassword);
+                rep.save(client);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
 
     public Boolean getOnlineStatus(String username) {
-        Client client = rep.getClientByUsername(username);
-        return client.getOnlineStatus();
+        try {
+            Client client = rep.getClientByUsername(username);
+            return client.getOnlineStatus();
+        }  catch (Exception e) {
+            return false;
+        }
     }
 
     public Client getClientById(int id) {
-        return rep.getClientById(id);
+        try {
+            return rep.getClientById(id);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
 

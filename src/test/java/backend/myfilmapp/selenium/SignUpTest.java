@@ -34,6 +34,8 @@ public class SignUpTest {
 		// click sur 'Don't have an account?' (naviguer vers la page signUp)
 		WebElement toSignUp = driver.findElement(By.name("toSignUp"));
 		toSignUp.click();
+
+		TimeUnit.SECONDS.sleep(1);
 		
 		// verifie qu'il navigue vers la page signUp
 		String expectedUrlSignUp = "http://localhost/signUp";
@@ -95,7 +97,7 @@ public class SignUpTest {
 		WebElement passwordInput = driver.findElement(By.name("password"));
 		WebElement passwordVerifInput = driver.findElement(By.name("passwordVerif"));
 		WebElement signUpBtn = driver.findElement(By.className("submit"));
-		usernameInput.sendKeys("kevin");
+		usernameInput.sendKeys("jean");
 		emailInput.sendKeys("kj@mail.com");
 		passwordInput.sendKeys("secret");
 		passwordVerifInput.sendKeys("secret");
@@ -109,7 +111,7 @@ public class SignUpTest {
 		
 		// verifie que les données de l'utilisateur soit affiché
 		WebElement usernameInfo = driver.findElement(By.id("username"));
-		assertEquals("kevin", usernameInfo.getAttribute("value"));
+		assertEquals("jean", usernameInfo.getAttribute("value"));
 		WebElement passwordInfo = driver.findElement(By.id("password"));
 		assertEquals("secret", passwordInfo.getAttribute("value"));
 		WebElement emailInfo = driver.findElement(By.id("email"));

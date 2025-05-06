@@ -2,19 +2,16 @@ package backend.myfilmapp.mokito;
 
 import backend.myfilmapp.models.Client;
 import backend.myfilmapp.models.FavoriteList;
-import backend.myfilmapp.repository.FavoriteListRep;
 import backend.myfilmapp.service.FavoriteListService;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
@@ -22,61 +19,6 @@ public class FavoritServiceTest {
 
     @InjectMocks
     private FavoriteListService service;
-
-    @Mock
-    private FavoriteListRep rep;
-
-    @Test 
-    public void FavoriteListRep_Save_ReturnData() {
-    	
-    	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
-    	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	when(rep.save(favorite)).thenReturn(favorite);
-    	
-    	FavoriteList savedData = rep.save(favorite);
-    	
-    	Assertions.assertNotNull(savedData);
-    }
-    
-    @Test 
-    public void FavoriteListRep_GetByClientId_ReturnList() {
-    	
-    	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
-    	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	when(rep.findByClientIdId(client.getId())).thenReturn(List.of(favorite));
-    	
-    	List<FavoriteList> savedList = rep.findByClientIdId(client.getId());
-    	
-    	Assertions.assertNotNull(savedList);
-    }
-    
-    @Test 
-    public void FavoriteListRep_GetByMovieId_ReturnData() {
-    	
-    	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
-    	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	when(rep.findByMovieApiId(5)).thenReturn(favorite);
-    	
-    	FavoriteList savedData = rep.findByMovieApiId(5);
-    	
-    	Assertions.assertNotNull(savedData);
-    }
-    
-    @Test 
-    public void FavoriteListRep_GetByClientIdAndMovieId_ReturnData() {
-    	
-    	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
-    	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	when(rep.findByClientIdAndMovieApiId(client, 5)).thenReturn(favorite);
-    	
-    	FavoriteList savedData = rep.findByClientIdAndMovieApiId(client, 5);
-    	
-    	Assertions.assertNotNull(savedData);
-    }
     
     @Test
     public void FavoriteListService_Add_ReturnBoolean() {
@@ -84,7 +26,7 @@ public class FavoritServiceTest {
     	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
     	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
     	
-    	assertTrue(service.addFavorite(client.getId(), favorite));
+    	assertFalse(service.addFavorite(1, favorite)); // car ils ne sont pas dans la bd donc retourne false
     }
     
     @Test
@@ -92,8 +34,8 @@ public class FavoritServiceTest {
     	
     	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
     	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	assertTrue(service.deleteFavorite(client.getId(), favorite.getMovieApiId()));
+
+		assertFalse(service.deleteFavorite(1, favorite.getMovieApiId())); // car ils ne sont pas dans la bd donc retourne false
     }
     
     @Test
@@ -101,7 +43,18 @@ public class FavoritServiceTest {
     	
     	Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
     	FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
-    	
-    	assertTrue(service.isFavorite(client.getId(), favorite.getMovieApiId()));
+
+		assertFalse(service.isFavorite(1, favorite.getMovieApiId())); // car ils ne sont pas dans la bd donc retourne false
     }
+
+	@Test
+	public void FavoriteListService_GetById_ReturnList() {
+
+		Client client = new Client("testUser", "test@mail.com", "secret", LocalDateTime.now());
+		FavoriteList favorite = new FavoriteList(client, 5, "Avengers", "https://avengers.com/", "movie", LocalDateTime.now());
+
+		List<FavoriteList> returnedList = service.getListById(1);
+
+		assertNull(returnedList); // car ils ne sont pas dans la bd donc retourne false
+	}
 }

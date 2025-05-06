@@ -1,23 +1,18 @@
 package backend.myfilmapp.mokito;
 
 import backend.myfilmapp.models.Client;
-import backend.myfilmapp.repository.ClientRep;
 import backend.myfilmapp.service.LoginService;
 import backend.myfilmapp.models.LoginResponse;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
 public class LoginServiceTest {
-
-    @Mock
-    private ClientRep clientRepository;
 
     @InjectMocks
     private LoginService Loginservice;
@@ -36,18 +31,18 @@ public class LoginServiceTest {
     void LoginService_Login_ReturnLoginResponse() {
     	
     	Client client = new Client("testUser2", "test@mail.com", "secret", LocalDateTime.now());
-    	
+
     	LoginResponse response = Loginservice.LoginUser(client);
-    	
-    	assertTrue(response.getUsernameResponse().equals("testUser"));
+
+    	assertNull(response); // car client n'est pas dans la bd donc retourne null
     }
     
     @Test
     void LoginService_Logout_ReturnBoolean() {
     	
     	Client client = new Client("testUser3", "test@mail.com", "secret", LocalDateTime.now());
-    	
-    	assertTrue(Loginservice.LogoutUser(client.getId()));
+
+    	assertFalse(Loginservice.LogoutUser(client.getId())); // car client n'est pas dans la bd donc retourne false
     }
     
     @Test

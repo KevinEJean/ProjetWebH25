@@ -59,6 +59,8 @@ public class LoginTest {
 		WebElement logoutBtn = driver.findElement(By.id("logout"));
 		logoutBtn.click();
 
+		TimeUnit.SECONDS.sleep(2);
+
 		// verifie qu'il navigue vers la page login
 		String expectedUrlLogin2 = "http://localhost/login";
 		assertEquals(expectedUrlLogin2, driver.getCurrentUrl());
@@ -117,7 +119,7 @@ public class LoginTest {
 		WebElement passwordInput = driver.findElement(By.name("password"));
 		WebElement passwordVerifInput = driver.findElement(By.name("passwordVerif"));
 		WebElement signUpBtn = driver.findElement(By.className("submit"));
-		usernameInput.sendKeys("kevin");
+		usernameInput.sendKeys("jean");
 		emailInput.sendKeys("kj@mail.com");
 		passwordInput.sendKeys("secret");
 		passwordVerifInput.sendKeys("secret");
@@ -133,6 +135,8 @@ public class LoginTest {
 		WebElement logoutBtn = driver.findElement(By.id("logout"));
 		logoutBtn.click();
 
+		TimeUnit.SECONDS.sleep(2);
+
 		// verifie qu'il navigue vers la page login
 		String expectedUrlLogin2 = "http://localhost/login";
 		assertEquals(expectedUrlLogin2, driver.getCurrentUrl());
@@ -143,7 +147,7 @@ public class LoginTest {
 		WebElement usernameLoginInput = driver.findElement(By.name("username"));
 		WebElement passwordLoginInput = driver.findElement(By.name("password"));
 		WebElement loginBtn = driver.findElement(By.id("login-btn"));
-		usernameLoginInput.sendKeys("kevin");
+		usernameLoginInput.sendKeys("jean");
 		passwordLoginInput.sendKeys("secret");
 		loginBtn.click();
 
@@ -155,7 +159,7 @@ public class LoginTest {
 		
 		// verifie que les données de l'utilisateur soit affiché
 		String usernameInfo = driver.findElement(By.id("username")).getAttribute("value");
-		assertEquals("kevin", usernameInfo);
+		assertEquals("jean", usernameInfo);
 		String passwordInfo = driver.findElement(By.id("password")).getAttribute("value");
 		assertEquals("secret", passwordInfo);
 		String emailInfo = driver.findElement(By.id("email")).getAttribute("value");

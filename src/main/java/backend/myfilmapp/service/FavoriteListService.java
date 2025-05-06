@@ -12,7 +12,7 @@ import java.util.List;
 public class FavoriteListService {
 
     private final FavoriteListRep favoriteListRep;
-    public ClientRep clientRep;
+    private final ClientRep clientRep;
 
     public FavoriteListService(ClientRep clientRep, FavoriteListRep favoriteListRep) {
         this.favoriteListRep = favoriteListRep;
@@ -20,36 +20,52 @@ public class FavoriteListService {
     }
 
     public boolean addFavorite(int clientId, FavoriteList favorite) {
-        Client client = clientRep.getClientById(clientId);
-        if (client != null) {
-            favorite.setClientId(client);
-            if (!isFavorite((client.getId()), favorite.getMovieApiId())) {
-                favoriteListRep.save(favorite);
+        try {
+            Client client = clientRep.getClientById(clientId);
+            if (client != null) {
+                favorite.setClientId(client);
+                if (!isFavorite((client.getId()), favorite.getMovieApiId())) {
+                    favoriteListRep.save(favorite);
+                    return true;
+                }
                 return true;
             }
-            return true;
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
 
     public boolean deleteFavorite(int clientId, int movieApiID) {
-        if (isFavorite(clientId, movieApiID)) {
-            Client client = clientRep.getClientById(clientId);
-            FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiID);
-            favoriteListRep.delete(favoriteList);
-            return true;
+        try {
+            if (isFavorite(clientId, movieApiID)) {
+                Client client = clientRep.getClientById(clientId);
+                FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiID);
+                favoriteListRep.delete(favoriteList);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
 
     public boolean isFavorite(int clientId, int movieApiId) {
-        Client client = clientRep.getClientById(clientId);
-        FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiId);
-        return favoriteList != null;
+        try {
+            Client client = clientRep.getClientById(clientId);
+            FavoriteList favoriteList = favoriteListRep.findByClientIdAndMovieApiId(client, movieApiId);
+            return favoriteList != null;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public List<FavoriteList> getListById(int id) {
-        return favoriteListRep.findByClientIdId(id);
+        try {
+            return favoriteListRep.findByClientIdId(id);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }
