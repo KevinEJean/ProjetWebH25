@@ -5,7 +5,6 @@
 ### Client
     http://localhost:{port}/client/...
 - PUT remove/{username}/{password}
-- PUT update/{username}/{newEmail}/{newFname}/{newLname}
 - PUT updatePassword/{username}/{newPassword}
 - GET getOnlineStatus/{username}
 - GET getById/{id}
