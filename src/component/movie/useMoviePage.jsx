@@ -97,7 +97,6 @@ export default function useMoviePage() {
         movieRate, 
         filtre,
         setMovieRate, 
-        filtre,
         moviesTrending,
         movieFindByFiltre,
         page,
