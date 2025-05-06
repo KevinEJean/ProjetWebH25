@@ -8,6 +8,7 @@
 - PUT update/{username}/{newEmail}/{neWFname}/{newLname}
 - PUT updatePassword/{username}/{newPassword}
 - GET getOnlineStatus/{username}
+- GET getById/{id}
 
 ### Liste de Favorite
     http://localhost:{port}/connection/...
@@ -21,6 +22,3 @@
 - PUT logout/{id}
 - POST login, body : { username: string, password: string }
 - POST signUp, body : { username: string, email: string, password: string }
-
-## Autre fonction a implémenter
-- Détaillée les gestions d'erreurs
