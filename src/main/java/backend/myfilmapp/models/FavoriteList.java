@@ -29,6 +29,15 @@ public class FavoriteList {
     @Column(name = "date_de_creation")
     private LocalDateTime dateAjout = LocalDateTime.now();
 
+    public FavoriteList(Client clientID, int movieID, String title, String url, String typeMovie, LocalDateTime creationDate) {
+    	this.clientId = clientID;
+    	this.movieApiId = movieID;
+    	this.titre = title;
+    	this.imageUrl = url;
+    	this.type = typeMovie;
+    	this.dateAjout = creationDate;
+    }
+
     public FavoriteList() {}
 
     public int getId() { return id; }

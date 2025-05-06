@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 public class SearchTest {
-	void setup() {}
 	
 	@Test
 	public void testSearch() throws Exception {
@@ -31,10 +30,6 @@ public class SearchTest {
 		String expectedUrlSettings = "http://localhost/search";
 		assertEquals(expectedUrlSettings, driver.getCurrentUrl());
 		
-		
-		/*          TEST MOVIE           */
-		
-		
 		// rempli le champs et click sur searchBtn
 		WebElement searchInput = driver.findElement(By.className("searchTerm"));
 		WebElement searchBtn = driver.findElement(By.className("searchButton"));
@@ -48,7 +43,6 @@ public class SearchTest {
 		assertTrue(movieNames.getAttribute("textContent").contains("Spider-Man"));
 		
 		
-		/*          TEST SERIE           */
 		TimeUnit.SECONDS.sleep(3);
 		
 		

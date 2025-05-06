@@ -1,9 +1,7 @@
 package backend.myfilmapp.controller;
 
 import java.util.List;
-import java.util.TreeSet;
 
-import backend.myfilmapp.models.Client;
 import org.springframework.web.bind.annotation.*;
 
 import backend.myfilmapp.models.FavoriteList;

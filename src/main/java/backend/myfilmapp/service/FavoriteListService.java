@@ -7,7 +7,6 @@ import backend.myfilmapp.repository.FavoriteListRep;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.TreeSet;
 
 @Service
 public class FavoriteListService {

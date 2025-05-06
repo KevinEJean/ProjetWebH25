@@ -1,7 +1,5 @@
 package backend.myfilmapp.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.*;
 
 import backend.myfilmapp.models.Client;

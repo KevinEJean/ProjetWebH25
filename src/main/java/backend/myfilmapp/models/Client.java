@@ -3,7 +3,7 @@ package backend.myfilmapp.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
+// import java.util.List;
 
 @Entity
 public class Client {
@@ -30,8 +30,8 @@ public class Client {
     @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
     private String password;
 
-   @OneToMany(mappedBy = "clientId")
-   private List<FavoriteList> favorites;
+//    @OneToMany(mappedBy = "clientId")
+//    private List<FavoriteList> favorites;
 
     private LocalDateTime creationDate = LocalDateTime.now();
 

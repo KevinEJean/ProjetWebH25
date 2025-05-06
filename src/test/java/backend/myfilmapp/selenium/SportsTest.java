@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 public class SportsTest {
-	void setup() {}
 	
 	@Test
 	public void testSports() throws Exception {

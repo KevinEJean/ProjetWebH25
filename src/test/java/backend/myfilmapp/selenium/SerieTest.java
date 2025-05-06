@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class SerieTest {
-	void setup() {}
 	
 	@Test
 	public void testSerie() {
