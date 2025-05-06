@@ -21,9 +21,6 @@ public class Client {
     @Column(columnDefinition ="BOOLEAN DEFAULT true")
     private boolean active = true;
 
-    // @Column(columnDefinition = "BOOLEAN DEFAULT false")
-    // private boolean subscribed = false;
-
     @Column(columnDefinition = "varchar(50) NOT NULL CHECK (email <> '' AND email LIKE '%_@__%.__%')")
     private String email;
 
@@ -33,8 +30,8 @@ public class Client {
     @Column(columnDefinition = "varchar(16) NOT NULL CHECK (password <> '' AND password LIKE '____%')")
     private String password;
 
-//    @OneToMany(mappedBy = "clientId")
-//    private List<FavoriteList> favorites;
+   @OneToMany(mappedBy = "clientId")
+   private List<FavoriteList> favorites;
 
     private LocalDateTime creationDate = LocalDateTime.now();
 
@@ -106,14 +103,6 @@ public class Client {
     public void setActive(boolean active) {
         this.active = active;
     }
-
-    // public boolean getSubscriptionStatus() {
-    //     return subscribed;
-    // }
-
-    // public void setSubscriptionStatus(boolean subscribed) {
-    //     this.subscribed = subscribed;
-    // }
 
     public LocalDateTime getCreationDate() {
         return creationDate;
