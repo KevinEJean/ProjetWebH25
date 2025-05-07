@@ -47,7 +47,7 @@ public class SignUpTest {
 		WebElement passwordInput = driver.findElement(By.name("password"));
 		WebElement passwordVerifInput = driver.findElement(By.name("passwordVerif"));
 		WebElement signUpBtn = driver.findElement(By.className("submit"));
-		usernameInput.sendKeys("kevin");
+		usernameInput.sendKeys("test");
 		emailInput.sendKeys("kj@mail.com");
 		passwordInput.sendKeys("secret");
 		passwordVerifInput.sendKeys("secret");
@@ -61,7 +61,7 @@ public class SignUpTest {
 		
 		// verifie que les données de l'utilisateur soit affiché
 		WebElement usernameInfo = driver.findElement(By.id("username"));
-		assertEquals("kevin", usernameInfo.getAttribute("value"));
+		assertEquals("test", usernameInfo.getAttribute("value"));
 		WebElement passwordInfo = driver.findElement(By.id("password"));
 		assertEquals("secret", passwordInfo.getAttribute("value"));
 		WebElement emailInfo = driver.findElement(By.id("email"));
@@ -97,7 +97,7 @@ public class SignUpTest {
 		WebElement passwordInput = driver.findElement(By.name("password"));
 		WebElement passwordVerifInput = driver.findElement(By.name("passwordVerif"));
 		WebElement signUpBtn = driver.findElement(By.className("submit"));
-		usernameInput.sendKeys("jean");
+		usernameInput.sendKeys("toto");
 		emailInput.sendKeys("kj@mail.com");
 		passwordInput.sendKeys("secret");
 		passwordVerifInput.sendKeys("secret");
@@ -111,7 +111,7 @@ public class SignUpTest {
 		
 		// verifie que les données de l'utilisateur soit affiché
 		WebElement usernameInfo = driver.findElement(By.id("username"));
-		assertEquals("jean", usernameInfo.getAttribute("value"));
+		assertEquals("toto", usernameInfo.getAttribute("value"));
 		WebElement passwordInfo = driver.findElement(By.id("password"));
 		assertEquals("secret", passwordInfo.getAttribute("value"));
 		WebElement emailInfo = driver.findElement(By.id("email"));
