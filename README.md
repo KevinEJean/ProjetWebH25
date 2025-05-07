@@ -27,7 +27,7 @@
   - Api ➡️ [OMDb](https://www.omdbapi.com)
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
-  - Schéma SQL ➡️ [Clicker ici](https://trello.com/1/cards/67b776ced7064368dbd5090a/attachments/6818d112438cbfb333902a97/download/schema.sql)
+  - Schéma SQL ➡️ [Trello](https://trello.com/c/4MwJLuaz/21-sch%C3%A9ma-sql)
 
 # ✏️ Architcture
   ### Langage de utilisé     
