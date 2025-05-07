@@ -16,7 +16,7 @@
 # 📖 Description
 <p align="justify">Une application web d’information permettant aux utilisateurs de rechercher et d'obtenir toutes les informations nécessaires sur des films, sans le contenu en streaming. C'est une Application complet d'informations cinématographiques, offrant des détails sur les films, tels que les acteurs, réalisateurs, genres, dates de sortie, résumés et bien plus encore.</p>
 
-# 👨🏾‍💼 Collaborator
+# 👨🏾‍💼 Collaborateur
   - ### [Pape Momath Diba](https://github.com/Papemomath)
   - ### [Kevin Emmanuel Jean](https://github.com/KevinEJean)
 
@@ -24,18 +24,16 @@
   - Organisation du Travail ➡️ [Trello](https://trello.com/b/a6aSUO8R/projetwebh25)
   - IDEA ➡️ Intellij IDEA
   - Plateforme de travail ➡️ Github
-  - Api ➡️ [Film](https://www.omdbapi.com)
+  - Api ➡️ [OMDb](https://www.omdbapi.com)
   - Base de Donné ➡️ MariaDb
   - Design ➡️ [Figma](https://www.figma.com/proto/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=0-1&t=O2u37Hn4p1qo0Iwg-1)
-  - Schéma SQL ➡️ [Figma](https://www.figma.com/design/1hgo7W0QF3OoFTBnDOzjoX/WebsiteStream?node-id=360-258&p=f&t=eMfe6mdC26dAn8n8-0)
-  - Container ➡️ [Docker](https://www.docker.com/)
+  - Schéma SQL ➡️ [Clicker ici](https://trello.com/1/cards/67b776ced7064368dbd5090a/attachments/6818d112438cbfb333902a97/download/schema.sql)
 
 # ✏️ Architcture
   ### Langage de utilisé     
   ![](./images/fbb.png?raw=false) 
   ### Logiciel de test
-  - [Selenium](https://www.selenium.dev/) pour le Frontend
-  - [Mockito](https://site.mockito.org/) pour le Backend et la BD
+  - [Selenium](https://www.selenium.dev/) & [Mockito](https://site.mockito.org/) pour le Frontend, Backend et la Base de Donnée
   - [Postman](https://www.postman.com/explore) pour les APIs
 
 # 🧰 Fonctionnalité
@@ -56,7 +54,6 @@
 # ✅ Installation & Exécution
 ### Prérequis
   - Avoir [Nodejs](https://nodejs.org/en/download) d'installer
-  - Avoir [Docker](https://www.docker.com/) d'installer
 ### Exécution
     Git clone https://github.com/KevinEJean/ProjetWebH25.git
     cd ProjetWebH25
