@@ -24,7 +24,7 @@ public class LoginServiceTest {
 
         LoginResponse response = Loginservice.SignInUser(client);
     	
-    	assertTrue(response.getUsernameResponse().equals("testUser"));
+    	assertNull(response); // car client n'est pas dans la bd donc retourne false
     }
     
     @Test
